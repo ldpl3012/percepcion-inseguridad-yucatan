@@ -1,0 +1,669 @@
+<!-- Contenido del archivo -->
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Información Estadística y Geográfica de Yucatán (SIEGY)</title>
+
+
+    <!-- Aquí se cambia el logo favicon -->
+    <link rel="icon" type="image/png" href="https://datos.yucatan.gob.mx/img/favicon.png">   
+    <!-- Aquí se cambia el logo favicon -->
+    <link rel="icon" type="image/svg+xml" href="https://datos.yucatan.gob.mx/img/favicon.svg">  
+    <!-- Aquí se cambia el logo favicon -->
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://datos.yucatan.gob.mx/img/favicon.ico">
+
+
+    <meta http-equiv="X-UA Compatible" content="id-edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="index,follow">
+    <meta name="language" content="spanish"/>
+    <meta name="description" content="El Sistema de Información Estadística y Geográfica del Estado de Yucatán (SIEGY) genera y difunde información estadística y geográfica de interés estatal, promoviendo la rendición de cuentas y el acceso ciudadano a datos de calidad."/>
+    <meta name="Keywords" content=""/>
+
+    <!-- Metas for Facebook -->
+    <meta property="og:url"   content=""/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="El Sistema de Información Estadística y Geográfica del Estado de Yucatán (SIEGY)"/>
+    <meta property="og:image" content="https://datos.yucatan.gob.mx/img/Logo-vertical-colores.svg"/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content="Este sistema genera y difunde información estadística y geográfica de interés estatal, promoviendo la rendición de cuentas y el acceso ciudadano a datos de calidad."/>
+    <!-- Metas for Twitter -->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="El Sistema de Información Estadística y Geográfica del Estado de Yucatán (SIEGY)"/>
+    <meta name="twitter:description" content="Este sistema genera y difunde información estadística y geográfica de interés estatal, promoviendo la rendición de cuentas y el acceso ciudadano a datos de calidad."/>
+    <meta name="twitter:image" content="https://datos.yucatan.gob.mx/img/Logo-vertical-colores.svg"/>
+        
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://datos.yucatan.gob.mx/lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://datos.yucatan.gob.mx/css/fonts/Lato-Regular.ttf" />
+    <link rel="stylesheet" href="https://datos.yucatan.gob.mx/css/style_principal.css">
+    <link rel="stylesheet" href="https://datos.yucatan.gob.mx/css/contacto.css">
+    <link rel="stylesheet" href="https://datos.yucatan.gob.mx/css/validacionFormulario.css">
+
+    <script src="https://datos.yucatan.gob.mx/js/jquery-3.7.1.min.js"></script>
+    <script src="https://datos.yucatan.gob.mx/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script> <!-- Graficas -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- SweetAlert2 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <link rel="stylesheet" href="https://datos.yucatan.gob.mx/lib/owl-carousel/owl.carousel.min.css ">
+    <!-- <link rel="stylesheet" href="https://datos.yucatan.gob.mx/lib/owl-carousel/owl.theme.default.min.css   "> -->
+    <script src="https://datos.yucatan.gob.mx/lib/owl-carousel/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://datos.yucatan.gob.mx/lib/owl-carousel/owl.theme.green.css   ">
+
+    <script>
+        const RECAPTCHA_SITE_KEY = "6LfTRZMUAAAAAFarfRkxJI-pTAZcJdkuWUZDK1fY";
+    </script>
+
+    <script src="https://datos.yucatan.gob.mx/lib/bootstrap/js/jqBootstrapValidation.js"></script>
+    <script src="https://datos.yucatan.gob.mx/js/jsContacto.js" ></script>
+
+
+    <!-- 
+    <script src="https://datos.yucatan.gob.mx/lib/data-tables/datatables.min.js"></script>
+    <script src="https://datos.yucatan.gob.mx/lib/data-tables/input.js"></script>
+    <script src="https://datos.yucatan.gob.mx/js/configDataTable.js"></script> -->
+
+
+
+    <script src="https://datos.yucatan.gob.mx/js/r.js"></script>
+</head>
+<body>
+    <div id="bg-dark" class=""></div>
+    <!-- Incluir el encabezado -->
+     <div class="mainNav">
+    <nav class="container navbar nav-content navbar-expand-lg navbar-light mainIndex scrolled aos-animate"  data-aos="fade-left" dat-aos-delay="100" id="">
+        <!-- <div class="mainNav"> -->
+        <a href="https://datos.yucatan.gob.mx" class="col-6 col-sm-9 p-0">
+            <img alt="Gobierno del Estado de Yucatán" id="logo-header" class="logo_cls" src="https://datos.yucatan.gob.mx/img/Logo-horizontal-colores.svg">
+        </a>
+        <button class="btn-menu ico_menu" id="btn-menu">
+            <span class="ico_menu menu_active">MENÚ<img src="https://datos.yucatan.gob.mx/img/list_menub.svg" alt="" class="pl-1 ico-menu"></span>
+            <span class="ico_menu menu_cerrar">MENÚ<img src="https://datos.yucatan.gob.mx/img/cerrar.svg" alt="" class="pl-1 ico-menu"></span>
+        </button>
+        <!-- </div> -->
+
+
+    </nav>
+    <div id="sidebar" data-aos="fade-right" class="sidebar aos-animate " data-aos-duration="1500">
+        <!-- <a href="#" class="boton-cerrar" onclick="ocultar()">&times;</a> -->
+        <ul class="menu">
+            <a type="button" class="btn text-left" href="https://datos.yucatan.gob.mx">INICIO</a>
+            
+            <div id="divSubmenu" class ="">
+                <a type="button" id = "btnMenuIndicadores" class="btn text-left btn-submenu">INDICADORES
+                    <img alt="" id="chevron-down" src="https://datos.yucatan.gob.mx/img/chevron-down-menu.svg">
+                    <img alt="" class="displaynone" id="chevron-up" src="https://datos.yucatan.gob.mx/img/chevron-up-menu.svg">
+                </a>
+                <div class="menu menu-sub-item sub-menu" id = "subMenuIndicadores">
+                    <div  class="data-sub-menu">
+                         
+                                    <div>
+                           <!-- <a type="button" class="btn text-left" href="https://datos.yucatan.gob.mx/indicadores_agenda">AGENDA 2040</a>-->
+                           <!-- <a type="button" class="btn text-left" href="https://datos.yucatan.gob.mx/programas_presupuestarios">Programas presupuestarios</a>-->
+                        </div>
+                                                <div>
+                            <a href="#" class="btn text-left linkIndicadoresPED option-menu" data-url="https://datos.yucatan.gob.mx/indicadoresPED">PED</a>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+
+            <a type="button" class="btn text-left" href="https://datos.yucatan.gob.mx/boletines">BOLETINES</a>
+            <a type="button" class="btn text-left" href="https://www.yucatan.gob.mx/gobierno/detalle.php?id_d=71">DIRECTORIO</a>
+            <a type="button" class="btn text-left" href="#seccionContacto">CONTACTO</a>
+        </ul>
+    </div>
+</div>
+ 
+
+    <main> 
+        <link rel="stylesheet" href="https://datos.yucatan.gob.mx/css/boletines.css">
+
+<div class="container redirecciones" >
+    <a href="https://datos.yucatan.gob.mx">
+        <label class="text-greyclaro btn-redicreccion-page">Inicio</label>
+    </a>
+    <img src="https://datos.yucatan.gob.mx/img/chevrons-right.svg" >
+    <a href="https://datos.yucatan.gob.mx/boletines">
+        <label class="text-greyclaro active-page">Boletines</label>
+    </a>
+</div>
+  <section class="container">
+    <div>
+        <!--Encabezado del modulo-->
+        <div class="row">
+            <div class="col-12 col-sm-12 col-lg-10 col-xl-12 cont-inicio">
+                <div class="pb-3">
+                    <span class="text-title-boletines text-dorado">Boletines estadísticos</span>
+                    <br>
+                    <span class="text-subtitle-boletines text-grey" >Entérate de la información estadística de los temas relevantes del Estado</span>
+                    <hr class="text-crema" style="width: auto">
+                </div>
+            </div>
+        </div>
+        <!--Filtros del modulo-->
+        <div class="row">
+            <div class= "pb-3 col-md-4 col-sm-6">
+                <div class="contenedor-filtro input-group">
+                    <input type="text" class="input-eventos" id="buscar" oninput="filtrarBoletines(event)" placeholder="Escribe lo que buscas" aria-level="Buscar" >
+                    <div class="cont-icon-eventos">
+                        <button class="input-group-icon text-btn-boletines btn btn-blue search-btn btnsinfocus" onclick="filtrarBoletines(event)">
+                                <img src="https://datos.yucatan.gob.mx/img/addon-buscar.svg" alt="" class="">               
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="pb-2 col-md-4 col-sm-4 contenedor-etiquetas-movil">
+                <div class="contenedor-filtro btn-filtros input-group">
+                    <a type="button" modal="modalfiltros" data-toggle="modal" data-target="#modalfiltros" class="btn-filtro">
+                        <button class="btn-eventos text-btn-boletines" id="btnFiltroModal" aria-level="filtros" >
+                            <span>
+                                <img src="https://datos.yucatan.gob.mx/img/addon-filtro.svg" alt="" class="">
+                                Filtros 
+                            </span>
+                            <img src="https://datos.yucatan.gob.mx/img/icono-filtro-pendiente.svg" alt="" id="indicadorFiltro" class="indicador-filtro animate-ping">
+                        </button>
+                          
+                    </a>
+                </div>
+                <div  id="limpiarfiltroprincipal">
+                    <div class="contenedor-filtro" style="display: flex;justify-content: flex-end;">
+                        <a href="#" class="txtlimpiar-filtro-modal" onclick="limpiarFiltros(event)">Limpiar filtro
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 6L6 18" stroke="#970E48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6 6L18 18" stroke="#970E48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <!--Etiquetas del filtro-->
+        <div class="row col-12 contenedor-etiquetas" id="contenedor-etiquetas-filtros">
+        </div>
+
+        <!-- Paginación -->
+        <div class="pb-2 row">   
+            <div class="col-12 col-sm-12 col-lg-12 col-xl-12 container-btn-vista-card">
+                <label class="text-resultados-boletines" id="lblrowcount">Se muestran: 0 de 0  resultados</label>
+                <div style="display: flex;" id="container-cambio-vista">
+                    <button class="btn selected-shadow btn-tipo-vista" id="btnLista" >
+                        <img src="https://datos.yucatan.gob.mx/img/lista_vista.svg" alt="" class="">         
+                    </button>
+                    <button class="btn btn-tipo-vista" id="btnCuadricula">
+                        <img src="https://datos.yucatan.gob.mx/img/cuadricula_vista.svg" alt="" class="">      
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="cards-container list-view" id="cardsContainer">
+        </div>
+        
+
+
+
+        <div class="col-12 text-center pb-5 py-5">
+            <button class="btn-eventos text-btn-boletines" style="width: 258px;" id="verMas">Mostrar más resultados</button>
+        </div>
+    </div>
+  </section>
+<!-- modales -->
+<div class="modal" id="modalAviso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false" style=" z-index: 1052;">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content borde-modal">
+            <div class="modal-header modal-header-etiquetas">
+                    <div class="col-xs-8 col-sm-12 col-12" >
+                        <div class="col-xs-8 col-sm-12" style="display: flex;align-items: center;justify-content: space-between; ">
+                            <label class="modal-title title-modal-etiquetas" id="">Etiquetas</label>
+                            <button type="button" class="close cerrar-modal cerrar-modal-etiquetas"  data-dismiss="modal" aria-label="Close" style=""> 
+                                <span aria-hidden="true">&times;</span> 
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-body  modal-ms" >
+                <div class="contenedor-filtro input-group" id="div-search">
+                    <input type="text" class="input-eventos" oninput="filtrarTabla()" id="buscarFiltro" placeholder="Escribe lo que buscas" aria-level="Buscar" >
+                    <div class="cont-icon-eventos">
+                        <button class="input-group-icon text-btn-boletines btn btn-blue btnsinfocus search-btn" onclick="filtrarTabla()">
+                                <img src="https://datos.yucatan.gob.mx/img/addon-buscar.svg" alt="" class=""></a>                        
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="indice-container" id="">
+                <table class="table table-striped mt-3 filtros-anios" id="dtindices">
+                    <thead>
+                        <tr></tr>
+                    </thead>
+                    <tbody id="tbody-Etiqueta">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="modalfiltros" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false" style=" z-index: 1051;">
+    <div class="modal-dialog modal-dialog-centered modal-filtros-width" role="document">
+        <div class="modal-content borde-modal">
+            <div class="modal-header" style="border-bottom: 1px solid #E2DED7; ">
+                <div class="col-xs-8 col-sm-12 col-12 modal-container-items-header-filtros" >
+                    <div class="pt-2 pb-3">
+                        <button type="button" class="close cerrar-modal" data-dismiss="modal" aria-label="Close" style=""> 
+                            <span aria-hidden="true">&times;</span> 
+                        </button>
+                    </div>
+ 
+                    <div class="col-xs-8 col-sm-12  modal-items-header-filtros" >
+                        <label class="modal-title title-modal" id="">Filtros</label>
+                        <a href="#" class="txtlimpiar-filtro-modal" onclick="limpiarFiltros(event)">Limpiar filtro
+                            <img src="https://datos.yucatan.gob.mx/img/icon-X-Filtros.svg"  id="icon-X-filtros" class="" alt="">    
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body modal-body-filtros" >
+                    <div class="row pb-3">
+                        <div class="col-sm-6 p-1" >
+                            <label class="txt-grisoscuro txt-etiqueta">Año</label>
+                            <div style="position: relative; background: transparent; border-radius: 10px;">
+                                <select class="form-control selectfiltro" id="anio-filtro-modal" style="background-color: transparent;border-radius: 8px;z-index: 2;position: absolute; cursor: pointer;">
+                                </select>
+            
+                                <div class="cont-icon-contacto" style="z-index: 1 !important;">
+                                    <a id="btnAbreTipoCategoria">
+                                        <span class="input-group-icon-filtro-boletin " style="background: #494D55 !important; cursor: pointer;" for="idAnio">
+                                            <img src="https://datos.yucatan.gob.mx/img/chevron-down-white.svg" class="" alt="">                          
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 p-1" id="containerEtiquetas-modal">
+                            <label class="txt-grisoscuro txt-anios">Etiquetas</label>
+                            <div style="position: relative; background: transparent;">
+                                <input type="text" class="form-control selectfiltro" id="txtindices" placeholder="Seleccione una opción" style="background-color: transparent; border-radius: 10px; cursor: pointer;" readonly>
+
+                                </input>
+            
+                                <div class="cont-icon-contacto " id="divCategoria" style="z-index: 1 !important;">
+                                    <a id="btnAbreTipoCategoria" >
+                                        <button id="btnEtiquetas" type="button" class="btn  btn-blue search-btn  btnsinfocus input-group-icon-filtro-boletin" style="background: #494D55 !important;">
+                                            <img src="https://datos.yucatan.gob.mx/img/chevron-down-white.svg" class="" alt="">
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pb-1">
+                        <label class="mb-0 txt-filtostatus col-xs-4 col-sm-6 col-md-6  p-1">Filtrar por tipo</label>
+                    </div>
+                    <div class="row px-1 pb-3" >
+                        <div class="col-md-4 p-1 item-filtro-tipo">
+                            <button class="p-2 col-md-12 btn btn-filtro-tipo" id="btnBoletin" data-value="1" onclick="checkbtnfiltro(this)">Boletín</button>
+                        </div>
+                        <div class="col-md-4 p-1 item-filtro-tipo">
+                            <button class="p-2 col-md-12 btn btn-filtro-tipo" id="btnEstudio" data-value="2" onclick="checkbtnfiltro(this)">Estudio</button>
+                        </div>
+                        <div class="col-md-4 p-1 item-filtro-tipo">
+                            <button class="p-2 col-md-12 btn btn-filtro-tipo" id="btnInforme" data-value="3" onclick="checkbtnfiltro(this)">Informe</button>
+                        </div>
+                    </div>
+                    <div class="row pb-1 ">
+                        <label class="mb-0 txt-filtostatus col-xs-4 col-sm-6 col-md-6  p-1">Filtrar por categoría</label>
+                    </div>
+                    <div class="row pb-1">
+                        <div class="col-xs-4 col-sm-6 col-md-6   p-1 text-filtros-categoria" style="width: 50%;">
+                            <button class="btn btn-filtro-categoria " id="btnEconomia" onclick="checkbtnfiltro(this)" data-value="1" style="width: 100%;">
+
+                                <table>
+                                    <tr>
+                                        <td class="indicador-btn-filtro-categoria">
+                                            <div class="indicador bg-amarillo "></div>
+                                        </td>
+                                        <td>
+                                            <span class="text-btn-filtro">Economía</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                        <div class="col-xs-4 col-sm-6 col-md-6  p-1 text-filtros-categoria" style="width: 50%;">
+                            <button class="btn btn-filtro-categoria" id="btnSalud" onclick="checkbtnfiltro(this)" data-value="3" style="width: 100%;">
+                                <table>
+                                    <tr>
+                                        <td class="indicador-btn-filtro-categoria">
+                                            <div class="indicador bg-rojo "></div>
+                                        </td>
+                                        <td>
+                                            <span class="text-btn-filtro">Salud</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row pb-1">
+                        <div class="col-xs-4 col-sm-6 col-md-6  p-1 text-filtros-categoria" style="width: 50%;" >
+                            <button class="btn btn-filtro-categoria " id="btnEduCulDep" onclick="checkbtnfiltro(this)" data-value="4" style="width: 100%;">
+                                <table>
+                                    <tr>
+                                        <td class="indicador-btn-filtro-categoria">
+                                            <div class="indicador bg-verdefuerte "></div>
+                                        </td>
+                                        <td>
+                                            <span class="text-btn-filtro">Educación, cultura y deporte</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                        <div class="col-xs-4 col-sm-6 col-md-6  p-1 text-filtros-categoria" style="width: 50%;">
+                            <button class=" btn btn-filtro-categoria " id="btnPoliticaSocial" onclick="checkbtnfiltro(this)" data-value="2" style="width: 100%;">
+                                <table>
+                                    <tr>
+                                        <td class="indicador-btn-filtro-categoria">
+                                            <div class="indicador bg-marron "></div>
+                                        </td>
+                                        <td>
+                                            <span class="text-btn-filtro">Política social</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row pb-1">
+                        <div class="col-xs-4 col-sm-6 col-md-6  p-1 text-filtros-categoria" style="width: 50%;" >
+                            <button class="btn btn-filtro-categoria " id="btnInfMedAmbiente" onclick="checkbtnfiltro(this)" data-value="5" style="width: 100%;">
+                                <table>
+                                    <tr>
+                                        <td class="indicador-btn-filtro-categoria">
+                                            <div class="indicador bg-verdebajo "></div>
+                                        </td>
+                                        <td>
+                                            <span class="text-btn-filtro">Infraestructura y medio ambiente</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                        <div class="col-xs-4 col-sm-6 col-md-6   p-1 text-filtros-categoria" style="width: 50%;">
+                            <button class="btn btn-filtro-categoria col-md-12" id="btnGobSegJus" onclick="checkbtnfiltro(this)" data-value="6" style="width: 100%;">
+                                
+                                <table>
+                                    <tr>
+                                        <td class="indicador-btn-filtro-categoria">
+                                            <div class="indicador bg-gris "></div>
+                                        </td>
+                                        <td>
+                                            <span class="text-btn-filtro">Gobierno, seguridad y justicia</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row pb-1">
+                        <div class="col-xs-4 col-sm-6 col-md-6  p-1 text-filtros-categoria" style="width: 50%;">
+                            <button class="btn btn-filtro-categoria " id="btnEquiGen" onclick="checkbtnfiltro(this)" data-value="8" style="width: 100%;">
+                                <table>
+                                    <tr>
+                                        <td class="indicador-btn-filtro-categoria">
+                                            <div class="indicador bg-violeta "></div>
+                                        </td>
+                                        <td>
+                                            <span class="text-btn-filtro">Equidad de género</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button class="mt-3 btn btn-success btn-aplicar" onclick="filtrarBoletines(event)" data-dismiss="modal" aria-label="Close">Aplicar</button>
+                    </div>
+                        
+                </div>
+            </div>
+
+    
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade " id="modalboletines" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content borde-modal">
+            <div class="modal-header header-modal-boletin">
+                <div class="col-12">
+                    <div class="pt-3">
+                    <button type="button" class="close cerrar-modal" data-dismiss="modal" aria-label="Close" style=""> 
+                        <span aria-hidden="true">&times;</span> 
+                    </button>
+                    </div>
+ 
+                    <div class="col-11 header-modal-boletin-title" id="titleModal" >
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body m-3" >
+                <div class="row" id="bodymodal">
+                </div>
+            </div>
+
+    
+        </div>
+    </div>
+</div>
+
+
+<script> 
+    const boletines = [{"id":16,"titulo":"Boletín 2026-4","subtitulo":"Día Internacional del Deporte para el Desarrollo y la Paz","descripcion":"Desde 2013, las Naciones Unidas proclamaron el 6 de abril como el Día Internacional del Deporte para el Desarrollo y la Paz para concienciar acerca del papel que el deporte puede desempeñar en la promoción de los derechos humanos y el desarrollo económico y social.","portada":"2026_4.png","adjunto":"Boletin_2026_04.pdf","boletin":1,"subtema":"Paz","seccionid":6,"indice":"Día Internacional del Deporte para el Desarrollo y la Paz","anio_publicacion":"2026","tipoProducto":1,"descSeccionId":"Gobierno, seguridad y justicia"},{"id":15,"titulo":"Boletín 2026-3","subtitulo":"Día Mundial del Agua","descripcion":"El Día Mundial del Agua se celebra anualmente el 22 de marzo. Esta fecha, proclamada por la ONU en 1992, busca concienciar sobre la importancia del agua dulce, el acceso al agua potable y la gestión sostenible de los recursos hídricos.","portada":"2026_3.png","adjunto":"Boletin_2026_03.pdf","boletin":1,"subtema":" Necesidades Humanas","seccionid":2,"indice":"Día Mundial del Agua","anio_publicacion":"2026","tipoProducto":1,"descSeccionId":"Política social"},{"id":14,"titulo":"Boletín 2026-2","subtitulo":"Día Mundial de las Legumbres","descripcion":"Tiene su origen en el éxito del Año Internacional de las Legumbres en 2016, iniciativa de la Organización de las Naciones Unidas para la Alimentación y la Agricultura (FAO). Este día proporciona una oportunidad única para sensibilizar a la opinión pública sobre el papel fundamental de las legumbres en la transformación hacia sistemas agroalimentarios más eficientes, inclusivos, resilientes y sostenibles.","portada":"2026_2.png","adjunto":"Boletin_2026_02.pdf","boletin":1,"subtema":" Agrícola","seccionid":1,"indice":"Día Mundial de las Legumbres","anio_publicacion":"2026","tipoProducto":1,"descSeccionId":"Economía"},{"id":13,"titulo":"Boletín 2026-1","subtitulo":"Día Internacional de la Energía Limpia","descripcion":"La Asamblea General declaró el Día Internacional de la Energía Limpia el 26 de enero con el fin de concienciar y movilizar hacia una transición justa e inclusiva hacia la energía limpia en beneficio de las personas y el planeta.","portada":"2026_1.png","adjunto":"Boletin_2026_01.pdf","boletin":1,"subtema":" Energéticos","seccionid":1,"indice":"Día Internacional de la Energía Limpia","anio_publicacion":"2026","tipoProducto":1,"descSeccionId":"Economía"},{"id":12,"titulo":"Boletín 2025-12","subtitulo":"Día de la Aviación civil","descripcion":"El Día de la Aviación Civil Internacional se celebra cada 7 de diciembre, establecido por la ONU en 1996 para conmemorar la firma del Convenio sobre Aviación Civil Internacional en 1944, destacando la importancia de la aviación para el desarrollo social y económico mundial, y el rol de la Organización de Aviación Civil Internacional (OACI) en la seguridad y conectividad global.","portada":"2025_12.png","adjunto":"Boletin_2025_12.pdf","boletin":1,"subtema":" Pasajeros","seccionid":1,"indice":"Día de la Aviación civil","anio_publicacion":"2025","tipoProducto":1,"descSeccionId":"Economía"},{"id":11,"titulo":"Boletín 2025-11","subtitulo":"Día Mundial del Transporte Sostenible","descripcion":"La Organización de las Naciones Unidas proclamó el 26 de noviembre como el Día mundial del transporte sostenible. Su propósito es dar a conocer la función que desempeñan los sistemas de transporte seguros, asequibles, accesibles y sostenibles en el apoyo al crecimiento económico y el mejoramiento del bienestar social.","portada":"2025_11.png","adjunto":"Boletin_2025_11.pdf","boletin":1,"subtema":" Movilidad","seccionid":5,"indice":"Día Mundial del Transporte Sostenible","anio_publicacion":"2025","tipoProducto":1,"descSeccionId":"Infraestructura y medio ambiente"},{"id":10,"titulo":"Boletín 2025-10","subtitulo":"Día Internacional contra el Cambio Climático","descripcion":"El objetivo de esta celebración es sensibilizar, concientizar y advertir sobre las consecuencias del cambio climático y los riesgos que éste provoca para toda la vida en el planeta.","portada":"2025_10.png","adjunto":"Boletin_2025_10.pdf","boletin":1,"subtema":" Reforestación","seccionid":5,"indice":"Día Internacional contra el Cambio Climático","anio_publicacion":"2025","tipoProducto":1,"descSeccionId":"Infraestructura y medio ambiente"},{"id":9,"titulo":"Boletín 2025-9","subtitulo":"Día Mundial del Turismo","descripcion":"El 27 de septiembre se celebra el Día mundial del turismo, su propósito es sensibilizar a la comunidad internacional acerca del valor social, cultural, político y económico del turismo.","portada":"2025_9.png","adjunto":"Boletin_2025_09.pdf","boletin":1,"subtema":" Visitantes","seccionid":1,"indice":"Día Mundial del Turismo","anio_publicacion":"2025","tipoProducto":1,"descSeccionId":"Economía"},{"id":8,"titulo":"Boletín 2025-8","subtitulo":"Día Internacional de los Pueblos Indígenas","descripcion":"La Asamblea Nacional de las Naciones Unidas proclamó el 9 de agosto como el Día Internacional de los Pueblos Indígenas. En Renacimiento Maya, se reivindica la posición que deben ocupar los jóvenes Indígenas en la toma de decisiones, a la vez que reconoce sus dedicados esfuerzos en la acción climática, la búsqueda de justicia para sus pueblos, y la creación de una conexión intergeneracional que mantenga vivas su cultura, sus tradiciones y sus contribuciones.","portada":"2025_8.png","adjunto":"Boletin_2025_08.pdf","boletin":1,"subtema":"Lengua","seccionid":2,"indice":"Día Internacional de los Pueblos Indígenas","anio_publicacion":"2025","tipoProducto":1,"descSeccionId":"Política social"},{"id":7,"titulo":"Boletín 2025-7","subtitulo":"Día Mundial de las Habilidades de la Juventud","descripcion":"La Asamblea Nacional de las Naciones Unidas proclamó el 15 de julio como el Día Mundial de las Habilidades de la Juventud, para celebrar la importancia estratégica de dotar a los jóvenes de aptitudes para el empleo, el trabajo decente y el emprendimiento: Los avances tecnológicos y la dinámica cambiante del mercado laboral, hacen necesaria la inversión en el capital humano de los jóvenes.","portada":"2025_7.png","adjunto":"Boletin_2025_07.pdf","boletin":1,"subtema":" Jóvenes","seccionid":2,"indice":"Día Mundial de las Habilidades de la Juventud","anio_publicacion":"2025","tipoProducto":1,"descSeccionId":"Política social"},{"id":6,"titulo":"Boletín 2025-6","subtitulo":"Día del Padre","descripcion":"La idea de celebrar el Día del padre surgió en el año 1910, encabezada por Louise Smart Dood, una mujer estadounidense que intentaba lograr el reconocimiento del papel de los padres en la sociedad. Fue hasta 1972 que en México se oficializó el tercer domingo del mes de junio para brindar un homenaje a los padres.","portada":"2025_6.png","adjunto":"Boletin_2025_06.pdf","boletin":1,"subtema":"  Participación","seccionid":1,"indice":"Día del Padre","anio_publicacion":"2025","tipoProducto":1,"descSeccionId":"Economía"},{"id":5,"titulo":"Boletín 2025-5","subtitulo":"Día de la Madre","descripcion":"El Día de la Madre fue impulsado en EE.UU. por Ann Marie Jarvis en 1908, oficializándose en 1914 el segundo domingo de mayo, fecha adoptada por muchos países. En México, se celebra el 10 de mayo desde 1922 por iniciativa del periodista Rafael Alducín, apoyado por figuras como José Vasconcelos y la Iglesia. La elección de mayo se relaciona con la Virgen María. En 1949, se erigió un monumento a las madres en Ciudad de México.","portada":"2025_5.png","adjunto":"Boletin_2025_05.pdf","boletin":1,"subtema":"Mujeres","seccionid":2,"indice":"Día de la Madre","anio_publicacion":"2025","tipoProducto":1,"descSeccionId":"Política social"},{"id":4,"titulo":"Boletín 2025-4","subtitulo":"Día Internacional de libro","descripcion":"El Día Internacional del Libro es una conmemoración celebrada cada 23 de abril a nivel mundial con el objetivo de fomentar la lectura, la industria editorial y la protección de la propiedad intelectual por medio del derecho de autor. Desde 1988, es una celebración internacional promovida por la UNESCO.","portada":"2025_4.png","adjunto":"Boletin_2025_04.pdf","boletin":1,"subtema":" Cultura","seccionid":2,"indice":"Día Internacional del Libro","anio_publicacion":"2025","tipoProducto":1,"descSeccionId":"Política social"},{"id":3,"titulo":"Boletín 2025-3","subtitulo":"Día Internacional de la Mujer","descripcion":"El Día Internacional de la Mujer, que empezó a conmemorarse por la ONU en 1975 y dos años más tarde fue proclamado por su Asamblea, encuentra sus orígenes en las manifestaciones de las mujeres que, especialmente en Europa, reclamaban a comienzos del siglo XX el derecho al voto, mejores condiciones de trabajo y la igualdad entre los sexos.","portada":"2025_3.png","adjunto":"Boletin_2025_03.pdf","boletin":1,"subtema":"Mujeres","seccionid":2,"indice":"Día Internacional de la Mujer","anio_publicacion":"2025","tipoProducto":1,"descSeccionId":"Política social"},{"id":2,"titulo":"Boletín 2025-2","subtitulo":"Día Mundial de la Resiliencia del Turismo","descripcion":"La Asamblea General de las Naciones Unidas proclamó el 17 de febrero Día Mundial de la Resiliencia del Turismo, con el objetivo resaltar la importancia de fortalecer la capacidad del turismo para enfrentar y recuperarse de crisis y desafíos globales. Esta fecha busca fomentar la cooperación internacional, la innovación y la sostenibilidad en el sector, asegurando que las comunidades que dependen del turismo puedan enfrentar desafíos y seguir prosperando (ONU, 2025).","portada":"2025_2.png","adjunto":"Boletin_2025_02.pdf","boletin":1,"subtema":" Visitantes","seccionid":1,"indice":"Día Mundial de la Resiliencia del Turismo","anio_publicacion":"2025","tipoProducto":1,"descSeccionId":"Economía"},{"id":1,"titulo":"Boletín 2025-1","subtitulo":"Día Internacional de la Educación","descripcion":"El 24 de enero se celebra el Día Internacional de la Educación, proclamado por la ONU para resaltar su rol en la paz y el desarrollo. En 2025, el tema \"IA y educación: preservar la autonomía en un mundo automatizado\" subraya cómo la educación empodera a las personas para entender e influir en los avances tecnológicos (ONU, 2025).","portada":"2025_1.png","adjunto":"Boletin_2025_01.pdf","boletin":1,"subtema":"Educación","seccionid":2,"indice":"Día Internacional de la Educación","anio_publicacion":"2025","tipoProducto":1,"descSeccionId":"Política social"}];
+    const anios = [{"anio":"2030"},{"anio":"2029"},{"anio":"2028"},{"anio":"2027"},{"anio":"2026"},{"anio":"2025"},{"anio":"2024"},{"anio":"2023"},{"anio":"2022"},{"anio":"2021"},{"anio":"2020"},{"anio":"2019"},{"anio":"2018"},{"anio":"2017"},{"anio":"2016"},{"anio":"2015"},{"anio":"2014"},{"anio":"2013"},{"anio":"2012"},{"anio":"2011"},{"anio":"2010"}];
+    const cat_indices = [{"tema":"Día Internacional de la Educación"},{"tema":"Día Mundial de la Resiliencia del Turismo"},{"tema":"Día Internacional de la Mujer"},{"tema":"Día Internacional del Libro"},{"tema":"Día de la Madre"},{"tema":"Día del Padre"},{"tema":"Día Mundial de las Habilidades de la Juventud"},{"tema":"Día Internacional de los Pueblos Indígenas"},{"tema":"Día Mundial del Turismo"},{"tema":"Día Internacional contra el Cambio Climático"},{"tema":"Día Mundial del Transporte Sostenible"},{"tema":"Día de la Aviación civil"},{"tema":"Día Internacional de la Energía Limpia"},{"tema":"Día Mundial de las Legumbres"},{"tema":"Día Mundial del Agua"},{"tema":"Día Internacional del Deporte para el Desarrollo y la Paz"}];
+    
+    var URL_BASE_WEB = 'https://datos.yucatan.gob.mx';
+    // var ruta_archivos = "http://seguimientogabinete.yucatan.gob.mx/indicadores/archivos/adjuntos/";
+    // var ruta_imagenes= "http://seguimientogabinete.yucatan.gob.mx/indicadores/archivos/portadas/";
+    var lista_indices=[];
+    var lista_txtindices=[];
+</script>
+  <script src="https://datos.yucatan.gob.mx/js/jsBoletines.js" ></script>
+
+    </main>
+     <!-- Modal para Indicadores PED -->
+    <div class="modal fade" id="modalIndicadoresPED" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                
+                <div class="modal-body text-center">
+                    <img class="mt-3" src="/img/warning.png">
+                    <h3 class="mt-3" style="color: #333">Estas siendo dirigido</h3>
+                    <p class="" style="color: #666">a la plataforma Power BI para acceder a los tableros de datos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+     <footer >
+    <div class="banner_gob p-3">
+    </div>
+    <div class="footer" id="seccionContacto">
+        <div class="container">
+            <div class="row contacto-row">
+                <div class="col col-sm col-md col-lg contacto">
+                    <div class="text-contacto contacto-text-center">
+                        <h3>Contacto</h3>
+                        <hr style="width: 80px">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row contacto-row">
+                
+                    <div class="col col-sm col-md col-lg contacto">
+                    <div class="text-contacto contacto-text-center">
+                        <h4>Sistema de Información Estadística y Geográfica de Yucatán</h4>
+                        <h6>Calle 20-A número 284-B entre 3-C y 49 diagonal, Colonia Xcumpich C.P. 97204, Mérida, Yucatán, México</h6>
+                        <h6>(999) 611 80 10 Ext. 47013</h6>
+                        <h6>siegy.informa@yucatan.gob.mx</h6>
+                    </div>
+                </div>
+            </div>
+            <form id="formContacto" class="formContacto" name="sentMessage" novalidate="novalidate" enctype="multipart/form-data">
+                <div class="row contacto-row">
+                    <div class="col col-sm col-md col-lg">
+                        <div class="form-group">
+                            <label class="label-contacto" for="inputCategoria" required>Categoría <span class="required" ><b>*</b></span></label>
+                            <div style="position: relative; background: white; z-index: 1; border-radius: 10px;">
+                                <div style="position: relative; background: transparent;">
+                                    <select id="inputCategoria" class="form-control " style="background-color: transparent"
+                                        required="required"
+                                        data-validation-required-message="Seleccione una Categoria"
+                                    >
+                                        <option value="" selected>Selecciona una opción</option>
+                                        <option value="Comentario">Comentario</option>
+                                        <option value="Solicitud">Solicitud</option>
+                                        <option value="Duda">Duda</option>
+                                        <option value="Pregunta">Pregunta</option>
+                                        <option value="Sugerencia">Sugerencia</option>
+                                        <option value="Queja">Queja</option>
+                                        <option value="Felicitación">Felicitación</option>
+                                    </select>
+                                        </select>
+                                        <div class="cont-icon-contacto ">
+                                            <a id="btnAbreTipoCategoria">
+                                                <span class="input-group-icon-contacto" for="tipoEvento">
+                                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M6.5 9.5L12.5 15.5L18.5 9.5" stroke="#494D55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>                                
+                                                </span>
+                                            </a>
+                                            
+                                        </div>
+                                </div>
+                            </div>
+
+                            <p class="help-block text-danger"></p>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="label-contacto" for="inputNombres" required>Nombre <span class="required"><b>*</b></span></label>
+                            <input autocomplete="off" class="form-control" id="inputNombres" type="text"
+                                placeholder="Escribe tu nombre" 
+                                required="required"
+                                data-validation-required-message="Se requiere al menos un nombre"
+                                >
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="label-contacto" for="inputCorreo" required>Correo electrónico <span class="required"><b>*</b></span></label>
+                            <input type="email" class="form-control" id="inputCorreo" aria-describedby="emailHelp" placeholder="Escribe tu correo electrónico"
+                            required="required"
+                            data-validation-required-message="Se requiere correo electrónico"
+                            >
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="label-contacto" for="inputTelefono" required>Teléfono</label>
+                            <input type="text" class="form-control" id="inputTelefono" aria-valuemax="10" aria-describedby="phoneHelp" placeholder="Escribe tu teléfono"  oninput="validarSoloNumeros(event)"
+                            >
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="label-contacto" for="textareaMensaje" required>Mensaje <span class="required"><b>*</b></span></label>
+                            <textarea class="form-control" id="textareaMensaje" rows="5" placeholder="Escribe tu comentario"
+                            required="required"
+                            data-validation-required-message="Se requiere un comentario"
+                            ></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group text-center">
+                            <div class="form-check mt-3 mb-3" style="line-height: 30px;">
+                                <input class="form-check-input" type="checkbox" id="inputAviso"
+                                required="required"
+                                data-validation-required-message="Favor de aceptar el Aviso de Privacidad"
+                                >
+                                <label class="form-check-label" for="gridCheck"><span class="text-aviso"> He leído y acepto el</span>
+                                    <a class="enlace-aviso" target="_blank" href="https://www.yucatan.gob.mx/docs/pot/seplan/avisos_de_privacidad/AVISO_PRIVACIDAD_CONSULTA.pdf">Aviso de Privacidad Integral</a>
+                                </label>
+                                <p class="help-block text-danger"></p>
+                                <div class="" id="alert-aviso"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-lg-12 text-center">
+                        <div id="info_form"></div>
+                        <button id="btnContacto" class="btn btn-formulario" style="width: 13%;" type="submit">Enviar</button>
+                    </div>
+                    <div class="row contacto-row"><br><br></div>
+                    <div class="col-lg-12 text-center">
+                        <h6>
+                            <a class="enlace-aviso" target="_blank" href="https://www.yucatan.gob.mx/gobierno/detalle.php?id_d=71" style="text-decoration:unset">Directorio </a> |
+                            <a class="enlace-aviso" target="_blank" href="https://www.yucatan.gob.mx/docs/directorio/seplan_603.pdf" style="text-decoration:unset">Organigrama </a> 
+                        </h6>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+        <div class="col-lg-12 banner_gob-contacto p-3 text-center">
+            <div class=" text-center contacto-center seccion-footer" >
+                <a class="ico-contacto" href="https://twitter.com/GobYucatan" target="_blank">
+                    <img src="https://datos.yucatan.gob.mx/img/twitter.svg" alt="" class="ico-f"></a>
+            </div>
+            <hr style="width: 120px">
+            <h6 style="color: #FFFF;">Gobierno del Estado de Yucatán</h6>
+
+    
+
+    
+    <script>
+        const BASE_URL = "https://datos.yucatan.gob.mx";
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfTRZMUAAAAAFarfRkxJI-pTAZcJdkuWUZDK1fY"></script>
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"/>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+</footer>
+    <!-- Aquí puedes incluir el pie de página o scripts -->
+    <script src="https://datos.yucatan.gob.mx/js/app.js?v=2"></script>
+
+</body>
+</html>

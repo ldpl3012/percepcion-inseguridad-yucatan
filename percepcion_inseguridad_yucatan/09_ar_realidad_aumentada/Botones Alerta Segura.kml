@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Botones Alerta Segura</name>
+    <description>Puntos de alerta en espacios públicos situados en el primer cuadro del Centro de la Ciudad de Mérida. Dan respuesta a situaciones de violencia, robo o asalto, personas extraviada o atención médica emergentes. El botón de alerta es monitoreado por la Policía Municipal de Mérida las 24 horas, los 365 días del año.</description>
+    <NetworkLink>
+      <name>Botones Alerta Segura</name>
+      <Link>
+        <href><![CDATA[https://www.google.com/maps/d/u/0/kml?forcekml=1&mid=1faIIuSH7H_9QaUeYVv7KeGrw-m7Cr3g]]></href>
+      </Link>
+    </NetworkLink>
+  </Document>
+</kml>
