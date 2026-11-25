@@ -1,0 +1,46 @@
+{
+  "fuente": "Códigos postales",
+  "responsable": "por definir",
+  "archivos": [
+    {
+      "ruta": "CP_Yuc.dbf",
+      "sha256": "c9bbde598968868ef682ed23e1cc88083fcd9b26daac552e4f8507fef7bd6f37",
+      "bytes": 3810,
+      "url": "https://www.datos.gob.mx/dataset/codigos_postales_entidad_federativa/resource/b1882e65-7eda-49ad-83e4-574d5a0de62e",
+      "fecha_incorporacion": "2026-11-25T14:06:55-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "CP_Yuc.prj",
+      "sha256": "530e26440a749e6b8ef81a1d98e4821eca0f04273751743afe2daa61510f354b",
+      "bytes": 438,
+      "url": "https://www.datos.gob.mx/dataset/codigos_postales_entidad_federativa/resource/b1882e65-7eda-49ad-83e4-574d5a0de62e",
+      "fecha_incorporacion": "2026-11-25T14:06:55-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "CP_Yuc.shp",
+      "sha256": "b537305c9f292126028e08438c101d38e209f4e85dddb72077191b7f28a5e4bd",
+      "bytes": 1991504,
+      "url": "https://www.datos.gob.mx/dataset/codigos_postales_entidad_federativa/resource/b1882e65-7eda-49ad-83e4-574d5a0de62e",
+      "fecha_incorporacion": "2026-11-25T14:06:55-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "CP_Yuc.shx",
+      "sha256": "50ca3978ec8527529c970c841321d3f52fc99765d124b3f0085c0b777cd09367",
+      "bytes": 5092,
+      "url": "https://www.datos.gob.mx/dataset/codigos_postales_entidad_federativa/resource/b1882e65-7eda-49ad-83e4-574d5a0de62e",
+      "fecha_incorporacion": "2026-11-25T14:06:55-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "CP_Yuc.zip",
+      "sha256": "7118346f02652ac47160eaa423f617b8fad77aa6d0e1322bed45483bc47567ff",
+      "bytes": 1433806,
+      "url": "https://www.datos.gob.mx/dataset/codigos_postales_entidad_federativa/resource/b1882e65-7eda-49ad-83e4-574d5a0de62e",
+      "fecha_incorporacion": "2026-11-25T14:06:55-06:00",
+      "fecha_original": "no documentada"
+    }
+  ]
+}

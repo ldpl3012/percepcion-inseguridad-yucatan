@@ -1,0 +1,22 @@
+{
+  "fuente": "Geoportal de Mérida",
+  "responsable": "por definir",
+  "archivos": [
+    {
+      "ruta": "Parques.xlsx",
+      "sha256": "15b910c22157987c1765e5a78f3d9c64fced77fc144a96d99c65615c3f982cda",
+      "bytes": 42984,
+      "url": "https://www.merida.gob.mx/geoportal",
+      "fecha_incorporacion": "2026-11-25T13:27:10-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "Servicios.xlsx",
+      "sha256": "8d72afd17eb5421c3203b258cfe63a77bad77c0313a585e4ce4bf90fee9f429a",
+      "bytes": 4132,
+      "url": "https://www.merida.gob.mx/geoportal",
+      "fecha_incorporacion": "2026-11-25T13:27:10-06:00",
+      "fecha_original": "no documentada"
+    }
+  ]
+}
