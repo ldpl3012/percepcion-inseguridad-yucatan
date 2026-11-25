@@ -1,0 +1,46 @@
+{
+  "fuente": "INEGI: ENSU, ENVIPE y ENCOAP",
+  "responsable": "por definir",
+  "archivos": [
+    {
+      "ruta": "conjunto_de_datos_encoap2025_csv.zip",
+      "sha256": "6fa7c63c64251ae0de8fe94967b996ace0889c26c1866609a11c69e9d417e500",
+      "bytes": 536280,
+      "url": "https://www.inegi.org.mx/programas/ensu",
+      "fecha_incorporacion": "2026-11-25T13:26:59-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "conjunto_de_datos_ensu_2026_1t_csv.zip",
+      "sha256": "8e146d0730cf06789bd5d779634c161bb1b00b270371d8c889852a68b975ff55",
+      "bytes": 3403698,
+      "url": "https://www.inegi.org.mx/programas/ensu",
+      "fecha_incorporacion": "2026-11-25T13:26:59-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "conjunto_de_datos_ensu_2026_2t_csv.zip",
+      "sha256": "b052ace103927f1fec89b190d0341c8bf64f8c5793337c8a6f4e24fe6215da95",
+      "bytes": 3316438,
+      "url": "https://www.inegi.org.mx/programas/ensu",
+      "fecha_incorporacion": "2026-11-25T13:26:59-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "conjunto_de_datos_ensu_2026_3t_csv.zip",
+      "sha256": "b3116f89632e24cd9c048cee5d942472f68f447deb182dce2f9505d2dc7cc360",
+      "bytes": 3492209,
+      "url": "https://www.inegi.org.mx/programas/ensu",
+      "fecha_incorporacion": "2026-11-25T13:26:59-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "conjunto_de_datos_envipe_2026_csv.zip",
+      "sha256": "dd79f589eb6ed7d3675cc86e21ac9bbdbf269913963091d8698d6e28e0540a17",
+      "bytes": 20258782,
+      "url": "https://www.inegi.org.mx/programas/ensu",
+      "fecha_incorporacion": "2026-11-25T13:26:59-06:00",
+      "fecha_original": "no documentada"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "fuente": "Solicitud de datos / Gobierno",
+  "responsable": "por definir",
+  "archivos": [
+    {
+      "ruta": "matriz_indicadores_2025_3er_trim.pdf",
+      "sha256": "d2acfa808baab71a9b2f072872ec0bf63ff75d059fc49cfef1c201e5ec33a34a",
+      "bytes": 2176596,
+      "url": "https://www.merida.gob.mx/copladem/content/documents/monitoreo/2024-2027/matrizIndicadoresDesemp2025-3erTri.pdf",
+      "fecha_incorporacion": "2026-11-25T13:29:51-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "reporte_copladem_policia_2025_1er_trim.pdf",
+      "sha256": "69ae9cc01121bed48775bc7d94c6a3f54d2a19e2b56f65203615ca4dceaace9b",
+      "bytes": 1841357,
+      "url": "https://www.merida.gob.mx/municipio/portal/gobierno/copladem/doc/2025/MIR_2025_1er_Trim.pdf",
+      "fecha_incorporacion": "2026-11-25T13:29:51-06:00",
+      "fecha_original": "no documentada"
+    }
+  ]
+}

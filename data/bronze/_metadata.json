@@ -1,0 +1,24 @@
+{
+  "fuente": "Capas geoespaciales con ruta plana",
+  "responsable": "por definir",
+  "archivos": [
+    {
+      "ruta": "geo_limite_merida.geojson",
+      "fuente": "geo_limite_merida",
+      "sha256": "7c22cad168735e6b03c69828e6049bbb452c3b758f7780c570979fd3fa001416",
+      "bytes": 18337,
+      "url": "https://services3.arcgis.com/lJPpeQVgQ9Gdmm11/arcgis/rest/services/municipios_yucatan/FeatureServer/0/query",
+      "fecha_incorporacion": "2026-11-25T14:11:19-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "geo_lugares_merida.geojson",
+      "fuente": "geo_lugares_merida",
+      "sha256": "a21d3a6853a851e3fcd87cf454008e4c382927f5e61c59bdbb1414c2f0783689",
+      "bytes": 3723,
+      "url": "https://services1.arcgis.com/KW17JmMsgLshtD2K/ArcGIS/rest/services/Lugares_en_M%C3%A9rida/FeatureServer/0/query",
+      "fecha_incorporacion": "2026-11-25T14:07:03-06:00",
+      "fecha_original": "no documentada"
+    }
+  ]
+}

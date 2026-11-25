@@ -1,0 +1,14 @@
+{
+  "fuente": "INEGI CEM 4.0: modelo digital de elevación",
+  "responsable": "por definir",
+  "archivos": [
+    {
+      "ruta": "31_Yucatán_r15m_v4.tif",
+      "sha256": "f5705656ecc978b0518e4e93d4d4eee0202734480b72dd3ac28a913f8f8488e6",
+      "bytes": 83043048,
+      "url": "https://inegi.org.mx/app/geo2/elevacionesmex",
+      "fecha_incorporacion": "2026-11-25T15:01:23-06:00",
+      "fecha_original": "no documentada"
+    }
+  ]
+}
