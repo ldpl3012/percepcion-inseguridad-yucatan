@@ -1,0 +1,35 @@
+# Archivos crudos y salidas generadas: conservar documentación y metadatos.
+/data/bronze/**
+!/data/bronze/
+!/data/bronze/**/
+!/data/bronze/**/README.md
+!/data/bronze/**/_metadata.json
+!/data/bronze/catalogo_fuentes/*.xlsx
+
+/data/silver/**
+!/data/silver/
+!/data/silver/**/
+!/data/silver/**/README.md
+
+/data/gold/**
+!/data/gold/
+!/data/gold/**/
+!/data/gold/**/README.md
+
+/data/.ingest_staging/
+/data/etl_*/
+
+# Archivos pesados añadidos al inventario legado fuera de data/bronze.
+/percepcion_inseguridad_yucatan/**/*.zip
+/percepcion_inseguridad_yucatan/**/*.csv
+/percepcion_inseguridad_yucatan/**/*.xlsx
+/percepcion_inseguridad_yucatan/**/*.pdf
+/percepcion_inseguridad_yucatan/**/*.tif
+
+# Temporales de Python y del editor.
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.vscode/

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Exploración de incidencia delictiva, percepción ciudadana y territorio en Yucatán.">
+  <title>Percepción de inseguridad en Yucatán</title>
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-mark">Y</span>
+        <span><strong>Yucatán</strong><small>Territorio y seguridad</small></span>
+      </a>
+      <p class="nav-caption">EXPLORAR</p>
+      <nav class="tabs" role="tablist" aria-label="Vistas del dashboard">
+        <button class="tab active" id="tab-inicio" role="tab" aria-selected="true" aria-controls="view-inicio" data-view="inicio"><span>01</span> Inicio / Contexto</button>
+        <button class="tab" id="tab-incidencia" role="tab" aria-selected="false" aria-controls="view-incidencia" data-view="incidencia"><span>02</span> Incidencia delictiva</button>
+        <button class="tab" id="tab-percepcion" role="tab" aria-selected="false" aria-controls="view-percepcion" data-view="percepcion"><span>03</span> Percepción ciudadana</button>
+        <button class="tab" id="tab-territorio" role="tab" aria-selected="false" aria-controls="view-territorio" data-view="territorio"><span>04</span> El territorio</button>
+        <button class="tab" id="tab-relieve" role="tab" aria-selected="false" aria-controls="view-relieve" data-view="relieve"><span>05</span> Relieve y seguridad</button>
+        <button class="tab" id="tab-prensa" role="tab" aria-selected="false" aria-controls="view-prensa" data-view="prensa"><span>06</span> Análisis de prensa</button>
+      </nav>
+      <div class="sidebar-foot">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span id="data-status" role="status" aria-live="polite">Cargando tablas Gold…</span>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">OBSERVATORIO · YUCATÁN</p>
+          <h1>Percepción de inseguridad</h1>
+        </div>
+        <span class="period-pill">Datos locales · Gold</span>
+      </header>
+
+      <section class="view active" id="view-inicio" role="tabpanel" aria-labelledby="tab-inicio">
+        <div class="intro">
+          <div>
+            <p class="eyebrow">INICIO / CONTEXTO</p>
+            <h2>Una lectura del territorio,<br><em>más allá de los números.</em></h2>
+            <p class="intro-copy">Incidencia registrada, percepción ciudadana y cobertura mediática. Explora las fuentes y sus límites antes de comparar.</p>
+          </div>
+          <div class="intro-stamp"><span>31</span><small>Yucatán</small></div>
+        </div>
+
+        <div class="kpi-grid">
+          <article class="kpi-card"><p>REGISTROS EN EL ÚLTIMO AÑO</p><strong id="kpi-incidencia">—</strong><small id="kpi-incidencia-label">Incidencia delictiva · Yucatán</small></article>
+          <article class="kpi-card accent"><p>PERCEPCIÓN DE INSEGURIDAD</p><strong id="kpi-percepcion">—</strong><small id="kpi-percepcion-label">ENSU · área urbana Mérida</small></article>
+          <article class="kpi-card"><p>ARTÍCULOS ANALIZADOS</p><strong id="kpi-noticias">—</strong><small>Metadatos y titulares disponibles</small></article>
+        </div>
+
+        <div class="section-heading">
+          <div><p class="eyebrow">SERIE HISTÓRICA</p><h3>Incidencia mensual registrada</h3></div>
+          <span class="source-tag">Yucatán · Datos.gob.mx</span>
+        </div>
+        <article class="panel chart-panel">
+          <div class="chart-wrap chart-tall"><canvas id="overview-chart" aria-label="Tendencia mensual de incidencia registrada" role="img"></canvas></div>
+          <p class="chart-note">Los conteos reflejan denuncias/averiguaciones previas registradas, no prevalencia total del delito.</p>
+        </article>
+        <p class="method-note">Las series tienen coberturas distintas. ENSU representa el área urbana de Mérida; incidencia delictiva está disponible aquí a nivel estatal. No son mediciones directamente equivalentes.</p>
+      </section>
+
+      <section class="view" id="view-incidencia" role="tabpanel" aria-labelledby="tab-incidencia" hidden>
+        <div class="section-heading page-heading"><div><p class="eyebrow">02 / REGISTROS ADMINISTRATIVOS</p><h2>Incidencia delictiva</h2></div>
+          <label class="select-label">Año <select id="incidencia-year" aria-label="Seleccionar año"></select></label>
+        </div>
+        <p class="intro-copy">Casos agregados por tipo de delito y mes, filtrados por la clave estatal 31.</p>
+        <div class="two-col">
+          <article class="panel"><div class="panel-title"><h3>Variación mensual</h3><span>casos</span></div><div class="chart-wrap"><canvas id="incidencia-month-chart" aria-label="Incidencia por mes" role="img"></canvas></div></article>
+          <article class="panel"><div class="panel-title"><h3>Tipos de delito</h3><span>10 principales</span></div><div class="chart-wrap"><canvas id="incidencia-type-chart" aria-label="Principales tipos de delito" role="img"></canvas></div></article>
+        </div>
+      </section>
+
+      <section class="view" id="view-percepcion" role="tabpanel" aria-labelledby="tab-percepcion" hidden>
+        <div class="section-heading page-heading"><div><p class="eyebrow">03 / ENCUESTA ENSU</p><h2>Percepción ciudadana</h2></div></div>
+        <p class="intro-copy">Porcentaje promedio de respuestas “inseguro” en la ciudad, ponderado con el factor de expansión de la persona seleccionada.</p>
+        <article class="panel"><div class="panel-title"><h3>Percepción de inseguridad en Mérida</h3><span>porcentaje</span></div><div class="chart-wrap chart-tall"><canvas id="percepcion-chart" aria-label="Percepción de inseguridad por año" role="img"></canvas></div></article>
+        <p class="method-note">El área urbana de Mérida en ENSU incluye los municipios cubiertos por la encuesta, no solo el municipio con clave 31050. Se excluyeron respuestas “no sabe / no responde”.</p>
+      </section>
+
+      <section class="view" id="view-territorio" role="tabpanel" aria-labelledby="tab-territorio" hidden>
+        <div class="section-heading page-heading"><div><p class="eyebrow">04 / LECTURA ESPACIAL</p><h2>El territorio</h2></div></div>
+        <p class="intro-copy">Códigos postales recortados al límite municipal de Mérida. Activa o desactiva capas desde el control del mapa.</p>
+        <article class="panel map-panel"><div id="map" role="img" aria-label="Mapa de códigos postales y límite municipal de Mérida"></div></article>
+        <p class="chart-note">Los polígonos son límites de referencia; no representan una medición de seguridad por zona.</p>
+      </section>
+
+      <section class="view" id="view-relieve" role="tabpanel" aria-labelledby="tab-relieve" hidden>
+        <div class="section-heading page-heading"><div><p class="eyebrow">05 / MODELO DIGITAL DE ELEVACIÓN</p><h2>Relieve y seguridad</h2></div></div>
+        <p class="intro-copy">Superficie del CEM 4.0 de INEGI recortada al municipio. Arrastra para orbitar y usa la rueda para acercar.</p>
+        <article class="panel terrain-panel">
+          <div id="terrain-view" aria-label="Visor tridimensional de elevación de Mérida"></div>
+          <div id="terrain-status" class="overlay-status" role="status">El visor 3D se cargará al abrir esta pestaña.</div>
+        </article>
+        <p class="method-note">La elevación no mide inseguridad. El modelo sirve como contexto físico; la relación entre variables requiere análisis adicional.</p>
+      </section>
+
+      <section class="view" id="view-prensa" role="tabpanel" aria-labelledby="tab-prensa" hidden>
+        <div class="section-heading page-heading"><div><p class="eyebrow">06 / COBERTURA MEDIÁTICA</p><h2>Análisis de prensa</h2></div></div>
+        <div class="two-col">
+          <article class="panel"><div class="panel-title"><h3>Artículos por mes</h3><span>publicaciones</span></div><div class="chart-wrap"><canvas id="noticias-chart" aria-label="Artículos por mes" role="img"></canvas></div></article>
+          <article class="panel"><div class="panel-title"><h3>Palabras en titulares</h3><span>frecuencia</span></div><div class="chart-wrap"><canvas id="palabras-chart" aria-label="Frecuencia de palabras en titulares" role="img"></canvas></div></article>
+        </div>
+        <p class="method-note">La frecuencia se calcula únicamente sobre titulares disponibles en Silver; no se extrae ni reproduce el cuerpo de los artículos. No es análisis de sentimiento.</p>
+      </section>
+
+      <footer class="footer"><span>Proyecto de análisis de seguridad · Yucatán</span><span>Fuentes: INEGI · Datos.gob.mx · prensa</span></footer>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
