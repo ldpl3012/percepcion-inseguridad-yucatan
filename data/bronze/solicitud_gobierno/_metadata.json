@@ -11,6 +11,14 @@
       "fecha_original": "no documentada"
     },
     {
+      "ruta": "programas_presupuestarios.html",
+      "sha256": "331ecac1b0a108eb9e5cac0a8e918bd58214ded474add0a27e85ca7a5fa4dff7",
+      "bytes": 15070,
+      "url": "https://www.merida.gob.mx/copladem/",
+      "fecha_incorporacion": "2026-11-26T15:45:37-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
       "ruta": "reporte_copladem_policia_2025_1er_trim.pdf",
       "sha256": "69ae9cc01121bed48775bc7d94c6a3f54d2a19e2b56f65203615ca4dceaace9b",
       "bytes": 1841357,

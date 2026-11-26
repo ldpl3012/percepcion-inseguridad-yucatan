@@ -3,19 +3,43 @@
   "responsable": "por definir",
   "archivos": [
     {
+      "ruta": "Diario de Yucatan 1.html",
+      "sha256": "27ebba9060e178fce47a71413dfd9742b2bc0d8e9e2b85ead979515febbeb60a",
+      "bytes": 476580,
+      "url": "no documentada",
+      "fecha_incorporacion": "2026-11-26T15:59:27-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "Diario de Yucatan 2.html",
+      "sha256": "bb6fe65e78d6b0351b709d327f52e85af08c2dc30147d6854c1f17b96795d1f2",
+      "bytes": 452722,
+      "url": "no documentada",
+      "fecha_incorporacion": "2026-11-26T15:59:27-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "Tv Azteca.pdf",
+      "sha256": "802feae1f3df5f204e4db4b64cef33fefc7d574dd050e18c8709b032765f1981",
+      "bytes": 4421719,
+      "url": "no documentada",
+      "fecha_incorporacion": "2026-11-26T15:59:27-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
       "ruta": "incendio-de-camion-en-francisco-villas-de-oriente-kanasin-presunto-mensaje-hacia-un-alto-mando-de-seguridad-en-yucatan.html",
-      "sha256": "d46b0f73f3c2bbcb259165c60d901d91e9c39b180f91e0470c65cb739b955d8d",
-      "bytes": 452037,
-      "url": "https://www.yucatan.com.mx/yucatan/2026/10/28/incendio-de-camion-en-francisco-villas-de-oriente-kanasin-presunto-mensaje-hacia-un-alto-mando-de-seguridad-en-yucatan.html",
-      "fecha_incorporacion": "2026-11-25T13:28:38-06:00",
+      "sha256": "27ebba9060e178fce47a71413dfd9742b2bc0d8e9e2b85ead979515febbeb60a",
+      "bytes": 476580,
+      "url": "no documentada",
+      "fecha_incorporacion": "2026-11-26T15:59:27-06:00",
       "fecha_original": "no documentada"
     },
     {
       "ruta": "suben-los-delitos-en-yucatan-y-se-duplican-los-ilicitos-patrimoniales-y-contra-la-vida-asi-cambio-el-top-ten.html",
-      "sha256": "90161435fdb0f871a76862af0530e38729e3fa368ce401bc6184a1820142d8aa",
-      "bytes": 475288,
-      "url": "https://www.yucatan.com.mx/merida/2026/02/26/suben-los-delitos-en-yucatan-y-se-duplican-los-ilicitos-patrimoniales-y-contra-la-vida-asi-cambio-el-top-ten.html",
-      "fecha_incorporacion": "2026-11-25T13:28:35-06:00",
+      "sha256": "bb6fe65e78d6b0351b709d327f52e85af08c2dc30147d6854c1f17b96795d1f2",
+      "bytes": 452722,
+      "url": "no documentada",
+      "fecha_incorporacion": "2026-11-26T15:59:27-06:00",
       "fecha_original": "no documentada"
     }
   ]

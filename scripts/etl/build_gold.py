@@ -442,11 +442,12 @@ def construir() -> None:
             territorio / "limite_municipal_merida.geojson",
             ["MUN_OFICIA", "NOM_MUN", "geometry"],
         )
-        codigos_postales = _guardar_geojson(
-            SILVER / "geo" / "codigos_postales_merida.parquet",
-            territorio / "codigos_postales_merida.geojson",
-            ["d_cp", "geometry"],
-        )
+        cp_src = SILVER / "geo" / "codigos_postales_merida.parquet"
+        if cp_src.exists():
+            codigos_postales = _guardar_geojson(cp_src, territorio / "codigos_postales_merida.geojson", ["d_cp", "geometry"])
+        else:
+            (territorio / "codigos_postales_merida.geojson").write_text("{\"type\": \"FeatureCollection\", \"features\": []}\n", encoding="utf-8")
+            codigos_postales = 0
         (staging / "README.md").write_text(
             "# Gold para el dashboard\n\n"
             "- `incidencia_yucatan_mensual_v1`: conteos por año, mes y tipo de "

@@ -7,7 +7,15 @@
       "sha256": "f5705656ecc978b0518e4e93d4d4eee0202734480b72dd3ac28a913f8f8488e6",
       "bytes": 83043048,
       "url": "https://inegi.org.mx/app/geo2/elevacionesmex",
-      "fecha_incorporacion": "2026-11-25T15:01:23-06:00",
+      "fecha_incorporacion": "2026-11-26T16:02:10-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "e31_cem_r15_v4_tif.zip",
+      "sha256": "754c9a3c707dc880d0e895ef5bd3f7d370838c77cc0444b11bf9ccb1d900a7a0",
+      "bytes": 73509316,
+      "url": "https://inegi.org.mx/app/geo2/elevacionesmex",
+      "fecha_incorporacion": "2026-11-26T16:02:10-06:00",
       "fecha_original": "no documentada"
     }
   ]
