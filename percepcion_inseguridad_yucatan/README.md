@@ -14,7 +14,7 @@ Catálogo de fuentes para el proyecto sobre percepción de inseguridad en Yucat�
 | Solicitud de datos / Gobierno | 3 | 3 | 2 | 0 | 1 | [05_solicitud_gobierno/](05_solicitud_gobierno/) |
 | Scraping de noticias | 3 | 3 | 1 | 2 | 0 | [06_scraping_noticias/](06_scraping_noticias/) |
 | Self-produced data | 4 | 0 | 0 | 0 | 4 | [07_self_produced_data/](07_self_produced_data/) |
-| LiDAR / elevación | 3 | 2 | 1 | 0 | 2 | [08_lidar/](08_lidar/) |
+| Modelo de elevación del INEGI (CEM) | 3 | 2 | 1 | 0 | 2 | [08_lidar/](08_lidar/) |
 | Realidad aumentada | 3 | 1 | 0 | 3 | 0 | [09_ar_realidad_aumentada/](09_ar_realidad_aumentada/) |
 | **Total** | **28** | **22** | **13** | **7** | **8** | |
 
@@ -23,7 +23,7 @@ Catálogo de fuentes para el proyecto sobre percepción de inseguridad en Yucat�
 ## Pendientes e incidencias
 - **Geoportal de Mérida:** `Parques.xlsx` y `Servicios.xlsx` contienen encabezados, pero ninguna fila de datos. No hay un archivo local para infraestructura, calles y predios. Los tres recursos requieren datos utilizables o exportaciones verificables.
 - **Self-produced data:** las cuatro fuentes siguen siendo enlaces de referencia; no hay datos propios recopilados.
-- **Elevación:** el ZIP contiene un GeoTIFF del Continuo de Elevaciones Mexicano 4.0 para Yucatán (MDE derivado de datos RADAR); no es un producto LiDAR. No se encontró un modelo de superficie ni capas derivadas de visibilidad en el ZIP.
+- **Modelo de elevación del INEGI (CEM):** el ZIP contiene un GeoTIFF del Continuo de Elevaciones Mexicano 4.0 para Yucatán (MDE derivado de datos RADAR); no es un producto LiDAR. No se encontró un modelo de superficie ni capas derivadas de visibilidad en el ZIP.
 - **Realidad aumentada:** el KML contiene un `NetworkLink` a Google My Maps y descripción del servicio, pero no incluye puntos en el archivo. Las encuestas, CSV y el MDE se referencian desde sus carpetas originales; falta integrar capas y datos propios para el mapa de riesgo.
 - **Datos.gob.mx:** se guardaron los tres CSV identificados en el paquete CKAN. El inventario explica la relación entre los dos recursos individuales y el dataset completo para evitar duplicar archivos.
 - Hay URLs repetidas en el catálogo, en particular ENSU y el visor de elevaciones. Los recursos compartidos se mantienen en una sola carpeta y se enlazan desde donde aplica.

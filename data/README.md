@@ -6,7 +6,7 @@
 - **Silver:** tablas limpias en Parquet, separadas por fuente. Cada tabla usa un nombre estable con sufijo `_v1.parquet`.
 - **Gold:** agregaciones para visualización en `data/gold/dashboard/`, regenerables desde Silver con `python scripts/etl/build_gold.py`.
 
-Los archivos de visualización no forman parte del ETL. PDFs y artículos HTML se preservan en Bronze; el pipeline registra metadatos de extracción sin duplicar texto de documentos ni cuerpos de noticias mientras no se verifiquen sus licencias. CSV, tablas CSV en ZIP, XLSX y capas vectoriales se transforman a Parquet. LiDAR se procesa solo cuando existe un raster real y validado.
+Los archivos de visualización no forman parte del ETL. PDFs y artículos HTML se preservan en Bronze; el pipeline registra metadatos de extracción sin duplicar texto de documentos ni cuerpos de noticias mientras no se verifiquen sus licencias. CSV, tablas CSV en ZIP, XLSX y capas vectoriales se transforman a Parquet. El modelo de elevación del INEGI (CEM) se procesa solo cuando existe un ráster real y validado.
 
 ## Matriz de fuentes
 
@@ -72,7 +72,7 @@ Para descargar los documentos PDF/HTML directos que figuran en el catálogo, eje
 python scripts/ingest/download_documents.py
 ```
 
-Esta descarga nunca se ejecuta desde `run_all.py`; no sobrescribe Bronze y guarda primero una respuesta completa fuera de Bronze. La descarga de fuentes interactivas (INEGI, Datos.gob.mx, Geoportal y LiDAR) sigue siendo manual.
+Esta descarga nunca se ejecuta desde `run_all.py`; no sobrescribe Bronze y guarda primero una respuesta completa fuera de Bronze. La descarga de fuentes interactivas (INEGI, Datos.gob.mx, Geoportal y el modelo de elevación del INEGI) sigue siendo manual.
 
 ## Ejecutar y verificar
 
