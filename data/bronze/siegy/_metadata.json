@@ -17,6 +17,30 @@
       "url": "https://datos.yucatan.gob.mx/storage/boletines/archivos/2025/Bolet%C3%ADn_2025_01.pdf",
       "fecha_incorporacion": "2026-11-25T13:28:42-06:00",
       "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "boletin_educacion_2025_01.pdf",
+      "sha256": "949b810b77b901cf68e5298845ce49aa3a0b28c31c521ff8e0ddd42fa52cc3ec",
+      "bytes": 8398382,
+      "url": "https://datos.yucatan.gob.mx/boletines",
+      "fecha_incorporacion": "2026-11-26T15:57:01-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "boletin_yucatan_2024_05.pdf",
+      "sha256": "eb899577ba4b226f355c9d8eb3ce83bd9413145e82059910b00571ef66d97646",
+      "bytes": 446260,
+      "url": "https://datos.yucatan.gob.mx/boletines",
+      "fecha_incorporacion": "2026-11-26T15:57:01-06:00",
+      "fecha_original": "no documentada"
+    },
+    {
+      "ruta": "boletines_siegy.html",
+      "sha256": "99f2c1d06a6c364e184d0969834390279641a435e6b7e8ceb52bcfbffe75cafc",
+      "bytes": 49925,
+      "url": "https://datos.yucatan.gob.mx/boletines",
+      "fecha_incorporacion": "2026-11-26T15:57:01-06:00",
+      "fecha_original": "no documentada"
     }
   ]
 }

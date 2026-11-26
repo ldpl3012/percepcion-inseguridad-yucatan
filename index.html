@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Exploración de incidencia delictiva, percepción ciudadana y territorio en Yucatán.">
   <title>Percepción de inseguridad en Yucatán</title>
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="./css/app.css">
   <script type="importmap">
     {
       "imports": {
@@ -17,6 +16,8 @@
   </script>
 </head>
 <body>
+  <div class="d3-tooltip" id="d3-tooltip" role="tooltip" aria-live="polite"></div>
+
   <div class="shell">
     <aside class="sidebar">
       <a class="brand" href="#inicio" aria-label="Ir al inicio">
@@ -25,12 +26,12 @@
       </a>
       <p class="nav-caption">EXPLORAR</p>
       <nav class="tabs" role="tablist" aria-label="Vistas del dashboard">
-        <button class="tab active" id="tab-inicio" role="tab" aria-selected="true" aria-controls="view-inicio" data-view="inicio"><span>01</span> Inicio / Contexto</button>
-        <button class="tab" id="tab-incidencia" role="tab" aria-selected="false" aria-controls="view-incidencia" data-view="incidencia"><span>02</span> Incidencia delictiva</button>
-        <button class="tab" id="tab-percepcion" role="tab" aria-selected="false" aria-controls="view-percepcion" data-view="percepcion"><span>03</span> Percepción ciudadana</button>
-        <button class="tab" id="tab-territorio" role="tab" aria-selected="false" aria-controls="view-territorio" data-view="territorio"><span>04</span> El territorio</button>
-        <button class="tab" id="tab-relieve" role="tab" aria-selected="false" aria-controls="view-relieve" data-view="relieve"><span>05</span> Relieve y seguridad</button>
-        <button class="tab" id="tab-prensa" role="tab" aria-selected="false" aria-controls="view-prensa" data-view="prensa"><span>06</span> Análisis de prensa</button>
+        <button class="tab active" id="tab-inicio"     role="tab" aria-selected="true"  aria-controls="view-inicio"     data-view="inicio"    ><span>01</span> Inicio / Contexto</button>
+        <button class="tab"        id="tab-incidencia" role="tab" aria-selected="false" aria-controls="view-incidencia" data-view="incidencia"><span>02</span> Incidencia delictiva</button>
+        <button class="tab"        id="tab-percepcion" role="tab" aria-selected="false" aria-controls="view-percepcion" data-view="percepcion"><span>03</span> Percepción ciudadana</button>
+        <button class="tab"        id="tab-territorio" role="tab" aria-selected="false" aria-controls="view-territorio" data-view="territorio"><span>04</span> El territorio</button>
+        <button class="tab"        id="tab-relieve"    role="tab" aria-selected="false" aria-controls="view-relieve"    data-view="relieve"   ><span>05</span> Relieve y seguridad</button>
+        <button class="tab"        id="tab-prensa"     role="tab" aria-selected="false" aria-controls="view-prensa"    data-view="prensa"    ><span>06</span> Análisis de prensa</button>
       </nav>
       <div class="sidebar-foot">
         <span class="status-dot" aria-hidden="true"></span>
@@ -47,6 +48,7 @@
         <span class="period-pill">Datos locales · Gold</span>
       </header>
 
+      <!-- ── 01 INICIO ──────────────────────────────────────────── -->
       <section class="view active" id="view-inicio" role="tabpanel" aria-labelledby="tab-inicio">
         <div class="intro">
           <div>
@@ -65,55 +67,73 @@
 
         <div class="section-heading">
           <div><p class="eyebrow">SERIE HISTÓRICA</p><h3>Incidencia mensual registrada</h3></div>
-          <span class="source-tag">Yucatán · Datos.gob.mx</span>
+          <span class="source-tag">Yucatán estatal · Datos.gob.mx</span>
         </div>
         <article class="panel chart-panel">
-          <div class="chart-wrap chart-tall"><canvas id="overview-chart" aria-label="Tendencia mensual de incidencia registrada" role="img"></canvas></div>
+          <div class="chart-wrap chart-tall" id="overview-wrap"></div>
           <p class="chart-note">Los conteos reflejan denuncias/averiguaciones previas registradas, no prevalencia total del delito.</p>
         </article>
-        <p class="method-note">Las series tienen coberturas distintas. ENSU representa el área urbana de Mérida; incidencia delictiva está disponible aquí a nivel estatal. No son mediciones directamente equivalentes.</p>
+        <p class="method-note">Las series tienen coberturas distintas. ENSU representa el área urbana de Mérida; incidencia delictiva corresponde al <strong>estado de Yucatán</strong> (clave estatal Datos.gob.mx). No son mediciones directamente equivalentes.</p>
       </section>
 
+      <!-- ── 02 INCIDENCIA ──────────────────────────────────────── -->
       <section class="view" id="view-incidencia" role="tabpanel" aria-labelledby="tab-incidencia" hidden>
-        <div class="section-heading page-heading"><div><p class="eyebrow">02 / REGISTROS ADMINISTRATIVOS</p><h2>Incidencia delictiva</h2></div>
+        <div class="section-heading page-heading">
+          <div><p class="eyebrow">02 / REGISTROS ADMINISTRATIVOS</p><h2>Incidencia delictiva</h2></div>
           <label class="select-label">Año <select id="incidencia-year" aria-label="Seleccionar año"></select></label>
         </div>
-        <p class="intro-copy">Casos agregados por tipo de delito y mes, filtrados por la clave estatal 31.</p>
+        <p class="intro-copy">Casos registrados a nivel estatal en Yucatán, agregados por tipo de delito y mes. Fuente: Datos.gob.mx, clave estatal 31. <strong>Estos datos corresponden al estado de Yucatán en su conjunto, no al municipio de Mérida.</strong></p>
         <div class="two-col">
-          <article class="panel"><div class="panel-title"><h3>Variación mensual</h3><span>casos</span></div><div class="chart-wrap"><canvas id="incidencia-month-chart" aria-label="Incidencia por mes" role="img"></canvas></div></article>
-          <article class="panel"><div class="panel-title"><h3>Tipos de delito</h3><span>10 principales</span></div><div class="chart-wrap"><canvas id="incidencia-type-chart" aria-label="Principales tipos de delito" role="img"></canvas></div></article>
+          <article class="panel"><div class="panel-title"><h3>Variación mensual</h3><span>casos · Yucatán estatal</span></div><div class="chart-wrap" id="incidencia-month-wrap"></div></article>
+          <article class="panel"><div class="panel-title"><h3>Tipos de delito</h3><span>10 principales · Yucatán estatal</span></div><div class="chart-wrap" id="incidencia-type-wrap"></div></article>
         </div>
       </section>
 
+      <!-- ── 03 PERCEPCIÓN ──────────────────────────────────────── -->
       <section class="view" id="view-percepcion" role="tabpanel" aria-labelledby="tab-percepcion" hidden>
         <div class="section-heading page-heading"><div><p class="eyebrow">03 / ENCUESTA ENSU</p><h2>Percepción ciudadana</h2></div></div>
-        <p class="intro-copy">Porcentaje promedio de respuestas “inseguro” en la ciudad, ponderado con el factor de expansión de la persona seleccionada.</p>
-        <article class="panel"><div class="panel-title"><h3>Percepción de inseguridad en Mérida</h3><span>porcentaje</span></div><div class="chart-wrap chart-tall"><canvas id="percepcion-chart" aria-label="Percepción de inseguridad por año" role="img"></canvas></div></article>
-        <p class="method-note">El área urbana de Mérida en ENSU incluye los municipios cubiertos por la encuesta, no solo el municipio con clave 31050. Se excluyeron respuestas “no sabe / no responde”.</p>
+        <p class="intro-copy">Porcentaje promedio de respuestas «inseguro» en el área urbana de Mérida, ponderado con el factor de expansión de la persona seleccionada.</p>
+        <article class="panel"><div class="panel-title"><h3>Percepción de inseguridad en Mérida</h3><span>porcentaje</span></div><div class="chart-wrap chart-tall" id="percepcion-wrap"></div></article>
+        <p class="method-note">El área urbana de Mérida en ENSU incluye los municipios cubiertos por la encuesta, no solo el municipio con clave 31050. Se excluyeron respuestas «no sabe / no responde».</p>
       </section>
 
+      <!-- ── 04 TERRITORIO ──────────────────────────────────────── -->
       <section class="view" id="view-territorio" role="tabpanel" aria-labelledby="tab-territorio" hidden>
         <div class="section-heading page-heading"><div><p class="eyebrow">04 / LECTURA ESPACIAL</p><h2>El territorio</h2></div></div>
-        <p class="intro-copy">Códigos postales recortados al límite municipal de Mérida. Activa o desactiva capas desde el control del mapa.</p>
-        <article class="panel map-panel"><div id="map" role="img" aria-label="Mapa de códigos postales y límite municipal de Mérida"></div></article>
+        <p class="intro-copy">Códigos postales recortados al límite municipal de Mérida. Usa los controles para hacer zoom o arrastra para desplazarte.</p>
+        <article class="panel map-panel">
+          <div id="map-container" aria-label="Mapa de códigos postales y límite municipal de Mérida">
+            <div class="map-controls">
+              <button id="map-zoom-in"  aria-label="Acercar mapa" title="Acercar">+</button>
+              <button id="map-zoom-out" aria-label="Alejar mapa"  title="Alejar">−</button>
+              <button id="map-reset"    aria-label="Restablecer mapa" title="Restablecer" style="font-size:12px">⟳</button>
+            </div>
+            <div class="map-legend">
+              <div class="map-legend-item"><div class="map-legend-swatch" style="background:rgba(156,39,176,.25);border:1px solid #9C27B0"></div><span>Códigos postales</span></div>
+              <div class="map-legend-item"><div class="map-legend-swatch" style="background:transparent;border:2px solid #D4AF37"></div><span>Límite municipal</span></div>
+            </div>
+          </div>
+        </article>
         <p class="chart-note">Los polígonos son límites de referencia; no representan una medición de seguridad por zona.</p>
       </section>
 
+      <!-- ── 05 RELIEVE ─────────────────────────────────────────── -->
       <section class="view" id="view-relieve" role="tabpanel" aria-labelledby="tab-relieve" hidden>
         <div class="section-heading page-heading"><div><p class="eyebrow">05 / MODELO DIGITAL DE ELEVACIÓN</p><h2>Relieve y seguridad</h2></div></div>
-        <p class="intro-copy">Superficie del CEM 4.0 de INEGI recortada al municipio. Arrastra para orbitar y usa la rueda para acercar.</p>
+        <p class="intro-copy">Modelo de elevación del INEGI (CEM 4.0) recortado al municipio de Mérida. Arrastra para orbitar y usa la rueda para acercar.</p>
         <article class="panel terrain-panel">
-          <div id="terrain-view" aria-label="Visor tridimensional de elevación de Mérida"></div>
+          <div id="terrain-view" aria-label="Visor tridimensional del modelo de elevación de Mérida"></div>
           <div id="terrain-status" class="overlay-status" role="status">El visor 3D se cargará al abrir esta pestaña.</div>
         </article>
-        <p class="method-note">La elevación no mide inseguridad. El modelo sirve como contexto físico; la relación entre variables requiere análisis adicional.</p>
+        <p class="method-note">La elevación no mide inseguridad. El modelo de elevación del INEGI sirve como contexto físico del territorio; la relación entre variables requiere análisis adicional.</p>
       </section>
 
+      <!-- ── 06 PRENSA ──────────────────────────────────────────── -->
       <section class="view" id="view-prensa" role="tabpanel" aria-labelledby="tab-prensa" hidden>
         <div class="section-heading page-heading"><div><p class="eyebrow">06 / COBERTURA MEDIÁTICA</p><h2>Análisis de prensa</h2></div></div>
         <div class="two-col">
-          <article class="panel"><div class="panel-title"><h3>Artículos por mes</h3><span>publicaciones</span></div><div class="chart-wrap"><canvas id="noticias-chart" aria-label="Artículos por mes" role="img"></canvas></div></article>
-          <article class="panel"><div class="panel-title"><h3>Palabras en titulares</h3><span>frecuencia</span></div><div class="chart-wrap"><canvas id="palabras-chart" aria-label="Frecuencia de palabras en titulares" role="img"></canvas></div></article>
+          <article class="panel"><div class="panel-title"><h3>Artículos por mes</h3><span>publicaciones</span></div><div class="chart-wrap" id="noticias-wrap"></div></article>
+          <article class="panel"><div class="panel-title"><h3>Palabras en titulares</h3><span>frecuencia</span></div><div class="chart-wrap" id="palabras-wrap"></div></article>
         </div>
         <p class="method-note">La frecuencia se calcula únicamente sobre titulares disponibles en Silver; no se extrae ni reproduce el cuerpo de los artículos. No es análisis de sentimiento.</p>
       </section>
@@ -122,8 +142,8 @@
     </main>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script type="module" src="js/app.js"></script>
+  <!-- D3.js v7 — única dependencia de gráficos -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script type="module" src="./js/app.js"></script>
 </body>
 </html>

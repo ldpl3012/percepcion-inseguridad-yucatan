@@ -1,6 +1,6 @@
 # Informe de calidad del ETL
 
-- Ejecución: `2026-11-25T15:13:49-06:00`
+- Ejecución: `2026-11-26T16:05:40-06:00`
 - Responsable: `por definir`
 - Bronze: solo lectura; los hashes se validaron antes del procesamiento.
 - Gold: sin agregados; pendiente de definir métricas y granularidad.
@@ -1600,16 +1600,15 @@
 | `IDVFC_NM_dic25.csv` | 80960 | 80960 | 0 |
 | `Parques.xlsx:Sheet` | 662 | 662 | 0 |
 | `Servicios.xlsx:Sheet` | 15 | 15 | 0 |
-| `geo/codigos_postales_yucatan.parquet` | 624 | 624 | 0 |
+| `geo/codigos_postales_yucatan.parquet` | 0 | 0 | 0 |
 | `geo/limite_municipal_merida.parquet` | 1 | 1 | 0 |
 | `geo/lugares_merida_descartado` | 13 | 0 | 0 |
-| `geo/codigos_postales_merida.parquet` | 624 | 165 | 0 |
 | `geo/inegi_vectores` | 0 | 0 | 0 |
 | `geo/catastro` | 0 | 0 | 0 |
 | `lidar/merida_elevacion.tif` | 358375941 | 3978215 | 0 |
 | `lidar/merida_pendiente.tif` | 3978215 | 3959063 | 0 |
-| `documentos/documentos_pdf.csv` | 4 | 4 | 0 |
-| `noticias/scraping_noticias.csv` | 2 | 2 | 0 |
+| `documentos/documentos_pdf.csv` | 6 | 6 | 0 |
+| `noticias/scraping_noticias.csv` | 4 | 4 | 0 |
 
 ## `conjunto_de_datos_encoap2025_csv.zip:conjunto_de_datos_tb_sec_ivaix_encoap2025/catalogos/cod_res.csv`
 
@@ -15941,12 +15940,12 @@
 
 ## `geo/codigos_postales_yucatan.parquet`
 
-- Nulos antes: `{"d_cp": 0, "geometry": 0}`
-- Nulos después: `{"d_cp": 0, "geometry": 0}`
-- Columnas tipadas: `{"d_cp": "object", "geometry": "geometry"}`
+- Nulos antes: `{}`
+- Nulos después: `{}`
+- Columnas tipadas: `{}`
 - Rangos numéricos observados: `{}`
 - Cobertura geográfica: `null`
-- Warnings: Se repararon 8 geometrías inválidas.
+- Warnings: Pendiente: no hay códigos postales registrados en Bronze.
 
 ## `geo/limite_municipal_merida.parquet`
 
@@ -15965,15 +15964,6 @@
 - Rangos numéricos observados: `{}`
 - Cobertura geográfica: `null`
 - Warnings: Descartada por inconsistencias geográficas: sus coordenadas (-71.1687, 8.5861, -71.1373, 8.6284) están fuera de México. El original permanece inmutable en Bronze; no se publicó ni cruzó en Silver.
-
-## `geo/codigos_postales_merida.parquet`
-
-- Nulos antes: `{"d_cp": 0, "geometry": 0}`
-- Nulos después: `{"d_cp": 0, "geometry": 0}`
-- Columnas tipadas: `{"d_cp": "object", "geometry": "geometry"}`
-- Rangos numéricos observados: `{}`
-- Cobertura geográfica: `null`
-- Warnings: ninguno
 
 ## `geo/inegi_vectores`
 
