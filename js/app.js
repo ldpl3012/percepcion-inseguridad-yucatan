@@ -730,6 +730,78 @@ function initMap() {
 
   renderMapLayer("prensa");
 
+  const top5El = document.getElementById("top5-strip");
+  const searchEl = document.getElementById("mun-search");
+  let selectedCve = null;
+
+  function applyHighlight() {
+    const q = (searchEl?.value || "").trim().toLowerCase();
+    gMap.selectAll(".map-postal").classed("is-highlighted", d => {
+      const cve = String(d.properties?.MUN_OFICIA ?? "").padStart(5, "0");
+      const nom = String(d.properties?.NOM_MUN ?? "").toLowerCase();
+      if (selectedCve) return cve === selectedCve;
+      return q.length >= 2 && nom.includes(q);
+    });
+  }
+
+  function renderTop5(layerKey) {
+    if (!top5El) return;
+    const cfg = layerConfigs[layerKey] || layerConfigs.prensa;
+    const ranked = [...boundary.features]
+      .map(d => ({
+        cve: String(d.properties?.MUN_OFICIA ?? "").padStart(5, "0"),
+        nom: d.properties?.NOM_MUN ?? "Municipio",
+        val: cfg.value(d)
+      }))
+      .sort((a, b) => b.val - a.val)
+      .slice(0, 5);
+
+    const fmt = layerKey === "prensa"
+      ? v => `${v} notas`
+      : layerKey === "area"
+      ? v => `${Number(v).toLocaleString("es-MX")} km²`
+      : v => `${Number(v).toFixed(1)} m`;
+
+    top5El.innerHTML = `<strong>Top 5 (${layerKey === "prensa" ? "prensa" : layerKey === "area" ? "extensión" : "elevación"}):</strong> ` +
+      ranked.map(item =>
+        `<button type="button" class="top5-chip ${selectedCve === item.cve ? "selected" : ""}" data-cve="${item.cve}">${item.nom} (${fmt(item.val)})</button>`
+      ).join("");
+
+    top5El.querySelectorAll(".top5-chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        const cve = chip.dataset.cve;
+        selectedCve = selectedCve === cve ? null : cve;
+        applyHighlight();
+        renderTop5(activeLayer);
+      });
+    });
+  }
+
+  const baseRenderMapLayer = renderMapLayer;
+  renderMapLayer = function(layerKey) {
+    baseRenderMapLayer(layerKey);
+    renderTop5(layerKey);
+    applyHighlight();
+  };
+  renderTop5(activeLayer);
+
+  const dataListEl = document.getElementById("municipios-list");
+  if (dataListEl) {
+    const sortedNames = [...boundary.features]
+      .map(d => d.properties?.NOM_MUN)
+      .filter(Boolean)
+      .sort((a, b) => a.localeCompare(b, "es"));
+    dataListEl.innerHTML = sortedNames.map(n => `<option value="${n}"></option>`).join("");
+  }
+
+  searchEl?.addEventListener("input", () => {
+    const val = searchEl.value.trim().toLowerCase();
+    const exact = boundary.features.find(d => String(d.properties?.NOM_MUN ?? "").toLowerCase() === val);
+    selectedCve = exact ? String(exact.properties?.MUN_OFICIA ?? "").padStart(5, "0") : null;
+    applyHighlight();
+    renderTop5(activeLayer);
+  });
+
   document.querySelectorAll(".layer-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelectorAll(".layer-btn").forEach(b => b.classList.remove("active"));
@@ -862,7 +934,27 @@ async function initTerrain() {
       mesh.scale.z = exag2x ? 2.0 : 1.0;
       ev.currentTarget.textContent = exag2x ? "Relieve 2×" : "Relieve 1×";
     });
+    const focusViews = {
+      costa:    { pos: [0, -H * 0.95, 48], target: [0, H * 0.28, 2] },
+      planicie: { pos: [W * 0.35, -H * 0.9, 68], target: [W * 0.1, 0, 6] },
+      puuc:     { pos: [-W * 0.25, -H * 0.95, 56], target: [-W * 0.18, -H * 0.22, 14] }
+    };
+
+    document.querySelectorAll(".terrain-card[data-focus]").forEach(card => {
+      card.addEventListener("click", () => {
+        const key = card.dataset.focus;
+        const preset = focusViews[key];
+        if (!preset) return;
+        document.querySelectorAll(".terrain-card[data-focus]").forEach(c => c.classList.remove("is-active"));
+        card.classList.add("is-active");
+        camera.position.set(...preset.pos);
+        controls.target.set(...preset.target);
+        controls.update();
+      });
+    });
+
     document.getElementById("terrain-reset")?.addEventListener("click", () => {
+      document.querySelectorAll(".terrain-card[data-focus]").forEach(c => c.classList.remove("is-active"));
       camera.position.set(...defaultCamPos);
       controls.target.set(0, 0, 8);
       controls.update();

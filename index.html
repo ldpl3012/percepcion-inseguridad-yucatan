@@ -103,11 +103,14 @@
       <!-- ── 04 TERRITORIO ──────────────────────────────────────── -->
       <section class="view" id="view-territorio" role="tabpanel" aria-labelledby="tab-territorio" hidden>
         <div class="section-heading page-heading"><div><p class="eyebrow">04 / LECTURA ESPACIAL</p><h2>El territorio</h2></div></div>
-        <p class="intro-copy">Explora los 106 municipios de Yucatán alternando entre cobertura mediática (627 notas), extensión territorial (km²) y elevación media (CEM 4.0). Pasa el cursor sobre cada municipio para ver su ficha completa.</p>
-        <div class="layer-bar" role="group" aria-label="Capa temática del mapa">
-          <button class="layer-btn active" data-layer="prensa">Cobertura en prensa (notas)</button>
-          <button class="layer-btn" data-layer="area">Extensión territorial (km²)</button>
-          <button class="layer-btn" data-layer="elevacion">Elevación media (m s. n. m.)</button>
+        <p class="intro-copy">Explora los 106 municipios de Yucatán alternando entre cobertura mediática (627 notas), extensión territorial (km²) y elevación media (CEM 4.0). Busca un municipio o haz clic en el Top 5 para resaltarlo.</p>
+        <div class="territory-toolbar">
+          <div class="layer-bar" role="group" aria-label="Capa temática del mapa" style="margin-bottom:0">
+            <button class="layer-btn active" data-layer="prensa">Cobertura en prensa (notas)</button>
+            <button class="layer-btn" data-layer="area">Extensión territorial (km²)</button>
+            <button class="layer-btn" data-layer="elevacion">Elevación media (m s. n. m.)</button>
+          </div>
+          <div class="search-box"><input id="mun-search" class="mun-search" type="text" list="municipios-list" placeholder="Buscar municipio (ej. Tekax)..." aria-label="Buscar municipio" autocomplete="off" /><datalist id="municipios-list"></datalist></div>
         </div>
         <article class="panel map-panel">
           <div id="map-container" aria-label="Mapa de los 106 municipios de Yucatán">
@@ -118,6 +121,7 @@
             </div>
             <div class="map-legend" id="map-legend"></div>
           </div>
+          <div class="top5-strip" id="top5-strip" aria-label="Top 5 municipios por capa activa"></div>
         </article>
         <p class="chart-note">Fuentes: Marco Geoestadístico INEGI/CONABIO, corpus de prensa (627 titulares), reporte COPLADEM Policía 2025 y CEM 4.0. ENVIPE conserva escala estatal.</p>
       </section>
@@ -125,7 +129,7 @@
       <!-- ── 05 RELIEVE ─────────────────────────────────────────── -->
       <section class="view" id="view-relieve" role="tabpanel" aria-labelledby="tab-relieve" hidden>
         <div class="section-heading page-heading"><div><p class="eyebrow">05 / MODELO DIGITAL DE ELEVACIÓN</p><h2>Relieve y contexto territorial</h2></div></div>
-        <p class="intro-copy">Modelo digital de elevación del INEGI (CEM 4.0) para Yucatán. Permite contrastar la franja costera baja, la planicie interior y el ascenso de la Sierrita Puuc frente a la extensión y cobertura mediática de cada región.</p>
+        <p class="intro-copy">Modelo digital de elevación del INEGI (CEM 4.0) para Yucatán. Haz clic en una tarjeta de zona para enfocar la cámara 3D o arrastra libremente para orbitar.</p>
         <article class="panel terrain-panel">
           <div class="map-controls">
             <button id="terrain-exag" title="Alternar exageración vertical" style="width:auto;padding:0 10px;font-size:12px">Relieve 1×</button>
@@ -140,15 +144,15 @@
           <div id="terrain-status" class="overlay-status" role="status">El visor 3D se cargará al abrir esta pestaña.</div>
         </article>
         <div class="terrain-insights">
-          <div class="terrain-card">
+          <div class="terrain-card is-clickable" data-focus="costa">
             <h4>Franja costera baja (0–15 m)</h4>
             <p>Municipios litorales como Progreso (1.8 m prom.) y Celestún (4.4 m) concentran actividad portuaria y pesquera con 8 y 4 notas en prensa respectivamente.</p>
           </div>
-          <div class="terrain-card">
+          <div class="terrain-card is-clickable" data-focus="planicie">
             <h4>Planicie extensa vs. polo urbano</h4>
             <p>Mérida (884 km², 10 m prom.) concentra 185 notas de prensa y 891 menciones en COPLADEM, mientras Tizimín (3,883 km², más de 4× su área) registra solo 2 notas.</p>
           </div>
-          <div class="terrain-card">
+          <div class="terrain-card is-clickable" data-focus="puuc">
             <h4>Sur y Sierrita Puuc (hasta 196 m)</h4>
             <p>Tekax alcanza 196 m de elevación máxima (176 m de desnivel) y 2,770 km² de superficie, pero aparece con 0 menciones en titulares y reportes policiales analizados.</p>
           </div>
