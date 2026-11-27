@@ -612,47 +612,131 @@ function initMap() {
   svg.call(zoomBehavior);
 
   const gMap = svg.append("g");
-  const newsColor = d3.scaleThreshold()
-    .domain([1, 3, 8, 20])
-    .range([
-      "rgba(156, 39, 176, 0.10)",  // 0 notas
-      "rgba(156, 39, 176, 0.42)",  // 1-2 notas
-      "rgba(123, 31, 162, 0.68)",  // 3-7 notas
-      "rgba(74, 20, 140, 0.90)",   // 8-19 notas (Kanasín, Progreso)
-      "rgba(212, 175, 55, 0.58)"   // 20+ notas (Mérida)
-    ]);
+  const layerConfigs = {
+    prensa: {
+      value: d => Number(d.properties?.NOTICIAS_MENCIONES ?? 0),
+      scale: d3.scaleThreshold()
+        .domain([1, 3, 8, 20])
+        .range([
+          "rgba(156, 39, 176, 0.10)",
+          "rgba(156, 39, 176, 0.42)",
+          "rgba(123, 31, 162, 0.68)",
+          "rgba(74, 20, 140, 0.90)",
+          "rgba(212, 175, 55, 0.62)"
+        ]),
+      legend: [
+        ["rgba(156,39,176,.10)", "0 notas en titulares"],
+        ["rgba(156,39,176,.42)", "1–2 notas"],
+        ["rgba(123,31,162,.68)", "3–7 notas"],
+        ["rgba(74,20,140,.90)",  "8–19 notas"],
+        ["rgba(212,175,55,.62)", "Mérida (185 notas)"]
+      ]
+    },
+    area: {
+      value: d => Number(d.properties?.AREA_KM2 ?? 0),
+      scale: d3.scaleThreshold()
+        .domain([200, 500, 1000, 2000])
+        .range([
+          "rgba(156, 39, 176, 0.12)",
+          "rgba(156, 39, 176, 0.34)",
+          "rgba(123, 31, 162, 0.56)",
+          "rgba(74, 20, 140, 0.78)",
+          "rgba(212, 175, 55, 0.65)"
+        ]),
+      legend: [
+        ["rgba(156,39,176,.12)", "< 200 km²"],
+        ["rgba(156,39,176,.34)", "200–500 km²"],
+        ["rgba(123,31,162,.56)", "500–1,000 km²"],
+        ["rgba(74,20,140,.78)",  "1,000–2,000 km²"],
+        ["rgba(212,175,55,.65)", "> 2,000 km² (Tizimín, Tekax)"]
+      ]
+    },
+    elevacion: {
+      value: d => Number(d.properties?.ELEV_MEAN_M ?? 0),
+      scale: d3.scaleThreshold()
+        .domain([10, 20, 35, 60])
+        .range([
+          "rgba(59, 18, 97, 0.28)",
+          "rgba(123, 31, 162, 0.44)",
+          "rgba(156, 39, 176, 0.64)",
+          "rgba(184, 134, 11, 0.62)",
+          "rgba(212, 175, 55, 0.85)"
+        ]),
+      legend: [
+        ["rgba(59,18,97,.28)",   "< 10 m (costa / norponiente)"],
+        ["rgba(123,31,162,.44)", "10–20 m (planicie baja)"],
+        ["rgba(156,39,176,.64)", "20–35 m (planicie interior)"],
+        ["rgba(184,134,11,.62)", "35–60 m (transición sur)"],
+        ["rgba(212,175,55,.85)", "> 60 m (Sierrita Puuc)"]
+      ]
+    }
+  };
+
+  let activeLayer = "prensa";
+  const legendEl = document.getElementById("map-legend");
+
+  function renderMapLayer(layerKey) {
+    activeLayer = layerKey;
+    const cfg = layerConfigs[layerKey] || layerConfigs.prensa;
+    gMap.selectAll(".map-postal")
+      .transition().duration(220)
+      .style("fill", d => cfg.scale(cfg.value(d)));
+
+    if (legendEl) {
+      legendEl.innerHTML = cfg.legend.map(([bg, label]) =>
+        `<div class="map-legend-item"><div class="map-legend-swatch" style="background:${bg};border:1px solid rgba(106,27,154,.55)"></div><span>${label}</span></div>`
+      ).join("");
+    }
+  }
 
   gMap.selectAll(".map-postal")
     .data(boundary.features).enter().append("path")
     .attr("class", d => String(d.properties?.MUN_OFICIA ?? "").padStart(5, "0") === "31050"
       ? "map-postal map-mun-capital"
       : "map-postal")
-    .style("fill", d => {
-      const m = Number(d.properties?.NOTICIAS_MENCIONES ?? 0);
-      return newsColor(m);
-    })
     .attr("d", path)
     .on("mousemove", (event, d) => {
-      const mun = d.properties?.NOM_MUN ?? "Sin dato";
-      const cve = String(d.properties?.MUN_OFICIA ?? "").padStart(5, "0");
-      const zona = d.properties?.ZONA_GEO ?? "Yucatán";
-      const ev = Number(d.properties?.ELEV_MEAN_M);
-      const elevTxt = Number.isFinite(ev) ? `${ev.toFixed(1)} m s. n. m.` : "s/d";
-      const m = Number(d.properties?.NOTICIAS_MENCIONES ?? 0);
-      const ej = d.properties?.TITULAR_EJEMPLO ?? "";
+      const p = d.properties || {};
+      const mun = p.NOM_MUN ?? "Sin dato";
+      const cve = String(p.MUN_OFICIA ?? "").padStart(5, "0");
+      const zona = p.ZONA_GEO ?? "Yucatán";
+      const area = Number(p.AREA_KM2);
+      const evMean = Number(p.ELEV_MEAN_M);
+      const evMax = Number(p.ELEV_MAX_M);
+      const m = Number(p.NOTICIAS_MENCIONES ?? 0);
+      const cop = Number(p.MENCIONES_COPLADEM ?? 0);
+      const ej = p.TITULAR_EJEMPLO ?? "";
+
+      const areaTxt = Number.isFinite(area) ? `${area.toLocaleString("es-MX")} km²` : "s/d";
+      const elevTxt = Number.isFinite(evMean)
+        ? `${evMean.toFixed(1)} m prom.${Number.isFinite(evMax) ? ` (máx. ${evMax.toFixed(0)} m)` : ""}`
+        : "s/d";
       const notaTxt = m > 0
-        ? `<strong>${m}</strong> ${m === 1 ? "nota" : "notas"} en corpus de prensa`
-        : "Sin menciones directas en titulares analizados";
+        ? `<strong>${m}</strong> ${m === 1 ? "nota" : "notas"} en prensa`
+        : "0 notas en titulares";
+      const gobTxt = cop > 0 ? ` · COPLADEM Policía: <strong>${cop}</strong>` : "";
       const ejHtml = ej ? `<br><span style="opacity:.9;font-style:italic">“${ej}”</span>` : "";
+
       showTip(
         event,
         `<strong>${mun}</strong> · Clave ${cve}<br>` +
-        `<span>${zona} · Elevación media: ${elevTxt}</span><br>` +
-        `<span>Prensa: ${notaTxt}</span>` +
+        `<span>${zona} · Área: ${areaTxt}</span><br>` +
+        `<span>Elevación: ${elevTxt}</span><br>` +
+        `<span>${notaTxt}${gobTxt}</span>` +
         ejHtml
       );
     })
     .on("mouseleave", hideTip);
+
+  renderMapLayer("prensa");
+
+  document.querySelectorAll(".layer-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".layer-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderMapLayer(btn.dataset.layer);
+    });
+  });
 
   document.getElementById("map-zoom-in")?.addEventListener("click", () =>
     svg.transition().call(zoomBehavior.scaleBy, 1.5));
@@ -690,7 +774,7 @@ async function initTerrain() {
     ]);
     const tiff  = await fromUrl("./data/silver/lidar/yucatan_elevacion.tif");
     const image = await tiff.getImage();
-    const cols  = 160;
+    const cols  = 240;
     const rows  = Math.max(2, Math.round(cols * image.getHeight() / image.getWidth()));
     const elevations = await image.readRasters({ width: cols, height: rows, interleave: true });
 
@@ -705,23 +789,27 @@ async function initTerrain() {
     const colors    = new Float32Array(cols * rows * 3);
     const indices   = [];
     const W = 150, H = W * rows / cols;
+    const cLow = new THREE.Color("#3b1261");
+    const cMid = new THREE.Color("#9c27b0");
+    const cHigh = new THREE.Color("#d4af37");
     const color = new THREE.Color();
+    let zScale = 0.16;
 
-    // Paleta morado→oro para elevación
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
         const idx = r * cols + c;
         const v   = elevations[idx];
-        const t   = mx === mn ? 0 : (v - mn) / (mx - mn);
+        const rawT = mx === mn ? 0 : Math.max(0, Math.min(1, (v - mn) / (mx - mn)));
+        const t = Math.pow(rawT, 0.58);
         positions[idx*3]   = (c/(cols-1) - .5) * W;
         positions[idx*3+1] = (.5 - r/(rows-1)) * H;
-        positions[idx*3+2] = valid[idx] ? (v - mn) * 0.85 : 0;
-        // Map t 0→1 : deep purple → gold
-        color.lerpColors(
-          new THREE.Color(C.purpleDeep),
-          new THREE.Color(C.goldDeep),
-          t
-        );
+        positions[idx*3+2] = valid[idx] ? (v - mn) * zScale : 0;
+
+        if (t < 0.5) {
+          color.lerpColors(cLow, cMid, t * 2);
+        } else {
+          color.lerpColors(cMid, cHigh, (t - 0.5) * 2);
+        }
         colors[idx*3]   = color.r;
         colors[idx*3+1] = color.g;
         colors[idx*3+2] = color.b;
@@ -741,14 +829,14 @@ async function initTerrain() {
     geo.computeVertexNormals();
 
     const mesh = new THREE.Mesh(geo,
-      new THREE.MeshStandardMaterial({ vertexColors: true, roughness: .82, side: THREE.DoubleSide }));
+      new THREE.MeshStandardMaterial({ vertexColors: true, roughness: .78, metalness: .06, side: THREE.DoubleSide }));
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color("#0f0620");
     scene.add(mesh);
-    scene.add(new THREE.AmbientLight(0xffffff, 1.5));
-    const light = new THREE.DirectionalLight(0xffffff, 2);
-    light.position.set(-80, -70, 160);
+    scene.add(new THREE.AmbientLight(0xffffff, 1.35));
+    const light = new THREE.DirectionalLight(0xfff5e6, 2.1);
+    light.position.set(-70, -85, 140);
     scene.add(light);
 
     const container = document.querySelector("#terrain-view");
@@ -757,13 +845,28 @@ async function initTerrain() {
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.replaceChildren(renderer.domElement);
 
-    const camera = new THREE.PerspectiveCamera(42, container.clientWidth/container.clientHeight, .1, 1000);
+    const camera = new THREE.PerspectiveCamera(40, container.clientWidth/container.clientHeight, .1, 1000);
     camera.up.set(0,0,1);
-    camera.position.set(W*.75, -H*1.1, Math.max(85, (mx-mn)*0.9));
-    camera.lookAt(0,0,10);
+    const defaultCamPos = [W * 0.55, -H * 1.05, 82];
+    camera.position.set(...defaultCamPos);
+    camera.lookAt(0, 0, 8);
 
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.target.set(0,0,10); controls.enableDamping = true; controls.update();
+    controls.target.set(0, 0, 8);
+    controls.enableDamping = true;
+    controls.update();
+
+    let exag2x = false;
+    document.getElementById("terrain-exag")?.addEventListener("click", (ev) => {
+      exag2x = !exag2x;
+      mesh.scale.z = exag2x ? 2.0 : 1.0;
+      ev.currentTarget.textContent = exag2x ? "Relieve 2×" : "Relieve 1×";
+    });
+    document.getElementById("terrain-reset")?.addEventListener("click", () => {
+      camera.position.set(...defaultCamPos);
+      controls.target.set(0, 0, 8);
+      controls.update();
+    });
 
     const animate = () => { controls.update(); renderer.render(scene, camera); requestAnimationFrame(animate); };
     animate();
@@ -775,7 +878,7 @@ async function initTerrain() {
       renderer.setSize(cW, cH);
     }).observe(container);
 
-    if (msg) msg.textContent = `Malla simplificada · modelo de elevación INEGI CEM 4.0 · ${mn}–${mx} m`;
+    if (msg) msg.textContent = `CEM 4.0 estatal (240×${rows}) · elevación ${mn.toFixed(0)}–${mx.toFixed(0)} m s. n. m.`;
     setStatus("Modelo de elevación cargado correctamente.");
   } catch (err) {
     state.terrainStarted = false;

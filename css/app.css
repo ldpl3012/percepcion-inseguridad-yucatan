@@ -324,3 +324,16 @@ button, select { font: inherit; }
   .source-tag { font-size: 9px; }
   .footer { flex-direction: column; }
 }
+
+
+.layer-bar { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .75rem; }
+.layer-btn { background: var(--surface); border: 1px solid var(--border); color: var(--ink); padding: .42rem .85rem; border-radius: 999px; font-size: .82rem; font-weight: 600; cursor: pointer; transition: all .15s; }
+.layer-btn:hover { border-color: var(--purple-mid); }
+.layer-btn.active { background: var(--purple-deep); color: #fff; border-color: var(--purple-deep); }
+.terrain-panel { position: relative; }
+.terrain-panel .map-controls { top: 14px; right: 14px; z-index: 6; }
+.terrain-panel .map-legend { bottom: 14px; left: 14px; z-index: 6; }
+.terrain-insights { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.terrain-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: .95rem 1.1rem; }
+.terrain-card h4 { margin: 0 0 .35rem; font-size: .92rem; color: var(--purple-deep); }
+.terrain-card p { margin: 0; font-size: .83rem; line-height: 1.45; color: var(--ink-soft); }

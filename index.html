@@ -103,7 +103,12 @@
       <!-- ── 04 TERRITORIO ──────────────────────────────────────── -->
       <section class="view" id="view-territorio" role="tabpanel" aria-labelledby="tab-territorio" hidden>
         <div class="section-heading page-heading"><div><p class="eyebrow">04 / LECTURA ESPACIAL</p><h2>El territorio</h2></div></div>
-        <p class="intro-copy">Distribución territorial de menciones en prensa (627 notas analizadas) sobre los 106 municipios de Yucatán, junto con región geográfica y elevación media (CEM 4.0). La percepción ENVIPE y cifra oculta conservan escala estatal.</p>
+        <p class="intro-copy">Explora los 106 municipios de Yucatán alternando entre cobertura mediática (627 notas), extensión territorial (km²) y elevación media (CEM 4.0). Pasa el cursor sobre cada municipio para ver su ficha completa.</p>
+        <div class="layer-bar" role="group" aria-label="Capa temática del mapa">
+          <button class="layer-btn active" data-layer="prensa">Cobertura en prensa (notas)</button>
+          <button class="layer-btn" data-layer="area">Extensión territorial (km²)</button>
+          <button class="layer-btn" data-layer="elevacion">Elevación media (m s. n. m.)</button>
+        </div>
         <article class="panel map-panel">
           <div id="map-container" aria-label="Mapa de los 106 municipios de Yucatán">
             <div class="map-controls">
@@ -111,24 +116,44 @@
               <button id="map-zoom-out" aria-label="Alejar mapa"  title="Alejar">−</button>
               <button id="map-reset"    aria-label="Restablecer mapa" title="Restablecer" style="font-size:12px">⟳</button>
             </div>
-            <div class="map-legend">
-              <div class="map-legend-item"><div class="map-legend-swatch" style="background:rgba(156,39,176,.12);border:1px solid #9C27B0"></div><span>0 notas en titulares</span></div><div class="map-legend-item"><div class="map-legend-swatch" style="background:rgba(156,39,176,.45);border:1px solid #7B1FA2"></div><span>1–7 notas</span></div><div class="map-legend-item"><div class="map-legend-swatch" style="background:rgba(74,20,140,.80);border:1px solid #4A148C"></div><span>8–19 notas</span></div><div class="map-legend-item"><div class="map-legend-swatch" style="background:rgba(212,175,55,.52);border:1.5px solid #B8860B"></div><span>Mérida (185 notas)</span></div>
-              <div class="map-legend-item"><div class="map-legend-swatch" style="background:transparent;border:2px solid #D4AF37"></div><span>Límite municipal</span></div>
-            </div>
+            <div class="map-legend" id="map-legend"></div>
           </div>
         </article>
-        <p class="chart-note">Los polígonos son límites de referencia; no representan una medición de seguridad por zona.</p>
+        <p class="chart-note">Fuentes: Marco Geoestadístico INEGI/CONABIO, corpus de prensa (627 titulares), reporte COPLADEM Policía 2025 y CEM 4.0. ENVIPE conserva escala estatal.</p>
       </section>
 
       <!-- ── 05 RELIEVE ─────────────────────────────────────────── -->
       <section class="view" id="view-relieve" role="tabpanel" aria-labelledby="tab-relieve" hidden>
-        <div class="section-heading page-heading"><div><p class="eyebrow">05 / MODELO DIGITAL DE ELEVACIÓN</p><h2>Relieve y seguridad</h2></div></div>
-        <p class="intro-copy">Modelo digital de elevación del INEGI (CEM 4.0) para todo el estado de Yucatán. Arrastra para orbitar y usa la rueda para acercar.</p>
+        <div class="section-heading page-heading"><div><p class="eyebrow">05 / MODELO DIGITAL DE ELEVACIÓN</p><h2>Relieve y contexto territorial</h2></div></div>
+        <p class="intro-copy">Modelo digital de elevación del INEGI (CEM 4.0) para Yucatán. Permite contrastar la franja costera baja, la planicie interior y el ascenso de la Sierrita Puuc frente a la extensión y cobertura mediática de cada región.</p>
         <article class="panel terrain-panel">
+          <div class="map-controls">
+            <button id="terrain-exag" title="Alternar exageración vertical" style="width:auto;padding:0 10px;font-size:12px">Relieve 1×</button>
+            <button id="terrain-reset" aria-label="Restablecer vista 3D" title="Restablecer vista" style="font-size:12px">⟳</button>
+          </div>
+          <div class="map-legend">
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#3b1261"></div><span>Costa / baja (0–15 m)</span></div>
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#9c27b0"></div><span>Planicie media (15–55 m)</span></div>
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#d4af37"></div><span>Sur / Sierrita Puuc (&gt;55 m)</span></div>
+          </div>
           <div id="terrain-view" aria-label="Visor tridimensional del modelo de elevación de Yucatán"></div>
           <div id="terrain-status" class="overlay-status" role="status">El visor 3D se cargará al abrir esta pestaña.</div>
         </article>
-        <p class="method-note">La elevación no mide inseguridad. El modelo de elevación del INEGI sirve como contexto físico del territorio; la relación entre variables requiere análisis adicional.</p>
+        <div class="terrain-insights">
+          <div class="terrain-card">
+            <h4>Franja costera baja (0–15 m)</h4>
+            <p>Municipios litorales como Progreso (1.8 m prom.) y Celestún (4.4 m) concentran actividad portuaria y pesquera con 8 y 4 notas en prensa respectivamente.</p>
+          </div>
+          <div class="terrain-card">
+            <h4>Planicie extensa vs. polo urbano</h4>
+            <p>Mérida (884 km², 10 m prom.) concentra 185 notas de prensa y 891 menciones en COPLADEM, mientras Tizimín (3,883 km², más de 4× su área) registra solo 2 notas.</p>
+          </div>
+          <div class="terrain-card">
+            <h4>Sur y Sierrita Puuc (hasta 196 m)</h4>
+            <p>Tekax alcanza 196 m de elevación máxima (176 m de desnivel) y 2,770 km² de superficie, pero aparece con 0 menciones en titulares y reportes policiales analizados.</p>
+          </div>
+        </div>
+        <p class="method-note">El relieve no mide inseguridad: sirve para contrastar la geografía física y la extensión de los municipios frente a la fuerte concentración urbana de la cobertura mediática e institucional.</p>
       </section>
 
       <!-- ── 06 PRENSA ──────────────────────────────────────────── -->
