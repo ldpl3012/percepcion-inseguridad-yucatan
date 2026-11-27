@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:42f1638134ee672edd8afb59943d3d14973453041369fae5cefcb2846b70903b
-size 611
+entidad,anio,porcentaje_inseguridad_total,porcentaje_inseguridad_mujeres,porcentaje_inseguridad_hombres
+Yucatán,2011,26.65,31.26,21.65
+Yucatán,2012,19.2,23.65,13.89
+Yucatán,2013,32.22,39.55,24.21
+Yucatán,2014,29.48,34.04,24.69
+Yucatán,2015,33.81,41.0,25.93
+Yucatán,2016,31.49,36.59,25.7
+Yucatán,2017,27.2,31.77,22.05
+Yucatán,2018,32.5,38.44,26.24
+Yucatán,2019,37.53,44.88,29.25
+Yucatán,2020,26.57,32.81,17.76
+Yucatán,2021,27.19,33.98,19.77
+Yucatán,2022,30.59,38.29,22.71
+Yucatán,2023,37.81,45.97,29.09
+Yucatán,2024,30.57,37.47,22.91
+Yucatán,2025,39.59,47.99,29.64
+Yucatán,2026,35.48,42.77,27.79
