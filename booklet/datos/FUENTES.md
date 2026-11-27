@@ -4,3 +4,4 @@
 2. `escena-2.csv`: SESNSP vía `datos.gob.mx` (`IDVFC_NM_dic25.csv`, corte dic 2025), cobertura **estatal de Yucatán (`Clave_Ent=31`)**.
 3. `escena-3.csv`: Cruce estatal de ENVIPE Yucatán y SESNSP Yucatán (2015–2025).
 4. Dashboard complementario: Cifra Oculta ENVIPE (2010–2025) y corpus de **627 titulares** en 83 medios.
+5. relieve-yucatan-3d.png: INEGI, Continuo de Elevaciones Mexicano (CEM 4.0), entidad 31 Yucatán (resolución 15 m, malla 240×176 para visualización 3D).

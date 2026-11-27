@@ -1,3 +1,276 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Escena 2</title><script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><style>@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');body{font-family:'Outfit',sans-serif;color:#0d0d0d;margin:0;padding:24px;background:#fff}.card{max-width:900px;margin:0 auto;border:1px solid #e5e7eb;border-radius:12px;padding:24px}h1{font-size:20px;margin:0 0 6px}p.sub{font-size:13px;color:#4b5563;margin:0 0 18px}p.f{font-size:11px;color:#6b7280;margin-top:12px;border-top:1px solid #e5e7eb;padding-top:8px}svg{width:100%;height:auto;display:block}</style></head><body><div class="card"><h1>Escena 2 · 18,998 víctimas de delitos contra la persona acumuladas en Yucatán (2015–2025)</h1><p class="sub">Delitos registrados por mes en el estado de Yucatán (cobertura estatal, datos.gob.mx / SESNSP)</p><div id="c"></div><p class="f">Fuente: SESNSP vía datos.gob.mx (IDVFC_NM_dic25.csv, Clave_Ent=31 Yucatán). Corte: diciembre 2025.</p></div><script>
-d3.csv("../datos/escena-2.csv",d3.autoType).then(d=>{const w=840,h=320,m={t:28,r:36,b:42,l:62},s=d3.select("#c").append("svg").attr("viewBox",`0 0 ${w} ${h}`),x=d3.scalePoint().domain(d.map(r=>r.periodo)).range([m.l,w-m.r]),y=d3.scaleLinear().domain([0,d3.max(d,r=>r.delitos_registrados)*1.12]).range([h-m.b,m.t]),tk=d.filter(r=>r.mes===1).map(r=>r.periodo);s.append("g").attr("transform",`translate(0,${h-m.b})`).call(d3.axisBottom(x).tickValues(tk).tickFormat(v=>v.slice(0,4)));s.append("g").attr("transform",`translate(${m.l},0)`).call(d3.axisLeft(y).ticks(5));s.append("path").datum(d).attr("fill","none").attr("stroke","#600d8b").attr("stroke-width",2.2).attr("d",d3.line().x(r=>x(r.periodo)).y(r=>y(r.delitos_registrados)));const u=d[d.length-1];s.append("circle").attr("cx",x(u.periodo)).attr("cy",y(u.delitos_registrados)).attr("r",4.5).attr("fill","#600d8b");s.append("text").attr("x",x(u.periodo)-6).attr("y",y(u.delitos_registrados)-10).attr("text-anchor","end").style("font-weight","700").style("font-size","12px").style("fill","#600d8b").text(`${u.periodo}: ${u.delitos_registrados.toLocaleString("es-MX")}`);});
-</script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escena 2 — El pulso de 132 meses en Yucatán</title>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px 32px;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #111827;
+    }
+    .wrap { max-width: 1000px; margin: 0 auto; }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+    .legend {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #4b5563;
+    }
+    .swatches { display: flex; gap: 3px; }
+    .swatches i { width: 18px; height: 10px; border-radius: 3px; display: inline-block; }
+    .stage {
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      align-items: center;
+      gap: 20px;
+      background: #fafafa;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 24px;
+      padding: 16px 24px;
+    }
+    .inspector {
+      background: #ffffff;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 20px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .ins-tag {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #5b21b6;
+      background: #f3e8ff;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .ins-num {
+      font-size: 54px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: #111827;
+    }
+    .ins-sub {
+      font-size: 14px;
+      font-weight: 700;
+      color: #6b7280;
+      margin-top: 6px;
+      margin-bottom: 18px;
+    }
+    .era-pills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .era-btn {
+      border: 1.5px solid #e5e7eb;
+      background: #fafafa;
+      border-radius: 12px;
+      padding: 9px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      color: #111827;
+    }
+    .era-btn.on {
+      background: #5b21b6;
+      border-color: #5b21b6;
+      color: #ffffff;
+    }
+    .footer {
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #6b7280;
+    }
+    .brand { font-weight: 800; color: #5b21b6; }
+    @media (max-width: 820px) {
+      .stage { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top">
+      <h1>132 meses de registros en Yucatán (2015–2025)</h1>
+      <div class="legend">
+        <span>Menos</span>
+        <div class="swatches">
+          <i style="background:#f3e8ff"></i>
+          <i style="background:#c084fc"></i>
+          <i style="background:#7e22ce"></i>
+          <i style="background:#3b0764"></i>
+          <i style="background:#d97706"></i>
+        </div>
+        <span>+450 carpetas/mes</span>
+      </div>
+    </div>
+
+    <section class="stage">
+      <div id="radial-clock"></div>
+
+      <div class="inspector">
+        <div class="ins-tag" id="ins-period">2015 — 2025</div>
+        <div class="ins-num" id="ins-num">18,998</div>
+        <div class="ins-sub" id="ins-sub">carpetas en el anillo completo</div>
+
+        <div class="era-pills">
+          <button class="era-btn on" data-era="all">Todos (2015–2025)</button>
+          <button class="era-btn" data-era="peak">Cima (2015–2016)</button>
+          <button class="era-btn" data-era="break">Quiebre (2018)</button>
+          <button class="era-btn" data-era="low">Meseta (2019–2025)</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Fuente: SESNSP vía datos.gob.mx (IDVFC_NM_dic25.csv, Yucatán). Anillo interior: 2015 → exterior: 2025.</span>
+      <span class="brand">Percepción de inseguridad en Yucatán</span>
+    </footer>
+  </main>
+
+  <script>
+    const fmt = d3.format(",");
+    const MONTHS = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+
+    d3.csv("../datos/escena-2.csv", d => ({
+      anio: +d.anio,
+      mes: +d.mes,
+      mesNombre: d.mes_nombre,
+      delitos: +d.delitos_registrados
+    })).then(raw => {
+      const data = raw.filter(d => Number.isFinite(d.anio) && Number.isFinite(d.delitos));
+      const years = Array.from(new Set(data.map(d => d.anio))).sort((a, b) => a - b);
+
+      const size = 500;
+      const cx = size / 2;
+      const cy = size / 2;
+      const innerR = 58;
+      const outerR = 212;
+
+      const svg = d3.select("#radial-clock")
+        .append("svg")
+        .attr("viewBox", `0 0 ${size} ${size}`)
+        .style("width", "100%")
+        .style("max-width", "470px")
+        .style("display", "block")
+        .style("margin", "0 auto");
+
+      const g = svg.append("g").attr("transform", `translate(${cx},${cy})`);
+
+      const angle = d3.scaleBand()
+        .domain(d3.range(1, 13))
+        .range([0, Math.PI * 2])
+        .padding(0.06);
+
+      const radius = d3.scaleBand()
+        .domain(years)
+        .range([innerR, outerR])
+        .padding(0.08);
+
+      const color = d3.scaleThreshold()
+        .domain([60, 150, 320, 450])
+        .range(["#f3e8ff", "#c084fc", "#7e22ce", "#3b0764", "#d97706"]);
+
+      const arc = d3.arc()
+        .innerRadius(d => radius(d.anio))
+        .outerRadius(d => radius(d.anio) + radius.bandwidth())
+        .startAngle(d => angle(d.mes))
+        .endAngle(d => angle(d.mes) + angle.bandwidth())
+        .cornerRadius(3);
+
+      const petals = g.selectAll("path.petal")
+        .data(data)
+        .join("path")
+        .attr("class", "petal")
+        .attr("d", arc)
+        .attr("fill", d => color(d.delitos))
+        .style("cursor", "pointer")
+        .on("mouseenter", function (_, d) {
+          d3.select(this).attr("stroke", "#111827").attr("stroke-width", 2);
+          d3.select("#ins-period").text(`${d.mesNombre} ${d.anio}`);
+          d3.select("#ins-num").text(fmt(d.delitos));
+          d3.select("#ins-sub").text("carpetas registradas ese mes");
+        })
+        .on("mouseleave", function () {
+          d3.select(this).attr("stroke", "none");
+        });
+
+      // Etiquetas de los 12 meses alrededor
+      g.selectAll("text.m-lbl")
+        .data(d3.range(1, 13))
+        .join("text")
+        .attr("x", m => Math.sin(angle(m) + angle.bandwidth() / 2) * (outerR + 18))
+        .attr("y", m => -Math.cos(angle(m) + angle.bandwidth() / 2) * (outerR + 18) + 4)
+        .attr("text-anchor", "middle")
+        .attr("font-size", "12px")
+        .attr("font-weight", "800")
+        .attr("fill", "#374151")
+        .text(m => MONTHS[m - 1]);
+
+      // Centro con etiqueta de núcleo
+      g.append("text")
+        .attr("text-anchor", "middle")
+        .attr("y", -4)
+        .attr("font-size", "11px")
+        .attr("font-weight", "800")
+        .attr("fill", "#6b7280")
+        .text("2015 → 2025");
+
+      g.append("text")
+        .attr("text-anchor", "middle")
+        .attr("y", 12)
+        .attr("font-size", "10px")
+        .attr("font-weight", "700")
+        .attr("fill", "#9ca3af")
+        .text("centro a borde");
+
+      const ERAS = {
+        all:   { label: "2015 — 2025", fn: () => true, sub: "carpetas acumuladas en 11 años" },
+        peak:  { label: "2015 — 2016", fn: d => d.anio <= 2016, sub: "carpetas en los anillos centrales" },
+        break: { label: "Quiebre 2018", fn: d => d.anio === 2018, sub: "carpetas tras la caída de 76%" },
+        low:   { label: "2019 — 2025", fn: d => d.anio >= 2019, sub: "carpetas en los 7 anillos exteriores" }
+      };
+
+      function setEra(key) {
+        const e = ERAS[key];
+        const subset = data.filter(e.fn);
+        d3.selectAll(".era-btn").classed("on", function () { return this.dataset.era === key; });
+        d3.select("#ins-period").text(e.label);
+        d3.select("#ins-num").text(fmt(d3.sum(subset, d => d.delitos)));
+        d3.select("#ins-sub").text(e.sub);
+        petals.transition().duration(250).style("opacity", d => e.fn(d) ? 1 : 0.14);
+      }
+
+      d3.selectAll(".era-btn").on("click", function () { setEra(this.dataset.era); });
+      setEra("all");
+    });
+  </script>
+</body>
+</html>

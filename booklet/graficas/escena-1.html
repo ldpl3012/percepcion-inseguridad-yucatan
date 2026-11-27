@@ -1,1 +1,266 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Escena 1</title><script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><style>@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');body{font-family:'Outfit',sans-serif;color:#0d0d0d;margin:0;padding:24px;background:#fff}.card{max-width:900px;margin:0 auto;border:1px solid #e5e7eb;border-radius:12px;padding:24px}h1{font-size:20px;margin:0 0 6px}p.sub{font-size:13px;color:#4b5563;margin:0 0 18px}p.f{font-size:11px;color:#6b7280;margin-top:12px;border-top:1px solid #e5e7eb;padding-top:8px}svg{width:100%;height:auto;display:block}</style></head><body><div class="card"><h1>Escena 1 · 35.48% de la población adulta en Yucatán percibe inseguridad (2026)</h1><p class="sub">Serie histórica de percepción de inseguridad en Yucatán por sexo (ENVIPE 2011–2026)</p><div id="c"></div><p class="f">Fuente: INEGI, ENVIPE 2011–2026 (Yucatán). Corte: 2026.</p></div><script>d3.csv("../datos/escena-1.csv",d3.autoType).then(d=>{const w=840,h=340,m={t:28,r:54,b:40,l:52},s=d3.select("#c").append("svg").attr("viewBox",`0 0 ${w} ${h}`),x=d3.scalePoint().domain(d.map(r=>r.anio)).range([m.l,w-m.r]).padding(.2),y=d3.scaleLinear().domain([0,60]).range([h-m.b,m.t]);s.append("g").attr("transform",`translate(0,${h-m.b})`).call(d3.axisBottom(x).tickValues(d.filter(r=>r.anio%2===0).map(r=>r.anio)));s.append("g").attr("transform",`translate(${m.l},0)`).call(d3.axisLeft(y).ticks(6).tickFormat(v=>v+"%"));const series=[{k:"porcentaje_inseguridad_mujeres",c:"#9C27B0",d:null},{k:"porcentaje_inseguridad_total",c:"#D4AF37",d:"4,3"},{k:"porcentaje_inseguridad_hombres",c:"#5E35B1",d:null}];series.forEach(sr=>{const ln=d3.line().x(r=>x(r.anio)).y(r=>y(r[sr.k]));s.append("path").datum(d).attr("fill","none").attr("stroke",sr.c).attr("stroke-width",2.5).attr("stroke-dasharray",sr.d||"none").attr("d",ln);s.selectAll(null).data(d).join("circle").attr("cx",r=>x(r.anio)).attr("cy",r=>y(r[sr.k])).attr("r",3.2).attr("fill",sr.c);const ult=d[d.length-1];s.append("text").attr("x",x(ult.anio)+6).attr("y",y(ult[sr.k])+4).style("font-size","11px").style("font-weight","700").style("fill",sr.c).text(ult[sr.k].toFixed(1)+"%");});});</script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escena 1 — Percepción de inseguridad por sexo</title>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 26px 32px;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #111827;
+    }
+    .wrap { max-width: 1000px; margin: 0 auto; }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+    .year-pill {
+      font-size: 28px;
+      font-weight: 900;
+      color: #5b21b6;
+      background: #f3e8ff;
+      padding: 6px 18px;
+      border-radius: 999px;
+      letter-spacing: -0.02em;
+    }
+    .arena {
+      display: grid;
+      grid-template-columns: 1fr 170px 1fr;
+      align-items: center;
+      gap: 16px;
+      padding: 26px 24px;
+      border-radius: 24px;
+      background: #fafafa;
+      border: 1.5px solid #e5e7eb;
+    }
+    .side {
+      text-align: center;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 18px 14px;
+      border: 1px solid #e5e7eb;
+    }
+    .role {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    .pct {
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+    .ratio {
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #4b5563;
+    }
+    .bridge {
+      text-align: center;
+    }
+    .gap-num {
+      font-size: 28px;
+      font-weight: 900;
+      color: #5b21b6;
+      letter-spacing: -0.02em;
+    }
+    .gap-lbl {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #6b7280;
+      margin-top: 2px;
+    }
+    .scrubber {
+      margin-top: 18px;
+      padding: 14px 20px;
+      border-radius: 18px;
+      border: 1.5px solid #e5e7eb;
+      background: #ffffff;
+    }
+    .scrubber-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    input[type="range"] {
+      width: 100%;
+      accent-color: #5b21b6;
+      cursor: pointer;
+    }
+    .ticks {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #6b7280;
+    }
+    .ticks span { cursor: pointer; padding: 2px 4px; border-radius: 6px; }
+    .ticks span.on { background: #5b21b6; color: #ffffff; }
+    .footer {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #6b7280;
+    }
+    .brand { font-weight: 800; color: #5b21b6; }
+    @media (max-width: 820px) {
+      .arena { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top">
+      <h1>Percepción de inseguridad en Yucatán</h1>
+      <div class="year-pill" id="yr-badge">2026</div>
+    </div>
+
+    <section class="arena">
+      <div class="side">
+        <div class="role" style="color:#5b21b6">Mujeres</div>
+        <div class="pct" style="color:#5b21b6" id="m-pct">—</div>
+        <div id="m-figs"></div>
+        <div class="ratio" id="m-ratio">—</div>
+      </div>
+
+      <div class="bridge">
+        <div class="gap-num" id="gap-num">—</div>
+        <div class="gap-lbl">Brecha</div>
+        <svg width="140" height="36" viewBox="0 0 140 36" style="margin-top:6px">
+          <line x1="12" y1="18" x2="128" y2="18" stroke="#c4b5fd" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="14" cy="18" r="7" fill="#5b21b6"/>
+          <circle cx="126" cy="18" r="7" fill="#d97706"/>
+        </svg>
+        <div class="gap-lbl" id="tot-lbl">Total: —</div>
+      </div>
+
+      <div class="side">
+        <div class="role" style="color:#d97706">Hombres</div>
+        <div class="pct" style="color:#d97706" id="h-pct">—</div>
+        <div id="h-figs"></div>
+        <div class="ratio" id="h-ratio">—</div>
+      </div>
+    </section>
+
+    <div class="scrubber">
+      <div class="scrubber-top">
+        <span>Desliza el año (2011–2026)</span>
+        <span id="peak-hint">Yucatán · ENVIPE</span>
+      </div>
+      <input type="range" id="yr-slider" min="0" max="15" value="15" />
+      <div class="ticks" id="yr-ticks"></div>
+    </div>
+
+    <footer class="footer">
+      <span>Fuente: INEGI, ENVIPE 2011–2026 (Yucatán, CVE_ENT=31).</span>
+      <span class="brand">Percepción de inseguridad en Yucatán</span>
+    </footer>
+  </main>
+
+  <script>
+    function drawGroup(sel, pct, fill, bg, woman) {
+      const box = d3.select(sel);
+      box.selectAll("*").remove();
+      const svg = box.append("svg")
+        .attr("viewBox", "0 0 320 156")
+        .style("width", "100%")
+        .style("max-width", "310px");
+
+      const defs = svg.append("defs");
+      const units = pct / 10;
+
+      d3.range(10).forEach(i => {
+        const cx = (i % 5) * 64 + 32;
+        const cy = Math.floor(i / 5) * 76 + 8;
+        const frac = Math.max(0, Math.min(1, units - i));
+        const id = `c-${woman ? "w" : "m"}-${i}`;
+
+        defs.append("clipPath").attr("id", id)
+          .append("rect")
+          .attr("x", -22).attr("y", 66 * (1 - frac))
+          .attr("width", 44).attr("height", 66 * frac);
+
+        const g = svg.append("g").attr("transform", `translate(${cx},${cy})`);
+        const paint = (grp, col) => {
+          grp.append("circle").attr("cx", 0).attr("cy", 10).attr("r", 8).attr("fill", col);
+          grp.append("path")
+            .attr("d", woman
+              ? "M-10 23 C-10 19 10 19 10 23 L15 46 L7 46 L7 64 L-7 64 L-7 46 L-15 46 Z"
+              : "M-12 23 C-12 19 12 19 12 23 L12 44 L7 44 L7 64 L-7 64 L-7 44 L-12 44 Z")
+            .attr("fill", col);
+        };
+        paint(g.append("g"), bg);
+        if (frac > 0) paint(g.append("g").attr("clip-path", `url(#${id})`), fill);
+      });
+    }
+
+    d3.csv("../datos/escena-1.csv", d => ({
+      anio: +d.anio,
+      total: +d.porcentaje_inseguridad_total,
+      mujeres: +d.porcentaje_inseguridad_mujeres,
+      hombres: +d.porcentaje_inseguridad_hombres
+    })).then(raw => {
+      const data = raw.filter(d => Number.isFinite(d.anio)).sort((a, b) => a.anio - b.anio);
+      const slider = d3.select("#yr-slider").attr("max", data.length - 1).property("value", data.length - 1);
+
+      const ticks = d3.select("#yr-ticks").selectAll("span")
+        .data(data)
+        .join("span")
+        .text(d => String(d.anio).slice(2))
+        .on("click", (_, d) => {
+          const idx = data.findIndex(r => r.anio === d.anio);
+          slider.property("value", idx);
+          render(idx);
+        });
+
+      function render(idx) {
+        const r = data[idx];
+        const diff = (r.mujeres - r.hombres).toFixed(1);
+        d3.select("#yr-badge").text(r.anio);
+        d3.select("#m-pct").text(`${r.mujeres.toFixed(1)}%`);
+        d3.select("#h-pct").text(`${r.hombres.toFixed(1)}%`);
+        d3.select("#m-ratio").text(`${(r.mujeres / 10).toFixed(1)} de cada 10`);
+        d3.select("#h-ratio").text(`${(r.hombres / 10).toFixed(1)} de cada 10`);
+        d3.select("#gap-num").text(`+${diff} pts`);
+        d3.select("#tot-lbl").text(`Total: ${r.total.toFixed(1)}%`);
+        ticks.classed("on", (_, i) => i === idx);
+        drawGroup("#m-figs", r.mujeres, "#5b21b6", "#ede9fe", true);
+        drawGroup("#h-figs", r.hombres, "#d97706", "#fef3c7", false);
+      }
+
+      slider.on("input", function () { render(+this.value); });
+      render(data.length - 1);
+    });
+  </script>
+</body>
+</html>
