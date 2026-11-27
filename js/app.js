@@ -14,8 +14,8 @@ const DATASETS = {
   wordFrequency: `${BASE}/frecuencia_palabras_titulares_v1.json`,
   bigrams:       `${BASE}/frecuencia_bigramas_titulares_v1.json`,
   newsByOutlet:  `${BASE}/noticias_por_medio_v1.json`,
-  boundary:      `${BASE}/territorio/limite_municipal_merida.geojson`,
-  postalCodes:   `${BASE}/territorio/codigos_postales_merida.geojson`,
+  boundary:      `${BASE}/territorio/municipios_yucatan.geojson`,
+  // postalCodes: capa municipal estatal en boundary
 };
 
 /* ── Paleta ──────────────────────────────────────────────────────── */
@@ -587,10 +587,8 @@ function initMap() {
   const container = document.getElementById("map-container");
   if (!container) return;
 
-  const { boundary, postalCodes } = state.data;
-  const hasGeo = boundary && postalCodes;
-  if (!hasGeo) {
-    // Placeholder de mapa
+  const { boundary } = state.data;
+  if (!boundary || !boundary.features?.length) {
     const msg = document.createElement("div");
     msg.className = "d3-placeholder";
     msg.innerHTML = `<p>Datos geográficos pendientes de procesamiento.</p>`;
@@ -603,38 +601,59 @@ function initMap() {
 
   const svg = d3.select(container).append("svg")
     .attr("width", W).attr("height", H)
-    .attr("aria-label", "Mapa de Mérida con códigos postales");
+    .attr("aria-label", "Mapa de los 106 municipios de Yucatán");
 
-  // Projection fitted to boundary
   const proj = d3.geoMercator().fitSize([W, H], boundary);
   const path = d3.geoPath(proj);
 
-  // Zoom
   const zoomBehavior = d3.zoom()
     .scaleExtent([0.5, 20])
     .on("zoom", ({ transform }) => { gMap.attr("transform", transform); });
   svg.call(zoomBehavior);
 
   const gMap = svg.append("g");
+  const newsColor = d3.scaleThreshold()
+    .domain([1, 3, 8, 20])
+    .range([
+      "rgba(156, 39, 176, 0.10)",  // 0 notas
+      "rgba(156, 39, 176, 0.42)",  // 1-2 notas
+      "rgba(123, 31, 162, 0.68)",  // 3-7 notas
+      "rgba(74, 20, 140, 0.90)",   // 8-19 notas (Kanasín, Progreso)
+      "rgba(212, 175, 55, 0.58)"   // 20+ notas (Mérida)
+    ]);
 
-  // Postal codes
   gMap.selectAll(".map-postal")
-    .data(postalCodes.features).enter().append("path")
-    .attr("class", "map-postal")
+    .data(boundary.features).enter().append("path")
+    .attr("class", d => String(d.properties?.MUN_OFICIA ?? "").padStart(5, "0") === "31050"
+      ? "map-postal map-mun-capital"
+      : "map-postal")
+    .style("fill", d => {
+      const m = Number(d.properties?.NOTICIAS_MENCIONES ?? 0);
+      return newsColor(m);
+    })
     .attr("d", path)
     .on("mousemove", (event, d) => {
-      const cp = d.properties?.d_cp ?? "sin dato";
-      showTip(event, `<strong>CP ${cp}</strong>`);
+      const mun = d.properties?.NOM_MUN ?? "Sin dato";
+      const cve = String(d.properties?.MUN_OFICIA ?? "").padStart(5, "0");
+      const zona = d.properties?.ZONA_GEO ?? "Yucatán";
+      const ev = Number(d.properties?.ELEV_MEAN_M);
+      const elevTxt = Number.isFinite(ev) ? `${ev.toFixed(1)} m s. n. m.` : "s/d";
+      const m = Number(d.properties?.NOTICIAS_MENCIONES ?? 0);
+      const ej = d.properties?.TITULAR_EJEMPLO ?? "";
+      const notaTxt = m > 0
+        ? `<strong>${m}</strong> ${m === 1 ? "nota" : "notas"} en corpus de prensa`
+        : "Sin menciones directas en titulares analizados";
+      const ejHtml = ej ? `<br><span style="opacity:.9;font-style:italic">“${ej}”</span>` : "";
+      showTip(
+        event,
+        `<strong>${mun}</strong> · Clave ${cve}<br>` +
+        `<span>${zona} · Elevación media: ${elevTxt}</span><br>` +
+        `<span>Prensa: ${notaTxt}</span>` +
+        ejHtml
+      );
     })
     .on("mouseleave", hideTip);
 
-  // Municipal boundary
-  gMap.selectAll(".map-boundary")
-    .data(boundary.features ?? [boundary]).enter().append("path")
-    .attr("class", "map-boundary")
-    .attr("d", path);
-
-  // Zoom controls
   document.getElementById("map-zoom-in")?.addEventListener("click", () =>
     svg.transition().call(zoomBehavior.scaleBy, 1.5));
   document.getElementById("map-zoom-out")?.addEventListener("click", () =>
@@ -642,7 +661,6 @@ function initMap() {
   document.getElementById("map-reset")?.addEventListener("click", () =>
     svg.transition().call(zoomBehavior.transform, d3.zoomIdentity));
 
-  // Responsive
   const ro = new ResizeObserver(() => {
     const nW = container.clientWidth;
     const nH = container.clientHeight;
@@ -652,7 +670,7 @@ function initMap() {
   });
   ro.observe(container);
 
-  setStatus("Mapa Gold cargado correctamente.");
+  setStatus("Mapa estatal de Yucatán cargado correctamente.");
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -670,7 +688,7 @@ async function initTerrain() {
       import("three/addons/controls/OrbitControls.js"),
       import("https://cdn.jsdelivr.net/npm/geotiff@2.1.3/+esm"),
     ]);
-    const tiff  = await fromUrl("./data/silver/lidar/merida_elevacion.tif");
+    const tiff  = await fromUrl("./data/silver/lidar/yucatan_elevacion.tif");
     const image = await tiff.getImage();
     const cols  = 160;
     const rows  = Math.max(2, Math.round(cols * image.getHeight() / image.getWidth()));
@@ -697,7 +715,7 @@ async function initTerrain() {
         const t   = mx === mn ? 0 : (v - mn) / (mx - mn);
         positions[idx*3]   = (c/(cols-1) - .5) * W;
         positions[idx*3+1] = (.5 - r/(rows-1)) * H;
-        positions[idx*3+2] = valid[idx] ? (v - mn) * 2.2 : 0;
+        positions[idx*3+2] = valid[idx] ? (v - mn) * 0.85 : 0;
         // Map t 0→1 : deep purple → gold
         color.lerpColors(
           new THREE.Color(C.purpleDeep),
@@ -741,7 +759,7 @@ async function initTerrain() {
 
     const camera = new THREE.PerspectiveCamera(42, container.clientWidth/container.clientHeight, .1, 1000);
     camera.up.set(0,0,1);
-    camera.position.set(W*.8, -H*1.15, Math.max(85, (mx-mn)*2.8));
+    camera.position.set(W*.75, -H*1.1, Math.max(85, (mx-mn)*0.9));
     camera.lookAt(0,0,10);
 
     const controls = new OrbitControls(camera, renderer.domElement);

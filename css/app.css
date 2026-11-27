@@ -249,9 +249,11 @@ button, select { font: inherit; }
 }
 #map-container svg:active { cursor: grabbing; }
 
-.map-postal { fill: rgba(156,39,176,.18); stroke: var(--purple-light); stroke-width: .6; transition: fill .15s; }
-.map-postal:hover { fill: rgba(106,27,154,.35); }
-.map-boundary { fill: none; stroke: var(--gold-deep); stroke-width: 2.5; }
+.map-postal { stroke: var(--purple-light); stroke-width: .7; transition: opacity .15s, stroke-width .15s; }
+.map-postal:hover { opacity: .82; stroke: var(--purple-deep); stroke-width: 1.5; }
+.map-mun-capital { stroke: var(--gold-deep); stroke-width: 1.8; }
+.map-mun-capital:hover { opacity: .88; }
+.map-boundary { fill: none; stroke: rgba(123,31,162,.45); stroke-width: .9; }
 .map-legend {
   position: absolute; bottom: 14px; left: 14px;
   background: rgba(255,255,255,.92);
