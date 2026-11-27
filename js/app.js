@@ -8,9 +8,12 @@
 const BASE = "./data/gold/dashboard";
 const DATASETS = {
   incidence:     `${BASE}/incidencia_yucatan_mensual_v1.json`,
-  perception:    `${BASE}/percepcion_ensu_anual_v1.json`,
+  perception:    `${BASE}/percepcion_envipe_anual_v1.json`,
+  cifraOculta:   `${BASE}/cifra_oculta_envipe_v1.json`,
   newsByMonth:   `${BASE}/noticias_mensuales_v1.json`,
   wordFrequency: `${BASE}/frecuencia_palabras_titulares_v1.json`,
+  bigrams:       `${BASE}/frecuencia_bigramas_titulares_v1.json`,
+  newsByOutlet:  `${BASE}/noticias_por_medio_v1.json`,
   boundary:      `${BASE}/territorio/limite_municipal_merida.geojson`,
   postalCodes:   `${BASE}/territorio/codigos_postales_merida.geojson`,
 };
@@ -350,8 +353,8 @@ function renderOverview() {
 
   document.querySelector("#kpi-incidencia").textContent = Math.round(latestTotal).toLocaleString("es-MX");
   document.querySelector("#kpi-incidencia-label").textContent = `Yucatán · ${latestYear} · registros`;
-  document.querySelector("#kpi-percepcion").textContent = `${num(latestPerc.porcentaje_inseguridad_promedio).toFixed(1)}%`;
-  document.querySelector("#kpi-percepcion-label").textContent = `ENSU · Mérida · ${latestPerc.anio}`;
+  document.querySelector("#kpi-percepcion").textContent = `${num(latestPerc.porcentaje_inseguridad_total).toFixed(1)}%`;
+  document.querySelector("#kpi-percepcion-label").textContent = `ENVIPE · Yucatán · ${latestPerc.anio}`;
   document.querySelector("#kpi-noticias").textContent = artCount.toLocaleString("es-MX");
 
   // Trend line (last 36 months)
@@ -417,15 +420,125 @@ function renderIncidence() {
   });
 }
 
-/* ── Percepción ────────────────────────────────────────────────────── */
+/* ── Percepción y Cifra Oculta (ENVIPE) ───────────────────────────── */
+function drawPerceptionMultiLine(containerId, rows) {
+  const el = document.getElementById(containerId);
+  if (!el || !rows.length) return;
+  clearResize(containerId);
+
+  const series = [
+    { key: "m", label: "Mujeres", color: "#9C27B0", width: 2.6, dash: null },
+    { key: "y", label: "Total",   color: "#D4AF37", width: 1.8, dash: "4,3" },
+    { key: "h", label: "Hombres", color: "#5E35B1", width: 2.6, dash: null },
+  ];
+
+  const paint = () => {
+    el.innerHTML = "";
+    const W = el.clientWidth || 520;
+    const H = el.clientHeight || 300;
+    const m = { top: 34, right: 48, bottom: 32, left: 44 };
+    const w = Math.max(180, W - m.left - m.right);
+    const h = Math.max(140, H - m.top - m.bottom);
+
+    const svg = d3.select(el).append("svg").attr("viewBox", `0 0 ${W} ${H}`);
+    const g = svg.append("g").attr("transform", `translate(${m.left},${m.top})`);
+
+    // Leyenda superior
+    const leg = svg.append("g").attr("transform", `translate(${m.left}, 14)`);
+    series.forEach((s, i) => {
+      const item = leg.append("g").attr("transform", `translate(${i * 96}, 0)`);
+      item.append("line")
+        .attr("x1", 0).attr("x2", 18).attr("y1", 0).attr("y2", 0)
+        .attr("stroke", s.color).attr("stroke-width", s.width)
+        .attr("stroke-dasharray", s.dash || "none");
+      item.append("text")
+        .attr("x", 24).attr("y", 4)
+        .style("font-size", "11px").style("fill", "currentColor")
+        .text(s.label);
+    });
+
+    const x = d3.scalePoint().domain(rows.map(d => d.x)).range([0, w]).padding(0.15);
+    const maxVal = d3.max(rows, d => Math.max(d.y, d.m, d.h)) || 70;
+    const y = d3.scaleLinear().domain([0, Math.min(100, Math.ceil(maxVal / 10) * 10 + 10)]).range([h, 0]);
+
+    g.append("g").call(d3.axisLeft(y).ticks(5).tickFormat(d => `${d}%`).tickSize(-w))
+      .call(ax => ax.select(".domain").remove())
+      .call(ax => ax.selectAll(".tick line").attr("stroke", "rgba(128,128,128,.15)"))
+      .call(ax => ax.selectAll("text").style("font-size", "11px"));
+
+    g.append("g").attr("transform", `translate(0,${h})`)
+      .call(d3.axisBottom(x).tickValues(rows.filter(d => Number(d.x) % 2 === 0).map(d => d.x)))
+      .call(ax => ax.select(".domain").attr("stroke", "rgba(128,128,128,.3)"))
+      .call(ax => ax.selectAll("text").style("font-size", "11px"));
+
+    const last = rows[rows.length - 1];
+    series.forEach(s => {
+      const line = d3.line().x(d => x(d.x)).y(d => y(d[s.key])).curve(d3.curveLinear);
+      g.append("path").datum(rows).attr("fill", "none")
+        .attr("stroke", s.color).attr("stroke-width", s.width)
+        .attr("stroke-dasharray", s.dash || "none")
+        .attr("d", line);
+
+      g.selectAll(`.pt-${s.key}`).data(rows).join("circle")
+        .attr("cx", d => x(d.x)).attr("cy", d => y(d[s.key]))
+        .attr("r", s.key === "y" ? 2.5 : 3.2)
+        .attr("fill", s.color)
+        .on("mouseenter", (ev, d) => showTip(ev, `<strong>Yucatán · ${d.x}</strong>Mujeres: ${d.m.toFixed(1)}%<br>Total: ${d.y.toFixed(1)}%<br>Hombres: ${d.h.toFixed(1)}%`))
+        .on("mousemove", moveTip)
+        .on("mouseleave", hideTip);
+
+      // Etiqueta directa del último año
+      if (last) {
+        g.append("text")
+          .attr("x", x(last.x) + 6)
+          .attr("y", y(last[s.key]) + 3.5)
+          .style("font-size", "10.5px")
+          .style("font-weight", s.key === "y" ? "500" : "700")
+          .style("fill", s.color)
+          .text(`${last[s.key].toFixed(1)}%`);
+      }
+    });
+  };
+
+  paint();
+  const ro = new ResizeObserver(paint);
+  ro.observe(el);
+  state.resizeObservers.set(containerId, ro);
+}
+
 function renderPerception() {
   const rows = [...state.data.perception].sort((a, b) => num(a.anio) - num(b.anio));
-  drawBars("percepcion-wrap", {
-    data: rows.map(r => ({ x: String(r.anio), y: num(r.porcentaje_inseguridad_promedio) })),
-    color: C.goldDeep,
-    yPercent: true,
-    yFormat: d => `${d}%`,
-    tooltipFn: d => `<strong>${d.x}</strong>${d.y.toFixed(1)}% inseguro`,
+  drawPerceptionMultiLine("percepcion-wrap", rows.map(r => ({
+    x: String(r.anio),
+    y: num(r.porcentaje_inseguridad_total),
+    m: num(r.porcentaje_inseguridad_mujeres),
+    h: num(r.porcentaje_inseguridad_hombres),
+  })));
+
+  const co = state.data.cifraOculta || [];
+  if (!co.length) return;
+
+  const years = [...new Set(co.map(r => num(r.anio)))].sort((a, b) => b - a);
+  const sel = document.getElementById("cifra-oculta-year");
+  if (sel && !sel.options.length) {
+    years.forEach(yr => {
+      const opt = document.createElement("option");
+      opt.value = String(yr);
+      opt.textContent = String(yr);
+      sel.appendChild(opt);
+    });
+    sel.addEventListener("change", () => renderPerception());
+  }
+
+  const chosenYear = sel ? Number(sel.value) : years[0];
+  const topCo = co
+    .filter(r => num(r.anio) === chosenYear && r.delito !== "Total")
+    .sort((a, b) => num(b.porcentaje_cifra_oculta) - num(a.porcentaje_cifra_oculta));
+
+  drawHorizBars("cifra-oculta-wrap", {
+    data: topCo.map(r => ({ label: r.delito, value: num(r.porcentaje_cifra_oculta) })),
+    color: C.purpleMid,
+    tooltipFn: d => `<strong>${d.label} (${chosenYear})</strong>${d.value.toFixed(1)}% sin denuncia`,
   });
 }
 
@@ -438,12 +551,30 @@ function renderNews() {
     tooltipFn: d => `<strong>${d.x}</strong>${d.y.toLocaleString("es-MX")} artículos`,
   });
 
-  const words = state.data.wordFrequency.slice(0, 12);
+  const bigrams = (state.data.bigrams || []).slice(0, 12);
+  if (bigrams.length) {
+    drawHorizBars("bigramas-wrap", {
+      data: bigrams.map(r => ({ label: r.frase, value: num(r.frecuencia) })),
+      color: C.purpleMid,
+      tooltipFn: d => `<strong>${d.label}</strong>${d.value.toLocaleString("es-MX")} menciones`,
+    });
+  }
+
+  const words = (state.data.wordFrequency || []).slice(0, 12);
   drawHorizBars("palabras-wrap", {
     data: words.map(r => ({ label: r.palabra, value: num(r.frecuencia) })),
     color: C.goldDeep,
     tooltipFn: d => `<strong>${d.label}</strong>${d.value.toLocaleString("es-MX")} menciones`,
   });
+
+  const outlets = (state.data.newsByOutlet || []).slice(0, 10);
+  if (outlets.length) {
+    drawHorizBars("medios-wrap", {
+      data: outlets.map(r => ({ label: r.medio, value: num(r.noticias) })),
+      color: C.purpleLight,
+      tooltipFn: d => `<strong>${d.label}</strong>${d.value.toLocaleString("es-MX")} artículos`,
+    });
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -681,14 +812,14 @@ async function fetchOptional(url) {
 
 async function start() {
   try {
-    const [incidence, perception, newsByMonth, wordFrequency, boundary, postalCodes] =
+    const [incidence, perception, cifraOculta, newsByMonth, wordFrequency, bigrams, newsByOutlet, boundary, postalCodes] =
       await Promise.all(Object.values(DATASETS).map(fetchOptional));
 
     // Mínimo: necesitamos incidencia y percepción para los KPIs del inicio
     if (!incidence || !perception) {
       // Renderizar sin datos — placeholders en cada sección
       state.data = {
-        incidence: [], perception: [], newsByMonth: [], wordFrequency: [],
+        incidence: [], perception: [], cifraOculta: [], newsByMonth: [], wordFrequency: [], bigrams: [], newsByOutlet: [],
         boundary: null, postalCodes: null,
       };
       placeholder("overview-wrap", "Pipeline ETL pendiente: ejecuta build_gold.py para generar los datos.");
@@ -703,8 +834,11 @@ async function start() {
     state.data = {
       incidence:     incidence     || [],
       perception:    perception    || [],
+      cifraOculta:   cifraOculta   || [],
       newsByMonth:   newsByMonth   || [],
       wordFrequency: wordFrequency || [],
+      bigrams:       bigrams       || [],
+      newsByOutlet:  newsByOutlet  || [],
       boundary,
       postalCodes,
     };

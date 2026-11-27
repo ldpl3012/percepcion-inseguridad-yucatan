@@ -61,7 +61,7 @@
 
         <div class="kpi-grid">
           <article class="kpi-card"><p>REGISTROS EN EL ÚLTIMO AÑO</p><strong id="kpi-incidencia">—</strong><small id="kpi-incidencia-label">Incidencia delictiva · Yucatán</small></article>
-          <article class="kpi-card accent"><p>PERCEPCIÓN DE INSEGURIDAD</p><strong id="kpi-percepcion">—</strong><small id="kpi-percepcion-label">ENSU · área urbana Mérida</small></article>
+          <article class="kpi-card accent"><p>PERCEPCIÓN DE INSEGURIDAD</p><strong id="kpi-percepcion">—</strong><small id="kpi-percepcion-label">ENVIPE · Yucatán estatal</small></article>
           <article class="kpi-card"><p>ARTÍCULOS ANALIZADOS</p><strong id="kpi-noticias">—</strong><small>Metadatos y titulares disponibles</small></article>
         </div>
 
@@ -73,7 +73,7 @@
           <div class="chart-wrap chart-tall" id="overview-wrap"></div>
           <p class="chart-note">Los conteos reflejan denuncias/averiguaciones previas registradas, no prevalencia total del delito.</p>
         </article>
-        <p class="method-note">Las series tienen coberturas distintas. ENSU representa el área urbana de Mérida; incidencia delictiva corresponde al <strong>estado de Yucatán</strong> (clave estatal Datos.gob.mx). No son mediciones directamente equivalentes.</p>
+        <p class="method-note">Ambas series tienen cobertura <strong>estatal de Yucatán</strong> (clave estatal 31), pero miden fenómenos distintos: la ENVIPE estima percepción ciudadana mediante encuesta en hogares, mientras que SESNSP registra carpetas de investigación iniciadas (excluyendo la cifra oculta).</p>
       </section>
 
       <!-- ── 02 INCIDENCIA ──────────────────────────────────────── -->
@@ -91,10 +91,13 @@
 
       <!-- ── 03 PERCEPCIÓN ──────────────────────────────────────── -->
       <section class="view" id="view-percepcion" role="tabpanel" aria-labelledby="tab-percepcion" hidden>
-        <div class="section-heading page-heading"><div><p class="eyebrow">03 / ENCUESTA ENSU</p><h2>Percepción ciudadana</h2></div></div>
+        <div class="section-heading page-heading"><div><p class="eyebrow">03 / ENCUESTA ENVIPE · YUCATÁN</p><h2>Percepción ciudadana</h2></div></div>
         <p class="intro-copy">Porcentaje promedio de respuestas «inseguro» en el área urbana de Mérida, ponderado con el factor de expansión de la persona seleccionada.</p>
-        <article class="panel"><div class="panel-title"><h3>Percepción de inseguridad en Mérida</h3><span>porcentaje</span></div><div class="chart-wrap chart-tall" id="percepcion-wrap"></div></article>
-        <p class="method-note">El área urbana de Mérida en ENSU incluye los municipios cubiertos por la encuesta, no solo el municipio con clave 31050. Se excluyeron respuestas «no sabe / no responde».</p>
+        <div class="two-col">
+          <article class="panel"><div class="panel-title"><h3>Percepción de inseguridad en Yucatán</h3><span>Total · Mujeres · Hombres (%)</span></div><div class="chart-wrap" id="percepcion-wrap"></div></article>
+          <article class="panel"><div class="panel-title"><h3>Cifra oculta por tipo de delito</h3><label class="select-label" style="font-size:.8rem">Año <select id="cifra-oculta-year" aria-label="Año cifra oculta"></select></label></div><div class="chart-wrap" id="cifra-oculta-wrap"></div></article>
+        </div>
+        <p class="method-note">Los datos provienen de la Encuesta Nacional de Victimización y Percepción sobre Seguridad Pública (ENVIPE, INEGI) con cobertura estatal para Yucatán (clave 31). La cifra oculta corresponde al porcentaje de delitos no denunciados o sin carpeta de investigación.</p>
       </section>
 
       <!-- ── 04 TERRITORIO ──────────────────────────────────────── -->
@@ -130,10 +133,15 @@
 
       <!-- ── 06 PRENSA ──────────────────────────────────────────── -->
       <section class="view" id="view-prensa" role="tabpanel" aria-labelledby="tab-prensa" hidden>
-        <div class="section-heading page-heading"><div><p class="eyebrow">06 / COBERTURA MEDIÁTICA</p><h2>Análisis de prensa</h2></div></div>
+        <div class="section-heading page-heading"><div><p class="eyebrow">06 / COBERTURA MEDIÁTICA</p><h2>Análisis de prensa</h2>
+        <p class="section-sub">Seguimiento mensual de 627 titulares en 83 medios locales y nacionales sobre seguridad en Yucatán.</p></div></div>
         <div class="two-col">
           <article class="panel"><div class="panel-title"><h3>Artículos por mes</h3><span>publicaciones</span></div><div class="chart-wrap" id="noticias-wrap"></div></article>
-          <article class="panel"><div class="panel-title"><h3>Palabras en titulares</h3><span>frecuencia</span></div><div class="chart-wrap" id="palabras-wrap"></div></article>
+          <article class="panel"><div class="panel-title"><h3>Frases clave en titulares</h3><span>bigramas frecuentes</span></div><div class="chart-wrap" id="bigramas-wrap"></div></article>
+        </div>
+        <div class="two-col" style="margin-top:1.25rem">
+          <article class="panel"><div class="panel-title"><h3>Palabras más frecuentes</h3><span>términos individuales</span></div><div class="chart-wrap" id="palabras-wrap"></div></article>
+          <article class="panel"><div class="panel-title"><h3>Cobertura por medio</h3><span>artículos por fuente</span></div><div class="chart-wrap" id="medios-wrap"></div></article>
         </div>
         <p class="method-note">La frecuencia se calcula únicamente sobre titulares disponibles en Silver; no se extrae ni reproduce el cuerpo de los artículos. No es análisis de sentimiento.</p>
       </section>
