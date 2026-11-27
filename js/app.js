@@ -275,6 +275,7 @@ function drawHorizBars(containerId, {
   data,       // [{label, value}]
   color = C.purpleMid,
   tooltipFn = (d) => `<strong>${d.label}</strong>${d.value.toLocaleString("es-MX")}`,
+  formatFn = (v) => v.toLocaleString("es-MX"),
 }) {
   clearResize(containerId);
   const wrap = document.getElementById(containerId);
@@ -325,7 +326,7 @@ function drawHorizBars(containerId, {
       .attr("x", d => x(d.value) + 5)
       .attr("y", d => y(d.label) + y.bandwidth() / 2 + 3)
       .attr("font-size", 9).attr("fill", C.muted)
-      .text(d => d.value.toLocaleString("es-MX"));
+      .text(d => formatFn(d.value));
   }
 
   render();
@@ -538,6 +539,7 @@ function renderPerception() {
   drawHorizBars("cifra-oculta-wrap", {
     data: topCo.map(r => ({ label: r.delito, value: num(r.porcentaje_cifra_oculta) })),
     color: C.purpleMid,
+    formatFn: v => v.toFixed(1),
     tooltipFn: d => `<strong>${d.label} (${chosenYear})</strong>${d.value.toFixed(1)}% sin denuncia`,
   });
 }
