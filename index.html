@@ -61,7 +61,7 @@
 
         <div class="kpi-grid">
           <article class="kpi-card"><p>REGISTROS EN EL ÚLTIMO AÑO</p><strong id="kpi-incidencia">—</strong><small id="kpi-incidencia-label">Incidencia delictiva · Yucatán</small></article>
-          <article class="kpi-card accent"><p>PERCEPCIÓN DE INSEGURIDAD</p><strong id="kpi-percepcion">—</strong><small id="kpi-percepcion-label">ENSU · área urbana Mérida</small></article>
+          <article class="kpi-card accent"><p>PERCEPCIÓN DE INSEGURIDAD</p><strong id="kpi-percepcion">—</strong><small id="kpi-percepcion-label">ENVIPE · Yucatán estatal</small></article>
           <article class="kpi-card"><p>ARTÍCULOS ANALIZADOS</p><strong id="kpi-noticias">—</strong><small>Metadatos y titulares disponibles</small></article>
         </div>
 
@@ -73,7 +73,7 @@
           <div class="chart-wrap chart-tall" id="overview-wrap"></div>
           <p class="chart-note">Los conteos reflejan denuncias/averiguaciones previas registradas, no prevalencia total del delito.</p>
         </article>
-        <p class="method-note">Las series tienen coberturas distintas. ENSU representa el área urbana de Mérida; incidencia delictiva corresponde al <strong>estado de Yucatán</strong> (clave estatal Datos.gob.mx). No son mediciones directamente equivalentes.</p>
+        <p class="method-note">Ambas series tienen cobertura <strong>estatal de Yucatán</strong> (clave estatal 31), pero miden fenómenos distintos: la ENVIPE estima percepción ciudadana mediante encuesta en hogares, mientras que SESNSP registra carpetas de investigación iniciadas (excluyendo la cifra oculta).</p>
       </section>
 
       <!-- ── 02 INCIDENCIA ──────────────────────────────────────── -->
@@ -91,49 +91,86 @@
 
       <!-- ── 03 PERCEPCIÓN ──────────────────────────────────────── -->
       <section class="view" id="view-percepcion" role="tabpanel" aria-labelledby="tab-percepcion" hidden>
-        <div class="section-heading page-heading"><div><p class="eyebrow">03 / ENCUESTA ENSU</p><h2>Percepción ciudadana</h2></div></div>
+        <div class="section-heading page-heading"><div><p class="eyebrow">03 / ENCUESTA ENVIPE · YUCATÁN</p><h2>Percepción ciudadana</h2></div></div>
         <p class="intro-copy">Porcentaje promedio de respuestas «inseguro» en el área urbana de Mérida, ponderado con el factor de expansión de la persona seleccionada.</p>
-        <article class="panel"><div class="panel-title"><h3>Percepción de inseguridad en Mérida</h3><span>porcentaje</span></div><div class="chart-wrap chart-tall" id="percepcion-wrap"></div></article>
-        <p class="method-note">El área urbana de Mérida en ENSU incluye los municipios cubiertos por la encuesta, no solo el municipio con clave 31050. Se excluyeron respuestas «no sabe / no responde».</p>
+        <div class="two-col">
+          <article class="panel"><div class="panel-title"><h3>Percepción de inseguridad en Yucatán</h3><span>Total · Mujeres · Hombres (%)</span></div><div class="chart-wrap" id="percepcion-wrap"></div></article>
+          <article class="panel"><div class="panel-title"><h3>Cifra oculta por tipo de delito</h3><label class="select-label" style="font-size:.8rem">Año <select id="cifra-oculta-year" aria-label="Año cifra oculta"></select></label></div><div class="chart-wrap" id="cifra-oculta-wrap"></div></article>
+        </div>
+        <p class="method-note">Los datos provienen de la Encuesta Nacional de Victimización y Percepción sobre Seguridad Pública (ENVIPE, INEGI) con cobertura estatal para Yucatán (clave 31). La cifra oculta corresponde al porcentaje de delitos no denunciados o sin carpeta de investigación.</p>
       </section>
 
       <!-- ── 04 TERRITORIO ──────────────────────────────────────── -->
       <section class="view" id="view-territorio" role="tabpanel" aria-labelledby="tab-territorio" hidden>
         <div class="section-heading page-heading"><div><p class="eyebrow">04 / LECTURA ESPACIAL</p><h2>El territorio</h2></div></div>
-        <p class="intro-copy">Códigos postales recortados al límite municipal de Mérida. Usa los controles para hacer zoom o arrastra para desplazarte.</p>
+        <p class="intro-copy">Explora los 106 municipios de Yucatán alternando entre cobertura mediática (627 notas), extensión territorial (km²) y elevación media (CEM 4.0). Busca un municipio o haz clic en el Top 5 para resaltarlo.</p>
+        <div class="territory-toolbar">
+          <div class="layer-bar" role="group" aria-label="Capa temática del mapa" style="margin-bottom:0">
+            <button class="layer-btn active" data-layer="prensa">Cobertura en prensa (notas)</button>
+            <button class="layer-btn" data-layer="area">Extensión territorial (km²)</button>
+            <button class="layer-btn" data-layer="elevacion">Elevación media (m s. n. m.)</button>
+          </div>
+          <div class="search-box"><input id="mun-search" class="mun-search" type="text" list="municipios-list" placeholder="Buscar municipio (ej. Tekax)..." aria-label="Buscar municipio" autocomplete="off" /><datalist id="municipios-list"></datalist></div>
+        </div>
         <article class="panel map-panel">
-          <div id="map-container" aria-label="Mapa de códigos postales y límite municipal de Mérida">
+          <div id="map-container" aria-label="Mapa de los 106 municipios de Yucatán">
             <div class="map-controls">
               <button id="map-zoom-in"  aria-label="Acercar mapa" title="Acercar">+</button>
               <button id="map-zoom-out" aria-label="Alejar mapa"  title="Alejar">−</button>
               <button id="map-reset"    aria-label="Restablecer mapa" title="Restablecer" style="font-size:12px">⟳</button>
             </div>
-            <div class="map-legend">
-              <div class="map-legend-item"><div class="map-legend-swatch" style="background:rgba(156,39,176,.25);border:1px solid #9C27B0"></div><span>Códigos postales</span></div>
-              <div class="map-legend-item"><div class="map-legend-swatch" style="background:transparent;border:2px solid #D4AF37"></div><span>Límite municipal</span></div>
-            </div>
+            <div class="map-legend" id="map-legend"></div>
           </div>
+          <div class="top5-strip" id="top5-strip" aria-label="Top 5 municipios por capa activa"></div>
         </article>
-        <p class="chart-note">Los polígonos son límites de referencia; no representan una medición de seguridad por zona.</p>
+        <p class="chart-note">Fuentes: Marco Geoestadístico INEGI/CONABIO, corpus de prensa (627 titulares), reporte COPLADEM Policía 2025 y CEM 4.0. ENVIPE conserva escala estatal.</p>
       </section>
 
       <!-- ── 05 RELIEVE ─────────────────────────────────────────── -->
       <section class="view" id="view-relieve" role="tabpanel" aria-labelledby="tab-relieve" hidden>
-        <div class="section-heading page-heading"><div><p class="eyebrow">05 / MODELO DIGITAL DE ELEVACIÓN</p><h2>Relieve y seguridad</h2></div></div>
-        <p class="intro-copy">Modelo de elevación del INEGI (CEM 4.0) recortado al municipio de Mérida. Arrastra para orbitar y usa la rueda para acercar.</p>
+        <div class="section-heading page-heading"><div><p class="eyebrow">05 / MODELO DIGITAL DE ELEVACIÓN</p><h2>Relieve y contexto territorial</h2></div></div>
+        <p class="intro-copy">Modelo digital de elevación del INEGI (CEM 4.0) para Yucatán. Haz clic en una tarjeta de zona para enfocar la cámara 3D o arrastra libremente para orbitar.</p>
         <article class="panel terrain-panel">
-          <div id="terrain-view" aria-label="Visor tridimensional del modelo de elevación de Mérida"></div>
+          <div class="map-controls">
+            <button id="terrain-exag" title="Alternar exageración vertical" style="width:auto;padding:0 10px;font-size:12px">Relieve 1×</button>
+            <button id="terrain-reset" aria-label="Restablecer vista 3D" title="Restablecer vista" style="font-size:12px">⟳</button>
+          </div>
+          <div class="map-legend">
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#3b1261"></div><span>Costa / baja (0–15 m)</span></div>
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#9c27b0"></div><span>Planicie media (15–55 m)</span></div>
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#d4af37"></div><span>Sur / Sierrita Puuc (&gt;55 m)</span></div>
+          </div>
+          <div id="terrain-view" aria-label="Visor tridimensional del modelo de elevación de Yucatán"></div>
           <div id="terrain-status" class="overlay-status" role="status">El visor 3D se cargará al abrir esta pestaña.</div>
         </article>
-        <p class="method-note">La elevación no mide inseguridad. El modelo de elevación del INEGI sirve como contexto físico del territorio; la relación entre variables requiere análisis adicional.</p>
+        <div class="terrain-insights">
+          <div class="terrain-card is-clickable" data-focus="costa">
+            <h4>Franja costera baja (0–15 m)</h4>
+            <p>Municipios litorales como Progreso (1.8 m prom.) y Celestún (4.4 m) concentran actividad portuaria y pesquera con 8 y 4 notas en prensa respectivamente.</p>
+          </div>
+          <div class="terrain-card is-clickable" data-focus="planicie">
+            <h4>Planicie extensa vs. polo urbano</h4>
+            <p>Mérida (884 km², 10 m prom.) concentra 185 notas de prensa y 891 menciones en COPLADEM, mientras Tizimín (3,883 km², más de 4× su área) registra solo 2 notas.</p>
+          </div>
+          <div class="terrain-card is-clickable" data-focus="puuc">
+            <h4>Sur y Sierrita Puuc (hasta 196 m)</h4>
+            <p>Tekax alcanza 196 m de elevación máxima (176 m de desnivel) y 2,770 km² de superficie, pero aparece con 0 menciones en titulares y reportes policiales analizados.</p>
+          </div>
+        </div>
+        <p class="method-note">El relieve no mide inseguridad: sirve para contrastar la geografía física y la extensión de los municipios frente a la fuerte concentración urbana de la cobertura mediática e institucional.</p>
       </section>
 
       <!-- ── 06 PRENSA ──────────────────────────────────────────── -->
       <section class="view" id="view-prensa" role="tabpanel" aria-labelledby="tab-prensa" hidden>
-        <div class="section-heading page-heading"><div><p class="eyebrow">06 / COBERTURA MEDIÁTICA</p><h2>Análisis de prensa</h2></div></div>
+        <div class="section-heading page-heading"><div><p class="eyebrow">06 / COBERTURA MEDIÁTICA</p><h2>Análisis de prensa</h2>
+        <p class="intro-copy">Cobertura de 627 titulares en 83 medios sobre seguridad en Yucatán. Pasa el cursor sobre las barras o líneas para explorar el detalle mensual, medios y términos frecuentes.</p></div></div>
         <div class="two-col">
           <article class="panel"><div class="panel-title"><h3>Artículos por mes</h3><span>publicaciones</span></div><div class="chart-wrap" id="noticias-wrap"></div></article>
-          <article class="panel"><div class="panel-title"><h3>Palabras en titulares</h3><span>frecuencia</span></div><div class="chart-wrap" id="palabras-wrap"></div></article>
+          <article class="panel"><div class="panel-title"><h3>Frases clave en titulares</h3><span>bigramas frecuentes</span></div><div class="chart-wrap" id="bigramas-wrap"></div></article>
+        </div>
+        <div class="two-col" style="margin-top:1.25rem">
+          <article class="panel"><div class="panel-title"><h3>Palabras más frecuentes</h3><span>términos individuales</span></div><div class="chart-wrap" id="palabras-wrap"></div></article>
+          <article class="panel"><div class="panel-title"><h3>Cobertura por medio</h3><span>artículos por fuente</span></div><div class="chart-wrap" id="medios-wrap"></div></article>
         </div>
         <p class="method-note">La frecuencia se calcula únicamente sobre titulares disponibles en Silver; no se extrae ni reproduce el cuerpo de los artículos. No es análisis de sentimiento.</p>
       </section>

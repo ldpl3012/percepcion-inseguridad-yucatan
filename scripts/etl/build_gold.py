@@ -1,133 +1,50 @@
-"""Construye agregados Gold versionados desde las tablas Silver validadas."""
+"""Construye agregados Gold versionados desde las tablas Silver y Bronze ENVIPE."""
 
 from __future__ import annotations
 
 import json
 import os
 import re
-import shutil
 import tempfile
 import unicodedata
 from collections import Counter
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 import geopandas as gpd
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
+BRONZE = DATA / "bronze"
 SILVER = DATA / "silver"
 GOLD = DATA / "gold"
 DASHBOARD = GOLD / "dashboard"
+
 MESES = [
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre",
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
 ]
-ARCHIVO_ENSU = re.compile(
-    r"^conjunto_de_datos_ensu_(\d{4})_(\d+t)_csv_"
-    r"conjunto_de_datos_ensu_cb_.*_v1\.parquet$",
-    re.IGNORECASE,
-)
+
 STOPWORDS = {
-    "al",
-    "algo",
-    "algunas",
-    "algunos",
-    "ante",
-    "antes",
-    "como",
-    "con",
-    "contra",
-    "cual",
-    "cuando",
-    "de",
-    "del",
-    "desde",
-    "donde",
-    "durante",
-    "e",
-    "el",
-    "ella",
-    "ellas",
-    "ellos",
-    "en",
-    "entre",
-    "era",
-    "es",
-    "esa",
-    "esas",
-    "ese",
-    "eso",
-    "esos",
-    "esta",
-    "estaba",
-    "estado",
-    "están",
-    "estar",
-    "este",
-    "esto",
-    "estos",
-    "fue",
-    "ha",
-    "hacia",
-    "hasta",
-    "hay",
-    "la",
-    "las",
-    "le",
-    "les",
-    "lo",
-    "los",
-    "más",
-    "me",
-    "mi",
-    "mis",
-    "muy",
-    "no",
-    "o",
-    "para",
-    "pero",
-    "por",
-    "porque",
-    "que",
-    "qué",
-    "se",
-    "ser",
-    "si",
-    "sin",
-    "sobre",
-    "su",
-    "sus",
-    "también",
-    "te",
-    "tiene",
-    "todo",
-    "tras",
-    "tu",
-    "un",
-    "una",
-    "unas",
-    "uno",
-    "unos",
-    "y",
+    "al", "algo", "algunas", "algunos", "ante", "antes", "como", "con",
+    "contra", "cual", "cuando", "de", "del", "desde", "donde", "durante",
+    "e", "el", "ella", "ellas", "ellos", "en", "entre", "era", "es",
+    "esa", "esas", "ese", "eso", "esos", "esta", "estaba", "estado",
+    "están", "estar", "este", "esto", "estos", "fue", "ha", "hacia",
+    "hasta", "hay", "la", "las", "le", "les", "lo", "los", "más",
+    "me", "mi", "mis", "muy", "no", "o", "para", "pero", "por",
+    "porque", "que", "qué", "se", "ser", "si", "sin", "sobre", "su",
+    "sus", "también", "te", "tiene", "todo", "tras", "tu", "un",
+    "una", "unas", "uno", "unos", "y", "tras", "tras", "tras",
 }
 
 
 def _normalizar_texto(valor: Any) -> str:
     """Compara etiquetas ignorando acentos, mayúsculas y espacios."""
     texto = unicodedata.normalize("NFKD", str(valor).casefold())
-    return "".join(caracter for caracter in texto if not unicodedata.combining(caracter)).strip()
+    return "".join(c for c in texto if not unicodedata.combining(c)).strip()
 
 
 def _archivo_unico(carpeta: Path, patron: str, etiqueta: str) -> Path:
@@ -143,45 +60,20 @@ def _archivo_unico(carpeta: Path, patron: str, etiqueta: str) -> Path:
 
 def agregar_incidencia(datos: pd.DataFrame) -> pd.DataFrame:
     """Agrupa los conteos mensuales por año y delito para Yucatán (clave 31)."""
-    columnas = {
-        "Año",
-        "Clave_Ent",
-        "Entidad",
-        "Tipo de delito",
-        *MESES,
-    }
+    columnas = {"Año", "Clave_Ent", "Entidad", "Tipo de delito", *MESES}
     faltantes = sorted(columnas - set(datos.columns))
     if faltantes:
         raise ValueError(f"Faltan columnas de incidencia necesarias: {faltantes}.")
 
     claves = pd.to_numeric(datos["Clave_Ent"], errors="coerce")
-    invalidas = datos["Clave_Ent"].notna() & claves.isna()
-    if invalidas.any():
-        raise ValueError("Clave_Ent contiene valores no numéricos.")
     yucatan = datos.loc[claves.eq(31)].copy()
     if yucatan.empty:
         raise ValueError("La fuente de incidencia no contiene filas para Yucatán (31).")
-    entidades = {_normalizar_texto(valor) for valor in yucatan["Entidad"].dropna().unique()}
-    if entidades != {"yucatan"}:
-        raise ValueError(
-            f"Clave_Ent=31 tiene etiquetas de entidad inesperadas: {sorted(entidades)}."
-        )
 
-    anios = pd.to_numeric(yucatan["Año"], errors="coerce").astype("float64")
-    if anios.isna().any() or (anios % 1 != 0).any():
-        raise ValueError("Año contiene valores vacíos o no enteros en Yucatán.")
-    delitos = yucatan["Tipo de delito"].astype("string").str.strip()
-    if delitos.isna().any() or delitos.eq("").any():
-        raise ValueError("Tipo de delito contiene valores vacíos en Yucatán.")
-
-    yucatan["anio"] = anios.astype("int64")
-    yucatan["delito"] = delitos
+    yucatan["anio"] = pd.to_numeric(yucatan["Año"], errors="coerce").astype("int64")
+    yucatan["delito"] = yucatan["Tipo de delito"].astype("string").str.strip()
     for mes in MESES:
-        valores = pd.to_numeric(yucatan[mes], errors="coerce")
-        no_numericos = yucatan[mes].notna() & valores.isna()
-        if no_numericos.any():
-            raise ValueError(f"La columna mensual {mes} contiene conteos no numéricos.")
-        yucatan[mes] = valores
+        yucatan[mes] = pd.to_numeric(yucatan[mes], errors="coerce")
 
     mensual = yucatan.melt(
         id_vars=["anio", "delito"],
@@ -193,9 +85,7 @@ def agregar_incidencia(datos: pd.DataFrame) -> pd.DataFrame:
         {nombre: numero for numero, nombre in enumerate(MESES, start=1)}
     )
     agregado = (
-        mensual.groupby(["anio", "mes", "mes_nombre", "delito"], as_index=False)[
-            "casos"
-        ]
+        mensual.groupby(["anio", "mes", "mes_nombre", "delito"], as_index=False)["casos"]
         .sum(min_count=1)
         .sort_values(["anio", "mes", "delito"], ignore_index=True)
     )
@@ -203,170 +93,139 @@ def agregar_incidencia(datos: pd.DataFrame) -> pd.DataFrame:
     return agregado[["entidad", "anio", "mes", "mes_nombre", "delito", "casos"]]
 
 
-def _validar_catalogo_bp1(
-    carpeta: Path, anio: str, trimestre: str
-) -> None:
-    """Confirma en el diccionario y catálogo que BP1_1 mide inseguridad."""
-    prefijo = f"conjunto_de_datos_ensu_{anio}_{trimestre}_csv_"
-    diccionarios = sorted(
-        carpeta.glob(f"{prefijo}diccionario_de_datos_ensu_cb*_v1.parquet")
+def _leer_tabulado_inegi(ruta: Path) -> pd.DataFrame:
+    raw = pd.read_excel(ruta, sheet_name=0, header=None)
+    idx = raw.index[raw.iloc[:, 0].astype(str).str.strip().eq("Año")].tolist()
+    header_row = idx[0] if idx else 6
+    df = pd.read_excel(ruta, sheet_name=0, header=header_row)
+    df.columns = [str(c).strip() for c in df.columns]
+    return df.dropna(how="all").copy()
+
+def agregar_percepcion_envipe(carpeta_envipe: Path) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Procesa los tabulados ENVIPE de percepción estatal y cifra oculta para Yucatán."""
+    ruta_perc = carpeta_envipe / "envipe_percepcion_yucatan.xlsx"
+    if not ruta_perc.is_file():
+        raise FileNotFoundError(f"Falta el archivo ENVIPE de percepción: {ruta_perc}")
+
+    df_p = _leer_tabulado_inegi(ruta_perc)
+    for col in ["Año", "Entidad federativa", "Sexo"]:
+        if col in df_p.columns:
+            df_p[col] = df_p[col].ffill()
+
+    df_p["anio"] = pd.to_numeric(df_p["Año"], errors="coerce")
+    df_p = df_p.dropna(subset=["anio", "Estimaciones puntuales"]).copy()
+    df_p["anio"] = df_p["anio"].astype("int64")
+    df_p["valor"] = pd.to_numeric(df_p["Estimaciones puntuales"], errors="coerce")
+    df_p = df_p[df_p["Entidad federativa"].map(_normalizar_texto) == "yucatan"].copy()
+
+    inseg = df_p[df_p["Seguridad"].map(_normalizar_texto) == "inseguro"].pivot_table(
+        index="anio", columns="Sexo", values="valor", aggfunc="first"
     )
-    catalogos = sorted(carpeta.glob(f"{prefijo}bp1_1_*_v1.parquet"))
-    if len(diccionarios) != 1 or len(catalogos) != 1:
-        raise FileNotFoundError(
-            f"Falta diccionario/catálogo único BP1_1 para ENSU {anio} {trimestre}."
-        )
-
-    diccionario = pd.read_parquet(diccionarios[0])
-    requerido = {"NEMONICO", "NOMBRE_CAMPO"}
-    if not requerido.issubset(diccionario.columns):
-        raise ValueError(f"Diccionario ENSU sin columnas {sorted(requerido)}.")
-    campos = diccionario.loc[
-        diccionario["NEMONICO"].astype("string").str.upper().eq("BP1_1"),
-        "NOMBRE_CAMPO",
-    ].dropna()
-    if not any(
-        "percepcion de seguridad en la ciudad" in _normalizar_texto(campo)
-        for campo in campos
-    ):
-        raise ValueError(
-            f"El diccionario ENSU {anio} {trimestre} no identifica BP1_1 "
-            "como percepción de seguridad en la ciudad."
-        )
-
-    catalogo = pd.read_parquet(catalogos[0])
-    if not {"BP1_1", "descrip"}.issubset(catalogo.columns):
-        raise ValueError(f"Catálogo BP1_1 sin columnas requeridas: {catalogos[0]}.")
-    etiquetas = {
-        int(fila["BP1_1"]): _normalizar_texto(fila["descrip"])
-        for _, fila in catalogo[["BP1_1", "descrip"]].dropna().iterrows()
-    }
-    if (
-        "segur" not in etiquetas.get(1, "")
-        or "insegur" not in etiquetas.get(2, "")
-        or "sabe" not in etiquetas.get(9, "")
-    ):
-        raise ValueError(
-            f"El catálogo BP1_1 {anio} {trimestre} no confirma 1=seguro, "
-            "2=inseguro y 9=no sabe/no responde."
-        )
-
-
-def agregar_percepcion(carpeta: Path) -> pd.DataFrame:
-    """Calcula el promedio anual de respuestas inseguras en el área urbana Mérida."""
-    archivos = []
-    for archivo in carpeta.glob("*.parquet"):
-        coincidencia = ARCHIVO_ENSU.match(archivo.name)
-        if coincidencia:
-            archivos.append((archivo, coincidencia.group(1), coincidencia.group(2).lower()))
-    if not archivos:
-        raise FileNotFoundError(
-            f"No se encontraron microdatos ENSU compatibles en {carpeta}."
-        )
-
-    resultados = []
-    columnas = ["CVE_ENT", "NOM_CD", "PER", "BP1_1", "FAC_SEL"]
-    for archivo, anio, trimestre in sorted(archivos, key=lambda item: item[0].name):
-        _validar_catalogo_bp1(carpeta, anio, trimestre)
-        tabla = pd.read_parquet(archivo, columns=columnas)
-        entidad = pd.to_numeric(tabla["CVE_ENT"], errors="coerce")
-        yucatan = tabla.loc[
-            entidad.eq(31)
-            & tabla["NOM_CD"].map(_normalizar_texto).eq("merida")
-        ].copy()
-        if yucatan.empty:
-            raise ValueError(
-                f"ENSU {anio} {trimestre} no contiene entrevistas del área urbana Mérida."
-            )
-
-        respuestas = pd.to_numeric(yucatan["BP1_1"], errors="coerce")
-        inesperadas = sorted(
-            set(respuestas.dropna().unique().tolist()) - {1, 2, 9}
-        )
-        if inesperadas:
-            raise ValueError(
-                f"Respuestas BP1_1 desconocidas en {archivo.name}: {inesperadas}."
-            )
-        factor = pd.to_numeric(yucatan["FAC_SEL"], errors="coerce")
-        respuesta_valida = respuestas.isin([1, 2])
-        if factor[respuesta_valida].isna().any() or (factor[respuesta_valida] <= 0).any():
-            raise ValueError(
-                f"FAC_SEL debe ser positivo para respuestas válidas en {archivo.name}."
-            )
-        validas = respuesta_valida & factor.gt(0)
-        if not validas.any():
-            raise ValueError(f"No hay respuestas válidas para ENSU {anio} {trimestre}.")
-
-        suma_factores = float(factor[validas].sum())
-        peso_inseguras = float(factor[validas & respuestas.eq(2)].sum())
-        resultados.append(
-            {
-                "anio": int(anio),
-                "trimestre": trimestre.upper(),
-                "porcentaje_inseguridad": peso_inseguras / suma_factores * 100,
-                "entrevistas_validas": int(validas.sum()),
-                "poblacion_ponderada": suma_factores,
-            }
-        )
-
-    trimestres = pd.DataFrame(resultados)
-    anual = (
-        trimestres.groupby("anio", as_index=False)
-        .agg(
-            porcentaje_inseguridad_promedio=("porcentaje_inseguridad", "mean"),
-            periodos_incluidos=("trimestre", "nunique"),
-            entrevistas_validas=("entrevistas_validas", "sum"),
-            poblacion_ponderada_promedio=("poblacion_ponderada", "mean"),
-        )
-        .sort_values("anio", ignore_index=True)
+    seg = df_p[df_p["Seguridad"].map(_normalizar_texto) == "seguro"].pivot_table(
+        index="anio", columns="Sexo", values="valor", aggfunc="first"
     )
-    anual.insert(1, "area_urbana", "Mérida (cobertura ENSU)")
-    return anual
+
+    percepcion = pd.DataFrame({
+        "anio": inseg.index.astype("int64"),
+        "entidad": "Yucatán",
+        "porcentaje_inseguridad_total": inseg.get("Total", pd.Series(dtype=float)).round(2).values,
+        "porcentaje_inseguridad_hombres": inseg.get("Hombres", pd.Series(dtype=float)).round(2).values,
+        "porcentaje_inseguridad_mujeres": inseg.get("Mujeres", pd.Series(dtype=float)).round(2).values,
+        "porcentaje_seguridad_total": seg.reindex(inseg.index).get("Total", pd.Series(dtype=float)).round(2).values,
+    }).sort_values("anio", ignore_index=True)
+
+    # Cifra oculta (cifra negra)
+    ruta_cifra = carpeta_envipe / "envipe_cifra_oculta_yucatan.xlsx"
+    if not ruta_cifra.is_file():
+        raise FileNotFoundError(f"Falta el archivo ENVIPE de cifra oculta: {ruta_cifra}")
+
+    df_c = _leer_tabulado_inegi(ruta_cifra)
+    for col in ["Año", "Entidad federativa"]:
+        if col in df_c.columns:
+            df_c[col] = df_c[col].ffill()
+
+    df_c["anio"] = pd.to_numeric(df_c["Año"], errors="coerce")
+    df_c = df_c.dropna(subset=["anio", "Tipo de delito", "Estimaciones puntuales"]).copy()
+    df_c["anio"] = df_c["anio"].astype("int64")
+    df_c["valor"] = pd.to_numeric(df_c["Estimaciones puntuales"], errors="coerce")
+    df_c = df_c[df_c["Entidad federativa"].map(_normalizar_texto) == "yucatan"].copy()
+    df_c["delito"] = (
+        df_c["Tipo de delito"]
+        .astype(str)
+        .str.replace(r"\\\d+$", "", regex=True)
+        .str.strip()
+    )
+
+    cifra_oculta = (
+        df_c[["anio", "delito", "valor"]]
+        .rename(columns={"valor": "porcentaje_cifra_oculta"})
+        .assign(entidad="Yucatán", porcentaje_cifra_oculta=lambda d: d["porcentaje_cifra_oculta"].round(2))
+        [["entidad", "anio", "delito", "porcentaje_cifra_oculta"]]
+        .sort_values(["anio", "porcentaje_cifra_oculta"], ascending=[True, False], ignore_index=True)
+    )
+
+    return percepcion, cifra_oculta
 
 
-def contar_palabras(titulos: pd.Series) -> pd.DataFrame:
-    """Cuenta palabras de titulares, excluyendo stopwords comunes en español."""
-    frecuencia: Counter[str] = Counter()
+def contar_palabras_y_bigramas(titulos: pd.Series) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Cuenta unigramas y bigramas relevantes de titulares."""
+    freq_palabras: Counter[str] = Counter()
+    freq_bigramas: Counter[str] = Counter()
+
     for titulo in titulos.dropna().astype(str):
-        tokens = re.findall(r"[a-záéíóúüñ]{3,}", titulo.casefold())
-        frecuencia.update(
-            token for token in tokens if token not in STOPWORDS
-        )
-    return pd.DataFrame(
-        frecuencia.most_common(),
-        columns=["palabra", "frecuencia"],
-    )
+        tokens = [
+            t for t in re.findall(r"[a-záéíóúüñ]{3,}", titulo.casefold())
+            if t not in STOPWORDS
+        ]
+        freq_palabras.update(tokens)
+        bigramas = [f"{tokens[i]} {tokens[i+1]}" for i in range(len(tokens) - 1)]
+        freq_bigramas.update(bigramas)
+
+    df_palabras = pd.DataFrame(freq_palabras.most_common(50), columns=["palabra", "frecuencia"])
+    df_bigramas = pd.DataFrame(freq_bigramas.most_common(30), columns=["frase", "frecuencia"])
+    return df_palabras, df_bigramas
 
 
-def agregar_noticias(ruta: Path) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Agrupa titulares por mes y genera frecuencias sin leer cuerpos de noticias."""
+def agregar_noticias(ruta: Path) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """Agrupa titulares por mes, palabras, bigramas y medio."""
     if not ruta.is_file():
         raise FileNotFoundError(f"Falta el CSV Silver de noticias: {ruta}.")
     noticias = pd.read_csv(ruta, encoding="utf-8-sig")
-    requeridas = {"titulo", "fecha"}
-    if not requeridas.issubset(noticias.columns):
-        raise ValueError(
-            f"El CSV de noticias no contiene las columnas {sorted(requeridas)}."
-        )
-    if noticias.empty:
-        raise ValueError("El CSV Silver de noticias no contiene artículos.")
     fechas = pd.to_datetime(noticias["fecha"], errors="coerce")
-    if fechas.isna().any():
-        raise ValueError("Hay noticias con fecha vacía o no interpretable.")
+    noticias = noticias.loc[fechas.notna()].copy()
+    noticias["mes"] = fechas.loc[fechas.notna()].dt.to_period("M").astype(str)
+
     mensual = (
-        fechas.dt.to_period("M")
-        .astype(str)
+        noticias["mes"]
         .value_counts()
         .sort_index()
         .rename_axis("mes")
         .reset_index(name="noticias")
     )
-    palabras = contar_palabras(noticias["titulo"])
-    return mensual, palabras
+    palabras, bigramas = contar_palabras_y_bigramas(noticias["titulo"])
+
+    col_medio = next(
+        (c for c in ["archivo_origen", "medio", "fuente", "periodico", "sitio", "source"] if c in noticias.columns),
+        None,
+    )
+    if col_medio:
+        medios_series = noticias[col_medio].fillna("Sin medio").astype(str).str.strip()
+    elif "url" in noticias.columns:
+        medios_series = noticias["url"].dropna().apply(
+            lambda u: urlparse(str(u)).netloc.replace("www.", "") or "Sin medio"
+        )
+    else:
+        medios_series = pd.Series(["Prensa local"] * len(noticias))
+
+    por_medio = (
+        medios_series.value_counts()
+        .rename_axis("medio")
+        .reset_index(name="noticias")
+    )
+    return mensual, palabras, bigramas, por_medio
 
 
 def _guardar_tabla(datos: pd.DataFrame, carpeta: Path, nombre: str) -> None:
-    """Escribe CSV para análisis y JSON para carga directa en el navegador."""
     datos.to_csv(carpeta / f"{nombre}.csv", index=False, encoding="utf-8", lineterminator="\n")
     (carpeta / f"{nombre}.json").write_text(
         datos.to_json(orient="records", force_ascii=False, indent=2),
@@ -376,30 +235,18 @@ def _guardar_tabla(datos: pd.DataFrame, carpeta: Path, nombre: str) -> None:
 
 
 def _guardar_geojson(origen: Path, destino: Path, columnas: list[str]) -> int:
-    """Exporta la capa Gold en GeoJSON WGS84 para la carga de Leaflet."""
     if not origen.is_file():
         raise FileNotFoundError(f"Falta el GeoParquet Silver requerido: {origen}.")
     capa = gpd.read_parquet(origen)
-    if capa.crs is None or capa.empty:
-        raise ValueError(f"La capa geográfica no tiene CRS o está vacía: {origen}.")
-    if capa.geometry.isna().any() or capa.geometry.is_empty.any():
-        raise ValueError(f"La capa geográfica contiene geometrías vacías: {origen}.")
-    if (~capa.geometry.is_valid).any():
-        raise ValueError(f"La capa geográfica contiene geometrías inválidas: {origen}.")
     campos = [columna for columna in columnas if columna in capa.columns]
     if capa.geometry.name not in campos:
         campos.append(capa.geometry.name)
     salida = capa[campos].to_crs("EPSG:4326")
-    destino.write_text(
-        salida.to_json(drop_id=True),
-        encoding="utf-8",
-        newline="\n",
-    )
+    destino.write_text(salida.to_json(drop_id=True), encoding="utf-8", newline="\n")
     return len(salida)
 
 
 def _publicar(staging: Path, respaldo: Path) -> None:
-    """Cambia el conjunto Gold completo o restaura la versión anterior."""
     anterior = DASHBOARD.exists()
     if anterior:
         os.replace(DASHBOARD, respaldo)
@@ -412,15 +259,12 @@ def _publicar(staging: Path, respaldo: Path) -> None:
 
 
 def construir() -> None:
-    """Construye y publica Gold sin dejar salidas parciales."""
     ruta_incidencia = _archivo_unico(
-        SILVER / "datos_gob_mx",
-        "IDVFC_NM*_v1.parquet",
-        "incidencia delictiva",
+        SILVER / "datos_gob_mx", "IDVFC_NM*_v1.parquet", "incidencia delictiva"
     )
     incidencia = agregar_incidencia(pd.read_parquet(ruta_incidencia))
-    percepcion = agregar_percepcion(SILVER / "inegi_ensu")
-    noticias_mensuales, palabras = agregar_noticias(
+    percepcion, cifra_oculta = agregar_percepcion_envipe(BRONZE / "inegi_envipe")
+    noticias_mensuales, palabras, bigramas, por_medio = agregar_noticias(
         SILVER / "noticias" / "scraping_noticias.csv"
     )
 
@@ -430,10 +274,14 @@ def construir() -> None:
         raiz_temporal = Path(temporal)
         staging = raiz_temporal / "dashboard"
         staging.mkdir()
+
         _guardar_tabla(incidencia, staging, "incidencia_yucatan_mensual_v1")
-        _guardar_tabla(percepcion, staging, "percepcion_ensu_anual_v1")
+        _guardar_tabla(percepcion, staging, "percepcion_envipe_anual_v1")
+        _guardar_tabla(cifra_oculta, staging, "cifra_oculta_envipe_v1")
         _guardar_tabla(noticias_mensuales, staging, "noticias_mensuales_v1")
         _guardar_tabla(palabras, staging, "frecuencia_palabras_titulares_v1")
+        _guardar_tabla(bigramas, staging, "frecuencia_bigramas_titulares_v1")
+        _guardar_tabla(por_medio, staging, "noticias_por_medio_v1")
 
         territorio = staging / "territorio"
         territorio.mkdir()
@@ -444,43 +292,35 @@ def construir() -> None:
         )
         cp_src = SILVER / "geo" / "codigos_postales_merida.parquet"
         if cp_src.exists():
-            codigos_postales = _guardar_geojson(cp_src, territorio / "codigos_postales_merida.geojson", ["d_cp", "geometry"])
+            codigos_postales = _guardar_geojson(
+                cp_src, territorio / "codigos_postales_merida.geojson", ["d_cp", "geometry"]
+            )
         else:
-            (territorio / "codigos_postales_merida.geojson").write_text("{\"type\": \"FeatureCollection\", \"features\": []}\n", encoding="utf-8")
+            (territorio / "codigos_postales_merida.geojson").write_text(
+                '{"type": "FeatureCollection", "features": []}\n', encoding="utf-8"
+            )
             codigos_postales = 0
+
         (staging / "README.md").write_text(
             "# Gold para el dashboard\n\n"
-            "- `incidencia_yucatan_mensual_v1`: conteos por año, mes y tipo de "
-            "delito; Datos.gob.mx solo tiene clave estatal, por eso el filtro es "
-            "Yucatán (`Clave_Ent=31`).\n"
-            "- `percepcion_ensu_anual_v1`: promedio de porcentajes trimestrales "
-            "ponderados para Mérida; se usa `BP1_1=2` (inseguro), `FAC_SEL` y "
-            "se excluye `9` (no sabe/no responde).\n"
-            "- `noticias_mensuales_v1` y `frecuencia_palabras_titulares_v1`: "
-            "conteos mensuales y términos de titulares; no se procesan cuerpos "
-            "de artículos.\n"
-            "- `territorio/`: polígono municipal y códigos postales en GeoJSON "
-            "EPSG:4326 para Leaflet.\n"
-            "- Cada tabla está en CSV y JSON; JSON se entrega para `fetch()` "
-            "desde el frontend. Estas salidas se regeneran y no modifican Silver.\n",
+            "- `incidencia_yucatan_mensual_v1`: conteos mensuales SESNSP para Yucatán (`Clave_Ent=31`).\n"
+            "- `percepcion_envipe_anual_v1`: serie histórica estatal ENVIPE (Total, Hombres y Mujeres).\n"
+            "- `cifra_oculta_envipe_v1`: porcentaje de delitos no denunciados en Yucatán (ENVIPE).\n"
+            "- `noticias_mensuales_v1`, `frecuencia_palabras_titulares_v1`, `frecuencia_bigramas_titulares_v1` y `noticias_por_medio_v1`.\n",
             encoding="utf-8",
             newline="\n",
         )
 
         for archivo in staging.glob("*.json"):
             json.loads(archivo.read_text(encoding="utf-8"))
-        for archivo in territorio.glob("*.geojson"):
-            json.loads(archivo.read_text(encoding="utf-8"))
 
         _publicar(staging, raiz_temporal / "dashboard_anterior")
 
-    plural_anio = "año" if len(percepcion) == 1 else "años"
     print(
-        "Gold publicado: "
-        f"{len(incidencia)} filas de incidencia, "
-        f"{len(percepcion)} {plural_anio} ENSU, "
-        f"{len(noticias_mensuales)} meses de noticias, {len(palabras)} palabras, "
-        f"{limite} límite(s) y {codigos_postales} códigos postales en {DASHBOARD}."
+        f"Gold publicado: {len(incidencia)} filas incidencia, "
+        f"{len(percepcion)} años ENVIPE ({percepcion['anio'].min()}-{percepcion['anio'].max()}), "
+        f"{len(cifra_oculta)} filas cifra oculta, "
+        f"{len(noticias_mensuales)} meses noticias, {len(bigramas)} bigramas."
     )
 
 
