@@ -7,7 +7,7 @@
 ### La historia en 10 segundos
 - **35.5 %** — Población adulta en Yucatán que percibe inseguridad en su entidad en 2026 (**42.8 %** mujeres / **27.8 %** hombres; INEGI ENVIPE 2011–2026).
 - **91.0 %** — Porcentaje de delitos no denunciados o sin carpeta de investigación en Yucatán (cifra oculta ENVIPE 2025).
-- **572 carpetas** — Delitos registrados en Yucatán durante 2025 (**18,998** acumulados entre 2015 y 2025; SESNSP / `datos.gob.mx`, más **627** titulares analizados).
+- **572 carpetas** — Delitos registrados en Yucatán durante 2025 (**18,998** acumulados entre 2015 y 2025; SESNSP / `datos.gob.mx`, más **3,224** titulares analizados).
 
 ### Escenas
 - **Escena 1 (`escena-1.csv` / `escena-1.html`):** Percepción de inseguridad en Yucatán por sexo (ENVIPE 2011–2026).

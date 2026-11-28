@@ -1,3 +1,133 @@
+
+function renderTitularesVisor(payload) {
+  const wrapLista = document.getElementById("titulares-lista");
+  const wrapMedios = document.getElementById("titulares-medios-pills");
+  const selMun = document.getElementById("titulares-mun-select");
+  const inpSearch = document.getElementById("titulares-search");
+  const countEl = document.getElementById("titulares-count-label");
+  const subEl = document.getElementById("titulares-resumen-sub");
+
+  if (!wrapLista || !payload) return;
+
+  const items = Array.isArray(payload.titulares) ? payload.titulares : [];
+  const topMedios = Array.isArray(payload.top_medios) ? payload.top_medios : [];
+
+  if (subEl) {
+    const tot = Number(payload.total_titulares || items.length).toLocaleString("es-MX");
+    const muns = Number(payload.municipios_con_notas || 0);
+    const meds = Number(payload.medios_distintos || 0);
+    subEl.textContent = `${tot} titulares recolectados en ${muns} municipios y ${meds} medios (mostrando muestra filtrable)`;
+  }
+
+  if (selMun && selMun.options.length <= 1) {
+    const munCounts = new Map();
+    for (const it of items) {
+      const m = it.municipio || "Yucatán";
+      munCounts.set(m, (munCounts.get(m) || 0) + 1);
+    }
+    const sortedMuns = [...munCounts.entries()].sort((a, b) => {
+      if (a[0].toLowerCase().includes("mérida") || a[0].toLowerCase().includes("merida")) return -1;
+      if (b[0].toLowerCase().includes("mérida") || b[0].toLowerCase().includes("merida")) return 1;
+      return b[1] - a[1];
+    });
+    for (const [m, c] of sortedMuns) {
+      const opt = document.createElement("option");
+      opt.value = m;
+      opt.textContent = `${m} (${c})`;
+      selMun.appendChild(opt);
+    }
+  }
+
+  let medioActivo = "";
+
+  if (wrapMedios) {
+    wrapMedios.innerHTML = "";
+    for (const m of topMedios.slice(0, 8)) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "layer-btn";
+      btn.textContent = `${m.medio} (${m.total})`;
+      btn.addEventListener("click", () => {
+        medioActivo = medioActivo === m.medio ? "" : m.medio;
+        [...wrapMedios.querySelectorAll("button")].forEach(b => b.classList.toggle("active", b === btn && Boolean(medioActivo)));
+        pintar();
+      });
+      wrapMedios.appendChild(btn);
+    }
+  }
+
+  function pintar() {
+    const munVal = selMun ? selMun.value : "__ALL__";
+    const qVal = (inpSearch ? inpSearch.value : "").trim().toLowerCase();
+
+    const filtrados = items.filter(it => {
+      const okMun = munVal === "__ALL__" || (it.municipio || "Yucatán") === munVal;
+      const okMedio = !medioActivo || (it.medio || "") === medioActivo;
+      const texto = `${it.titular || ""} ${it.medio || ""} ${it.municipio || ""}`.toLowerCase();
+      const okQ = !qVal || texto.includes(qVal);
+      return okMun && okMedio && okQ;
+    });
+
+    const visibles = filtrados.slice(0, 36);
+    if (countEl) {
+      countEl.textContent = `${visibles.length} de ${filtrados.length}`;
+    }
+
+    wrapLista.innerHTML = "";
+    if (!visibles.length) {
+      wrapLista.innerHTML = `<p class="subtitulo-tecnico">No hay titulares que coincidan con ese filtro.</p>`;
+      return;
+    }
+
+    for (const it of visibles) {
+      const card = document.createElement("article");
+      card.style.cssText = "border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px;background:#fff;display:flex;flex-direction:column;justify-content:space-between;gap:8px;";
+
+      const meta = document.createElement("div");
+      meta.style.cssText = "font-size:12px;color:#5b21b6;font-weight:700;";
+      meta.textContent = `${it.medio || "Medio"} · ${it.municipio || "Yucatán"}`;
+
+      const title = document.createElement("div");
+      title.style.cssText = "font-size:14px;line-height:1.4;color:#111827;font-weight:600;";
+      title.textContent = it.titular || "";
+
+      const foot = document.createElement("div");
+      foot.style.cssText = "display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:#6b7280;gap:8px;";
+      const fechaSpan = document.createElement("span");
+      fechaSpan.textContent = (it.fecha || "").slice(0, 16);
+      foot.appendChild(fechaSpan);
+
+      if (it.url) {
+        const a = document.createElement("a");
+        a.href = it.url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.textContent = "Ver nota →";
+        a.style.cssText = "color:#5b21b6;font-weight:700;text-decoration:none;";
+        foot.appendChild(a);
+      }
+
+      card.append(meta, title, foot);
+      wrapLista.appendChild(card);
+    }
+  }
+
+  if (selMun) selMun.addEventListener("change", pintar);
+  if (inpSearch) inpSearch.addEventListener("input", pintar);
+  pintar();
+}
+
+async function initTitularesVisor() {
+  try {
+    const r = await fetch(`${BASE}/titulares_muestra_v1.json`);
+    if (!r.ok) return;
+    const payload = await r.json();
+    renderTitularesVisor(payload);
+  } catch (e) {
+    console.warn("Visor de titulares no disponible:", e);
+  }
+}
+
 /**
  * app.js — Capítulo 04: Percepción de inseguridad en Yucatán (D3.js v7)
  */
@@ -765,6 +895,7 @@ async function start() {
     initMap();
     renderNewsWords();
     initTerrain();
+    initTitularesVisor();
     setStatus("Datos Gold verificados");
   } catch (err) {
     console.error(err);

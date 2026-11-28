@@ -170,7 +170,7 @@
         </div>
       </div>
 
-      <h2 class="titulo-hallazgo">El reflector mediático apunta a la capital: <span class="hl-purple">185</span> de <span class="hl-amber">627</span> notas se concentran en Mérida</h2>
+      <h2 class="titulo-hallazgo" id="title-escena-4">El reflector mediático apunta a <span id="top-mun-label">Mérida</span>: <span class="hl-purple" id="top-mun-count">185</span> de <span class="hl-amber" id="total-notas-count">3,224</span> notas</h2>
       <p class="subtitulo-tecnico">Distribución municipal de menciones en titulares de prensa (notas), extensión territorial (km²) y elevación media (m s. n. m.) en los 106 municipios de Yucatán</p>
 
       <div class="map-card">
@@ -187,7 +187,7 @@
 
       <div class="escena-split" style="margin-top:20px">
         <div class="viz-frame">
-          <div class="mini-head"><strong>Términos más frecuentes en 627 titulares</strong><span>Frecuencia absoluta en corpus de 83 medios</span></div>
+          <div class="mini-head"><strong>Términos más frecuentes en 3,224 titulares</strong><span>Frecuencia absoluta en corpus de 83 medios</span></div>
           <div id="palabras-wrap" style="height:290px"></div>
         </div>
         <div class="viz-frame terrain-box">
@@ -206,7 +206,7 @@
       <p class="frase-lectura">
         <strong>Lectura:</strong> Al hacer zoom desde todo Yucatán hacia Mérida (884 km²), la capital concentra 185 notas de prensa y 891 menciones en reportes policiales COPLADEM, mientras municipios extensos como Tizimín (3,883 km², 2 notas) o Tekax (2,770 km², 0 menciones) permanecen invisibles en los titulares.
       </p>
-      <p class="pie-fuente">Fuente: INEGI Marco Geoestadístico y CEM 4.0 · Corpus de prensa local (627 titulares en 83 medios) · Reporte COPLADEM Policía 2025.</p>
+      <p class="pie-fuente">Fuente: INEGI Marco Geoestadístico y CEM 4.0 · Corpus de prensa local (3,224 titulares en 83 medios) · Reporte COPLADEM Policía 2025.</p>
     </section>
 
     <section class="closing-grid" id="cierre">
@@ -216,7 +216,7 @@
         <ul>
           <li><strong>Escala estatal vs. calle:</strong> La ENVIPE tiene representatividad estatal para Yucatán (clave 31) y urbana en Mérida, pero no permite desagregar percepción de inseguridad por colonia o AGEB sin perder validez estadística.</li>
           <li><strong>Víctimas no son todos los delitos:</strong> La serie SESNSP utilizada contabiliza víctimas de delitos contra la persona (<em>IDVFC_NM_dic25.csv</em>); no equivale al total de carpetas de investigación ni captura los delitos de la cifra oculta.</li>
-          <li><strong>Sesgo de cobertura mediática:</strong> Los 627 titulares miden frecuencia de publicación en medios digitales, no incidencia real ni sentimiento; la ausencia de menciones en municipios del sur o oriente refleja centralismo informativo, no ausencia de conflictos.</li>
+          <li><strong>Sesgo de cobertura mediática:</strong> Los 3,224 titulares miden frecuencia de publicación en medios digitales, no incidencia real ni sentimiento; la ausencia de menciones en municipios del sur o oriente refleja centralismo informativo, no ausencia de conflictos.</li>
         </ul>
       </article>
 
@@ -232,6 +232,28 @@
       <span>Libro de Visualización de Datos · Capítulo 04: Percepción de Inseguridad en Yucatán (Clave 31)</span>
       <span>Tipografía: Outfit &amp; JetBrains Mono · Paleta oficial del libro</span>
     </footer>
+  
+    <section class="escena-block" id="visor-titulares">
+      <div class="escena-meta">
+        <span class="mono-escena">HEMEROTECA</span>
+        <div class="escena-controls">
+          <label class="select-pill">Municipio
+            <select id="titulares-mun-select" aria-label="Filtrar titulares por municipio">
+              <option value="__ALL__">Todos los municipios</option>
+            </select>
+          </label>
+          <input id="titulares-search" class="mun-search" type="search" placeholder="Filtrar por palabra o medio..." aria-label="Buscar en titulares" autocomplete="off">
+        </div>
+      </div>
+
+      <h2 class="titulo-hallazgo">Qué dicen los titulares: <span class="hl-purple" id="titulares-count-label">0</span> notas visibles en el explorador</h2>
+      <p class="subtitulo-tecnico" id="titulares-resumen-sub">Muestra de noticias recolectadas por municipio y medio en Yucatán</p>
+
+      <div id="titulares-medios-pills" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;"></div>
+
+      <div id="titulares-lista" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;"></div>
+    </section>
+
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
