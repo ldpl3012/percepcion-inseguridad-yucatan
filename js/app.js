@@ -1096,57 +1096,29 @@ async function initTerrain() {
 
     const feats = state.data.boundary.features;
     const [[minX, minY], [maxX, maxY]] = d3.geoBounds(state.data.boundary);
-
-    const norm = (s) => String(s || "")
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .trim();
-
-    const wordFreqMap = new Map();
-    for (const r of (state.data.wordFrequency || [])) {
-      const k = norm(r.palabra);
-      if (k) wordFreqMap.set(k, (wordFreqMap.get(k) || 0) + num(r.frecuencia));
-    }
-    const maxMention = Math.max(1, ...wordFreqMap.values());
-
     const pts = feats.map(f => {
       const c = d3.geoCentroid(f);
-      const props = f.properties || {};
-      const munName = norm(props.NOMGEO || props.NOMBRE || props.name || "");
-      let mentionScore = 0;
-      if (munName) {
-        for (const [w, freq] of wordFreqMap.entries()) {
-          if (w.length >= 4 && (munName.includes(w) || w.includes(munName))) {
-            mentionScore = Math.max(mentionScore, freq / maxMention);
-          }
-        }
-      }
-      return { x: c[0], y: c[1], z: num(props.ELEV_MEAN_M ?? 12), mention: mentionScore };
+      return { x: c[0], y: c[1], z: num(f.properties?.ELEV_MEAN_M ?? 12) };
     });
 
     const cols = 130, rows = 88;
     const W = 150, H = W * rows / cols;
     const elevations = new Float32Array(cols * rows);
-    const mentionsGrid = new Float32Array(cols * rows);
     const mn = 0, mx = d3.max(pts, p => p.z) || 105;
 
     for (let r = 0; r < rows; r++) {
       const lat = maxY - (r / (rows - 1)) * (maxY - minY);
       for (let c = 0; c < cols; c++) {
         const lon = minX + (c / (cols - 1)) * (maxX - minX);
-        let numW = 0, denW = 0, numM = 0, minD = 999;
+        let numW = 0, denW = 0, minD = 999;
         for (const p of pts) {
           const d2 = (lon - p.x) ** 2 + (lat - p.y) ** 2;
           if (d2 < minD) minD = d2;
           const w = 1 / (d2 + 0.002);
           numW += w * p.z;
-          numM += w * p.mention;
           denW += w;
         }
-        const idx = r * cols + c;
-        elevations[idx] = minD < 0.032 ? numW / denW : -1;
-        mentionsGrid[idx] = minD < 0.032 ? Math.min(1, numM / denW) : 0;
+        elevations[r * cols + c] = minD < 0.032 ? numW / denW : -1;
       }
     }
 
@@ -1156,35 +1128,19 @@ async function initTerrain() {
     const cLow = new THREE.Color("#3b1261");
     const cMid = new THREE.Color("#7c3aed");
     const cHigh = new THREE.Color("#ed9f22");
-    const cMediaBase = new THREE.Color("#2a1042");
-    const cMediaPeak = new THREE.Color("#f59e0b");
     const color = new THREE.Color();
 
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
         const idx = r * cols + c;
         const v = elevations[idx];
-        const mScore = mentionsGrid[idx];
-        const px = (c / (cols - 1) - 0.5) * W;
-        const py = (0.5 - r / (rows - 1)) * H;
-        const baseZ = v >= 0 ? v * 0.22 : 0;
-        const isRightHalf = px >= 0;
-
-        positions[idx * 3] = px;
-        positions[idx * 3 + 1] = py;
-        positions[idx * 3 + 2] = isRightHalf ? baseZ + (v >= 0 ? mScore * 6.5 : 0) : baseZ;
-
-        if (!isRightHalf) {
-          const t = v < 0 ? 0 : Math.pow(Math.max(0, Math.min(1, (v - mn) / (mx - mn))), 0.65);
-          if (t < 0.5) color.lerpColors(cLow, cMid, t * 2);
-          else color.lerpColors(cMid, cHigh, (t - 0.5) * 2);
-        } else {
-          color.lerpColors(cMediaBase, cMediaPeak, Math.pow(mScore, 0.55));
-        }
-
-        colors[idx * 3] = color.r;
-        colors[idx * 3 + 1] = color.g;
-        colors[idx * 3 + 2] = color.b;
+        const t = v < 0 ? 0 : Math.pow(Math.max(0, Math.min(1, (v - mn) / (mx - mn))), 0.65);
+        positions[idx * 3]     = (c / (cols - 1) - 0.5) * W;
+        positions[idx * 3 + 1] = (0.5 - r / (rows - 1)) * H;
+        positions[idx * 3 + 2] = v >= 0 ? v * 0.22 : 0;
+        if (t < 0.5) color.lerpColors(cLow, cMid, t * 2);
+        else color.lerpColors(cMid, cHigh, (t - 0.5) * 2);
+        colors[idx * 3] = color.r; colors[idx * 3 + 1] = color.g; colors[idx * 3 + 2] = color.b;
       }
     }
 
@@ -1208,20 +1164,9 @@ async function initTerrain() {
       new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.78, side: THREE.DoubleSide })
     );
 
-    const dividerPts = [];
-    for (let r = 0; r < rows; r++) {
-      const py = (0.5 - r / (rows - 1)) * H;
-      dividerPts.push(new THREE.Vector3(0, py, 14));
-    }
-    const dividerGeo = new THREE.BufferGeometry().setFromPoints(dividerPts);
-    const dividerLine = new THREE.Line(
-      dividerGeo,
-      new THREE.LineBasicMaterial({ color: 0xfbbf24, transparent: true, opacity: 0.55 })
-    );
-
     const scene = new THREE.Scene();
     scene.background = new THREE.Color("#0f0620");
-    scene.add(mesh, dividerLine, new THREE.AmbientLight(0xffffff, 1.4));
+    scene.add(mesh, new THREE.AmbientLight(0xffffff, 1.4));
     const light = new THREE.DirectionalLight(0xfff5e6, 2.0);
     light.position.set(-70, -85, 140);
     scene.add(light);
@@ -1247,7 +1192,6 @@ async function initTerrain() {
     document.getElementById("terrain-exag")?.addEventListener("click", ev => {
       exag2x = !exag2x;
       mesh.scale.z = exag2x ? 2.0 : 1.0;
-      dividerLine.scale.z = exag2x ? 2.0 : 1.0;
       ev.currentTarget.textContent = exag2x ? "Relieve 2×" : "Relieve 1×";
     });
     document.getElementById("terrain-reset")?.addEventListener("click", () => {
@@ -1266,9 +1210,9 @@ async function initTerrain() {
       renderer.setSize(cW, cH);
     }).observe(container);
 
-    if (msg) msg.textContent = `Vista partida · Izq: Relieve CEM 4.0 (${mn}–${mx.toFixed(1)} m) · Der: Eco en titulares`;
+    if (msg) msg.textContent = `CEM 4.0 (${mn}–${mx.toFixed(1)} m) · Soporte físico de movilidad, corredores y percepción territorial en Yucatán.`;
   } catch {
-    if (msg) msg.textContent = "Modelo físico CEM 4.0 · Vista partida relieve y cobertura mediática.";
+    if (msg) msg.textContent = "CEM 4.0 · Relieve físico estatal y entorno territorial de percepción de seguridad.";
   }
 }
 
