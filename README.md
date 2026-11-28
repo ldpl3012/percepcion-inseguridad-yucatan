@@ -1,4 +1,5 @@
-# Percepción de inseguridad en Yucatán
+# 
+ <h1><img src = "https://slackmojis.com/emojis/61298-security-camera/download" width="40"/> Percepción de inseguridad en Yucatán</h1>
 
 Observatorio interactivo y pipeline de datos que contrasta lo que la ciudadanía **percibe** (INEGI, ENVIPE), lo que las autoridades **registran** (SESNSP), lo que **no se denuncia** (cifra oculta) y lo que la **prensa publica**, con contexto territorial y de relieve. Está construido con D3.js v7 y una arquitectura Medallion (Bronze, Silver, Gold).
 
