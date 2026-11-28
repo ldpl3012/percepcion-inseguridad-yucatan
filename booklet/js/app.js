@@ -960,9 +960,9 @@ function renderNewsWords() {
     const getFill = (d, i) => {
       if (d.data.label === activeWord) return PAL.amber;
       if (i === 0) return PAL.purple;
-      if (i === 1) return "#8b2fc9";
-      if (i < 9) return "#d8b4fe";
-      return "#e5e7eb";
+      if (i === 1) return "#7e22ce";
+      if (i < 9) return "#e9d5ff";
+      return "#f3f4f6";
     };
 
     const getStroke = (d, i) => {
@@ -998,7 +998,7 @@ function renderNewsWords() {
       const el = d3.select(this);
       if (d.r < 9) return;
       const showCount = d.r >= 18;
-      const fontSize = Math.max(8, Math.min(15, d.r * 0.33));
+      const fontSize = Math.max(8.5, Math.min(15, d.r * 0.32));
       const color = getTextColor(d, i);
       const maxChars = Math.max(4, Math.floor((d.r * 1.75) / (fontSize * 0.52)));
       const shortLbl = d.data.label.length > maxChars
@@ -1012,6 +1012,7 @@ function renderNewsWords() {
         .style("font-size", `${fontSize}px`)
         .style("font-weight", "700")
         .style("fill", color)
+        .attr("fill", color)
         .style("pointer-events", "none")
         .text(shortLbl);
 
@@ -1024,6 +1025,7 @@ function renderNewsWords() {
           .style("font-size", `${Math.max(8, fontSize * 0.76)}px`)
           .style("font-weight", "700")
           .style("fill", color)
+          .attr("fill", color)
           .style("opacity", 0.9)
           .style("pointer-events", "none")
           .text(d.data.value.toLocaleString("es-MX"));
@@ -1031,11 +1033,18 @@ function renderNewsWords() {
     });
 
     const refreshBubbles = () => {
-      bubbles.select("circle.word-circle")
-        .attr("fill", (d, i) => getFill(d, i))
-        .attr("stroke", (d, i) => getStroke(d, i));
-      bubbles.selectAll("text.word-lbl, text.word-num")
-        .style("fill", (d, i) => getTextColor(d, i));
+      bubbles.each(function(d, i) {
+        const node = d3.select(this);
+        const txtCol = getTextColor(d, i);
+        node.select("circle.word-circle")
+          .attr("fill", getFill(d, i))
+          .attr("stroke", getStroke(d, i))
+          .attr("stroke-width", 1.5);
+        node.selectAll("text.word-lbl, text.word-num")
+          .style("fill", txtCol)
+          .attr("fill", txtCol)
+          .style("opacity", 0.92);
+      });
     };
 
     bubbles
@@ -1048,6 +1057,7 @@ function renderNewsWords() {
           .attr("stroke-width", 2);
         d3.select(this).selectAll("text.word-lbl, text.word-num")
           .style("fill", PAL.ink)
+          .attr("fill", PAL.ink)
           .style("opacity", 1);
         const isFiltered = activeWord === d.data.label;
         showTip(
