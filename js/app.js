@@ -809,7 +809,7 @@ function initMap() {
       const p = f.properties || {};
       showTip(ev,
         `<strong>${getName(f)}</strong>` +
-        `Prensa: ${num(p.NOTICIAS_MENCIONES)} notas · COPLADEM: ${num(p.MENCIONES_COPLADEM)}<br>` +
+        `Prensa: ${num(p.NOTICIAS_MENCIONES)} notas<br>` +
         `Superficie: ${num(p.AREA_KM2).toFixed(1)} km² · Elevación: ${num(p.ELEV_MEAN_M).toFixed(1)} m`
       );
     })
@@ -1391,7 +1391,7 @@ async function start() {
     renderNewsWords();
     initTerrain();
     initTitularesVisor();
-    setStatus("Datos Gold verificados");
+    setStatus("Datos cargados correctamente");
   } catch (err) {
     console.error(err);
     setStatus(err.message, "error");

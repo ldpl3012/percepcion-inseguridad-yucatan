@@ -67,20 +67,20 @@ def main():
             gdf["DESNIVEL_M"] = desn
 
     # 3. Menciones institucionales en COPLADEM Policía
-    if cop_path.exists():
-        try:
-            import pypdf
-            reader = pypdf.PdfReader(str(cop_path))
-        except ImportError:
-            import PyPDF2
-            reader = PyPDF2.PdfReader(str(cop_path))
-        cop_txt = norm(" ".join((p.extract_text() or "") for p in reader.pages))
-        homonimos = {"31060", "31046", "31072"}  # Quintana Roo, Mama, Suma
-        gdf["MENCIONES_COPLADEM"] = [
-            0 if str(r["MUN_OFICIA"]).zfill(5) in homonimos
-            else len(re.findall(r"\b" + re.escape(norm(str(r["NOM_MUN"]))) + r"\b", cop_txt))
-            for _, r in gdf.iterrows()
-        ]
+    # if cop_path.exists():
+        # try:
+            # import pypdf
+            # reader = pypdf.PdfReader(str(cop_path))
+        # except ImportError:
+            # import PyPDF2
+            # reader = PyPDF2.PdfReader(str(cop_path))
+        # cop_txt = norm(" ".join((p.extract_text() or "") for p in reader.pages))
+        # homonimos = {"31060", "31046", "31072"}  # Quintana Roo, Mama, Suma
+        # gdf["MENCIONES_COPLADEM"] = [
+            # 0 if str(r["MUN_OFICIA"]).zfill(5) in homonimos
+            # else len(re.findall(r"\b" + re.escape(norm(str(r["NOM_MUN"]))) + r"\b", cop_txt))
+            # for _, r in gdf.iterrows()
+        # ]
 
     gdf.to_file(geo_path, driver="GeoJSON")
     print(f"Capa territorial guardada en {geo_path} ({len(gdf)} municipios).")
