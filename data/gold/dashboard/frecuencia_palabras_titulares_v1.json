@@ -1,102 +1,102 @@
 [
   {
     "palabra": "carretera",
-    "frecuencia": 196
+    "frecuencia": 197
   },
   {
     "palabra": "dos",
-    "frecuencia": 166
+    "frecuencia": 178
   },
   {
     "palabra": "detienen",
-    "frecuencia": 156
+    "frecuencia": 170
   },
   {
     "palabra": "accidente",
-    "frecuencia": 155
+    "frecuencia": 160
   },
   {
     "palabra": "policía",
-    "frecuencia": 138
+    "frecuencia": 152
   },
   {
     "palabra": "seguridad",
-    "frecuencia": 135
+    "frecuencia": 145
   },
   {
     "palabra": "hombre",
-    "frecuencia": 128
+    "frecuencia": 136
   },
   {
     "palabra": "operativo",
-    "frecuencia": 123
+    "frecuencia": 132
+  },
+  {
+    "palabra": "vida",
+    "frecuencia": 113
   },
   {
     "palabra": "umán",
     "frecuencia": 112
   },
   {
-    "palabra": "vida",
-    "frecuencia": 106
-  },
-  {
-    "palabra": "vía",
-    "frecuencia": 95
-  },
-  {
-    "palabra": "ssp",
-    "frecuencia": 95
-  },
-  {
     "palabra": "años",
-    "frecuencia": 94
+    "frecuencia": 103
   },
   {
     "palabra": "deja",
-    "frecuencia": 90
+    "frecuencia": 99
+  },
+  {
+    "palabra": "vía",
+    "frecuencia": 98
+  },
+  {
+    "palabra": "ssp",
+    "frecuencia": 98
+  },
+  {
+    "palabra": "kanasín",
+    "frecuencia": 97
+  },
+  {
+    "palabra": "contra",
+    "frecuencia": 93
+  },
+  {
+    "palabra": "mujer",
+    "frecuencia": 89
   },
   {
     "palabra": "valladolid",
     "frecuencia": 88
   },
   {
-    "palabra": "contra",
+    "palabra": "presunto",
     "frecuencia": 84
   },
   {
-    "palabra": "mujer",
-    "frecuencia": 80
-  },
-  {
-    "palabra": "tizimín",
-    "frecuencia": 80
+    "palabra": "joven",
+    "frecuencia": 83
   },
   {
     "palabra": "alcalde",
-    "frecuencia": 79
+    "frecuencia": 81
+  },
+  {
+    "palabra": "tizimín",
+    "frecuencia": 81
   },
   {
     "palabra": "muere",
-    "frecuencia": 78
-  },
-  {
-    "palabra": "joven",
-    "frecuencia": 77
-  },
-  {
-    "palabra": "presunto",
-    "frecuencia": 76
+    "frecuencia": 79
   },
   {
     "palabra": "motul",
     "frecuencia": 76
   },
   {
-    "palabra": "policías",
-    "frecuencia": 73
-  },
-  {
-    "palabra": "roo",
-    "frecuencia": 73
+    "palabra": "personas",
+    "frecuencia": 75
   }
 ]

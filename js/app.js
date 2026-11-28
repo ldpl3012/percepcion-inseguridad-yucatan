@@ -25,11 +25,7 @@ function renderTitularesVisor(payload) {
       const m = it.municipio || "Yucatán";
       munCounts.set(m, (munCounts.get(m) || 0) + 1);
     }
-    const sortedMuns = [...munCounts.entries()].sort((a, b) => {
-      if (a[0].toLowerCase().includes("mérida") || a[0].toLowerCase().includes("merida")) return -1;
-      if (b[0].toLowerCase().includes("mérida") || b[0].toLowerCase().includes("merida")) return 1;
-      return b[1] - a[1];
-    });
+    const sortedMuns = [...munCounts.entries()].sort((a, b) => b[1] - a[1]);
     for (const [m, c] of sortedMuns) {
       const opt = document.createElement("option");
       opt.value = m;
@@ -63,7 +59,7 @@ function renderTitularesVisor(payload) {
     const filtrados = items.filter(it => {
       const okMun = munVal === "__ALL__" || (it.municipio || "Yucatán") === munVal;
       const okMedio = !medioActivo || (it.medio || "") === medioActivo;
-      const texto = `${it.titular || ""} ${it.medio || ""} ${it.municipio || ""}`.toLowerCase();
+      const texto = `${it.municipio || ""} ${it.medio || ""} ${it.titular || ""}`.toLowerCase();
       const okQ = !qVal || texto.includes(qVal);
       return okMun && okMedio && okQ;
     });
@@ -129,7 +125,7 @@ async function initTitularesVisor() {
 }
 
 /**
- * app.js — Capítulo 04: Percepción de inseguridad en Yucatán (D3.js v7)
+ * app.js — Capítulo 05: Percepción de inseguridad en Yucatán (D3.js v7)
  */
 const BASE = "./data/gold/dashboard";
 const DATASETS = {
@@ -203,10 +199,9 @@ function renderHeroKPIs() {
   if (perception.length) {
     const latestPerc = [...perception].sort((a, b) => num(b.anio) - num(a.anio))[0];
     const pctTotal = num(latestPerc.porcentaje_inseguridad_total);
-    document.querySelector("#hero-pct").textContent = `${pctTotal.toFixed(1)} %`;
-    document.querySelector("#kpi-percepcion").textContent = `${pctTotal.toFixed(1)} %`;
-    document.querySelector("#kpi-percepcion-label").textContent =
-      `Población de 18+ años que se siente insegura · INEGI, ENVIPE ${latestPerc.anio}`;
+    (function(el, v){ if (el) el.textContent = v; })(document.querySelector("#hero-pct"), `${pctTotal.toFixed(1)} %`);
+    (function(el, v){ if (el) el.textContent = v; })(document.querySelector("#kpi-percepcion"), `${pctTotal.toFixed(1)} %`);
+    (function(el, v){ if (el) el.textContent = v; })(document.querySelector("#kpi-percepcion-label"), `Población de 18+ años que se siente insegura · INEGI, ENVIPE ${latestPerc.anio}`);
   }
 
   if (cifraOculta.length) {
@@ -216,22 +211,14 @@ function renderHeroKPIs() {
       .sort((a, b) => num(b.porcentaje_cifra_oculta) - num(a.porcentaje_cifra_oculta))[0];
     if (topDelito) {
       const val = num(topDelito.porcentaje_cifra_oculta);
-      document.querySelector("#kpi-oculta").textContent = `${val.toFixed(1)} %`;
-      document.querySelector("#kpi-oculta-label").textContent =
-        `Sin denuncia en ${topDelito.delito.toLowerCase()} · INEGI, ENVIPE ${maxCoYr}`;
-      document.querySelector("#oculta-headline").textContent = `${val.toFixed(1)} %`;
+      (function(el, v){ if (el) el.textContent = v; })(document.querySelector("#kpi-oculta"), `${val.toFixed(1)} %`);
+      (function(el, v){ if (el) el.textContent = v; })(document.querySelector("#kpi-oculta-label"), `Sin denuncia en ${topDelito.delito.toLowerCase()} · INEGI, ENVIPE ${maxCoYr}`);
+      (function(el, v){ if (el) el.textContent = v; })(document.querySelector("#oculta-headline"), `${val.toFixed(1)} %`);
     }
   }
 
-  if (incidence.length) {
-    const lastIncYr = Math.max(...incidence.map(r => num(r.anio)));
-    const totalVictims = incidence
-      .filter(r => num(r.anio) === lastIncYr)
-      .reduce((s, r) => s + num(r.casos), 0);
-    document.querySelector("#kpi-incidencia").textContent = Math.round(totalVictims).toLocaleString("es-MX");
-    document.querySelector("#kpi-incidencia-label").textContent =
-      `Víctimas registradas en ${lastIncYr} · SESNSP (IDVFC_NM, Yucatán)`;
-  }
+    (function(el, v){ if (el) el.textContent = v; })(document.querySelector("#kpi-incidencia"), "3,398");
+  (function(el, v){ if (el) el.textContent = v; })(document.querySelector("#kpi-incidencia-label"), "Titulares recolectados en 106 municipios · Google News RSS");
 }
 
 /* ── Escena 1: Pictogramas + Serie limpia sin rejillas ──────────── */
@@ -257,7 +244,7 @@ function renderEscena1() {
   const hVal = num(cur.porcentaje_inseguridad_hombres);
   const tVal = num(cur.porcentaje_inseguridad_total);
   const gap = Math.abs(mVal - hVal);
-  document.querySelector("#gap-headline").textContent = `+${gap.toFixed(1)}`;
+  (function(el, v){ if (el) el.textContent = v; })(document.querySelector("#gap-headline"), `+${gap.toFixed(1)}`);
 
   bindResize("percepcion-pictos-wrap", () => {
     const wrap = document.getElementById("percepcion-pictos-wrap");
@@ -379,7 +366,7 @@ function renderEscena2() {
     .map(r => ({ label: r.delito, value: num(r.porcentaje_cifra_oculta) }));
 
   if (items.length) {
-    document.querySelector("#oculta-headline").textContent = `${items[0].value.toFixed(1)} %`;
+    (function(el, v){ if (el) el.textContent = v; })(document.querySelector("#oculta-headline"), `${items[0].value.toFixed(1)} %`);
   }
 
   bindResize("cifra-oculta-wrap", () => {
@@ -452,7 +439,7 @@ function renderEscena3() {
   const yr = Number(sel.value);
   const yrRows = rows.filter(r => num(r.anio) === yr);
   const totalYr = yrRows.reduce((s, r) => s + num(r.casos), 0);
-  document.querySelector("#sesnsp-headline").textContent = Math.round(totalYr).toLocaleString("es-MX");
+  (function(el, v){ if (el) el.textContent = v; })(document.querySelector("#sesnsp-headline"), Math.round(totalYr).toLocaleString("es-MX"));
 
   const byMonth = Array.from({ length: 12 }, (_, i) => ({
     x: MONTHS[i],
@@ -576,9 +563,9 @@ function initMap() {
         ["#f3e8ff", "1–2 notas"],
         ["#d8b4fe", "3–9 notas"],
         ["#9333ea", "10–49 notas"],
-        ["#600d8b", "50+ notas (Mérida: 185)"],
+        ["#600d8b", "75+ notas (tope feed ~100)"],
       ],
-      fmt: v => `${v} notas`,
+      fmt: v => v >= 98 ? "100+ notas" : `${v} notas`,
     },
     area: {
       key: "AREA_KM2",
@@ -588,7 +575,7 @@ function initMap() {
         ["#d8b4fe", "150–350 km²"],
         ["#a855f7", "350–700 km²"],
         ["#7e22ce", "700–1,500 km²"],
-        ["#600d8b", "> 1,500 km² (Tizimín: 3,883)"],
+        ["#600d8b", "75+ notas (tope feed ~100)"],
       ],
       fmt: v => `${num(v).toLocaleString("es-MX", { maximumFractionDigits: 1 })} km²`,
     },
@@ -904,3 +891,17 @@ async function start() {
 }
 
 start();
+
+
+// Filtro dinámico de escenas (ver todas o una sola)
+document.addEventListener("click", (ev) => {
+  const btn = ev.target.closest(".escena-tab");
+  if (!btn) return;
+  document.querySelectorAll(".escena-tab").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  const target = btn.dataset.target;
+  document.querySelectorAll(".escena-block").forEach(sec => {
+    sec.style.display = (target === "all" || sec.id === target) ? "" : "none";
+  });
+  window.dispatchEvent(new Event("resize"));
+});

@@ -1,43 +1,43 @@
 {
-  "total_titulares": 3224,
-  "municipios_con_notas": 102,
+  "total_titulares": 3398,
+  "municipios_con_notas": 106,
   "medios_distintos": 157,
   "top_medios": [
     {
       "medio": "Diario de Yucatán",
-      "total": 657
+      "total": 706
     },
     {
       "medio": "Sol Yucatán",
-      "total": 578
+      "total": 624
     },
     {
       "medio": "Por Esto!",
-      "total": 367
+      "total": 378
     },
     {
       "medio": "PostaMx",
-      "total": 208
-    },
-    {
-      "medio": "sipse.com",
-      "total": 153
+      "total": 215
     },
     {
       "medio": "El Universal",
-      "total": 138
+      "total": 157
+    },
+    {
+      "medio": "sipse.com",
+      "total": 156
     },
     {
       "medio": "La Jornada Maya",
-      "total": 112
+      "total": 114
     },
     {
       "medio": "Gobierno del Estado de Yucatán",
-      "total": 103
+      "total": 105
     },
     {
       "medio": "La Revista Peninsular",
-      "total": 57
+      "total": 66
     },
     {
       "medio": "Quadratín Michoacán",
@@ -130,6 +130,27 @@
       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNLTRrVWloVjFnbUxGdVlrUVk4VElwNm9weklMck5LZjk2SWNGd0hUVmZQeE95QUpzeElNdFZBREc2TEx3a3BIdkJlWWdjaVZpSlJQSTJNbXNaZUhVdVM4TGc4Q20tZ0tyS1M4TjI1cFhRc05vd21WeVV2eTktWEdLN0szNWc0TnRjbzBVNmRBWlphRHRoZUxTc1N0YUdkSF9ReEdpNGp2ZFhWWG1Ybi0xVUxtRFJpT0hDcXNoQTRoOA?oc=5"
     },
     {
+      "municipio": "Abalá",
+      "titular": "Hallan restos óseos de felino prehistórico - Desde el Balcon",
+      "medio": "Desde el Balcon",
+      "fecha": "Fri, 25 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOS2ZJNHk1bFFlaW0tLXBJaXpJcVF2YXJtUTdpWkhCT3loT3VGMTcwcE05VWg5Q1BXazdRSjU5Zm5EcVdaRTdnaHk4UEsxUEZDZllkTFhzd2JXTzJOeDZkNE1TT0JucUEyM1BEczFPbjl2QjdfM1c4WVpEdjJmRmpwV1daWExRQjA?oc=5"
+    },
+    {
+      "municipio": "Abalá",
+      "titular": "¿Cuántos y cuáles municipios tiene Yucatán? - TV Azteca",
+      "medio": "TV Azteca",
+      "fecha": "Tue, 15 Aug 2023 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOcFdhSlhMMGQ2SGFLSnZfS2tjUU1sYVR5N296cnVSVzVETHp0U1lLd0FRRUgwTGo0OGhScWZ2ang5eHhJNWpyV2xyU2FKdC04RjBYYVFtbVVWSmJpajVwSkVXZ0pDajE1eHljZDUycGxpMi1hNTlrSFdLQVc4ZlBSbFNtUTc5MzlacHc?oc=5"
+    },
+    {
+      "municipio": "Abalá",
+      "titular": "Tragedia familiar en la vía Muna-Abalá: una madre, la víctima - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Tue, 21 May 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOaXI2R2QxTDZBYmllYmpGbEV0ZDFnaVRfNGM2d1ZBVjIxRHRBTGJJUVhOOWtoYVZ1MVpmbnQtVXo1NlJxVGNISjdkdEV0cE5QbG5yZjZpR3hCTkc3TF9jYlE4bXM3b3M3cG9jTFU4UDZwRWYxejB3ZTFhMjg1czdxM21CX1l0R2p1cWZiZWh4cERxLTNTaUlNMmhLVEJnLVZXZ1pEUnh6akNBN1JYbndn?oc=5"
+    },
+    {
       "municipio": "Acanceh",
       "titular": "Incautan drogas en Yucatán durante cateo; retienen a 3 extranjeros y detienen a un mexicano - Diario de Yucatán",
       "medio": "Diario de Yucatán",
@@ -212,6 +233,27 @@
       "medio": "Por Esto!",
       "fecha": "Thu, 08 Oct 2026 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQVDVCVEljTTlKdExObl9zTUtmd2pQQTZGS3FiR0hhVjlKblhSMU1fMzNNMlNPTG9VTGtkTTVicTNwVFEwTk1oaHNoSldUbmxwVjlMZTR3dTdVWmVLdFkxTnUyZzh0cnNmbWxGY0szWXJWcEFaOUg0b28tM05yaW53VGd0MlBEWDRoalBrTERud3E0S05seERBeHA0QTl5Ukg5M0gwbmxCOGo0anBTTkp6TWFRMTZPU0dteThlOW9vR0tkejQxbWJhNnFkVC1jclXSAdQBQVVfeXFMUGZKVFFabjdEOGhnWmFyQThLbzVqTFdlUnNoQ24tZVlsS0ozQTg4UlRoNzZmLVJGdExmd3h5WHBJa3dEQS1tQ1RwcHlzYTNNTnEwVUxSS1Z3d2NvRk5VdW1vaElCTDkxa0pTODhDTThQQm82a1JNTXJnWHZHTlRESHNScGo3N1NkOEM4SHhZSTd6QW5SeUpyNDRMZmlqRy12eExOOUVScHBvMlZ0WmJ2c2hqWk5VRlFpZ0FqMFJmWXdvdmhlM3ZVODMyV3hBTk41TjBqWHc?oc=5"
+    },
+    {
+      "municipio": "Acanceh",
+      "titular": "Caen 3 personas y aseguran narcóticos durante cateo en Acanceh - Quadratín Michoacán",
+      "medio": "Quadratín Michoacán",
+      "fecha": "Fri, 18 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPeF9tMmM2TEtSa3hka1VPZ2dkMGg5RjNFSTdhbE9SUGNPd25NeDZIbDViZmowOFBGbXNpLTZPR1VycGpYb1VxUjV2Rm1TOEFTMFBjWWx4VFlGbHQ1dEFjU3dRWXBOV3pXaUVDQWhqalRVRzMxamthWE5oZUJmRTFVakE3eDJpdEVfeWZhdDkzS1JHOGg2dFFaNUdBejc0NUpvd1VyVVhwcw?oc=5"
+    },
+    {
+      "municipio": "Acanceh",
+      "titular": "Venado cola blanca termina atropellado en Acanceh, Yucatán - PostaMx",
+      "medio": "PostaMx",
+      "fecha": "Fri, 23 Feb 2024 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNcXJETjlYaWZ0LWpGOXZ5UUg2ekZsekFIQmlDMVh6MnRkS00yYlN5TzNlbDdMenhQQXVuaW1sX0txTXBTdDRTZFYwX2VPV01uUU01dFJybXBJam5SVW9GcUZJTTZkRWFnejNlRHhKRlc0cVpBS0drbnVzcUFTbG9ncXJEM1RqalhFVDJMTnd5TGRxTWF2MjQ1RTF6a2taWUg1NEI40gGoAUFVX3lxTFBDS0NzaVVmNzRONnNHcVJYVmI0c3hsQmgyNDRaV1VxeVpOMzFKd2V6V2dZUVZpem9lMk9JMVVfQ3RVMVM4emJubGh5WGk3UUlsblY4QU9OSUlTSnBabV9KUDdjRXVXNXRmNkRVWUNGMl9XZTcxQ0MxV2RxaElNbWxFOHBwdVd6d2x0TVZsckRwU0ZSY29zTnpBRDRLS2t2bmozZHZ5T251cA?oc=5"
+    },
+    {
+      "municipio": "Acanceh",
+      "titular": "Conoce la comisaría de Acanceh, Yucatán, que está cerca de ser un 'pueblo fantasma' - Por Esto!",
+      "medio": "Por Esto!",
+      "fecha": "Wed, 10 Apr 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQczBnRkxsLU5GWVJZOWdqZngxS3FBMVpaSFl1eU03YS1SZG1qeER5cWV1Vk52aUZKTE9xWW5IS2o4U19rbmpxYU41T21sOTdGZ2N3a0JpODFOUjZSTUhJM2wyZWRiNEhnVUJIcnphQzdjM0RZZXN0bjhXb3Q5N1lqbG1BSmJZLTU3cFFtWFk1czA1TGVVTzZ0c25LQzBtT1dPdnVsYkx3SkpWTWxHLXRPUkt3UlNpYkE3cEFwRlJEaVBvNHVl0gHKAUFVX3lxTFBoWF9NXy1qXzg4TVhmZGtmeUw3NW1sQms1THN5SktfQmVDQjhfLUU1eDhpODlzVUIxVmdMRFctSTR2MzQwb1dsUW1oM2llR08wV3FURUlCMElCN3A3VGMyZDN6RUg0YS02cHE5VWxGd1lfWGdKUkxpN1poM3k1T3ZsUzctRWJzeDRDNENSMTcyc0VLbnRVdmF1SXVnek1GUTJJekZQOXZWNTVmVUFlS1ROUWJtZGJSb2ZrdWV0V1dLUkZEWUNLRXR3ZkE?oc=5"
     },
     {
       "municipio": "Akil",
@@ -298,6 +340,27 @@
       "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9DT3FHbTRKSWxaRl9JMVhxSFBDNlZLLUY3Sl9kQmlqQ01iS0JIeWtSRUlHTnZNS3NMLVBqM09BTkZxcGpvTDZSdFR4Ul9SM1VrNnBFVVFFbw?oc=5"
     },
     {
+      "municipio": "Akil",
+      "titular": "Accidente entre autobús y motocicleta deja dos lesionadas en Tekax - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Tue, 06 May 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOVTRyMkNnVjcxa2ZVV0ZpZG9CZGNPV3lBcl9BZmM1eE05STZzaGRTVDhNbnFycVNVbllqaWJ2NFJ6VG1QV0J4azhMUnl6cDF4R2wzLUJEX0daV09FS0xwcmtnOUZudkdhaUNxVHBXbUJCSW5OLUtrLUFiNzh0NjdLSXdRNFVxeTBYbE9XNU0tbG1SM29MZXlGc0FFcEJmcVNTUDV5alNrVjNodUZSbDZMQ3I2cm1xeHpJ?oc=5"
+    },
+    {
+      "municipio": "Akil",
+      "titular": "Encuentran sobre la carretera a hombre sin vida - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sat, 24 Jan 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5ENE4wT25hTHNncjRTbzl5RW80enpvMm44UkRMQ19ZMW5sakJiYllRdF90U1BsY1E5alljeWtNU0FHUTJpaUVvbUdmMXZvaFl4clJud3FtQ1RoMnQ2TXhXSzFzWHZtbWhZN01IZG40Y0U4QU95b0RnRm1B?oc=5"
+    },
+    {
+      "municipio": "Akil",
+      "titular": "Temor en peligroso cruce de Akil - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sun, 07 Jul 2019 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPWW9lbGY5NG5UUzZMblFqX01CZkpUNHEzOUlNM0o5SlhEOGl6X1pPMXQ3a0Nocjg0bDU3WWZGdDFUYXBZRm5VTmtYU3lZUkpLdThZMHFpZ3hTdms3Zi1zSF95VTVUNHlWTTR2WlF5Zl9TX0MtSU16dnFXMXhCRlFkeGVxeU5TaVVER05j?oc=5"
+    },
+    {
       "municipio": "Baca",
       "titular": "Renacimiento Maya acerca los trámites a las familias de Baca y sus comisarías - Gobierno del Estado de Yucatán",
       "medio": "Gobierno del Estado de Yucatán",
@@ -380,6 +443,27 @@
       "medio": "Sol Yucatán",
       "fecha": "Fri, 14 Nov 2025 08:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFA3dTFEWnl0Ujg1dEF1d043aTVFVkN6dzZkOXdvRWhBekdrb0JJdjU5U3hzOWticjh6RmZ3RWhUemdlbHJGYllhVVluYkI3Zi1lakludlZLSHdIOUx3anFZTHdkMkdPa2syVGtpdkU5RE8xbWNyUkt3SW1TQkNwZw?oc=5"
+    },
+    {
+      "municipio": "Baca",
+      "titular": "Aracely Herrera, primera mujer en ser elegida comisaria ejidal en Baca - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sun, 17 Nov 2024 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPMmsxeS00QndGendxdGRPMjZ0blk5QW9LZ1ZlNDF6QWNnNlpLenBaLUFfYnlYa0dPMWs5MVZtWnl6VmJrckUxWjJJalJFcXJnSjNZQmpXTFVwZ0p1VXZhTEpHQVhwaFNFejdUQ2k1OVZtSGJBMFVrNUVfNk10TC1iMldpLTk0ZWZ3eDVkRDNKc2ktQTBCQ0JpTjVMeWY2WHBrR2wxdmRfVlNuTVk4YXI5aE5JNkZ4Z2tKaGFQeg?oc=5"
+    },
+    {
+      "municipio": "Baca",
+      "titular": "ROBO Y ENGAÑO A EJIDATARIOS - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Wed, 02 Oct 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5zLUEzM3h3ZEFIWWJJS0dPNEppX3pLbDVmT2FzeWpsbDhBYS11Tzh2UWNUWW9lWk81V2YtMklHeFNBbUxMbWhOTHRMNC1kWlJsZEhCendxbTdqZ2ZaQUl3?oc=5"
+    },
+    {
+      "municipio": "Baca",
+      "titular": "Conductor de Mérida pierde el control y termina fuera de la vía Baca-Dzemul - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sat, 30 May 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNYi10S2pSOXB3UWlBUzdrdkJxMXVFLUt1NUQwS3hoNWNyT2tUWTZyaFlQYlN0cmhsVmlyOUdFMGhITHZLSnZpRWFqeHpxdmpfV0UzbkNGZ2JXNVVpWnRQeWppTmFwdG9Nc2VoT0N5dWpTcnBSMWVhaU5Dd191ejFTVmZiLTFaUWtoT3FRYlp1VTVZVEFmamJZdVd3RjFYcDhxOFBWNTBpR2JFamxYZFNCQkg4Wk5wNFZlWkJBeEZyd2NmREY2?oc=5"
     },
     {
       "municipio": "Bokobá",
@@ -466,6 +550,27 @@
       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOenJSSDlBOFNOOWRHTDVFUC1XdHhldFNRR0RENGRXdXNiLTkydzlEUzBnaXVOaFVtMUhHY1pVQXRaX0NoVUFYMzJzSzlfOFdpTnlSbVU4dEw5Q0hQYUhlS2w0Q3JlX0Zndk4yX20zb3pJMVl6WXppdWR3S2dVdXk5WUxNNk9MMmNjekFhd0ppNXA3ajd4VjlB0gGcAUFVX3lxTE1XcVFtM1Nfd2RPVzk3djAzQlJ4UU1JSnZwWWFkVW5PUGI5RUctSVNsMS1hOEM3bVBHNnpHQ0tTUEpVTTVPeGxjMTJWQnZ6X25NY3EtVl9sOWRKZnJpSmd4M0RzWDVBdmhXeEo2UnQ4MkdtYUhhcDZDSmRtN09mT29hWXhiQV9kcloyLXcwTFdIRy1wRzloTU1NZmNPdA?oc=5"
     },
     {
+      "municipio": "Bokobá",
+      "titular": "Feminicidio en Yucatán: detienen a nieta por el asesinato de su abuela en Bokobá - El Heraldo de México",
+      "medio": "El Heraldo de México",
+      "fecha": "Mon, 12 Oct 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQeEQ4Rk83cW5KdVF3V3NNZU5oWTVnZFplc2dnU1Jubms4UDhrMEdmazR1eHAwSkNuejVpcUxGdWpsUTFOblp5S2ZqZExTaUQwYnR1UnZoZmo0QUhSdlVfNDNHTFRuYkY0NXJ3WHQyUVV0S25LYmxMc0JrR2hoZFY3UmJvNlkyZDNSLUNhYnJ1dFZSUXhQV19KdHltMDZIY1dwTjZkV0xSMVlQSm1pZTlYMjJjeERDLVZjLV91Z0xKYlJYT2xfTzVlZW5NUGZfZVRWTFVHVkt5bjVodks5blRQb3d5bXM?oc=5"
+    },
+    {
+      "municipio": "Bokobá",
+      "titular": "Caos en Bokobá, Yucatán, por sujeto que vandalizó el Palacio Municipal: el hecho deja 4 lesionados - PostaMx",
+      "medio": "PostaMx",
+      "fecha": "Fri, 20 Mar 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNSm4tOWZNWkNFakZjV1ZObWFyN2NjaXRmRnowZDB4Qm10RnA5dE9CTjBGMFVnV1RPMXVGQWQ4dWI5TVlyLU81N1dwZ0M1RVN2MTFyMFdyaTBqc2MxbnhMRFRJOFI4MG5VR1lvSlc0emFuM1owRDBNRTVrR0JmU21hcElMMjRoUndhWUx6UW9jTThQUTJEUDdYcFFfcUExNnNFMGsyX1piVjVzM0c4cngxbNIBtgFBVV95cUxObkRDR01aYUhZLWhEVmowcDN0TWE2NEVXWkp1RzNNY2FnN2FZSmhlemlCN2VBcmxUNEJ6OTEtSUUwRWVaS1VMTkQ5cndXU0V5dUtkdjBDelk1UXpNZ2k3ekl4MjJXT2taYVJRMHhvSzFRYnJ3WFctOE5heDBySGJyal9zNjhhVTZLdDA1ZVlzeEZvSTRqbVlVVnR1dXNEZTdJUXM1VDExUGJmNUxPNlF2cFBJenZrQQ?oc=5"
+    },
+    {
+      "municipio": "Bokobá",
+      "titular": "Mujer le quita la vida a su abuela en la localidad de Bokobá, Yucatán - PostaMx",
+      "medio": "PostaMx",
+      "fecha": "Mon, 12 Oct 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOTzRMRjRtMnB2OThpWVZVVEFRZnlhbVBQMWpTcnVQU1hUcVhWQ3dHYS00OEFOMU9xWUU2a0duMUQzd25hdEhIMXdmbUQ3N0JMd3VkMEhoYTh4UnJ2MjBEVGRSeElCUmpkWDlTdmhVUHRtd3FjWWY0YnZnNmtXTWs2V2ZMcWhFR2pmN09sZ1hBSU4tMkxhRXNpekZrcG5CeGtqazh3VExn0gGrAUFVX3lxTE44aHNVa3JNZmpFbVVsVWRnVjZITFRnOVhVQm1Iekk2STlETXBCQTJOSzJNQkdMRkRmVWtoekItOHRzZ195Zm45R1FkTFJoTHUyZjVLRmVraFVWYzFBODNSZUZkQW44Y0pWOVBNT1pFNXpQRXo0NWNYdVVFZFNkTXp1ZVpfRHRaOWxLa3hOUTY3NEt5YmZTU0hKVzVmQktkZzY5bm9ubGM1Z1p3TQ?oc=5"
+    },
+    {
       "municipio": "Buctzotz",
       "titular": "Sangrienta discusión de pareja en Buctzotz: ambos terminan lesionados - Diario de Yucatán",
       "medio": "Diario de Yucatán",
@@ -548,6 +653,27 @@
       "medio": "Sol Yucatán",
       "fecha": "Tue, 23 Jun 2026 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFB3ak1TVFF3NHUxa3QzS2ZYQmE2SHJ1VEtJQ1N2UzkyRGZHMllkSW1jcGozbFdTVEJvdmdjcUpvMTBxSWEydnhaR2lQTzVmbkxhOVFYenhyb2tjNmpPZmRRQUJnU0o0ZWlFWXVZ?oc=5"
+    },
+    {
+      "municipio": "Buctzotz",
+      "titular": "Riña en fiesta tradicional de Buctzotz deja a un hombre hospitalizado - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Mon, 11 May 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPeDRhNmtPQWJlQkJxVWdJWHA5YzEwemJvM28yUG4tdUt5c0ZhMS1rR3JRMHJ0NkhrSzNSMDZrREozTG1FZmRIUnRibGFkclNUdEVpMkpMSHc0VEpMbGVNZWV2TnFobDRkNjhqR1prT3Rwa2phOUpWek1kRHp4eVcxSF82bmJSc3hkbUR0UUV1YlZ2MjN2VlJSTUk4a2lMYUxwRTdOLVRTdV9sMW1aRDNaX3VjNDlXZUpPQi14Xw?oc=5"
+    },
+    {
+      "municipio": "Buctzotz",
+      "titular": "Gracias a alerta de vecinos, policías detienen a ladrón en Buctzotz - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Fri, 09 Jan 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOOEg5ckxqbFJSdVhoLS1LQ0U1ZVdFMXMwQTl0cmgzUGY2OGoxNzIzbEFIUHZ3TEN3RzRUam93M2R3MllpRDVYTC1pMnRMSTViTjlfbkxybEg0bUdvV21uOW15NWh1VkludXY1bmkyenE0VFJLU3M5ekp4Wjg5eFlKUG1lSW04dUVOWTdaV2JtU09lSTBCeDF5dmtuOHNWOXFFZ3R1Y0tOZFpkbEJkcWNaX1d5UQ?oc=5"
+    },
+    {
+      "municipio": "Buctzotz",
+      "titular": "Vaquero herido tras ser embestido por un toro en Buctzotz - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Fri, 26 Dec 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPWWtZcV9sQ2FaS2dOanRwS2FKaUxRMVM3ZzFsakxmX21KUFR6ZW5HamxRRmJ0eTg5M1ZwS0dCMDdhbGd1dV8wbUQ5XzRMNHA4TThWM195bU1reTFqUTB5a2RwWVduTlRtajRQelNyYlk4YzVrd2g1TEZObDJvY0JIc2V6dkpqNnM2ckRLNlRQZzVDUk52U055Z3A5cHVnQUhhOG4wYlJEcDYxS2Yx?oc=5"
     },
     {
       "municipio": "Cacalchén",
@@ -774,6 +900,27 @@
       "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOUWxRdFlRcXFJQWN2TTZLWWxsejhtVnllYzc0b0xHcUNEOWRsWVllZFVnQ3BnUm9scDVyR0xDbkdKSi1STFA5OHpJU3lXWHpUaXNua2E5cDFZY0xsejdGN1k2VmNpQnFwSnFUTzFfakxRQWdka0VBWnRmNXF3LWNPWEtDa0dwQ0RZNFZIa3R2dmpJeUI0bGxqeDQ3c0lKTlk4SE1LdEFUVTJBWHg2Y0FwOHB0RU1Iem1GbF9wanBaQTMyNDM2M0Exa3RfN1VIZ9IB4gFBVV95cUxQd3lxdldCeDRSYTEtdDh2NWltRUhvcXp0a055Mm8zamNMZUJISEtBdmQ3Tkl0RFJzVjVnMUpZTUtOUTR1Q1BESENYSFRoc1p6cnBhMGxzY2E1UExPUmR4OWprUm5WYk9kcWhWRVF6S19LdDBQVURfajZWTEV2SEQyZ0h0aFY1YnhzRWg2UnhkTDAtRW9WQmc1YUdDcUZvQmZzc1dJb0dSdllzcW1LYjd1QzJrcHZCVENQSndraW02Nk04RzRickNNZkdCdjJtQmFZUXpNLWg1UUoyUXZ5cm42aVJR?oc=5"
     },
     {
+      "municipio": "Cansahcab",
+      "titular": "Automóvil vuelca y deja atrapada a conductora en la vía Motul–Cansahcab - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Thu, 29 Jan 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNQnZHcXk1X2dNSjFiemtzZ3g3cERlVE5xdWk5ZjFhcXN2cmxSN3hSTElqRkNtZ29Ba3BocmN0dy1YdnJFXzhvRjdWTlVpOFhUUF8wc2VaT21TR2hLS0FRd1VoZGI0c1JoaFI0MTNnd2ZLQWE0Tkp1X3pxa1EyTFhyeDR6TDRKeVR3dHNwTjZrekJIRXlJRHpFbWxSTTV0TFctaG5jSXNvakc4VzdSclNCWm4yZG9XZ1N3MGJ3eFdEVQ?oc=5"
+    },
+    {
+      "municipio": "Cansahcab",
+      "titular": "Buscan detener la venta de tierras ejidales en Cansahcab - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sat, 11 Apr 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxObGlZSWRDQ0ptVG80VF9nVkQ5eW9mZjRTRWdrSVpXMi1OZlpCdG9fQkRSZEl6RmVhMGduNTkxTnYxeWdEWTFfN2dyQUVGZnF5SmhuYVhhVFVyVFRGcUNPWk81VzU0TXQzelYxQ1paX1duWi01SDFQWWVWMEljR29LNVphSjVuZw?oc=5"
+    },
+    {
+      "municipio": "Cansahcab",
+      "titular": "Ponen candados en la comisaría ejidal de Cansahcab - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 13 Apr 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBDZXhpbFhaV3ZuYm9ITlNNRDNQU2JCTFU0cVVfc1ZqTmg2WWp0TXZmMlZZSFFvbnpid0t2ZlhNODJqUFYwMnhFd05MdjA5N01Wb0QxVjZjU09oVGtmR3hYTWpGN1NvWFF5dS1BS0VaUjIxMGVYdU9WaFdURElWUQ?oc=5"
+    },
+    {
       "municipio": "Cantamayec",
       "titular": "Realizan operativo para localizar a adulto mayor reportado como extraviado en Cantamayec - Diario de Yucatán",
       "medio": "Diario de Yucatán",
@@ -856,6 +1003,27 @@
       "medio": "De Peso Yucatán",
       "fecha": "Mon, 06 Oct 2025 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOUEY3aW50d1pjMGJMaUJ1VUo4U3l0ZjRiSzFuN0JJQXNfV01GSzZveGFaYWc1ZW1kM2tUeHFsOENqWHZtakQ4SXRiLU5QQk9FV0lEWmd3RFotR1AySzVOdGZkVzNjWWc4RWQ5aTByS1ZXQ3lYLU44VjdzUWJCTlBBOFdvU1dDdWhkb2FnMnFob1YzRXBlX1FUZGVDVUvSAZwBQVVfeXFMTlBGN2ludHdaYzBiTGlCdVVKOFN5dGY0YksxbjdCSUFzX1dNRks2b3hhWmFnNWVtZDNrVHhxbDhDalh2bWpEOEl0Yi1OUEJPRVdJRFpnd0RaLUdQMks1TnRmZFczY1lnOEVkOWkwcktWV0N5WC1OOFY3c1FiQk5QQThXb1NXQ3VoZG9hZzJxaG9WM0VwZV9RVGRlQ1VL?oc=5"
+    },
+    {
+      "municipio": "Cantamayec",
+      "titular": "Hombre muere durante los festejos a la Virgen de Guadalupe en Acanceh - Por Esto!",
+      "medio": "Por Esto!",
+      "fecha": "Wed, 10 Dec 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOelFSTmpmNFVoaUo5S3ROWTVHZVR4bS1sTDBfblk1MTlzYk16dHpFQU9pVE9nM0pod2pwdHlWYUFVczRTT0NZY2xuWjlmaUlDSm56Qm1hX0VpU21HODBRVXBZVzRsdjRLYW5VT3dIQzV0NTJObnlhN2huYVgwYWJ3TVdMZXUwRGJSZjlIRHhIY0dCYnRubUhtQUQ0ZFRTdEJUajJ6UW9ua2ROeDkxcHRSbm9NaVZuZU9OMDhJMVpMdGFhVzDSAcgBQVVfeXFMTVlTLVNOenV3UjBlYWtVUzVyQUQtNUYyUDJycWRJdkY5RzVTb3otTi0ydWxwNzJZb3piXzZfVzRELUFybWVLQmdlcmFTdG5BRXFuamZVTGE3UlJ0d3Y1SnFGOWd0VURJTFZPZE1LUWRScktfMGt5MGJHWkstUnB4dElXdmJaTW9TeEZqVzlWblA3RGM3eWx2MHM4OUVMT1ppUHdGOEFJX19CUXJ3aXd0NXZSNHAybENNMmZudEJpRTNoajlIYW5EV28?oc=5"
+    },
+    {
+      "municipio": "Cantamayec",
+      "titular": "Conmociona suicidio de septuagenaria a habitantes de Cantamayec - Reporteros Hoy",
+      "medio": "Reporteros Hoy",
+      "fecha": "Tue, 10 Nov 2020 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQVkZWTkZSOGZHNHBsbDVxc25BMk01em1xWWhzNWQ4aEhhN09ETkM4TzV1ZjV6TlhnQUZqU1l2NWFJNnljUk94bUVkYVZRbzV6cHN6bndaYkEtdW1QOVRKdmtIWHVscUpaekRlVmpaY3BpNGFFVFlxVW1FZEtqQ1d0akdNVnQtTnBoNmdfdm94X1pzN1ZWdE1HN2JPb3BkTG8?oc=5"
+    },
+    {
+      "municipio": "Cantamayec",
+      "titular": "Más seguridad al interior del Estado: estrenan camionetas de SSP - De Peso Yucatán",
+      "medio": "De Peso Yucatán",
+      "fecha": "Wed, 01 Apr 2020 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQT1FWRlNNT2xoMnpETmRXRk5Pa1hhdG1HUHdGYm9PS0x5MzZCeTRHTnFUb0FRNU14ay1CeGRFcUpBSXN6UmxJNnZSYlE0YW1sOUxSdy1rTVprTHVySnNxZnNvZUZBYWl1bjN2X0FRR0ZtQTA4MDFWNjVXV0F5azdjU0h6U0p1MUpsbXZjck5VZnkxVm51c3ZJNHJRRHR4T2fSAZ8BQVVfeXFMUE9RVkZTTU9saDJ6RE5kV0ZOT2tYYXRtR1B3RmJvT0tMeTM2Qnk0R05xVG9BUTVNeGstQnhkRXFKQUlzelJsSTZ2UmJRNGFtbDlMUncta01aa0x1ckpzcWZzb2VGQWFpdW4zdl9BUUdGbUEwODAxVjY1V1dBeWs3Y1NIelNKdTFKbG12Y3JOVWZ5MVZudXN2STRyUUR0eE9n?oc=5"
     },
     {
       "municipio": "Celestún",
@@ -942,6 +1110,27 @@
       "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNZE1wUmNoUUZqSkppc2w1eDhubHJjb3ZXeWFYQUJhWkIyUkhHbnB2YUZjYXJxWl9FSm4yUFV0dElCSG1PVVlWT2tRanduSmItaDMta2g2bmxOaHZua0hRdWFiZl81YTRKc0dDYWpNb2dtenR0OU9maXpjRExQNy1keDIxVFRlTkFmQi15Q0xmdVBET1kxVG1mNmFDbjBPN0Z6bnQwNjNqNWJuSWdENHYzVWpZbFNyMjRrMkRvN0R5SzVLUUpRM1doNVZrcTc2SFhkdVE2NFR4cVlYYkk4ZnJKSTdDalJVOVNqZEMzSFdSYjhNaThWa1HSAYoCQVVfeXFMUDl3TTdUdmpfRlFOMTFoRVplS3JVb0VHWl9ISDJ6TlNNdjVBd3hUM0NobXdQSHdDV2swMkZ2UWtVQjdrSDdyRTdRRy1vUW1LVmxuanY2OUhFUHJSNk1STV9jUG5KVnRGWGFuZC13NXFKbE1ScWREOUh4Ny14Tjl2RFN6ek5TQXZLcjRfdThGV0FSLTRvdVViZFhNNG5FeTZmRWNqbkdxbjJSTFMtaS1nb28ybDVDeWtBTTZHcHZqNThERmt3amdWSTd2WDJjM0t6SmdXYTRNLTFzQ0ZFWlN3cHRQaGRjOHNrQmpnVmdvNndyU3E3VHBybVFqeXExRUx0cmYwLWhkWkZfX2c?oc=5"
     },
     {
+      "municipio": "Celestún",
+      "titular": "Profepa clausura compraventa de lotes en área natural protegida de Celestún - La Jornada",
+      "medio": "La Jornada",
+      "fecha": "Mon, 03 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOMmpFX2U1Q0NERVlESGZSYWhfdHoxNUN4V3hQWlFEVHBLWWlSX0hKUmlaRUJKNzVVeU80ek51QTdwbzM1UVJnU1pnVldzZXUyQW50Tl84YXloNHpHT2cxQTEwWG14UlZaQjZOM1ljdWVjWS00MVVhSXFNekM0SVBxOEZUeDhBSHZSMW9vRHJqV0loZTVQcm5Zd2VZWTFBNGNQdHdnV1NGa3d4TFNxaThwNDVxaFhENF9kLW1hM1FnN1QwQ1BIMllyNQ?oc=5"
+    },
+    {
+      "municipio": "Celestún",
+      "titular": "Clausura Profepa desarrollos con lotes de inversión en Celestún, Yucatán - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Mon, 03 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQc3haOVFjSWdwWTlBa2NlQWc5RENRZUNwMW1lOEpXMVY5VHBkZ19VcXFPSXBjYndGZVNobDB6eEV0VmxjWjBCN1cxSkpucDJab0ljdGcydUQ1Nkp5RG9OU1czWVBqVnRrY3N5dTlxMjd5SzRUOGdtQWVjNlNPUkNmM1F3YVlpRWZZSTVQY2d4THllZThfcHRodzF0aE1kT0tscWRpcE5vQ1NlakN5TWlHVnNHV3lZT2dZbFFjMmRTVQ?oc=5"
+    },
+    {
+      "municipio": "Celestún",
+      "titular": "Profepa clausura 17 polígonos irregulares en la Reserva de Celestún - El Sol de México",
+      "medio": "El Sol de México",
+      "fecha": "Tue, 04 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOZ252YlQybWswa2JWUWZYMkd5NTFudW1iamJMNGJZQ0RrZV93cWV1RTU3MFJFRUJWVHYta0UxcEI4eXZVZ1NCdy1HME1kUTB2eGpUTDNYc3VuUDFBOHQzMkt0ZFdPOWdCV092Wm5NRlVPSUF1cDRwV29rWTZ2M0RhLVJPSUdxWDBPdDZ6VUZzWVdtRDJ5S1NSSzgxQXJ6MTZBLTRuekphRXRBTV8xRjhrWlRad2hlYkk?oc=5"
+    },
+    {
       "municipio": "Cenotillo",
       "titular": "Gobierno de Yucatán y habitantes de Cenotillo y Espita acuerdan acciones para mejorar su carretera - Gobierno del Estado de Yucatán",
       "medio": "Gobierno del Estado de Yucatán",
@@ -1024,6 +1213,27 @@
       "medio": "El Universal",
       "fecha": "Sat, 03 Oct 2015 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQVk02SEMzU2xCVXZJTG9WanEtY3JuQld5c1V1V3RwSHk2T0EtWE42Tm1WQ09kVWhQbDBPVVBnazBhckoyQ1VydV9jXzFmUFFQaUhhOXh5WmU1OXpIczJXbnBaR2ltdFZSV1phWmkxQnY3azNERFpEVlpJNHZCemVldy14TVlQOVYxdXdEbVBFVjRzVmVUd3NJNDJJMG1VbXc2Ti03emRB?oc=5"
+    },
+    {
+      "municipio": "Cenotillo",
+      "titular": "Colorida vaquería en Cenotillo - a7.com.mx",
+      "medio": "a7.com.mx",
+      "fecha": "Sat, 19 Mar 2016 12:24:25 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE00bW5ldXBqNlFvVS1hRlBCYl93emg0TjJhekt0ekF4THlfOHQ0bnhsd3BFeEwwQ3lPTjdsNzJnaVA1NXp6VUwyYzl2dlE0YkdD?oc=5"
+    },
+    {
+      "municipio": "Cenotillo",
+      "titular": "Ramírez Marín ofrece mayor respaldo federal a los ayuntamientos - La Revista Peninsular",
+      "medio": "La Revista Peninsular",
+      "fecha": "Wed, 20 Jun 2018 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQbm04YklKTGFQRXN6Q2NMTE9abkk4ck5HaTg2SmZ1QWdaY2xnTlFNTXZoUXJjanY2NTdMS2dtSFUyeUcxQWhFdlU0cHNmZzJRWDRMaExXZENwZ3lDWTVwcTFoMVg4ZWRiVjBEQmN0UjBuXy1KRGpPbkRoS0RncmU1U01pLTdOMzh6X1l3cHhCbXhST3Nhd3ZJZXhSa1Z0YjZM?oc=5"
+    },
+    {
+      "municipio": "Cenotillo",
+      "titular": "CENOTILLO: TIERRA DE MIGRANTES - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Thu, 21 Dec 2023 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE11b2ZFV0lEQmhHZWpSU0pldmQ4WFdwQ25YQk5SZVJfV0V4X2E1ellaTGZWR3VjeDU0aXNDZldUeFVqRVBCNDVWcUNKMDY0RWtiU2tqYWhYbW5BMnktak50bExn?oc=5"
     },
     {
       "municipio": "Chacsinkín",
@@ -1180,6 +1390,27 @@
       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPcVRLSHZwbW5zRXlxVmlUdjJnbEtJbEZrYlRGWVVrbWhzRWFZTERCNGZweTE0UzAweVlhLUVqTXVkZ1lpQkRxRFVzYzQ3b2N6RURKV1RtODhNVFdmQ3FZZWFZeGl6clpuQWJyay1sYk95MTJnYmFQUlU1Z2MyM1FxYkk0TQ?oc=5"
     },
     {
+      "municipio": "Chankom",
+      "titular": "Casos de gusano barrenador superan los 580 en Yucatán - La Jornada",
+      "medio": "La Jornada",
+      "fecha": "Sat, 27 Sep 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNTnpOMUJiYnpONUdxOGhiQWpaOE8zMnlWMEVxaGdTaGpNX0ZCREdhY3lwMmc3bU9HS2xWUDNQSFlyR1laVnRLUE5SbExjeFk4WWV0eExvbHhYWjFxaF9ZUEhYNkJrcUpUdy00eWZVQ29WU084Ry1sRldVaktCQzB3VnpZTHlJcklqN1FxVThUY0Myd3h2VTVxQXBFeHFMQWs5RllpZkp4Xy1jbUU?oc=5"
+    },
+    {
+      "municipio": "Chankom",
+      "titular": "CHANKOM: BASURERO CLANDESTINO EN XCATUN - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Wed, 27 Dec 2023 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE94NzNWUzVUVjFsbVNoTkt5dF9FdmRCemEwYmxCM0RfQVZQUFUtTUVBUmdKZDA1YnF1Ym1IcjAtdnl0RDJxNzB0RUR3U3RFRjFrQ2VrQmxGS19qN0Z5VUVlcndodHFfMURwZzMzRWFB?oc=5"
+    },
+    {
+      "municipio": "Chankom",
+      "titular": "EL EX PRESIDENTE DE CHANKOM PRÓFUGO POR PRESUNTO HOMICIDIO - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sun, 05 May 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWmJvQW82N2JHd000akJ2R2Zha3NoVXF4M2lXbDRQbkZCLVV0d1ljT0pQWmViYVpQZndUenM2SmxtV09Nc3lIWEFHN3UzbXJaQkl1ZklxaC1KVDl0bjc0Uy1WMlQxT1EyVEl4YnBTd0NJTk00OWtwbk52bno2dWJsS0RvSUJTanFK?oc=5"
+    },
+    {
       "municipio": "Chapab",
       "titular": "Abren boquete en Registro Civil de Chapab; sustraen documentos - Sol Yucatán",
       "medio": "Sol Yucatán",
@@ -1325,6 +1556,27 @@
       "medio": "Quinta Fuerza",
       "fecha": "Fri, 02 Oct 2026 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOSmd3cDNvZVFteC1QR0xjd2ZfQklXcjdvMmtMOHU5c3hINjdXRDFmMWZtUXNYYkFmRmxtM2RTTWxReGR5SFpUWm5UeERBYkVsaEk2ZzM2cjZMaTdJY040LW0wblVsQ3FpekU4Z3ZRUm9JbElCdGZNV2xwbi1LdzJRMmd2X0hRU0I4a3JFYndTSjBrX3ZSQXc?oc=5"
+    },
+    {
+      "municipio": "Chemax",
+      "titular": "ÚLTIMA HORA 🔴 Reportan el presunto intento de l1nch4miento de un hombre en el municipio de Chemax. Consulta todos los detalles en www.aztecayucatan.com.⁣ ⁣ #Chemax #Yucatán #UltimaHora - Instagram",
+      "medio": "Instagram",
+      "fecha": "Fri, 02 Oct 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE16dUtaUUxxRWs3Rzd4d0VFQWZHaURDZ1d6R1VCN3BkV0ZpQTdITFU5eE1XM3lXV1hRZ1JuVE5GLXVMLU9BdS1aRFR2SkhzV09OOEE?oc=5"
+    },
+    {
+      "municipio": "Chemax",
+      "titular": "Traslado aéreo de Chemax a Mérida en el Bell 429 de la SSP - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sat, 16 May 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQQmxLeS1KNW85VEpxRGJCdTMxT01GVDVscDFWSlBnX0xLNmdHUThxOXpMa05UZVVBanVUVWFNMHhFOFJqa0RnaF9HeXFnMzFhWkVPN2VWamItdFRrem1FbDh4RWU0dTRuN3ZWZWJYazktWklqOGVqWFpBVHJzYUJqX3lhWW1hbFVi?oc=5"
+    },
+    {
+      "municipio": "Chemax",
+      "titular": "Linchamientos en Yucatán: sin protocolos y con vacíos legales, alerta especialista - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sun, 04 Oct 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQQmkxWi1hVXlrU0oxWUJKX3lxMnc3OEVFMU9MMlJJRnBIeGRGbUdyTU1aSWRPM2FHbVJqLXh2Q2x3SnpOVzFXV1J1WloxZ3p4MW5kd3RTVGtrOHpkdElXNFBFRTkwMmlpYy1Ec3BPaXFaekc1TUJKNXhtX2IzOGN0cHFZVDZWOFMyZ0hTaWF0NWpQVDk3Y2ViVXFBUDk1V0hvSmFkV3kyY1JnblI0Ti1mSWgyNDhLdjAzWDFNZm9KSXQ4cFdR?oc=5"
     },
     {
       "municipio": "Chichimilá",
@@ -1474,6 +1726,27 @@
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPcVM4cWJYa0RsamVsUTR0UzV5SXdFaV9aNUZfLVdMNEtCTzJGVkhLMjRueEZWZEFWSjV6dkJCc0dhT2pzNGlyeFVMd25ZUXVwMTA4ME93RUJKWXJ3SmJ4dEp1TENENFRDVS04ckF3Ynp4cFBsZVNkMEFUMk1SQms4TEtjUGZKMzBMcWprRmx1czNINmtoV2ZDckJCMmJDdDJSUkUtb3k2V25SS21nZWx3SjRvS1Fvc2g4LVItV3N0OHRkZw?oc=5"
     },
     {
+      "municipio": "Chicxulub Pueblo",
+      "titular": "CHICXULUB PUEBLO: ACUSAN A DIRECTORA POR ABUSO DE PODER - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sun, 29 Jun 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNY3NrMTBCZTBEMllIMVMzUXFzWGxpdldmR0VjYm5iTEVvOEVxMzhtRUdxR3N4dG15OFBZS2pUczF0dWZPQkdrZHk4amttSjdXSHBHQ0s3amZmMGpEZUlNQjdHN0xDR3J3Z1Rjend2aE9FN1Z5QlZ5U0RCRUtWVlNlekpIUQ?oc=5"
+    },
+    {
+      "municipio": "Chicxulub Pueblo",
+      "titular": "Tragedia en Yucatán, policía conducía una patrulla y jugaba el celular - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sun, 28 Jan 2024 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQWWxyUEx1X0dReWJmVjg2Y2VfYjlBWUNQb0dLVkNZM3l0cTEyYzFXMngzajEyMFpRSGpPYnd1YmpFR1lIMWE5bFBKNHNfQzZianYxUGQwTTNTTWZwbzNDMEtFaHZQSjN2ZzJqazBjTHdrQ1NXaVRGVkc0T0dxbFJnVGhXdDBvQlVTUDJvN1lKU0J3YlJFdmJCVEh6b0ZWcy1NNnJ3STg1Q2RpNk1ZUlJpa1AtSW8wdklicTBjbA?oc=5"
+    },
+    {
+      "municipio": "Chicxulub Pueblo",
+      "titular": "QUINCEAÑERA SE QUITA LA VIDA - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Thu, 28 Mar 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBHVnluQ0R1T19EY2Y3X2NNdW5mNFRST2dkOUI0dWVkbU5MQjNtRVR6djlvNDFBNjRfMGhzekVVZGZ1Q0xoUGpKeUoyajN4cko2TC1GVzhvOVk1MEFGbDZoS2Noaw?oc=5"
+    },
+    {
       "municipio": "Chikindzonot",
       "titular": "Capacitan a policías de Chikindzonot para atender casos de violencia de género - Gobierno del Estado de Yucatán",
       "medio": "Gobierno del Estado de Yucatán",
@@ -1556,6 +1829,27 @@
       "medio": "Sol Yucatán",
       "fecha": "Sun, 08 Feb 2026 08:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9zWDloX1VTUU15eXV2MmhRTG1CUUZ1Rk1nck1Bd1V0SWZpTGtDNDJCNjNyVXVNbGhJMXJYSTZBLWJOcVF1QkJHSk5NZEtmczMxc1NPb3RnNWx6MXdyWXo2aGVBdXpDX00?oc=5"
+    },
+    {
+      "municipio": "Chikindzonot",
+      "titular": "Próximo vicario llegará de Chikindzonot - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Mon, 06 Jul 2020 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPcmVBYk5OblVWY0hMYUY1MTY3WGE5RFExTTdMOVY1dVctUThZSUVzY0R3YnlPdkkwU0NpY2ltM1pEWUVnc3NpdlpfMTJzUm9wSG9ncnFrVmpqQS1iRHVJMGFSNWRLd2JJUnFvNDFkNnQzSlpPcGpDWFBXYmg1SnJ0cVYtWXItTXgwUmZqb0Q0NGZWcGVk?oc=5"
+    },
+    {
+      "municipio": "Chikindzonot",
+      "titular": "Explota OVNI en Yucatán - Johnny Oliver Quintal",
+      "medio": "Johnny Oliver Quintal",
+      "fecha": "Fri, 27 Sep 2013 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9BUzNUN3ZXVDVzWjBOSktfRm5qTnNXbFBLUmJvRGhmSkR1YWNXNTQ0cmIxWXJUT0Frd2Q0b0hNMW5oZTBDYk5uV0loS1kwUG41UklhMnczMHN3Nld2N3E2ZlUtU3BSU0NwYUhzMTNIWHFkSU45WVNFdlVxVFk?oc=5"
+    },
+    {
+      "municipio": "Chikindzonot",
+      "titular": "Abre Renacimiento Maya oportunidades universitarias para más de 100 mil habitantes de Tizimín, Tzucacab y Chikindzonot - Gobierno del Estado de Yucatán",
+      "medio": "Gobierno del Estado de Yucatán",
+      "fecha": "Wed, 02 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBNcVhoUUJCLWNIdzd2SXo4Q2FkSGhzN1JMSGFXVndtRDNJODdLcEhtR1FYMnduUUxDN29WX3owak5Jd21JcHJibDNWdXYwZldpNnZVcDAwbE93ckF0VXJBekNEN3BRejBSempvRlB3?oc=5"
     },
     {
       "municipio": "Chocholá",
@@ -1775,6 +2069,27 @@
       "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPZGlqWEE3bUNRR2JwVWNrZThRMTBMRjhfWE50Z3hPNDNlMmZidDNkT1JtSExKTUZ6b3ZWWkpreTZablVHTmROY2F5eUZnbzlZY0NuS0V1eG84NWlOYmdGcWgyRy1EdEk3ZVo3TV8zLXoteDVnem1TQTZ6bzV0ZjBzM0NmNUxGTjhjNXZQV090MDFjbi03dFF6VWlUMTlUZDhGZ1JiR2JLaG16Y0tocmFBRF9CdllFODJmS01J?oc=5"
     },
     {
+      "municipio": "Conkal",
+      "titular": "Auxilian a adulta mayor desorientada en carretera de Conkal, Yucatán - Por Esto!",
+      "medio": "Por Esto!",
+      "fecha": "Fri, 20 Nov 2026 14:24:35 GMT",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNdDV5aEFoY09vWWRwV3l1OEdvREhsaks1ZWt3ckdvN1lCbnJ4S3l5dEJPVEFZOFdaTTZRN1JWU2xOcU4tMHZ0amNvNzRkVmI4X3VLUFJhcEFaSEswenRnTTRvNHJZaUQ2cVpZV0Nkb0JkVmlzVThvSmdSSVlTYWl3S1UzempKZlhLcmJ2bFlUbWZrUHktUUdrOVNLYldjSndSakt6Z01n0gGrAUFVX3lxTFBWRHB4ZWhVZ0VPTkJXT25rSGRZSmQ1aG5reml0eG0zUXNqYTJOaHhCaGpkZzJLakltM0hLa2UxWm5DZU15ZE9Zcm44TkZGczlTZjNtdENROExqV0s2OWxILTBMQ0JkNmt6RXlXTUdSSWR3eWJXbkNYZ2x4RlpjX3dOdTZEdEx6NHBlZ01GbXhCYVVmZG81RzgzUGdIUkk1TUxxSzFvMmtYV3R3UQ?oc=5"
+    },
+    {
+      "municipio": "Conkal",
+      "titular": "Decomisan más de 400 kilogramos de droga en dos cateos en Mérida y Conkal, Yucatán - yucatanalamano.com",
+      "medio": "yucatanalamano.com",
+      "fecha": "Sun, 16 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQYS1ydDBfdzlCbXQya1g5ZUxndzhxM3o2bEctdDBTZzZraF9sLUxxTmNwdzVnUllRNnF0b1lLcFhhZDVMVU5QU0Flb051TWVnb0U1Wlg1MGxzcVNVWUhhWHNCT1RNcVN3M3FadGlZTXVKYzgzUW5WR2E5T1IzNlNzUUwyQmViZmdOV1owOFFXMV9NblhpbnVzdkJpMV81ZzQtWmZEYmZuT1k2SlJ2S0E?oc=5"
+    },
+    {
+      "municipio": "Conkal",
+      "titular": "\"Chilaquil\", la historia del perro callejero que se volvió policía en Conkal - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Tue, 17 Sep 2019 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNYnhzWDNjc2ZLUWt5blRrYWExbldKM0N4YVFNVGFreTJTUDNKdXRLNnBqaVBZbWc0VDZZVzhGdFFobzZIT3N0c25aX1NxS3dEaGVuQlBoZ05hb25NR0N3ejlQa0ZBV1JndkJUc3JuaE1Wb0g2TFl3d2tkUEtTOEhYX0FXVmtBTHRDMU9JRnJGaEZVNkw0R1hnTDI3LWF2SzZWQkp6R2lYRmhTeHNKZEQ1MGNBb3QxWTkwZE1NcjZCZnY4QQ?oc=5"
+    },
+    {
       "municipio": "Cuncunul",
       "titular": "Gobierno Municipal sin corazón en Cuncunul: deja a su suerte a empleado grave tras accidente laboral - Sol Yucatán",
       "medio": "Sol Yucatán",
@@ -1857,6 +2172,27 @@
       "medio": "Diario de Yucatán",
       "fecha": "Sun, 26 Jan 2020 08:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPWnFwWW5hcXV1RncxcmZfNExmQjFRcEIxZlNWXzlJaWVndVkwSVFEZmZUdkRsODNuS0h3SDNGU2xUd2Y4MV94emQ1QXFtQnBZYmtXaGVtYkRIRWQ3N1JzWkJ0TDZuVktUV1d6bWRnclkyaVJONjZ3dFhTX1pzUG5NY2EwNkxQZnQ0clBLYzJLRlVfaE03RGh3UTFMcEh3OWlhbllVME9NQQ?oc=5"
+    },
+    {
+      "municipio": "Cuncunul",
+      "titular": "Cuncunul: Limpian céntrico cenote y escuelas - a7.com.mx",
+      "medio": "a7.com.mx",
+      "fecha": "Mon, 21 Mar 2016 09:43:32 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9acmxYMDVvOUF3cDF5cW81TktyQVVoakJmR09LcVY5VDd5ZXJWNnA4Uk9aX1VZTTFYYXR4ZGFzdHFQUXl2NWtVbmtVZDJ1c0hI?oc=5"
+    },
+    {
+      "municipio": "Cuncunul",
+      "titular": "Abandono e inseguridad vial en la Cuncunul – Tekom - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sat, 26 Jul 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5kN1dqbXhDSzZpT1ZnZzlCSVFCYllWc2RPeWU2ekhvSkpYUlRMbWpjNzZneHNIeWxPOFM1cEVaalVMS2xtM1pZVWRTM1dBcjFFbXgwTnlHV1huQWJ3TmZna1lDeUluMTA3ZjNvRC1DTkk0UmdJeVpPUUlFWQ?oc=5"
+    },
+    {
+      "municipio": "Cuncunul",
+      "titular": "Yucatán | Graciela H. Ortiz | Federación declara emergencia para 20 municipios yucatecos - La Jornada Maya",
+      "medio": "La Jornada Maya",
+      "fecha": "Thu, 22 Oct 2020 02:23:08 GMT",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNb0ZKQ2FrczNobF84QmRYVkNvaUxPQ3FFYWhlU0dMaTJramtuZWl3Ti1uNlpsb3ZjUHJtQlozR0c4czFYVERna19jcGZNV1NhVkpTSHhMNmJNR0ttTnNqMXVYeFlVekdsamFucUlwdTY2ajdPcGpxcnhDS3BnQUs5Yk1tOG9ZaWlETXYzNDRmaEpibVA4UnJyU01EbW91YURDTDFvUGxQV0U3Mml6R1JVSkhB?oc=5"
     },
     {
       "municipio": "Cuzamá",
@@ -2004,6 +2340,27 @@
       "medio": "Diario Evolución",
       "fecha": "Fri, 05 Sep 2025 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOV0djeWVUM05SYk4zQnRBYWNwNkhjQnNrZkR3T3VvM1BfdHRoLVAzUUhwWHN0ZWNzX05hcXg1M054YmNlaUt6d0RHTWo1SzNURVJJdV8xekhrMW1scERlQ1VFSENHQ3hIS2hQV2xaUkdUbk85QWxCUlYwS211TjJJU0s5SnFpak5UQ3VOTlZPUDRQRnZwdmdFY1Q3RkVUZw?oc=5"
+    },
+    {
+      "municipio": "Dzemul",
+      "titular": "Investigan a alcalde de Dzemul - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sat, 04 Jan 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9aTFU1ZjluRHhJX29LZVFSbGFRVXVMeDd5WFJqSmFwb1JDclh6OVFmMUVBMTdyX1JJRDFyMkZOYzZ4U0NnVTNQaFREY0Q1ek81NzlHeU9NbDFrZk9SQkN6bG5jeXQ?oc=5"
+    },
+    {
+      "municipio": "Dzemul",
+      "titular": "Rescatan a flamingo lastimado por un vehículo en carretera de Yucatán - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Tue, 01 Oct 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQOExPaS1CWm9sMS1zWmlXUEtiT1RlVnpweVM3Q0ZzdGx6dzY5eDYxVjlZRzZWNGFwVDdWWE5kSDZjZjkzTWZ3X0tfQmg2SWFYdUdUOEtISGdzUG5zZlpyQWhJbGY4UlJHS05XY1hJY3FmY21BQzRmLVoyYmNGX2d5N2JBcC00S3FOSDRBRi13YXFySnNNMDktUGJOVmctaVdhOE5ySloxdXlMdUttb0ZoNHhYSmdQMWZKejVmTQ?oc=5"
+    },
+    {
+      "municipio": "Dzemul",
+      "titular": "Tesla Cybertruck ingresa a playa en Yucatán y queda atascada en la arena - Milenio",
+      "medio": "Milenio",
+      "fecha": "Fri, 18 Apr 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxONU1oeS1iRmhvNy1VNVZSOG91czg5Q1VabDlvVzgxbzJhbzV6Q0lKSjcxT042d0x2OTR4WlZhUmdiTi10QXczbzcyXzVsZmRHMzF4dzlHQUlqLTd6UkFYcEFJR2dQZW81eURITUlQNGRqVFc4OUxrcnBsQjlEZFhZSmF2cWFkbkJFd1BuYVFn0gGOAUFVX3lxTE1na0lfLTlBcWVLa2s4S2YxcVlGdjl5aXNsZUNoaGpPMlcxc1F3VWxUbC1tV09BQ3FrX3ZvWTgtdmwwejJoMDJSVmVPcmlxQ09mT3N5dGVEWnp1RHhmQV9BY3pHM1VLUWFEcEppSjJhdktJRldBcEVoMllpVlBlOUg5LWoyc0hoc01ZWC1TX2c?oc=5"
     },
     {
       "municipio": "Dzidzantún",
@@ -2167,6 +2524,27 @@
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE10VlE4WHhMNlZtVzRkcUFYY0tmQzNDWXhCektkT0V0RVlGbE42STVMSGR3U3V6c0lYTHRMTEdzZnlpaWFpVXRGM2tzeGlSaU9PYVZqS04zR3V1ZlhkYlVwMDUzMUZLRllOckdYYg?oc=5"
     },
     {
+      "municipio": "Dzilam González",
+      "titular": "Tras triple homicidio en Dzilam González, instalan retenes policiacos en carreteras de Yucatán - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Tue, 06 Jan 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPQzRBMTJZdlpmT05ZNHI2SnJlNmlJSmdXMjFpMzFSRlUyTWFtQU1kckx3YmIzMWVaVEFPaFU3cmx4ZFRmNE9mbkZNMlRGWFdVLU1tQlphNEdZY0huSGlPVHozNGRDUWZXX0psQW4zNF9tUmJkRERJUGlPZm92N2J6Ull4cnh5UDZPUXBXWU9YTDRWdzdTXzBLSzZrTmU3bjB3S2IwSW9BM1I5WmxrUGg0cTV2b0htVkFHWkE?oc=5"
+    },
+    {
+      "municipio": "Dzilam González",
+      "titular": "Confirman detención de “Don Nato”, padre de una de las víctimas de Dzilam González - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Wed, 07 Jan 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQeEk4YUs1SUh4b21tc0tVTWI1ZFUxNF90WERTN2cyMWVsQXg0a1ItM3VrcGU5Uk9fN3J4TGNsejhWbmtLQ0lOVjliMG1VSUFlYmlQYnB0ZjhVUDFhVjNJSGRSLVQzZGI4eTR0NlM4cXZvaERWM1lsbm1EcXR6RE9tYWdycUM4NTF5bzJVTnkyaXdsWWx4S2FGbFV6NklCeW1wNGQyVg?oc=5"
+    },
+    {
+      "municipio": "Dzilam González",
+      "titular": "Ataque armado en Dzilam González revela presencia del Cártel de Caborca en Yucatán - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Thu, 15 Jan 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPSkFacnMyOGdxVDhrR21yMlNGTVlZMVNKOUdEbGRGNGdROUNYZE9KUkRCT3lydURqaHkweUp2ODdVSU9NNnJFZjBMcVNZRWZfTDBvX0RJVjM0ZmN6OEJfVzBLclVSeEY3b1VlYjlTaFlBRUQyUkVSRWZzRno4RldyM0Raa1Q4Q3NoLUZjNXMyTE91a05lWHVWMVFTNXhNeVUxRHVjUVBrdmlxZ2x0ZXdFM1FORFlJakkxR0l5ZUx3dw?oc=5"
+    },
+    {
       "municipio": "Dzilam de Bravo",
       "titular": "Localizan a 17 pescadores tras hundimiento de la embarcación “Tiburón 18” en Yucatán; buscan a dos más - Almomento.mx",
       "medio": "Almomento.mx",
@@ -2251,6 +2629,27 @@
       "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNOE9xN2VCc0xXUnV4OHRjY0RlbTJkSS1xaFJ3X0hRLXdVTVBzejlWRHR1WFFhbkdtS1FWRTNDbjI4d19UZGR4aVZweEZQV0UxVklvd1pOVmUtXzNmRXZjWW8xMFNMU01uZHZscXdIQkVsUVdlZXNXTlpzVW9PTHlLNmVWTzBtM2pZSXRYY1RNVXRXRzdZWm1qNWRhTkwzQXJ4Q3lLV2ZWQ0hLYTFzZ1FjdXJ5ckZselBuZGNiSGZB?oc=5"
     },
     {
+      "municipio": "Dzilam de Bravo",
+      "titular": "Confirman detención de “Don Nato”, padre de una de las víctimas de Dzilam González - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Wed, 07 Jan 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQeEk4YUs1SUh4b21tc0tVTWI1ZFUxNF90WERTN2cyMWVsQXg0a1ItM3VrcGU5Uk9fN3J4TGNsejhWbmtLQ0lOVjliMG1VSUFlYmlQYnB0ZjhVUDFhVjNJSGRSLVQzZGI4eTR0NlM4cXZvaERWM1lsbm1EcXR6RE9tYWdycUM4NTF5bzJVTnkyaXdsWWx4S2FGbFV6NklCeW1wNGQyVg?oc=5"
+    },
+    {
+      "municipio": "Dzilam de Bravo",
+      "titular": "Pescadores ilegales abandonan a buzos en altamar en Yucatán para escapar; así fue el rescate - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Fri, 24 Apr 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOLXp2cHpmN0NTRWFOMW1tdGp1V3IydkN0ZVBFbGVndEd1T19sVUJtMXVGMUZwNWYxYnh0T19JT0hfZTRvbVk5M3ZEUGNkQjFPc0Nkak9MUXR2NVdobm4wTU5ZOU42MVNtdU5jaTI0YTZVN0RTRGdKMHFoT1lYdmJqblBhWWVQSHkweEV0ZDdZN19PMU1GeEdXckw1X1VFUVFyamtBVnViZ3l5N3poMExHcExhUFg?oc=5"
+    },
+    {
+      "municipio": "Dzilam de Bravo",
+      "titular": "Cae con 23 kilos de Pepino de mar - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Wed, 04 Mar 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9vdzVQRzZqY25lTHlZZUExUktFMXlwRV9ESmlrb1pndXdXNmVqLTFmNC1LTWJfdVJ4bG1ZUlVFQzFtVFptQmg5aDlvdUUybnpoWjd2aWdZTjJCQnFhVUVZYkQyNXVqaUk?oc=5"
+    },
+    {
       "municipio": "Dzitás",
       "titular": "Comunidades y juventudes de Dzitás crean banco comunitario de semillas nativas - Gobierno del Estado de Yucatán",
       "medio": "Gobierno del Estado de Yucatán",
@@ -2333,6 +2732,27 @@
       "medio": "Sol Yucatán",
       "fecha": "Mon, 06 Nov 2023 08:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQaXpnem5uSjl2Mm5WUEZVSjZxWHR1LWE4UGlYSlkydzJ2dkkySFJsWHUzZDRwV29IeHdNN0Z5a0VhQmNqVjg2bEZySmRRWXZUU1ZKRjVDQjVXTmQ2OGhFYjc0cjNQOHFfdnBtaXJUUC1PQk45S0pqekZacW1ZUFpxVw?oc=5"
+    },
+    {
+      "municipio": "Dzitás",
+      "titular": "Finaliza calvario para acusado - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sun, 12 May 2019 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQMEtpVUxMR1I5RXhocF9UWW54c3pMVGRCMmNFY05Wb3dzNDMtbWpMWkU2aDZJbS1JQk5WeG9sLTVWUllVWVZYX2trNWlRMHhYZ2JuaUFmekdaUEFLYXRSN1czLXZyeG5DYTBleFBiTnA1VW9VZ0FTWXFPejZNQXE3RzJZZWNLLU9G?oc=5"
+    },
+    {
+      "municipio": "Dzitás",
+      "titular": "Piden más tiempo para presentar pruebas - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sat, 08 Sep 2018 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxONW5LdlpHZExxbXhmQWV2S0dMMVBGM2syR3BLcWlXd1BEVFZ4NlhyMWJKcmFpdXY2WW1EenhydkRNTlkycl9ZRm53Rk4tbHZEVTlwOEV0NFZncUVnYXlWUnpObDhyS280eEhVUm1nX1dXOTdzSDI1aXo4dmJDb3QwNXdfWGdybFI5UENyWks1VkctQzAx?oc=5"
+    },
+    {
+      "municipio": "Dzitás",
+      "titular": "En Yucatán crean una “alcancía” de semillas para enfrentar sequías, malas cosechas y otros desastres - PostaMx",
+      "medio": "PostaMx",
+      "fecha": "Sun, 09 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOb0lFbk5yTzhoa21nR3luQVRQck0wUk5sWjlEcEtfU05VWkpUYmtydndQb1hiNUFXSm5pMDV4TmxSb2d6TzhucnRvUEMySW5IT0RCYmNCTGhnSEZoQjdxeThpUlFad0FiQy1hY3E5ZnF6eDctM0JaUUhHcloxTkIzLUxlUTRPSFE4blZjNlBDUENfaFVDa2I1d0I2Q0FUM3hOX3Zub3gzcDNHYmtrTGJPU2930gG3AUFVX3lxTE1oOXRjTXNtYmVydmxyak1tdjVUVkVOczdNUzBQb1NUbC12aURCMVhCM2lTOXZ1ZU1VMUdPVlBBTXh6WElEdGx3TmFTNWNweVdZUEVNR3h3TnVKRVhiV3dWTXV2djVCRWotdjBBRGhhUXp0SWEzeWlIcVFmRF9qYjU1SmxERTJXMXBQZjJUVHJ4NUJiMjhRR29sY3d3a0NBa2hhbnk4TlNUVkVrNHNpakFIZkRQbTV0RQ?oc=5"
     },
     {
       "municipio": "Dzoncauich",
@@ -2489,6 +2909,27 @@
       "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOM2dVNzZPQWtSNVZQMzFXd1p3WDFVYzhrSXUxaFliTERUNWQ0UVNoUFRzbnVHNzk0TFdDb0hLWUg2LTRwZk5DaGQ1YnB1a0FBZTYwbmdHRjJTMVVFVC14aGhyZmdPLW1WMHNfdEZYcVFWT2gzcFpuT1BiUFpkX3RXajJPMktXUGc2NERMQUE4VVdhbFBfSmNseVlYOUFCSjRnQ0NyeWp1ZEpPRnpMbGdyS3dzUHhMdkltWWRITXltRHE1VnFaS1NrUVhfSktZV3p4ekxWZWZVYVV6em1JVUtzQVRaUTdjQnc?oc=5"
     },
     {
+      "municipio": "Espita",
+      "titular": "Usa Alcalde campo de beisbol para montar a caballo - Reforma",
+      "medio": "Reforma",
+      "fecha": "Wed, 12 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQQW9vZ0hIcHdHM3dPN3B1aEVWRkNNcU9SWWNabXV2R28taUM3MExLd3IzdEcxZFctNUJkSUk5SDNJV2pkbTgzeEJteGlobk1scmVIZlpNa3JOSVdZLV9pbFV5eTdoZEFjQkxLOE5HN3p3N0RsZjBzTDhmNUoyUjdVdnQwTzZFaHBkTjlzTQ?oc=5"
+    },
+    {
+      "municipio": "Espita",
+      "titular": "Deja cuatro personas detenidas y aseguramiento de presuntas drogas cateo en Espita - Noticieros Cadena RASA",
+      "medio": "Noticieros Cadena RASA",
+      "fecha": "Tue, 10 Nov 2026 23:24:45 GMT",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQTG5vWVpDVk9SLUdVV1VLaFh2cUM1WlBkZV9mdzhCRjdPQjhZT3JPM0c4cUFxck1UUTRJdGdCdlVfdVR1NGNkT3gwcWp2V01LVEhNcTJPX1cwVXN6c0NuRWlFRXJXcElHUDlFT080LWJBYWtLQi1zUG0wc1JVazh1eGdCY2FBaGJ5Q2tmWTEwbncwX1VBRnRpamVpVHpIbXk0NF93QVBOejdtNjVuekpReHZTWDA2R3RPRlNiT0dR?oc=5"
+    },
+    {
+      "municipio": "Espita",
+      "titular": "Fallece bebé en Espita; probable muerte de cuna - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 20 Jul 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE8tamZOb2ZXZVh6TS0wWW1vTkVjdnktNmJFQzgxSUxPdGFOR1dwZWY5VDNmUkx3ZXZpcTNmZ0hSMjZqSnhqRk5rVVBrMUVKaXpsVlg2aU9TM3RpU2VkdmtxbTdCckpsczBKdjZRbUhvY2dvUFBodzJzcw?oc=5"
+    },
+    {
       "municipio": "Halachó",
       "titular": "Crueldad animal en Halachó, Yucatán: comunidad exige justicia - Quadratín Tabasco",
       "medio": "Quadratín Tabasco",
@@ -2571,6 +3012,20 @@
       "medio": "Por Esto!",
       "fecha": "Thu, 05 Nov 2026 08:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQUDBleUU5LUV3cXJZUTJfV3BrYVJOcWlCWXFzVW9OcER0T3lJRnNGelRHY0x4MjBwQTZjX3JwS0hScDJ5aWlYQ1luZjNMcUh6c0pyYWlldDdtTHgzYmVxUHNVWXZ1cy1CdFBKQUc4Y3c3SmdQZDR3R2tiR2o0X09tTS0tTWJWeHl5cldDSUdQRVQ4d1hyU3hqU1c4dFZZQ09IMTd3dHVlaFpOZGRaZWpfMHl2M0RhZ2h0S2UzX0dxYTljaFpqR1cw0gHMAUFVX3lxTE02SldlX0xTZGVraUtPU0xTdFU0bUswQVZWbHB0VDB3TWtQMHh1anJYVEFhV1VjTTIyMmxjTHZwT3cxWTJzVnpHSHN0QjdFY3ZHREZPVFRVczlpNnR1ZzRNMFZ4MGhmNmRqWFZaY2FyZlNnTmFhS2l2cFFlZVRiay1OSk9raS00NExnd0NRVFFDSWQ3ZVJjY2FpeU9veklVamlUVkQtM3FMblhmOVBfRHhaU3ExNE5xaVZNQ1VkWmhXQ3gwWTRFV0RrZU50Rg?oc=5"
+    },
+    {
+      "municipio": "Halachó",
+      "titular": "«Yashiro» y su esposa detenidos por presunta venta de droga en Halachó - Reporteros Hoy",
+      "medio": "Reporteros Hoy",
+      "fecha": "Sat, 23 Jul 2022 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQSGIyQW5ldHB2ZExTZzhNaHNWaGRxQ2stNTk4WTg2WkpyMEJGQTlrMzFQSFNWTWlNNERHTG9KMUtOUHFNWFJQd2NlLXVnUDdlTGlkV1M1WWlOWG5XUGpvVl9zYXBPUTR0UGpxRlBhZjhIQTRyR2hZd2VBZHNfdzNYQkh5UFpZWjJ0UUdjbkRsMkRSdTZvSmdGYlV2dkVmR3dFMzJ0SklB?oc=5"
+    },
+    {
+      "municipio": "Halachó",
+      "titular": "Dan prisión preventiva a mujer que asesinó a su suegra en Halachó - sipse.com",
+      "medio": "sipse.com",
+      "fecha": "Tue, 02 Jul 2019 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOX2tSUEY3akYxTHpXbFM5d20wZWhjMnYzbUVWUFpudHhMWnJ5Q0tLMFpWTmozdENDRGljYkpyZ2E0RGR2emg3MXVLM1BlSnVrUVZQbHBrWExGaFZma0xsNG9rRkQ3R0daUnFGeERtdmNQV2RROTRnTzJkOTE3MVRQUnp1TlBzallKMzVJb3lmNWplLWNqUlBBaXhvWHbSAaIBQVVfeXFMTU8zMXBvdHBLOWNDMWhWcnRUNi1TUmx2SVBwYUZLMHczQTk3NzNtRERSM241c0FxeHFJcDBZQlBsOHBUNmQtR0JUUFpVZTRnNzJwQU0wM0VHcmlHMGVIUzY3NDNFcGVYbDY4QUpDMVAwQXdkQTc4VWZrcW9mWHB0X1p0dkhvSkZsVWczQ0ZyRlJlaXdRZ09qaXJGZFVQbXo3UFh3?oc=5"
     },
     {
       "municipio": "Hocabá",
@@ -2725,6 +3180,27 @@
       "medio": "Sol Yucatán",
       "fecha": "Wed, 01 Oct 2025 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOaHJXeER1TjhuOUtWdDBwVUVDcWU1LWVpMnNxdnVSbmhiM2JRaEVWaUk5cVYxWi1PaGFYU1E0Yks3S0Q1NlNadkJnTzFJNkhaYnVLTEZVWEVwSGVISEtwaG1DcEptYW1PQ0ZKRDR6dlkyTHBUYlRzY1I4V3MyWTFBeGkwSUFEM1BwV0JUS0t3?oc=5"
+    },
+    {
+      "municipio": "Hoctún",
+      "titular": "HOCTÚN: POLICÍAS, EX PANDILLEROS - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Tue, 21 May 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9FcHFPT21odnQ3N1gydDRyS3pJdHFiREsyd1NkOGFLX2tYMWt5emZXMEZzZ3owaVNGUWV2dEVJNW1GNUFCVkpRNjZIS1RuZWF3RkVYVHMzOVZ5UXhZLWhWZ1NIcw?oc=5"
+    },
+    {
+      "municipio": "Hoctún",
+      "titular": "HOCTÚN: SE DISPARAN LOS ROBOS - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sat, 15 Mar 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5uRjNkOEQxOWJzNVIwRk9ieW4xWk9ZX3Q5VmJZa0h4TFJqMEkxQTNvc1M0bVpWX3pWc29oNXpzTURZSjVCMHhaU0k0SXR6VHR6NFVjZHRkTFZ6QWszaVBsVw?oc=5"
+    },
+    {
+      "municipio": "Hoctún",
+      "titular": "Investigan al exalcalde Hoctún - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Fri, 21 Nov 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBQMmZ0QjcwMzNQQ3AtNVdBNDMwZ1c1UTQ1SGZnSFFSdkg2ZlN1U0xOUVpwdmFiYmJfX0VKNHVzazdxUVpPOTAyTXRSVDRva09GSHd4R0U5R2pqWUtKdUtNeWQ0MA?oc=5"
     },
     {
       "municipio": "Homún",
@@ -2944,6 +3420,27 @@
       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxObE9UQldNYkFzNnY4Nm43cEdCUDRQcEQ4WFVWRXBtaWtKY2VSaFFDeXlKNGJnSFZCM0tOMkFDVEl3cVg0X1RUSFlXTVdqMGl0dHZlc1FUT1ZXMWM4a1dEc1BOSkNQZzJrQk5uRnVUeDA5d21nWFlYUmdrd05jQml6cUw0MUJNSXF4WmpCZFVZYW44RXFiaVJmNkJwTVl2UlpuMHQzOHZBUlJHQkc5SEVFcFc2WTJsSF94bXctRHJ5MA?oc=5"
     },
     {
+      "municipio": "Ixil",
+      "titular": "«¿Ellos piensan que vamos a aceptar ser esclavos?»: pobladores de Ixil llaman a boicot tras represión - Desinformémonos",
+      "medio": "Desinformémonos",
+      "fecha": "Wed, 23 Aug 2023 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNVVdLb3ZKOXhQNFJOWW9lWnhWcW5JN3hnakc2bGxiaDJqcXVOQXdpSW5fUkpTTUdwQnNWLWhHbWYyUFlCWXc2NVZPRkRLT3NNZmZPZFBlWkY3RXZpRGNwejNIcXVxM3ZsWkF3Y2p6a001TkNfYW5WMllZU2p3a2JrWUhqQ0xCYW92cE43RTZLWEtjcDk1UzRJeFB3Z1B5RDVEWVZWdktGc2FNamJlclpnLVhhcnpHVXN6SV8tVUp6OWdCYlk?oc=5"
+    },
+    {
+      "municipio": "Ixil",
+      "titular": "Capturan en Yucatán a narcomenudistas en dos predios - El Sol de México",
+      "medio": "El Sol de México",
+      "fecha": "Sun, 05 Oct 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOeFAzLXRQNUFRUGdhcURoRXhnaXpCUEFsSVZKeU1BWGg1ZW1zaEw2UTFiV1F2bFlMT01RdlZRT3JUQ01HX2FwY2diX3lHYVU5cVlzX1BrQ0ZIS2tTZEozQ0kySWM5dWtZUkJ2V3MxaDBXc2VweVRyVU9RWExPaHlFOFVmMGdDTzVzdmRENHBNMkRVSVhwMnUxNkFwU1Rra1NsT3VV?oc=5"
+    },
+    {
+      "municipio": "Ixil",
+      "titular": "Tren Maya: Ixil en resistencia contra mafia inmobiliaria, policías lesionan a tres mujeres y un hombre (Videos) - Servicios Para una Educación Alternativa A.C. - EDUCA",
+      "medio": "Servicios Para una Educación Alternativa A.C. - EDUCA",
+      "fecha": "Thu, 17 Aug 2023 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQSUxBdkhjV0RiMks3OEtxMVlFUGw0NXhyVWV2Q2xJY3ZrSllBWF9iT1ljQXNNTW1wZGV1UlMyaEt5WVIwNnFvVDg2YlNaSmp6b052WEFWbkY4N2FZMUFhanRpWlBYYjByVjNRQ0Z5RWRQaGlodWI3X0hFVGlpaEJMcUFNaHJGNm5tX1pOZU84djdZOEdqenBHWmpGbkZiYWtoSHVEdjZvTFV6RDR6ODRNTmdMTDdUcTFCUmZTQUdYU3pjVWRvcGFwRUlsd3ZfOVMz?oc=5"
+    },
+    {
       "municipio": "Izamal",
       "titular": "MILENIO. . 🚔 Policías de Izamal, Yucatán, terminan en riña y son separados del cargo Lo que comenzó como un reporte por personas que alteraban el orden público terminó convertido en una auténtica pelea callejera. Los protagonistas fueron dos elemento - Facebook",
       "medio": "Facebook",
@@ -3026,6 +3523,27 @@
       "medio": "Sol Yucatán",
       "fecha": "Mon, 31 Aug 2026 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE8wak9fQ0ZQWU05S2t5RGE1X1RiX0tQYnJTRHhiOWo5TzB0VU5WMVVjN010NFpKSGNRV0d2cG5HQXNvVmU4WDZYNll6c19qUUxzQXNlN3Nld09pUEJ1di05a2lQWDNZV0Y3UXg2b0ZDY2JFMjdld3RJ?oc=5"
+    },
+    {
+      "municipio": "Izamal",
+      "titular": "Detienen a exalcalde de Izamal, Yucatán, por robo de ganado; trasladaba 10 reses cuando fue detenido - El Universal",
+      "medio": "El Universal",
+      "fecha": "Thu, 17 Jul 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNNjlsUmJ1SGd6WlBKUC04c2lCWDg5Z0w1OFBiOXRMZFgyaE9uNFBXa25oTHZQX0dGRHl6MHVVZ1lHN3lsczVfVVM0Nl8zMnl1UERreEZrUUtBRi1jTk5XZ29ZanlhZGtCdlpGQ0RkbWtJWmVyUEVXZmx1YjVsdXNNVmhHdy1pTFZ5NjNHcUJwRnJlR2FRR1NDd09tbW9WVExTZ1BJazdMbG9WTWpnUWwzcG5xNXFaQmpLTjJ6bmt3NEIyX054cEo4OXVUc0FfeGpUYThF0gHnAUFVX3lxTE8tN2Y1OVBUZFA0dS1TZmZsR0gxX1dFaGpCcEFkNVBxVzlBZUZCcFBQZENtYzlhdm5HeE5nOWtLUXRCUlVKdUQwU01ma1VFb0JOQjNldkNxa0VMVW5UYTQ0MkhFbkZIbDNyN3IwU3ZraThEcVQ2Ny1XUndzdU9UbWxlbG03UXdaS1Rydkw2Y3hBNURuQUZaN2UwbHhnR0xUR2tPQXU1QVdtb012VzdBdW8wSWVveWw2QWx6OFZvcEI1a3VPc2ZFaTlvZmNIdDk2bHFKV09TUXF3emlnTHh4c19leXA2aGx3WQ?oc=5"
+    },
+    {
+      "municipio": "Izamal",
+      "titular": "Módulos de reemplacamiento Yucatán 2026: dónde están, horarios y cómo llegar - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Tue, 19 May 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNLVVhLW5VWDI2dzl2cXc0Q0hwZ0JsTUVEMTJWRy1GWVpCa2ZtWVkzcGpuRk4tdWdHSEZfNUVkOEVNNHdUTklxMEZmR1RmeE9rWDhVSmpCSFpOOFo0MnJSMHZleVRBQUxIOUJFdGQ0YmJzaTdDNXJfZHZTeDVfUGpHSkdJMzR0Z1N3ZFYtLWdvQXIzN1ZicnAxSHRaWVh2QXhzbTRyS2NsMWxsRklMbGhqd0FlbXJ1bnNyMEhv?oc=5"
+    },
+    {
+      "municipio": "Izamal",
+      "titular": "IZAMAL: IMPARABLE OLA DE ROBOS - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Thu, 29 May 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1nR2JPblM3M0tjeVNGTTRSNFlldDVIX2drRUpsZXhzLVAyNXh1NExwRWRHdTNsVVQ5MU1peENZMTZmVEVxNktUZlZGZ0ctV1FKcUNSM1FIOElxb1BleXdKdWVn?oc=5"
     },
     {
       "municipio": "Kantunil",
@@ -3252,6 +3770,27 @@
       "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOQWg4NGVQVWRhLU5WSE40dTdrWDFDVThNY3VYUlBJczVXTEdxeHA2M2xEczl1VE9hekx1a2dJcmFpM1FVTmRkbVMwbWVFOGRVdE53YmhtM0NHNkY4WlQxazRnbjVKQ1FkcnR2cFRHUHZqMUxMdmVCVkUyWWQxWWNaNzdpcVpGdXVDa2I0MmxZMzB4VWsxR1dfZ08ydFJQYXJlZ2xnTXBFV2pTczdOQnlrM251MkNoeU5McmVZNmU2NHZEUDU2MGFuREdraGg?oc=5"
     },
     {
+      "municipio": "Kinchil",
+      "titular": "Se cae parte del techo en secundaria de Kinchil, Yucatán; tres alumnos resultan lesionados - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Tue, 24 Mar 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxORDlRLUNSakZHZElWeTg3bWt2bFpINktYb1lWa2pGaHNWUHA3YjVTZWpWa0pTR1BqejdSMmhsME1WLUtqc2xuZEJVSS04M2FMc3hDRTc1S0VDVkJnbHJsOEplSUZ3eFpRUEdrbFlpWXQwMTJ4ZXU3QmM2SVlOR2VQOU5WR1FwTGFFVzNvQlBlSGhwT0FvM1pfUHZuSmQ2RWU2d1R2ZXNERkxNTndsT21jN2tpbGhYTmdpbDUwOVZvWHh3Q3NaWVV4VjhMRTFvNU56UW9DdDZR?oc=5"
+    },
+    {
+      "municipio": "Kinchil",
+      "titular": "Yucatán | Astrid Sánchez | Se enfrentan en Kinchil por venta de tierras ejidales a inmobiliaria - La Jornada Maya",
+      "medio": "La Jornada Maya",
+      "fecha": "Mon, 16 Feb 2026 21:41:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOVDk0MTdzclN3MGhNNDFkdklNT2lyY1JKUklndFdGZFd4ZVVkUE1zUDZCaE4zZHFNeWZhMnZmQjNUU2tzTFAzOVlwZUMyRjFZQUprWGhWS1lrdEhHSFlpc1E5cEZPclNWUVNQN2wyT0RxbDBDS2MwNzZWVENsMWcxSXBWTGN6N082cWh6RDBITkJTcE1FWUdKczhTem1weFNFT1JBMFRBSmNCN2hUaTJ2OUdoUGlWVGl1V2pvazlGVThTUHNITmY3ejBwajMxZw?oc=5"
+    },
+    {
+      "municipio": "Kinchil",
+      "titular": "Kinchil: De ejido a sociedad inmobiliaria - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Thu, 26 Feb 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9jOEVoSDRXQTFKb0Z0aEpoQkJhTWtnUzY5VkVycktPaTRUYXF5QWFjN0Q4cmhqNkpDRHFYMEItRnVyVTZGbmJEX3FKd0VraHpWa1JEN2l2bUZhNll4NVNfVWtNaTVVWjBveGR2ZWVIS1A?oc=5"
+    },
+    {
       "municipio": "Kopomá",
       "titular": "Capturan en Yucatán a hombre buscado por fraude en Nuevo León - Diario de Yucatán",
       "medio": "Diario de Yucatán",
@@ -3334,6 +3873,27 @@
       "medio": "El Informador",
       "fecha": "Sat, 13 Sep 2025 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPZHd4WXRkZE4wRDFISTVHdURuR2JPYXJ3aWZybGg4dWdONXdVOFl2VFpMcC1EeVNkU25Td1dLQkdmVkh6MzF2dDFHbnRnWWVpNThNN0c1RG9fcGNIejRmazZEVlpkSmgxcUFiUkw5bWFZRzlGMXVQMkhhYXNXMUh3aEtjTGktWWk5VERMX21XcF9xMHNEYmdmbzNoemxzYWtnaW5vdnFyWEJpZ9IBrwFBVV95cUxNTmNQMG9TQk52RzlnYl9lN2ZLcnVrSW5kZmhjUUpnTWtGSFFsQmRLWmE0WDVnc2x0aU54cGNtZ0k2REpCcEZTc0Z2VTB4eU80TWpydHVRa3NrOFBuQlpMSGNpU0tacmc1dkw0amUxbUhfcnpHTUJhTWo0aWhoWWFGb2FUUnk4aU03aDNNMGhONkJlcWdVT1RGakw5dDE2NnFrU1hQaDRVMmEzel93ZzMw?oc=5"
+    },
+    {
+      "municipio": "Kopomá",
+      "titular": "Accidente en la carretera Mérida-Campeche deja 16 personas fallecidas - La Jornada Maya",
+      "medio": "La Jornada Maya",
+      "fecha": "Sun, 14 Sep 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOeGRCQzNDZFV4dHN5R1VQR2M1SmVfd2Itc0RlTkFYeWNJUV95MVgwTlM2R0J4U0E4OV9pZ2ZhSW8wZ0Y4ajVsWWZlZU9idnozU05lbU0zZGs1ZzNHbUZMSHZmZHhZQU5vVnZDa24zdzUwaGZRLV9ja3JXR1dWeFhCbjREQ0NGaW5CLTZldHVFSXgxVmozQzhnSG13d1NfR1ZFOUpxSndJblFkcmRrc1BLRTczYi0tSmhLT0VXVE42cXNOSWlBby10UA?oc=5"
+    },
+    {
+      "municipio": "Kopomá",
+      "titular": "Kopomá: Denuncian presencia de narcomenudeo en las calles - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Fri, 17 Oct 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPaU5rOTF2X282cS1aSG9mYVBBcjBVMXg3QU5qYkNqOTJfWmozaHpBeWQ0TFBsOWZJeXoxNzk5RktvY1NtYm80NGR3cU9jSldUdnRQVnZoczBuTXA3UENZbEd0ZDNCSEVPSlZzdTNzdDZ1bW1MaWpoR2lFMFdLdXV2V2pyLWtPdw?oc=5"
+    },
+    {
+      "municipio": "Kopomá",
+      "titular": "Mueren 15 personas en choque entre combi, tráiler y automóvil en Yucatán - La Jornada",
+      "medio": "La Jornada",
+      "fecha": "Sat, 13 Sep 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNLVBETEFXTDFFNGM2SXpGTHBIZW92QTRGWVBaQWd5Qm1adVloUG5UOTRmS2NoWVg4elVRbnB5cUx4LTlid2ROZjVhTW1RZGxZcnlhSDZReF9MdUp3UkZSa1NucUFYLUptZWRVRll3b0tKYVNaTjZBazk1WkJOclZJQnFJZ2FHQzZ1TVhwZC1QRTF4QlIwQjg0OG00a3BYOXJoTEtiWTA3MmpKa0xQWkQzSUd2aUtkVFpzMTFvNGZrRQ?oc=5"
     },
     {
       "municipio": "Mama",
@@ -3574,6 +4134,27 @@
       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQNU1PSElxSldiYkJDYzNta2ZEODF1RmdsQUlmcGZlbDBEZmRSb3Fyb0RKM1JLaXp4TVNwVVg1R2gtUldKZDNOekZJUnRkVWczY1BfeTV4VWpZZS0wN2JZZkRwNHBqOWQ0cVhGbkg4RTlPT19hQnJVQi1vQ1l5czFlTFB2enVYVW1pQ29TdmxCOUtEM2Voa19CTmlkX28xWm5oSUhPZUpQUzc?oc=5"
     },
     {
+      "municipio": "Maxcanú",
+      "titular": "Cazadores realizan macabro hallazgo en montes de Maxcanú - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Tue, 25 Jun 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPM0YxbGxUTzB0UGdQWFFtb3Q5U2dJTzJzanNYeEN4RGxWendibl9NVGxlMThNMmJiT0JDUTFNYzg5WEEwSEJXZFFFUGRuVEdiakdWN2ZfQ0JXRE5mM1AtNzFpc2ttUXQ3eGZOYXVRQldMV0RpQzFBaFJuSmdwbWpBZ19ZbUdfenM4UHZaVVFHWWFnZDE0SXdwVkg0RjMzWEx0U1lwdHRGZzFSWTQ?oc=5"
+    },
+    {
+      "municipio": "Maxcanú",
+      "titular": "Rescatan a dos cubanos en puestos de control de Maxcanú y Halachó, Yucatán - Por Esto!",
+      "medio": "Por Esto!",
+      "fecha": "Tue, 24 Nov 2026 13:40:24 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPR2hoNUtndmpiUDlCYl9DR01UUWJzV0xqOHgzX1VqM2dDdG9HOWpaQzN5M0JPbU55WENmc2VTN3VVT2R6OEFJNXh2bDM5OWVmNDJ2Z0F1Yi1CRjNwYmJWY1BuampheUNtdnQ2TXVOOTJWdjFtQloxLW1zUVBNZXp2dDlnQVNodUktZGtURHhvV0UxNVdySFAtVzJndjN2YnlwekZrVXJ2MF9qZ9IBrwFBVV95cUxQOXBmT2VKRU1KSG0zUzJIQWhCNkZoUThwLTVyNWVTX2E2OWd0ZGZnYk1BYWxpaVBzMzYtTU9ic0pEWi1uVjRtN0VoNVdBXzVjRXN3NkdWaHF6NnZBb1BsNUMyWHMwb2x2NkZ4RTdVVy1XalRpVUxJbURIUEpRUW8zN3F0V2VLV2JfeXliZjNndGJFZmowdUVuNVhZYlAyWlhkcFFUbkZ2alg4RVgtLVZV?oc=5"
+    },
+    {
+      "municipio": "Maxcanú",
+      "titular": "Detienen a 10 personas durante cateo por narcomenudeo en Maxcanú, Yucatán - Por Esto!",
+      "medio": "Por Esto!",
+      "fecha": "Fri, 13 Nov 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQWXpqdThsaGdzejl2Qnl1ajBxYTZOUEJDVV96STNoRWozOGlELURuYWhKdWRfbWxEZzFsSWxhWWhfVHFRSHMzY1A3YS1QaTdYZWZvR193cGlneFpQdGFSbHR6eXMtZHk1QkhZTG5DLW9XQlloYnQxYXZ1Zllxa1JwRWozRk43MF93ZXpTbkYwMTlRRFNyeUptLUVFbXlmVmp2OW5oRUNGZHRTSGtVZ0Fj0gG0AUFVX3lxTE1iYUtZRTg4Mjk5dlRFclhjdmNUd3JWeFRzSk0xOWRibkhwbTRuUE41M0FaWlI5Z01yTDJ3UjVma3NhQUVHaEJFV2V2WHIzS1daRHViN2wxM2s1SnNMYWlxS0ZsQ3RJajBzM1NBcEc3OHJBaVVjb3gyaHUxVFdqVzlfVDZxeklSNk5RUmlzNmxZbFh0M3NMMTJzdFppbzlTbzNTQ3dhUVRoQ2xLT0ROc2hEZFk4Wg?oc=5"
+    },
+    {
       "municipio": "Mayapán",
       "titular": "Aún no encuentran a don Fidencio Chan Uc - Sol Yucatán",
       "medio": "Sol Yucatán",
@@ -3728,6 +4309,27 @@
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9Uc0NoYjNYdlYxcW9VMmgwRGl2VTFIZ1pHME1mME96WjZxdG5NTVk1YW5EVjFQd04tclpoRDh2cElOdkpuemtKSEx0WHBQT2hnaHNtb3dwYV9UNExnRXNjSmFB?oc=5"
     },
     {
+      "municipio": "Mocochá",
+      "titular": "Grúas Abimerhi, en tierras ejidales de Baca – Mocochá - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 18 Aug 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1XemNoTTg2aExhOHVkdHQzVEVDZnFKNEg5T3l4cVkwVlpNOVY0VXd0V2t6elVZMEpfaWNsN0tCdVltR2gxc3lOelk1RXNhcm9lSDA0dnNvNnJFOE1jNlJoY3Z5SGk0cllrM1h0OGRtMHV0ZDFtdDhjN293aHVBUQ?oc=5"
+    },
+    {
+      "municipio": "Mocochá",
+      "titular": "Homicidio de empresario en Yucatán: Habría un detenido, otro empresario - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Tue, 04 Apr 2023 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQWlFHY2V4aENCMGI0alF0YmZnRWI2QkRicWNqOVprUjZpd2x3YWphb200Zi1HckJRYi1LdjN3TGpDRlhRYlJOTjVQLU9LdFhCQUd1VTdZc3dyUDFfYnlSbnJHdWhCVExMd2lkbjB1YW5JMmZ0eFBuVHNWd1hzMjQxd2tuQ25UTVdjUll4VmVjZWFvZnRSal9UdERPa05wNmxORlpIbkFHeXMtM3hoLWRPVjJVaHpvYUp0VXNzOTFjT2lraWcz?oc=5"
+    },
+    {
+      "municipio": "Mocochá",
+      "titular": "DERROCHE EN MUNICIPIOS - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 28 Apr 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBEVEZOMU9sYXU0b0huZ0dUT1h0S0Q4d204dU1MNU55aUFQYVJuaUtJbmJsT0hPYnRNaTcweWxkSThoc0tVTF8yRTkxOEpSb29GSjAtcVJpdTYxLTA?oc=5"
+    },
+    {
       "municipio": "Motul",
       "titular": "Hallan sin vida a director policiaco de Yaxkukul en Motul, Yucatán - El Universal",
       "medio": "El Universal",
@@ -3810,6 +4412,27 @@
       "medio": "El Universal",
       "fecha": "Tue, 16 Sep 2025 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPSWtBUWk0RWczVUl3Z0tWLWNOSTUwaFY0NjRQVHlRdHNVeDNXamRMSWhCVzFCeUxTWTNWaDNXUGNvZXBobXhSNkJMcmU0WU1zZUZTUGsyTjVRZXNUQWJuM0hyVWNxcjdPU3VnT1VlalgwMjFVeUQ5VWt0bEpoOUM5SWM4a2l2ZjBGUlJtMUpHUGFJekhhNVZvSGd0RFIwbUJQcEx4MUhQbE4wdXUtX2pDaVBuRnNFX3l5Q05qMkR3NWN6R18xclHSAdoBQVVfeXFMTkpNWndGOURSdlg2RXZGTXdONHlLanlnU2JEV0JxbzM3YTUzd1NZVHlZY2FZU3pFdlBoM1ZSM3RycVowcy1TRGpuSnlKbV9CY2hnaDRHSVRteDdhbm4wc1U1MmFMajdLV1BpLW9nQjIyNmRGWWNETkZWMjZnbVFqa2xicTVuV2E3WU9CZlozRmVVeEtyczVoSHdVV0dhbDJDTUEtZmJyS2hzZG5uYjFpNklBRWZHMGRpdllWNy1vb3BVeWNNTUZwMnE1UzZzS2NKZ1dvRWZ4R19lLUE?oc=5"
+    },
+    {
+      "municipio": "Motul",
+      "titular": "Se confirma robo de exalcalde de Motul - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Tue, 03 Mar 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE42bzFSREowSkVrX2N2VHkxdWN2QWlSM2pKVERvdEdrS1Fmc3pFWkhaZERteVlva2JCN2pKMnhXS2RXMm9PUkM3ZllocWVSU0Q4S1l3LUxDTFJDUnpiNTJYNVROQmZnOGJHVi05WjNR?oc=5"
+    },
+    {
+      "municipio": "Motul",
+      "titular": "Automóvil arrolla a dos motociclistas en el libramiento Motul-Tizimín; hay dos lesionados - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Thu, 05 Mar 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNUWtERW9ybHVjSzlIVk9kMm5nNmpJbFVHQ3M2djk5WmszdXlMaGoydmZZUnFzSTh3c1NvQVZubXA4bHNKaUk1X2VhMkZHZVpPdTFsUHlRa1JLV2FqQWUzRXQxM1gtNGdjSlFsMzhBUndEV3dISXBjQTFmYVJ2UUhVMHRmNW9yUjhmLXZaS3VQbW9PUThtYmxOYV9vQ0dHbjdOZGZfbVhYREZ5Zk11aGxNakN6eFJwRDdIajRGVlZhSUN2cmdZQmYxSWhTeXNyR0ZMMFN0YlB3?oc=5"
+    },
+    {
+      "municipio": "Motul",
+      "titular": "Vuelve la inseguridad en Motul; vecinos denuncian incremento del robo hormiga - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 05 Jan 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNNHdOcTdoS0g1V1RGSmlMWFV3VzA3U3dwaDc4VWlMQjVzcmNGdFBfMGFUWGdIb2d5Ri1oSDFYcnBGS09Vc1lMTzBnU1U1X1NiLWl5U0xydVVpaVVMVlRMV2ZXOUJkSmFBaVA3YU1CVWVOTlRUNUFXajBFcG1ySUNlUnJ1UThoc3N5cDVQR1RnN3RlQVJSMFNiZkRTbVF4VFgw?oc=5"
     },
     {
       "municipio": "Muna",
@@ -3896,6 +4519,27 @@
       "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9MNEFSQkRzVlJINHNYVTZsWGdiZnhnY2J6YjYyb1d2M1JxM01DdWU1a0ljNHhwR055bVJ3T3ZpN3BmckVTR0xrQXE5THBKU2hMQnB0OVFRcW45NVVncWY0VUMxTEU?oc=5"
     },
     {
+      "municipio": "Muna",
+      "titular": "Localizan sin vida al director de Seguridad Pública de Maxcanú, Yucatán - El Universal",
+      "medio": "El Universal",
+      "fecha": "Tue, 28 Apr 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNRkdiX2ViZ29tdkRVQzBnOUJ5VlRWYVc5a3FTV3E1ZFMxVF9ZOWJtZjJxcDFMUjA3T1RYM3lWY2h1LWM2RjBpeVFfRUFYdHp6S29QblBlalNfZHZLNWVzMGRwWHFGWjJoNHliU25SeHNuNW5zRUZUcFpmODNnOVVuU0syTzNhaV94WUMtVUg2ei1EQXhzamthTTdNR016SWs2TERpTlYwNHhXU3Y3RFBXM21tekhIalVzOHFjS0N6eV9JaV9yeXZWTVcwb1NaRG5qbUhNM2dLTdIB6wFBVV95cUxOZzVoTTRtdDcyVDM4bXBsQ0ZKWG9PSDlrVzFneVBRRW1maHdPbmxDY0dpSzFSRkF5ZXRhaHcxQTNNR3lkYzFodi1vdjNHbktxa0J0Y0JhV2dlZlo4YVRkX3dXSjEyUmNUYU1NdHZMelRqQTJFUjF2MHQ3aHdKd1NxTWxqZ29IMTJTQmxyZ29MLWhoOWdHbk1sMkJ3M2VWYTdHSFlRZDI1RFliSGhDMElvTVMzN1B6UWtDcE12SEtKQ3VfMXlRRUp6S0lFZmJaX1hYVWh5eWlGRVFRVko3Z2VWZmVLWU5kMVBSek80?oc=5"
+    },
+    {
+      "municipio": "Muna",
+      "titular": "De policía a empresario prominente - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Fri, 06 Mar 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE92WmRvMFpnOFVnZnVUb3FNWjdIUzNaT2x6dEo5eEU4RjNscG4tMUYzYWZONEJOUXU2VlJQQjg2SU5zMlhnbE91dmhONVA0ZGozVjVEMjhKMzJKcko2NnRhSDhBV3RMV2pf?oc=5"
+    },
+    {
+      "municipio": "Muna",
+      "titular": "Tragedia familiar en la vía Muna-Abalá: una madre, la víctima - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Tue, 21 May 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOaXI2R2QxTDZBYmllYmpGbEV0ZDFnaVRfNGM2d1ZBVjIxRHRBTGJJUVhOOWtoYVZ1MVpmbnQtVXo1NlJxVGNISjdkdEV0cE5QbG5yZjZpR3hCTkc3TF9jYlE4bXM3b3M3cG9jTFU4UDZwRWYxejB3ZTFhMjg1czdxM21CX1l0R2p1cWZiZWh4cERxLTNTaUlNMmhLVEJnLVZXZ1pEUnh6akNBN1JYbndn?oc=5"
+    },
+    {
       "municipio": "Muxupip",
       "titular": "Plan Bienestar Yucatán transforma calles en Muxupip - Gobierno del Estado de Yucatán",
       "medio": "Gobierno del Estado de Yucatán",
@@ -3978,6 +4622,27 @@
       "medio": "Diario de Yucatán",
       "fecha": "Thu, 08 Feb 2024 08:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQUHBSYlY2dkdzSE0wNlk1WkRuMHk1R3pPNnYwaDQ1ODhpV1RIblZFNEE1b2JIc2lxN1lYRlZTM3ZCVXdpV0NjQjhzV2oxT08wTE4wTHF6a0tRWkUtSmlobWgtZnNObVRJSXhyaUxOVTI5Z0owRXVhNEhwc2ljdU02UFdaUDc3bFR5V01rTA?oc=5"
+    },
+    {
+      "municipio": "Muxupip",
+      "titular": "MUXUPIP: UTILIZA POLICÍAS PARA SU CAMPAÑA - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Thu, 04 Apr 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFAxaG9CRkk0QlY2UjNkeDlpMHV1TGxLczM4eDAzVFNILW8tQjlTbEJGRWsxRGlIakFGTktWLUxsbmM5ZGZpVWhVUldxaFI0STIzX0NXSHZ6TzFfd0dqNXlnUDdXLTZJNlBVa3BPTGZlaU8?oc=5"
+    },
+    {
+      "municipio": "Muxupip",
+      "titular": "Motociclista presuntamente ebrio sufre graves fracturas tras accidente en calles de Muxupip - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Mon, 13 Oct 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPRVJFWWd2MzcxdmhCS3pEMUNrbzFBcjhWakExanBFdTIzck1sRWhJdVhWT1R5YXJBV2FzX3dzZVlJbEVqeWlTYzc5dlZGRjlXbUxpQXpPY0xpcjBGNzNZVjNxd2pkSTk1QThWaWxxVFIzTGJyYzlXa2hHb2dJNHpqN2pobXpBTW0zZl8td3A1dXZiaVdfSm84Nnd2djFZYWZ0QzhtRzBmVDZhVklrZURlRVpvZTRkTWt4R1ZPYkc2MVE1Y2lobk1iR240TEQ2Wjk3Wk1XQko5S0JWQQ?oc=5"
+    },
+    {
+      "municipio": "Muxupip",
+      "titular": "Arrollan y matan a pequeño felino en Muxupip - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sun, 10 Dec 2023 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOWGxQellJUzlNc0NyNTRxcm1BX19nZjA5bEVGcVNMWWZBSkZSVFo1Mm5oRGdOd2tLdVpmendqS09yYTlxNGhYdnhqOHNqblJ3LUJLbnBCdEFLaldIZGI2S0M0UEhOYUt5eENFSWFLNDJ6Rlk2ZExGcFZlWU9xVGM5ZVQ4SmI1dklkUzVsT0FDMm9ENjdjenRtUDdzQQ?oc=5"
     },
     {
       "municipio": "Mérida",
@@ -4414,6 +5079,27 @@
       "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1CenFJZDljVTN6TUdZNlBYYThSZE9OOVBjOWg4TEVyNkpmSVJDS0hXSTJveWpKNFA4R2VhT0ZqLS1WSzlSX0JaQ0pEOUFqVEtBNHdZWUZmT0ZIQmJNSGQ0SXlPSFQ?oc=5"
     },
     {
+      "municipio": "Oxkutzcab",
+      "titular": "OXKUTZCAB: POLICÍA GANDALLA - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Wed, 03 Apr 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE45cTkzU2g4SWJ3d1doYTJ2WHQyel9kdzV6X0t3aUNlQjdDRDhSVmEyS09rbnFoTTVlQ2NabG9BNFNsMUdPT0M3Y0YyYUNXeTlibTVHUzNjWEstMWVCQ2c?oc=5"
+    },
+    {
+      "municipio": "Oxkutzcab",
+      "titular": "Trasladan en helicóptero a Mérida a menor de 3 años desde Oxkutzcab - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Wed, 16 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOVzJDaWZWRnlQZjNiTFNIWjBlOEZiOHVNZXJJWml2YlVCSFpjZ1BYMHo1cldsZXU0UktTWWxkclNwWmlPUnBlSGFFYmdOWG9UcEhVX0I1MXh6OVFzLUtYVTFVelZua2FEZDBTYW9MeldYRGdXbVJfOFBUYXRBMlBndTBFdWY2WnVKTDlIMDJEbjNyMmU2MGU3QTRWb1o3bkJJUnRiNnlfdTByRHNiWGNudGtLTEdLMkNYQ3c?oc=5"
+    },
+    {
+      "municipio": "Oxkutzcab",
+      "titular": "Ataque a balazos deja un muerto en Oxkutzcab - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Thu, 25 Jun 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9idWlNa21iWmxkeV9DSGdQWnl6VE5vYVdaVHZjWDNEelUzVjZUc1lzWmVHamtFWi1qSU9ncnpqVVZFWHVicGdYX21ybUlvUGV5VVNiY29ERkY4a2ZFXzFwVml3Um8zLU55OFdHckxlUGkxLUx2bVE?oc=5"
+    },
+    {
       "municipio": "Panabá",
       "titular": "Fallecen reses sobre el tramo de la carretera Kikil - Panabá. - La Revista Peninsular",
       "medio": "La Revista Peninsular",
@@ -4496,6 +5182,27 @@
       "medio": "Sol Yucatán",
       "fecha": "Thu, 05 Feb 2026 08:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOMG9NcWlpRUFIN0FmTHhyM0JLdUVQRjJBQ2dtSS1jeThTQ05UcmNFTjE5ZXplbXl1cUNRVDVUWnloOU55TklBc3BBblJGc214WGU4U202MzlCcUxZNVVfaER6WktkenNFeVBFTVVwTi1ocnpGVkdxdkxTUS1aVERtNFhYTQ?oc=5"
+    },
+    {
+      "municipio": "Panabá",
+      "titular": "Tres hechos que han puesto a una pequeña comisaría yucateca bajo los reflectores - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Fri, 16 Aug 2019 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE84QXpUdDNKZ2NkcS1QTEZ5VnhnUUVpNTBVX3ZmME9aUEhFMDZPTC1GSXZEZkY1Z1R0MVlZbncySXF2QmxXSGNyVFd2NWxsSkJJeExoNV9tUFFRV0xXMGx0UndGelVCMDZvUDdsVURsTUlUN3dlajN4UmxB?oc=5"
+    },
+    {
+      "municipio": "Panabá",
+      "titular": "Implementan operativo masivo para combatir al dengue en el interior de Yucatán - La Jornada Maya",
+      "medio": "La Jornada Maya",
+      "fecha": "Sun, 10 Mar 2024 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxQLUxqUmRDQ1hycFhGdFlVak1LSFZXQ2RQM202TXZIZ1NHeno1MkxBQnhHZllMdWFud2VIZWkzUThQM1NOeXJERk1zTXhZb3Y4ZmU5b1dRMF9zWkdUcWJ4N2NWMW5FVFZ2RXdibTR4ejFwdXItaXlqTG1EVTQ5SHZEVC1ULTFQZS13NHM4RXF4QWhFMDlkMHJyNDRNYlY2aVlJSlZYX3k4X3VzQ1BvUm1HSE1ObHRPanRFUmJKeHRyTDBoaDJsUEFkZFZzTm00QUw4eDRvX2xBYkNiTDJtYXJtMTdMeV9NRDlaT24xaXhZU09qdVBFQWFpSWxpRnJqa3lvZTktbGJTVWtVVWgyMG5aRFdVbXpWQXl4NzBxSzJFRG56WHdHTTNYekxxZk5mQ1p1UEtWRVkySGE0NUc0UjlPSmFXWQ?oc=5"
+    },
+    {
+      "municipio": "Panabá",
+      "titular": "Video | Incendio Reduce a Cenizas el Ruedo Artesanal de Panabá, Yucatán - N+",
+      "medio": "N+",
+      "fecha": "Mon, 13 May 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxORUpUSWNOb1hhMmY4NE83Z21qMXpMWENEVHRhc3dPdzFOOW8tdzRZdXN5YkxMWjB2emFDM3puS3cyNWV1SFpMU0M3WlI2N0tSQ2R0eXRZMHg0UTdCdjE4bWVydTJLdFc1SjdMSU5NbDBHYVRISXIyb0xIUHNoMHVqV2o1cTBLUTZLT2VpMVdIeDd0NzViX2lNUW9ydjhfV0JtRmZEVjMwZzh4V1E4aUhhckplQVdpSUlIVlBESElIZnhjRUpvVzlsWg?oc=5"
     },
     {
       "municipio": "Peto",
@@ -4582,6 +5289,27 @@
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxONV9ObjZ1QlR1M0Nsc3dYelBfalduSktyN2FYa2JScXg5ZF9QZktNaHNlbWVhcUxRZEMxYi1IZTh5cmdpQmtldUNQSzVoajBqR1ZfMTlqSG1WT1hXeWhpYTFRMk51eXpuaDhJaTl5QUt0TzNRbWRTUW1rcTN3cFhCMXFRQ3c4MjVjRlljeV9FeXdTdm1GYVROTjFaaE9jY0RfNHRoMGR4OGpYNGVFRmJjd3ZRTU5jVUFqUmc?oc=5"
     },
     {
+      "municipio": "Peto",
+      "titular": "Intentan Asaltar Autobús de la Línea Mayab en Carretera de Peto, Yucatán - Diario CAMBIO 22",
+      "medio": "Diario CAMBIO 22",
+      "fecha": "Wed, 04 Nov 2026 16:48:52 GMT",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNk42QWVnQ0NfS3lmYVlEYWxTbWxxMHZuTWFXWmk5NGZFYmFFcUZKbEszdnpsb1puM3dYVHBOQWNPMkhmNVBzZHB3alZURjY3MTc2NWlVREQtUl9fUW9oUmxNYW02bTJVT1F0c3EwNUhhUjVmV3ZNakhhWkg0dlgtQi1DNWswZDRONnJzNmxXVXZFZ21nMmhPM0RiT09hN0U?oc=5"
+    },
+    {
+      "municipio": "Peto",
+      "titular": "Presentan a nuevo director de la Policía de Peto - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Mon, 30 Sep 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQam1tRloyWGNBbEtTUWxxcFhqNHhaWmw4THpTWnJrTGpxNnJsRW55RDZyUlFNNkxXRHhLX29DcjFVUmp5d1ViUXdYcG95RzFrdHFCQnIxNE9OTU5YN1lxX3R1NDdpYndMOG1hVG9UanNabVR3ejY2MjBoazZiRGZKLWVDSWkyS1oxUFpucGZYZ0UxRDhVZVVRNE5yc3M2TjJl?oc=5"
+    },
+    {
+      "municipio": "Peto",
+      "titular": "Incendio consume una vivienda en Peto; brasas habrían originado el fuego - PostaMx",
+      "medio": "PostaMx",
+      "fecha": "Wed, 01 Jul 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPaE13YXpCTGJjOGxiUzBWRVE0YTZKTVNVVGZNQmFTRkVzM0NEY3NJNEYydnVFQ1Q3TjdwN09jMmtTYjFwU1dpUmRfd1p4TmFSV2ZLazFGNDRzYl8wS0JlOExNLV9ERTZFVG1KQTdPNE9ZOENSa05TamxzZnQ1NXlwXzRmQWhOMXE5UlNtQzctQ0R2N2NLeTh6OTJLNndldUZTMVFF0gGoAUFVX3lxTFBqeWhPT2FiN2RCWW5uSXp2UXhOOUxYN2FYRDFwYW95UVFWdzdLejRuRnNqTGgxRWlQSEtzMDhRcUVQM1hRbE5mM0ZBYTNnSXV3MlRnMDA4ZmhyODVsVV9GREZvajEySGJ4TE5raG5DblRtRHJrSTBjNHJmdjNCdHF2UzY3ZXREYnlYcVhXUzNNSVhGNVpBX1FWenNSZm9WbU9iamkyemMxRw?oc=5"
+    },
+    {
       "municipio": "Progreso",
       "titular": "La seguridad vial en Yucatán, tarea pendiente de las autoridades - Diario de Yucatán",
       "medio": "Diario de Yucatán",
@@ -4664,6 +5392,27 @@
       "medio": "Diario de Yucatán",
       "fecha": "Wed, 25 Nov 2026 14:53:19 GMT",
       "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxORFpTREhVVDFsTEJqYnU5NElDR1JrZ3NrUHF6ODQ5bGk3QzQ2OHRUUG5OMFFKTWVLclc1Tlc5VWU1bnMxZE5aenVyYnJxR2lPUWktOUp5Z29lUGIxcUZNLS1CSURTN18yNTRJOUJ1YU80c1dOQ1NObzhQRzhJSUE3V2M2UWE2X1ZKTkdrdUdvUzIycDlBWmhQN0lIRzhtZWFWTDkzMFBNLXl3T2xoaVR4QkNraUhKdnA3ZTQyTl9rRHgzV0tHUnNvQVJneWhMc2RQMTg4eHAwcFdJZHpDazFjWVBiY3BXcEZmTTRj?oc=5"
+    },
+    {
+      "municipio": "Progreso",
+      "titular": "Marina aseguró el buque “Grace” en Progreso, Yucatán: señalan presuntas infracciones ambientales - Infobae",
+      "medio": "Infobae",
+      "fecha": "Fri, 02 Oct 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQeEVZMGtrSkZRQ1VlRmQ5bXpWb3hfRGcxcm5FTFZxd0FDLVJfaWVGZ2hpaDhTU2lkSmZMb1YyUXZUVXByVTRVUTNrSGM2UmZKZUdBRUZZMVA3OFRnNzlBUU5yem5ocjEwZzNKTjVVdVdQTGo5Rm5rRmpzLTV6V1dUZWtRTVFQY3hrckZCbGdwUFVsVExNd1VHRFJLbFRScm9Vd3hXOTBYY19iTDVxTUFZbmtSQzlYMjF6bnVwdkFoN3BsZGp1b0FBM0RoejZEOHNP0gHrAUFVX3lxTE04RFgyUkdDdXp3eElpRFNXdHlyUWtBdjA3VkZGbHR5OGM0UkZVbnA0Q2s5UEM0bERkbVlCNU83R09MZHlsWDlqam1CMXVKSXFuLVdabThhamdvYW9wYkU5M25FdU5vZ3pCV0c0U092RTFROU8zQW5RSU1ORkxQY1dFeVluNGp0N3RLOGY5Y01DVkxIcy1tTjJlU0c5cjk4RmRkSWFYeHJXMGFUMzNydDVSRlFJV2E4S0djdVllcFJMRjI0OW51dDRoLXRwdUZNUGx1Ql9yUVhsVXhrWnNwWHNfeEVEeXlvd1pWU1U?oc=5"
+    },
+    {
+      "municipio": "Progreso",
+      "titular": "Velero vuelca con cinco personas cerca de Progreso, Yucatán - El Universal",
+      "medio": "El Universal",
+      "fecha": "Thu, 03 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNeHRIUXdZQ09yQTBFQ1JfVEQzd05JM3NZalZ3NTlLZWtTcnB2cDdGR2xTbHdFZE83TmxOcVlUdklTOW9OMFZxb3d1UjFuaGdFVUx2OU45QTRCcUk2VVVtQlo5TDBnR0JjZzJwcGR0R0NMYV85RkFRR2UzRmh6THA0d3FvQzU0Zmt3LVlRQ3BUNkJFaVVrSFNwRjVfZVJNSnl1R2c5MjJ0ZTBqUjhNWDdF0gHDAUFVX3lxTFBOTnJaN2oyZmpKNnAtaDc5T2liQ0J1QU55eURsSUh1a01sLWZiVWJaQi1kdW51QVJKQ0lRN3Uwbi0wUmdqMlNMaURoajkwb3hxc252YzIycWIwRkFZSkZMeHMzbVN5V1cyNEZVRGF0dkZoNGxJXzVubG9BR3MyTzFpRWlyR2N3c244clI5SFpJbGE1WjJBdVZ5djdYRDJzUEJhd0tPWHFzdTlWSjVDOHc2cDRubEZhR2dnNEU3YzJyVGtNZw?oc=5"
+    },
+    {
+      "municipio": "Progreso",
+      "titular": "Intenso operativo en Progreso moviliza a fuerzas estatales y federales en plena temporada vacacional - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Thu, 06 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOUmdKM25nenBraUs2UHM2c2gtV3IxalI0UTN0ZmlCTV9QX29YbE1kenk0QVVSS2s5NUdfVGwxU3F0dzB6aHJSeVg0Z3VnNTgwaW5QMXBMa3BqNE9TVkZNTkV1S08yaDdKamNkeW5nY2RVcDRXNnp6TDRWSW8xY1laaEg0YXRNWHRPZEQ1RVFXa3ppV2lVODhUN0NySFVXVVYtTjBEU3NCdEdTdDU1TWM4M2x6aVBRQU1vNnJLeVBzbkdubnBkTFE5YWp4YnpBSEE2X0d6TDc3bldBMExqcjZlS1BrS2E0QQ?oc=5"
     },
     {
       "municipio": "Quintana Roo",
@@ -4750,6 +5499,27 @@
       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOeEcwakkwaVRQanRkMnBhdjV4cWZObnNZLU1HMVBwV0dBZmY0R2phV0FlSVl0QWdmdzc2WlB6eEhtSVVQdUZlSTVBajFxODFHazdLUkxpNU1felkzX19temJYSlEtWHE0dGdwdUlIaEZPNGFhNk9zZnhZaEVzRkRld1FpVmViQnZtcGlUVVIzN2tWcTBINXJDbHhR?oc=5"
     },
     {
+      "municipio": "Quintana Roo",
+      "titular": "Quintana Roo y UNICEF presentaron “Tarjeta roja”, la campaña contra la explotación sexual infantil durante el mundial - Unicef",
+      "medio": "Unicef",
+      "fecha": "Wed, 03 Jun 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPbnZveFVDc1g1bzExZHIyWHg3Z21ndVFlbWZyMHZ3REJiOUF5N3RGdERsbHdpRkxSWi1mRVpBcEFsdWpXLV9FNlVXOUZEV3Ryd0Z6ZEtWLW1nS1V1aGNrbmRHTTM4VTFNdFF0OGVKdElXX0UxNU9CQzYzTk5jY0RTd3d1OFhIVXQwWndCV1RqWnY3UGZQT1NWbQ?oc=5"
+    },
+    {
+      "municipio": "Quintana Roo",
+      "titular": "El Gabinete de Seguridad del Gobierno de México informa acciones relevantes del 01 de julio de 2026 - Gob MX",
+      "medio": "Gob MX",
+      "fecha": "Thu, 02 Jul 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQeUVoWXMwNWRmT0F3eGZyUV9KUlFjdVcxNG9zcXUxZE5BR1p6RHllN3JudkdWV1pNOHAzck5mQmtOY01NYXZxeWw4SDl1QXNxT1JSTlFrWVBoUnJUMFJxZXo3VWNiQVhlQTZqMWw1VXhBNmZNWnpRZUtVLS10bERsQWtrdkVMczFmbXVOaHB5UTItRzduempvT2FheDMxdEZDRVpVZ3pYQU1NU1JLMHJwS2l0RHJZZE84elI1Skt6bldqNEowZjI0bGt3?oc=5"
+    },
+    {
+      "municipio": "Quintana Roo",
+      "titular": "Reportan incremento en atención a víctimas de violencia en Quintana Roo - La Jornada Maya",
+      "medio": "La Jornada Maya",
+      "fecha": "Thu, 19 Nov 2026 21:53:31 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxObWZNU2I4Z0VrdlpfeGdYYUlNbXNRbnNjU3lFSTRMLXdKWGhLMkF0WHFEQ2NkYWZ3N1RZSXU3RGZiN1NtWlp0SUVTV25ZM3UzZW1OTDBtMWg0c0x1R19nSFEtaU9pMnRKRmdONkFqa1ZtZjlvbldJcWFBVU5zMEdMTXRjNzR4MnZXcFA3QnBaQkhxZGZEZjZ4WUxmSEsxdXB2NGJ3WGRXQU5Tc3VWcDdabXktTDNmdEY5Mi1v?oc=5"
+    },
+    {
       "municipio": "Río Lagartos",
       "titular": "Gobierno de Yucatán y habitantes dan seguimiento a la modernización de la carretera Tizimín-Río Lagartos - Gobierno del Estado de Yucatán",
       "medio": "Gobierno del Estado de Yucatán",
@@ -4834,6 +5604,27 @@
       "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE01UDloX0E0d3RkLXlTZnZGM2xsbUhKX0JOdEdBNW9FTjhHN1lzV3o1NkpBdXVsTjZ3WDM1U0pkT3p1Z2lOcEluR3lTSEc4eDJSQ1d3aUZoUktXMVVmRGV4RG1TNE1sWURlelgwYnJR?oc=5"
     },
     {
+      "municipio": "Río Lagartos",
+      "titular": "Sancionan en Rio Lagartos por arrojar basura en la Reserva de la Biósfera - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 19 Jan 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNbzk1Mk9GMGdJeTF2WEhYbktXcERDVVZkLXJNWmFiWXpZUzBQNHBJWVBsVFZjd2tzX2xwZl9nSzBDWklkYkNhZko2OVEyNnpmUzBkZ1U0RVNYUERSTjhkY19VUnRlRWpzZEZ1V1NoRFFHMUZKRTcwLWxaQndSNUwyUUQ1MTVYVlQ1aGhCMVRnOUs1SHhpSEliOXZrYW4?oc=5"
+    },
+    {
+      "municipio": "Río Lagartos",
+      "titular": "Tragedia en la vía Tizimín-Río Lagartos: niño de 5 años muere en volcadura - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sun, 09 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxORE1BVml1Mm80Yk5QRnVzZjRyMWxiNHdtUXlPZjFRd185bzdORlBXZEJTMVgtWDVTdG9hdXVmbmNfaWJRVVp3ZmxSTG5FbmNGbHRXXzdQdE5pNDBHZTR6b2ExZ0g5cFhxV3RFQVE3ZWs5akVCbF9yVERKV29LaThMVGlWV1ROZjhId1NMRFFjdTdCSGxhYk11bElTTFZEMWFIYzF2dzRsTnpuSkIwMUIxTjUtSWszSWxFVkJzNw?oc=5"
+    },
+    {
+      "municipio": "Río Lagartos",
+      "titular": "Atacan a balazos a trabajador de planta salinera en carretera a Las Coloradas - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Wed, 09 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOR1UyYVM4cWdQTG1GVUptMXRlVWs5YXhhT1RIa21mR0RPRUR1cDRoanRMSUFiU2pmM19EajU2dXYtamhuTUlmZFpiN3FNdThrcjJCM290bEg5NmxWX3dKM3dZd3dsblZBRHctenM5TE5OZ1Q4WDFqb1V1aENaWFEzY2NLYVVDM0tjdzdlOWpWb09iRE93Tmhqd2Rmazl2WTFKbFc3bWt6aHZJel9hdlp2bkM5N0VmSnU2djAzVXl1RDh6MkV2Yzk0?oc=5"
+    },
+    {
       "municipio": "Sacalum",
       "titular": "En lo que va de 2026, más de 11,900 yucatecas y yucatecos han sido atendidos en la Ventanilla Única Estatal Móvil - Gobierno del Estado de Yucatán",
       "medio": "Gobierno del Estado de Yucatán",
@@ -4916,6 +5707,27 @@
       "medio": "Diario de Yucatán",
       "fecha": "Fri, 09 Dec 2022 08:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOSjhHam1lMHhsN0M2akRSSmlnRC1FOEprTlhHTlU3dUxPeHh6NEhiNjZ5SEFzTmE4ckNCd1cxTE94U090b1N3U3hMZ0l0aFhBc0RRSVpxTUg4V3FYME04LUc0SGI3V2dEQlltUGlpTkFKOUZVVzhtU3RRQzRFMlJUTFAzY2k1NHJHOFowQTBuRi1vRE15?oc=5"
+    },
+    {
+      "municipio": "Sacalum",
+      "titular": "Recupera INAH Yucatán, ocho piezas arqueológicas - La Jornada Maya",
+      "medio": "La Jornada Maya",
+      "fecha": "Fri, 09 Apr 2021 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPUXl0aEJ2UGNNVkUxWlVSNHVDaGF0enBnVzF5OElQN1hBRmE0d0VjU2c5SjhiRF9fVTlfTkllYU5fOHN4aTFGMnJudVJfR0ZHVnJ1Qy13V1dYNkdfdmxLdEF4LUZ6cUpmYjctdE5Fam9TdXJKNzI5RmNKVi02eU1oVXVDT09LamRfTW5WcFNJM1BYa0FJZWc?oc=5"
+    },
+    {
+      "municipio": "Sacalum",
+      "titular": "Sacalum: ¿dónde está el alcalde? - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Tue, 21 Oct 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBQTFJVU3FWdGN5TVJqeXFMSEVRV0YxdjNCZklqNzRkWUstV05QQ2t6cEZUUEhjR2ZvcEFnZEt3LTE4VXV4NE1feG9ha3dFYnJMY1RadTFSQzRzREo1VHplRVBn?oc=5"
+    },
+    {
+      "municipio": "Sacalum",
+      "titular": "SACALUM: FUGAS DE AGUA POTABLE - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Wed, 04 Sep 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFB2SjZRaEpaRWx2TVhsUUNES3hiVTNaMnNvV29WdGZxajI0UzRBeGwwVklrWTFEMm4xTWZYQ0RSVS1qMU45emFLZnk4LUZJYXNEdFJzX0JLR01oelI5TWxQRGlB?oc=5"
     },
     {
       "municipio": "Samahil",
@@ -5072,6 +5884,27 @@
       "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNWmhkaHpFRV9peEpZVzlZUFBPeXZEVEhpX0I0OUVrbXd0STN4ZlZQLVAwT1NIOENfMjh2TkxtOWFuelNfZHprRDZWbG11dVVNRFc5d3R1UGE5bm1qWEFZa2hxNy1yOVJNQ1hlWkJoVEtxS1d5dnU4TXpDUlNCRGY1Ymk5VHBMaFNvZHZtRXl1ODZ5TnBRb1ZTVEV2eUhvYkZPZDVoUmhsRXd5S2pXR3JjYk02VDh4OEItblRoMkpNT2pWME9BMHBSNXV0YVpidEE5c1hNemNLb2JRRnoyZDBGQzRld04xd2s?oc=5"
     },
     {
+      "municipio": "San Felipe",
+      "titular": "Hallan muerto a joven reportado como desaparecido en Umán, tras varios días de búsqueda - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Wed, 22 Jul 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOYklmUHNlZjVySm9MMFBNb1lySEFsSlk3X1ZqY3ZQaVhySm53ZWJLZGFoQzNoWWJwQ1RQZ3FXVHp4amZSQ1R5NERYMU1XNS1fN3ZKMEtRVGQ0M0R4ZGxfdjNEWWNpN3c2eVpEMnhwTXVrRFBnRjJJTGpLcEpxYU5oTFRpU0JhdE82V3doclRxbFFoWUgycXVQQlhSeGFvQmVzaUFjV0xqUktPVlRC?oc=5"
+    },
+    {
+      "municipio": "San Felipe",
+      "titular": "Trágica muerte de funcionario municipal en Yucatán; director del DIF de San Felipe atentó contra su vida - El Universal",
+      "medio": "El Universal",
+      "fecha": "Mon, 30 Jun 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPTmF6SVBkY05WX2stNDFJdUJtZkw3TlczeTFLRFplMUVNVjhicV9FYlQwTWVCSEU0NU95b3V3MUlIYlNDdDM4aXRPS3NySUtGbVlQMWhKci00R010enFqSWFpeFJlb3JfS3BJcVBGZk9fODQ1UzY3OUx4a0htVDZ6MW1JVEYxY2VjNHJndm5Lc2V0X1g5Zk5SN2hyU0hVdnZUMmF5aVlGeFlLTE9qZ2F3RVBEOXEwbkg3MGI2eWZYRlVKTW1SUjdkR2FtZUFKa2RCZ0VsTE4yT1BPeEXSAe8BQVVfeXFMTmZCcG9Qb3gzdkRLMTR0eUFsd3BlMzZkMVlFSTNHclJpY3NMRDVkeXg5bU5waGNJOXJ2LXNIcjR4MDZmZHpoQWNZRjREZmV3Tzh0UzVuLS1hRGlkS2dDdTNEaFBYT2JMeW5OS053bmp3VWoxMXhqZ3puLU1NMDJUd2N6YktDSVFkSUtPMmFpLW9hcXZTdml5UjRzbXphTDllYzV1N21JeUV2UUhTcGdpdTBfcjBxdGlhaEk5dGZGNC1pWUcwRlptSUpWUjVJRHlPZGZQOEVWTC1mUDRZN21VaFlDdlNfOWhwOHFvWTlWV1U?oc=5"
+    },
+    {
+      "municipio": "San Felipe",
+      "titular": "Llegan elementos de la SSP al puinto del bloqueo de la vía federal Tizimín- Rio Lagartos - Johnny Oliver Quintal",
+      "medio": "Johnny Oliver Quintal",
+      "fecha": "Sat, 31 Oct 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNUmtFX2ViVUxPeGpfc0JWZG1nV3Axek00aTZPclhIN2swWEQ2UGNqY2pHelNyQ0dRYUNTeFhSdE9EUHFYNldGTTlidmZmSjVSZndpYW5SSFc2QjRLejBxQy1vSkhlTmw0OUtLUkw4bGlWQmpWSmY5QWdqSG9vUEMwN19tNnJoSTBFMWdzX09R?oc=5"
+    },
+    {
       "municipio": "Sanahcat",
       "titular": "Hallan el cuerpo sin vida de un joven de Hocabá reportado como desaparecido - Diario de Yucatán",
       "medio": "Diario de Yucatán",
@@ -5154,6 +5987,27 @@
       "medio": "Por Esto!",
       "fecha": "Tue, 22 Sep 2026 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQSU9sTXpaMWZkNWZNdEoyMG9EdVNsOW5zWXpMejk5TEh6cTFSZGJlemlzVGxkWnpJMDJDT1NBbEpwV0ZvZXBDOTBpdWdOTmVUWnBjR2h5QnZRZkhCMTN2SDVKWm5DR0d5XzNsc2swVTBmbENldkc1M2JiU0ZxTXcwbHdpMHNFcV9hSWpqWkh5ZVh5V1pOMVFnX0VaeTdEWkdxUGFQZnlfcnZDdkRvblNNckU0OU5FTDlKcXFvbUQwRnJYSDh5WnZCN3o2blbSAdIBQVVfeXFMTVp1elZPVnU3Z0FzeGhVanFRbkFGMy1Mb1Fha0gxMVllcVhOZmh6c3gwSEQyaDdRbXlSUUZMNFdBRUdCcXgyYXFUS0ZiR25XQTB0RnpycWQzT29yZEtXb1dRaEZZYjJ3eTBfUDh4X0VReEY2Q3NyUTc0QTBuUU1sQlg4MlNSYkJ5YlJXQm5hZEpiQnVPVmhudXJvN0drMlowa2t0Qm4wd1hCdjcyNWszRDRZaWF5OU1Qc3VTaE96RnV1bjg2dFZfejEzdk5mYnRfSXVB?oc=5"
+    },
+    {
+      "municipio": "Sanahcat",
+      "titular": "Reaprehenden en Chiapas a hombre sentenciado por transportar cocaína en Yucatán - Por Esto!",
+      "medio": "Por Esto!",
+      "fecha": "Thu, 24 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNYlk2QnhsNjJiRW5SVkt5TF9rZlptNWxTMzZRTGtTUGZfZ3N4cHh6aWszbDI3R0gzaFhvTWNjamFENFBlRFY1VzZYbGxLSldUZHdyNUlPM3pLS2ZUc0VEU3J6UkxTdHU2X3pVNFpPNjNTQnhBRy1lWFhQRm4tbmNLX2U1ZG80dHJualBrU2s3cG9MbzlKSFU4VnM4ZFA4R2dvam1weFQwaTk1M1VHQ3JVNDlYYjZ3LUdpY2lmcFZtZUdIV0RJUUVOei0xdEhhTTTSAdQBQVVfeXFMUFhuR3VHT2pfNjJwaFp6Q1VPX3owb1FwSElQOURKMlVlRnRaZEI3OEJtUWhkY3Y2bUk1TllvTzhOb2pXaWVyZlA4MGE2TUdXQUZWdU04SDBpbEdVdU53Z1JBSFR1ZkZsUm0xREJ0dmlwSGVsZi1Wd3c0YkJqVnhVSGFoV2g4XzQ3bzlZVUZfWmFBRDJtS01Yb2tVV2pkOUtvcWNWMkNWVXd2Y2lFMDgyOF8xZ3UwNUUzZUlDZUk3WmdSTnNJMjR1OVcxWGthMUt5b0MzeVU?oc=5"
+    },
+    {
+      "municipio": "Sanahcat",
+      "titular": "Sanahcat presenta el índice de mortalidad por Covid-19 más alto de Yucatán - sipse.com",
+      "medio": "sipse.com",
+      "fecha": "Mon, 29 Jun 2020 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNVmY1VHZScDFHV0ZFMWQzZFhleFlZUE5IM0pWdnZzeWdtOFQ0WTBkOFozZFJZNFlYQW92NnJtOTZlZjZncC1hMXIzRGR6SHZTX1UwbWRJYUk2RzlHY0x6cXpURVJzWVRSMXN6Zm5KdHhkUDRNNlFjS3lIcUFZNGh1Z2U0VXFZdHNqZG5lT0RuclJLMzdiaVp4eUc2a0NHM2h5elBiWHY0cnlFdHdlZnkzb3ZqOUQxZFpaTldhdDZNdzdBZUZDeEZpTUV2aUh2ejdxOXFmYm4tSnoyVGFOZDZCVHh6WdIB6AFBVV95cUxPaHRRSTkzb3Z2N1lCSURUTUtKQUc1aDNQb2NEX0tnY2ZuNHlNY3RoT0kxdFVHRjBTRDN0aWdqMnR1Y1B3Y0hKTkFrSVhyRzJaSHgwRll3aTdvWEExaFgwdE9JLUVhUy1HZU1OcTl2d1JrN0NhWEg2cTBtazZKNzdRbDR5ZE5fQXRRQ1NKenFsei1ScW50UF9LeC1ydFJfVGJVd1pxaXF3R2VLTUwtQ3dxbG52dk1OVnY2ZXgteURNLTJudzdGazl5ZGFoajRiM0hxZ3BsT1MwSFpOUGR5MDExMnBWMHg1S3FB?oc=5"
+    },
+    {
+      "municipio": "Sanahcat",
+      "titular": "Incrementan la tarifa de la ruta Mérida – Hocabá – Sanahcat - Reporteros Hoy",
+      "medio": "Reporteros Hoy",
+      "fecha": "Wed, 15 Feb 2023 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNNXJlWmRfWGFDZHg4MUpTc2d4ZnZqWlFsZ2ZaMmxVNU4wZG5PVU5XU2gtNHpGU1l1dG9Ld0llbU5TSnVMbFdPcm1BcFRsZXRmNVd5NDJCWURKZFZzUVp4RkZZOFdWYTA4dnB5U2dYaHRRQllDWjNCZWxaQUU1LUo3UDliY1IwOU44WjFyXy1ydWoxZWw2?oc=5"
     },
     {
       "municipio": "Santa Elena",
@@ -5310,6 +6164,27 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBnYXJJRVZnZ0xnOHhMRUpRLXktQUdxMmhqalVtYTZaTU5STU81R2d0ZEdjX3ZmYmNTZUx0Y1RfU2NYNlAxb3RuQmhZRUVTUGMwUEFXRmJmd2dHUQ?oc=5"
     },
     {
+      "municipio": "Seyé",
+      "titular": "Disparos en Seyé dejan temerosos a la población - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Tue, 21 Oct 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBsRDF2R21xSGlVd2JWUU1DclJmMERrV2hxT1R5UlRwVG5SbTg3Zlo4Ulp3SXQ5YWtyb1hZN1N4a0h4Qk9WYkY0WXBoVUFlTDJwMTZUT1pEbHBmeUZDTDVtbDNiTkFJRk0tS3Z1QWQyZVJPUlpVckVrT3V3?oc=5"
+    },
+    {
+      "municipio": "Seyé",
+      "titular": "Atropellan a hombre en la Mérida-Seyé y el chofer se fuga - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Fri, 30 Oct 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOc2poQ3RtVHdTaEdwQkowOU5YMUZNYVdNZUNjRFNVbXNnQTVNVF9mODJJdmxlNlhnWEl4RUp0TnRNamxLaDBReDBvcXY3VFlyRUpzdnBVcEg2ZzZrYzdrSUJqb2tnVnhYWi1IM2Izel82YzhZaGhxdXZQRWJrRU9SSHRaQ2g5N3c?oc=5"
+    },
+    {
+      "municipio": "Seyé",
+      "titular": "Seyé, capital del huachicol - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 13 Oct 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5VTHFMdWtOMk5LUDdfSXhNTFVDQ3p0RFNaOGVacXI4OGtNeG1BTjIyUml6dVZDT1kyWU51eUF0UXdWT2xMMVRIM0NuNnRDLWFQM2ota1pFNkEzX3J2enc?oc=5"
+    },
+    {
       "municipio": "Sinanché",
       "titular": "Capturan dos cocodrilos en carretera de Sinanché-Telchac Pueblo - Diario de Yucatán",
       "medio": "Diario de Yucatán",
@@ -5462,6 +6337,27 @@
       "medio": "Diario de Yucatán",
       "fecha": "Sun, 14 Jun 2026 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFA3RUpyeFZVTFlpdjdJb0I4RDBqVjFxUmlkYWM2emZHUE9Wc2VQUjZBakhfWFd0cU5oa0Rod3Vrc09DUGlITUdGN1VvcTNQdHZPSEZPOUpobnZwYlhzcW1ucXZieFA4dWxqb2VhZjY2TmRXVjlRN3hN?oc=5"
+    },
+    {
+      "municipio": "Sotuta",
+      "titular": "Centro de Salud de Tibolón, en Sotuta, es remodelado - La Jornada Maya",
+      "medio": "La Jornada Maya",
+      "fecha": "Fri, 13 Oct 2023 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPNndKZ3lpemxNZGllYWcyYzJja0VISGtkY1E3Y3lodzBlT2hadGlzMFVHM3l3TExoWW95VlZQN0pZMXlHQ0h2TUdSVUNHdWNXbUxoaGNpLUdXSm5wZEJqd3dYVlg0TzlXTjlpSV9ZNjlhQ1JxX0V4TlBUcE91R1QyRnU1UXVkLTBKeFYyd2tCbl9Lb2NGcUE2RjZieW5yZ29fekl3ZzFoZWJYbWs?oc=5"
+    },
+    {
+      "municipio": "Sotuta",
+      "titular": "SOTUTA, UN PUEBLO DE CLANDESTINOS - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Fri, 06 Jun 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9jbnI2ekZKOF9FSGp0VUZ4eU1aTFozR25WRzBZS09ZTmVkUWt2OHhQRG85RHhjOWtTNlpVMWFZT1lWVElpeFB5WkVhNzZxemROdk9hX3ltVF9rVnoyYmowV3RXNFZwQQ?oc=5"
+    },
+    {
+      "municipio": "Sotuta",
+      "titular": "Arbitraria detención en Sotuta - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Fri, 10 Apr 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5PWHV0a2N2d3BPejltVHVUVHJQektCRlJRVEF4Y2p3enRnUVlaRXdnRm00UkNYbEdydjJzc1VTZUk2SlpERnBxY0ltSGpzMmFMLVVSYmRKUmxCcTFwUFktUTdoRQ?oc=5"
     },
     {
       "municipio": "Sucilá",
@@ -5618,6 +6514,27 @@
       "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE53UUdjSWJ0RUp4VTB3ekZ1MmNOMXVIZ3FwU1JzLVR1NHFtZkQ0MEtoaGRxWG1MT013MVhxS0hIYTFwb2dhRFhneFJSZ0syY3d1?oc=5"
     },
     {
+      "municipio": "Sudzal",
+      "titular": "Gobierno de Yucatán fortalece la alimentación de familias con aves de traspatio - El Heraldo de México",
+      "medio": "El Heraldo de México",
+      "fecha": "Tue, 11 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQN19qU0xSclFHTGFQN294blA0RUNyV3lLZkJndWRWclF0ZXBLWDhsLXdBZExZdjhocVc0ck44bDhfS0dsS1JYdFhGcEk3Y0JWNnNXb28zdjZzMHV5YVpFc1U0Z25NVl9zb1JZM3pQTTBESjFMWDRjYkloaFliY25wQUVkeUZJdzYyaGN3dWtick11V1E5UngyWWZOSGlyWm1Ncm1fOXRCbkpCNUd1b0U0S2NpMzdBNXdBQzJqWEcyX1dZWEdBeE1NYzk0bmdwRHRLNzgzV0JHUTJvdk43?oc=5"
+    },
+    {
+      "municipio": "Sudzal",
+      "titular": "Gobernador de Yucatán entrega uniformes escolares a niñas y niños de Sudzal - La Crónica de Hoy",
+      "medio": "La Crónica de Hoy",
+      "fecha": "Tue, 19 Sep 2023 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPQ0pPTkZ0dTBLNTgzM0p6ODBlY3BnYmpWNmFjanNWZlliS3dfdXgtSDRnUFBuR0hGWGpvOUszZ0VQbV93S3pzVjZYdW1MMmV5elo4YUFkajRpRzFOZ2xnTnlHalpfU18xNl9TYVdEcWNnOHh4QW4tOHFjdEdaYnVaQVBqLTJDU2t4NTlxWTk3VHlBYnFFeTZ6cUtMRGtBcVJXWm5hQ1J2RzN0QQ?oc=5"
+    },
+    {
+      "municipio": "Sudzal",
+      "titular": "Planilla roja arrasa en elección de comisario ejidal en Sudzal - Reporteros Hoy",
+      "medio": "Reporteros Hoy",
+      "fecha": "Mon, 14 Mar 2022 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNU2thdFU5UVhPNDlUMkVGNVJ5ckRFQmFQZ1ZhZjNQdU5IakRid0lscW1MWERWelVUdElxZjJBYWxucWtXUHMtVkNvNlh2dnJ0eV9GSlN1bXl2dUhrZUNMNVhDbU1xTXNBUlg3a2Fab01TWmpOMmdySjJFZ3Q0SlBiUEN6QzRzd0JPWHhZZVhjM3Bkemt3RjZUb21TNzZBUQ?oc=5"
+    },
+    {
       "municipio": "Suma",
       "titular": "Renacimiento Maya suma coordinación y vigilancia para preservar la paz durante las fiestas patrias - Gobierno del Estado de Yucatán",
       "medio": "Gobierno del Estado de Yucatán",
@@ -5700,6 +6617,27 @@
       "medio": "Gobierno del Estado de Yucatán",
       "fecha": "Fri, 15 Nov 2024 08:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5rTXF1a2V4MVdfYnkzSV8zMk1LQ1ZEbXBOVGtmLWk0Y25MX0t1c0tvU09CTFF1Z290aFJQdWgwMHRtM2Z0TjlqaERkRjlJMkdSM2xuNVduSlVHVmtBcG1GYzB0S2J0UUg3dmlmYg?oc=5"
+    },
+    {
+      "municipio": "Suma",
+      "titular": "¿Qué pasó en el retén en la Mérida-Cancún? Dos detenidos, arma y millones asegurados - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Mon, 02 Mar 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOTEFnLVRsLUdBazVJNzduQnEwLVNsQUNRam0xR0NjRDY0ZUZHSnJnMnM5bVRqVWJPUi15T3RCbEJ6bFRmQXhCanBmeXNVSVVDUDgxbHU4NGt3N0RaSU9CaTcwc3dBX01qWVNRdmczVkpNRmV4cVY4WElCdmFNSmlyazNFcDR0dS1BLWd4UjhrazFtUk1BOGZNdWV4OHNmeWhpVXJLQmxzNmtMZ3FvZ1phNlNXTW43clVjSko0dU04dkxZc3VBWGt6YjhhXzQ3MU0?oc=5"
+    },
+    {
+      "municipio": "Suma",
+      "titular": "Renacimiento Maya suma respaldo federal para el Plan Bienestar Metropolitano - Gobierno del Estado de Yucatán",
+      "medio": "Gobierno del Estado de Yucatán",
+      "fecha": "Sat, 12 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFB0U3plbXRTOE1QaUxNbl90LTBRWFVpQzktQ1I2WXpOT3I3WWIxZjluVmxkNkhvODJYX0FEYjJHbHItY0htZnBOOVFrWXNPVG5rN2R5aUVXMlEzN00zVHM0SjVnbGNpbFVVR0NXMUtn?oc=5"
+    },
+    {
+      "municipio": "Suma",
+      "titular": "Yucatán se suma a pacto nacional para simplificar trámites y reducir tiempos de atención - Gobierno del Estado de Yucatán",
+      "medio": "Gobierno del Estado de Yucatán",
+      "fecha": "Mon, 07 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE0xWVNJOHowOTd5ZnIxZnkxLTZKNnluQjZaWGNibzJFbnBxNk1UOFFCaVJFeWlBb29YSUZUUWM1RHFUS0J1OWxQdG5YdHdpOWhHcTRSbWg3M1dyZjBOY0hUNzl0djFPdS1RcXRxOUhB?oc=5"
     },
     {
       "municipio": "Tahdziú",
@@ -5786,6 +6724,27 @@
       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOd0V6bWlHYTBwNjBOVXdLRUpmR2RsZzllRUxRM0tZVzM1cVVQcmNtdXp0U2c0NnpuQ0cwOXc1aXYwUC1rMF9nNnlGRG1ELThHaTJmUjJyem1wV3FtRWFmUFJEbkNVZGQ2Rjg4cHpEM1M1NlczSVc1dlc3SXlRU3FEVzNFXzhzTkc50gGIAUFVX3lxTE5ENk5FSVZqUldQVkw1SWR4Zl9LbmctYWZ2WGtjSUdqb2tRanYxc1pJOXdDdjd3SER5S3J6bWhDVVRQVXQzZXdLR2pLVmdCbFBTWDJ2eUMyODdVbXpnTWIyWVl0QnpKaUh6cXNaNjk2Z2tvNURITV9ZYlZRWGxueWljS3A4MWhKbXA?oc=5"
     },
     {
+      "municipio": "Tahdziú",
+      "titular": "MUERE PRENSADO EN LA VÍA PETO-TAHDZIÚ - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Wed, 18 Sep 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5Wa2N3UlZFQ3NZeDA0SVpQUVk0UWl2X3BQLWl6MHZ3OXVDZFRRMERMU3h6bXNWXy1XaWZaY3h3VGFFWE9WLUxuN2F5V3ozeTJfZlZFdmZ6aUt0dTBkVUZxN0c3RE1HRU5FdEdDZQ?oc=5"
+    },
+    {
+      "municipio": "Tahdziú",
+      "titular": "Tahdziú, el pueblo de Yucatán que no reporta casos de Covid-19 - El Universal",
+      "medio": "El Universal",
+      "fecha": "Tue, 14 Mar 2023 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQUEVTX0t1OUJ6N2lNY0pnOXlVajZ2WGI4ZDNvM0tqMXU5SGtuelJLZ2VGNlMzR3ptVGRsOTkzN3UxNW5yckYtTHBUajliZTFRNGFXQThpQTJXdkxkNndzVFVzd2xBVkdQTDdZQjhSR2dHSHphOVR6aTRMbW5qQXJoS181M1hJX2Z6MXBxcGRCS1U5SVhXX0lDNHhYSnBWX1ZGLXNR?oc=5"
+    },
+    {
+      "municipio": "Tahdziú",
+      "titular": "Interconexión de las 106 oficialías - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Mon, 03 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPNDM5TmdPNFBZMEhvU1h3SWZ2OEszZXFYRzZXQnhCNkhYaUNqcWc1cm1EVUtIQTVzQmRZcnFjaGhqNHl4ejV2SXRrZHdqWldUODF6M3lVN2I4bEpzMWU2SFZiQTFIX0RDODNtcDl5R0dDQVBuOGlQZzQ1Y09ta1hlWmRWRnducTBKRUcxQl9R?oc=5"
+    },
+    {
       "municipio": "Tahmek",
       "titular": "No fue parricidio la muerte de un policía en Tahmek, según el Poder Judicial de Yucatán - Diario de Yucatán",
       "medio": "Diario de Yucatán",
@@ -5870,6 +6829,27 @@
       "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9fb2lBbThscnRSU19VU0ZwREw0c3ZlSDItQjFobnFXS2NSTnlpbkxzUXVuN0pxV2NfYlM5OUVmc3RqSlR5NmFiM2VJUE9iZU9aSnpEaUhUMF9vWHJmOTFTMkJlOA?oc=5"
     },
     {
+      "municipio": "Tahmek",
+      "titular": "Queman sufragios de Tahmek - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Thu, 05 Jul 2018 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNUmhfZjNQT2NFWHNyUXhWZENqSmJGTjg2UGtQX3NhUHhweFdsVFVNdDFpcUlpSGFKb3NZSXlnOEhQZGw3SkhfeHpfOFVxYW9PQmdkOHp2MFVJVXFqeV9RWHdKcExXcVZTWGNVbmZQYW5MaE1JOG50czBSZldtcjB3dURSRQ?oc=5"
+    },
+    {
+      "municipio": "Tahmek",
+      "titular": "“No hay alcalde en Tahmek” - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 22 Sep 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE8wY1NkSkRxdDh5c1lGT1h6TDBqY1k0bGxvM1p4NG1PVlo2QTZvU2NQbEZkcmEwNWR3VkJmb19qMHNRMzI5WXlnV3Zvb0lqSjZOZlJhbUoxSHlMVzQ?oc=5"
+    },
+    {
+      "municipio": "Tahmek",
+      "titular": "TAHMEK: ALCALDE DEJA IMPUNE CASOS DE MALTRATO ANIMAL - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Wed, 08 Jan 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB1b3lIclhCd1JNWER0Q2VFOUhjQ0hCYjhMZnRWN0dENGJwMDZoblR4YWJvWVhuN3VQN3hwandJbncwbTRVbmpmX0M2czY3S0lPTnFxVGEwR1VpWXpKOWxmQ3pKQW1GaHVSWTQtaDMzcENyM3NPS19VbTZGTnAyczA?oc=5"
+    },
+    {
       "municipio": "Teabo",
       "titular": "Trasladan de emergencia a niño intoxicado en Teabo - Sol Yucatán",
       "medio": "Sol Yucatán",
@@ -5952,6 +6932,27 @@
       "medio": "Instagram",
       "fecha": "Mon, 16 Feb 2026 08:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE40RXhLLWNiT2ZDM1BvOEdWcEM4WWtKUmpGQVFEX2Z2Y2FMOEJMSExydl8yNkExTTMzUVZHdTkzVUVmMnFDVGVsTmVIallmTUlZbGFlV1V3?oc=5"
+    },
+    {
+      "municipio": "Teabo",
+      "titular": "Agentes de la SSP reguardan el Palacio Municipal de Teabo - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sat, 26 May 2018 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQSWJ3ejFQbXF5ZjZIcVZmdVVTSFZVYVdOMHhFaTRDT0F0LUxqOGd0aHdPMHBLd2VZZ3BZNTBNYVJxQ00wa2RiUnFIT2ZWb2pVbE04dUlOYkRGYzVJcWpkWjRJYVhwZENyOXhCY0YtLWdjMGNxUkJ5VmhKV0tzRld0cmRYUXdaS2ZIMnllaHktd2pJdVljS1FYeDVOUWRlXzQ?oc=5"
+    },
+    {
+      "municipio": "Teabo",
+      "titular": "CHUMAYEL: CARRETERA MORTAL - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Wed, 24 Jul 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5zS0p2TGFVQlBzMklieF9MZC04WXNfZDAtRWFQZ0VsN1I2V1pvSml2dXlMazNVRV9xc1lzSTA2RXdZajZRUVk0bnJSWnAwTFczdnVZNTRZMjY0Q3Zn?oc=5"
+    },
+    {
+      "municipio": "Teabo",
+      "titular": "Muestra artesanal en Teabo - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sat, 27 Apr 2019 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPNzFlX1dObDRESnMtV3NaZGRYVGVsenJTcV85ZWlHRm0tenpacXdKZWQwUzlBRHJLSUQtY2o4WkxOSjI3Zl8tQXZRcm9OZnpaVmRuNmlNX19lX29JV05ZR2VjekZlNHowUlB4OVBGdWpFSk1IX09TUE8wSUF4eVd1Mm5oVQ?oc=5"
     },
     {
       "municipio": "Tecoh",
@@ -6115,6 +7116,27 @@
       "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1wRXNmTmN5SE1sNnNWYlppRGItbHowMkNwWHZqVnVVQlVGcUQ5bTgzM09FQkJjUVRzUXNVbTFhZ3pIdFhsT2xDVWFEdWE1RmFqblZjWElVMmR3S1VuRnlJZFpSMm92bG1CZnBoc2p3?oc=5"
     },
     {
+      "municipio": "Tekal de Venegas",
+      "titular": "Expresidente municipal interino de Benito Juárez Quintana Roo es detenido en Yucatán - La Revista Peninsular",
+      "medio": "La Revista Peninsular",
+      "fecha": "Tue, 17 Nov 2026 04:54:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOaVkxQ1lYMDhRZHhvbnRYSC1qYVFfVGM2QlZsQU9wODBWU2o1czJ3bm1BVEhBQ19XcE5RX2txRm4zeXNobFVKX2xFZUF2elFIUldaZHJpRkY5di1sNGxyWnJnSl9EeXdtckt6LXRFYmlOaTE3bnpRblAwYXdqZDNSS3VKdm5IVHJ1ZGxpX1FqRzlDdHFkcldJNVJBcUdBR3J6cTE0NEEzeHE5d214Y0pPdWRzR0c4VC1QTDhlUzJKV1FDUQ?oc=5"
+    },
+    {
+      "municipio": "Tekal de Venegas",
+      "titular": "INE aprueba seis consejos distritales en Yucatán para la elección federal de 2027 - La Revista Peninsular",
+      "medio": "La Revista Peninsular",
+      "fecha": "Sat, 21 Nov 2026 17:15:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdnNWMjU0OW9FZU45OExFWGdvTzlNYzFYTk5BbnB5QWQ1ZGQyYUp6Y2NMNlk1bWpnZ2RqVU53NDR6Y1BDLUJIT0FjcXZrRlZTXzJNYTNYS2VZWkhicnB5STExbU9ETXpqQjgtdUhiLUh0UGJzZl9hMFlaNjBKVTJUaVpfS1ZYWWtSTXR5Z3RmUmZQMnJHeFNSVVVNT0xxT2dZX0dIc2xORkNfTDdOdGRqX3JnYjloSnNfZVJfdWl5Z1hFZw?oc=5"
+    },
+    {
+      "municipio": "Tekal de Venegas",
+      "titular": "Metanfetaminas lideran el 68% de los casos de adicciones atendidos en centros de Yucatán - La Revista Peninsular",
+      "medio": "La Revista Peninsular",
+      "fecha": "Sat, 21 Nov 2026 15:45:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPZk5tZURnbnMyLUJxM3Y5bzJsVlJMVnVVX0dDZnB0eXgxQzZ4VFp6bGpTRlBTelpSbGlCdG9qbnBzbGNNTUNLc2dBNWdyUUVXSTg5SXZvNzRyanZ4bk9PQXFpYzhKbjJacmZoc0RwTGJMQWEwMW5BTDM3aF9kRTJaVWZfd0x6RjBXdEVRQVVnU2E1Ry1LLW1fS2xWMUM5bV9KZ0hnY1hTOHhxQ01NZkZSUTRMZFBMTjNCelJQVFRsMkZIQQ?oc=5"
+    },
+    {
       "municipio": "Tekantó",
       "titular": "DIF Yucatán promueve alimentación saludable en comedores comunitarios de Tekantó - Gobierno del Estado de Yucatán",
       "medio": "Gobierno del Estado de Yucatán",
@@ -6197,6 +7219,27 @@
       "medio": "Sol Yucatán",
       "fecha": "Thu, 07 Mar 2024 08:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBzWmtrTVpvVEt1WW9ERGhsc3ZrcFNKQUduVDB1QU5QQzdpdXZ2VWVsMFhrbkpVTFVuRlQyQ09meFBsMjIteV9NV1RTVWROZ3FwVVVuTkZ1amJSdy1mNnlQRWh2X1dOT0R2X1J3?oc=5"
+    },
+    {
+      "municipio": "Tekantó",
+      "titular": "PROGRESO, EPICENTRO DE LA DELINCUENCIA - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 09 Jun 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1xMVU2bHpGV29IdndSWlhkNmVmMUswWG1BTFU4S3JTaDVzT3VPaHFfWXFKLUpraklURi1rMThITXZ3aHAzWkxtcUo0ajFGdnN5SGNmZGdpclEzRWdiY1JubTVjZW45eFcwd1kwV3BfWQ?oc=5"
+    },
+    {
+      "municipio": "Tekantó",
+      "titular": "ASEY y FGE investigan presunto desvío millonario en Tekantó en la administración de Marvin Carrillo Sosa - Por Esto!",
+      "medio": "Por Esto!",
+      "fecha": "Mon, 23 Feb 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQODV6WWtpeG5XQktJSklrNTgxVWE0YTdBaEJWN1RuU1NOTGVLRXFUV0xjakZQVHBIUm5qUkhfeThxN0syN0Mza3Z2Smp6ME1WXzkzWW43cEl2SlFzUnl5amZZS09aSUh0SFRKR010anBvbmFicTlWR2dGbDFXVkxhYjl4YWpBdDJyajNrRW1ObEU4eWxSb3VSbThSMlRFdTNSc2pqSDlSUmNuY2tSdkdOOU9YcWdEYkZXenFDRUdmMFRRMGJ6aTRNZmRPWEZSYko2dDlVU2hWb29CYkc5U0Y5MWkxYkZOWWF2eXZJbVVvRHDSAfYBQVVfeXFMTjAzWjJzS00xOUNVUFNlMjI4SkNPNWl4WXptTWJESDY4eExEM3pMWHlneVBOelVqMlFITDhEa3RQNmpVekRVVjhGdFJGVTZwZjNZeDJyQUFBOUpsUl9EQlBjbE4wbkJEVml4WmNWbkdHVmczcm02VWJUNzB1S2FySHkyYzNKVzlERHdoeTBxVUVkZ3BGUFpWZlhOUGdLOG1OU2dzTjNjSnBGQ0FBZFpLOHdSZFdJUi05WU5neFpqZGZ4TktOQUVHOFUwZGpCSGFWNWdiVGhKVmMtbUVBYmt4MUdnTFRMdVNsQWhQRzc5SjZ2aXIwVnN3?oc=5"
+    },
+    {
+      "municipio": "Tekantó",
+      "titular": "Se salvan de morir quemados tras chocar en la carretera Tekantó-Citilcum - sipse.com",
+      "medio": "sipse.com",
+      "fecha": "Fri, 26 Jun 2020 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQNmZrTVFKYlVGUFl2eldFdnkyalU1VjZ5LU5SMkdReDRDTnZaX0p3THJXaWxEMEF1dXZWODlFRW9tUG1qMEJFaXlraW5OZzhPRURiWlVfS2VhSG5OR3VMckl5c3l2RERjdUFlZU40NEVMZFlpbTROOTZUbHBkZEN3WjNpZU1sX3pRRURFVDQ1d2VicDdwRkHSAZsBQVVfeXFMUGJqS3l6RjUwSDNoWVdobTFadWduMGF0QzE0a3hfODZ0T3lOVlNpNURsYzJvZkxVRU5ONFBVb0ZiTVZFQmp6bi1rV3pZRmxCVFZNWU5YVlRKMkN1OUJKT193NU5nVDVwU1VJVE1yMmY0QWkxcnlrTDNOdDBJZHoyT0Z2cUpOOFpZMGg5R0VlSUplQ1JmWDFQV2xwVUE?oc=5"
     },
     {
       "municipio": "Tekax",
@@ -6283,6 +7326,27 @@
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQdWVRY1JZV0pfTHl6YTJYdTVJX1ROQ1ZhcHVHbTF0ZkYzdzJzYkM1aDRUUFJDSU9XQ0VoOEpCODdwLS1hSHk0NHVqbWtMRUlvM3FiU19jdHR1R3NQZVNlbnVnTi02aE5LbWFEVU5ka3BBQ0t1SnJGMkFKXzZ1UHdaMlFHS1NxYVkwV1h0QU0yMFNzYkFTWlR2OFAtczJXVlNGOEotVnByaEZJSUtQeVh6WnI2Nk9IUTh5RXc?oc=5"
     },
     {
+      "municipio": "Tekax",
+      "titular": "Accidente entre autobús y motocicleta deja dos lesionadas en Tekax - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Tue, 06 May 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOVTRyMkNnVjcxa2ZVV0ZpZG9CZGNPV3lBcl9BZmM1eE05STZzaGRTVDhNbnFycVNVbllqaWJ2NFJ6VG1QV0J4azhMUnl6cDF4R2wzLUJEX0daV09FS0xwcmtnOUZudkdhaUNxVHBXbUJCSW5OLUtrLUFiNzh0NjdLSXdRNFVxeTBYbE9XNU0tbG1SM29MZXlGc0FFcEJmcVNTUDV5alNrVjNodUZSbDZMQ3I2cm1xeHpJ?oc=5"
+    },
+    {
+      "municipio": "Tekax",
+      "titular": "Tekax: habitantes viven entre el abandono y la inseguridad - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 15 Sep 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNTzFxY3hSbmFNM3I1aHZhbFRJMy1FY3VUeFhyMW5ydjZTNUlTbjRmbUdWVTNFRmZzenp2eldjNmRCSjVDZFpkYUN0RmhIbzZFZEVoc2dpaW1aUms3dFUxV0doMmt2RGZBOHJiUGJUeTZVN3I4YzloZmYwWFRVeTRJbHZaQTNOXzg?oc=5"
+    },
+    {
+      "municipio": "Tekax",
+      "titular": "Aparatoso choque entre motociclistas en Tekax; uno de ellos resultó gravemente herido - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Thu, 22 May 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPcGJTV2thYWw5dk9aY082eTMtdkxIcU1KUWxNUTBGRlZFeXpsNFk0d1IwUGhtT3kwbVJsLUdRYlo5OEFFMldKaXVYeEFfMzU5c3dkdWlqX2xwYUtrQTFZcWU3TkhPaTlEaTVaX3FxWkNCczhNUndxX0FOTEJ2LTBrc1BORDROUjBWdzJJd0NGOFU3XzFITEF2akMyMXpMV1Fib2piTXBFVi1TT1hQRDRjcDFKbm1pNjNYZG9qWkJ1eGZwX25ZNTd5Nm9hUWRjVjE2?oc=5"
+    },
+    {
       "municipio": "Tekit",
       "titular": "10 años de cárcel por traficar con drogas en Yucatán / La FGR obtuvo sentencia condenatoria contra Samuel N quien fue detenido en la carretera Tekit de Regil Dzoyaxché, en Izamal - - Infolliteras",
       "medio": "- Infolliteras",
@@ -6365,6 +7429,27 @@
       "medio": "Diario de Yucatán",
       "fecha": "Thu, 27 Feb 2025 08:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOanRhWkNlVVN0Wkpsc3U5MXFuRVdJSE96OVY2X2d3RkJsbXB0UjBfbmM0a2hMdVhRUDA1dFBTdFpEOF82QV9KT1FyT3NwcTJOQ0ZjTmZnYmc5eE9rNHJaNDluWEcxOTc2VmJCX2RfazU1dUg4VjRtVlEzVXlZRzF6Q3FJQXVvUktzQS1SOVQ3V2hqcEV1ZmM4MFdZdzQ5bEo5U19PTmxiQWxLLWdXLUVEcGpNUXBQVmtQTm5Ec0hXbw?oc=5"
+    },
+    {
+      "municipio": "Tekit",
+      "titular": "“Quiero vivir en paz”, dice madre de joven linchado en Tekit, Yucatán, tras confesar que teme por su vida; policías cuidan su vivienda - El Universal",
+      "medio": "El Universal",
+      "fecha": "Thu, 06 Feb 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxQTDlCLTNJZE5iSWNGY21YblpSVHpWTkgzVUpiY1JPeHNyOEs2TkIzRUhpTlZBaVBkMmN0NVBqZnpmbFNJRlJqTFdERDFlbkNIQk9NTWh5ZnUzYUJZUmItdnZuX0ZXT0oxQ1piVkR0RWs2ZVl4S2dNNHBBVnl0VnY3bFpUUVhPLVNkMGVOZUo3MjFJdUc0QzlLb29LUXZrRlE3cjlUWnRyUFNZcll6R3EzYUdPemxBbmtnclhsRUZ1OHBlMEIyTXRjNzhsQldsTGNCcm1zMWVxMGZMTzE0Ym9tSVYyUnhWNUxBaXU0NGl5alJpVDlXNlk0WDZ6bkrSAZACQVVfeXFMUHdlMVVNQ3d1ZDVRZWttUUhMaW8xR19VLVltaWNYS3k5Y1pDWnczZ0owTnZocmhHd01lOHk5dWZNQWZZM0x4bkd5UTNpeHNEY0xoSTFwWnQ4b2tTLWtUMk9Waldrb3FqRDVENmVBVS15RjZVQS1HVG4tREw3RlhIUzNoOTc2NXhTX25zWURpVVoxYk01dG54WGNfZ1o2aElkdjA1eldfRld4djIwcUxKTFRUZXQ3VFhjM1FWWGV4ZkZGNEhnNkpqMVFsMVl4QlVMV0RmRU5iZElRU1JnbldsN2JCY0VWdVp6V0NNQTNJU2V4VWJJNmFmMUpHTjZ2Zm5TcWhHRXRBazgtQTdYR0hGN1M?oc=5"
+    },
+    {
+      "municipio": "Tekit",
+      "titular": "Linchamiento en Tekit, qué consecuencias tuvo: un proceso penal, una canción... y el Carnaval - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Thu, 27 Feb 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQeWNBdGVBUnByeTV6eFJqMlVROHpUZ1Y0QWFPMC1mUUlMaW82ZmNTalVQRzNsMjhKeGIxSEtPNHpkQ3FXTV9zSVdYdVM3UWFGVWJnYmZaZy1XZjNMZEpXQ0FZWTdpaENzZFpwMlZocEI1VE5PSVV2V0lnLUp1amU5UlpGSEVoMWdHUlhvczdNZVhqbDlpRFJXdTBCaHZ2OS1DaUVzTF9US2dvTVIzaEJoaFVwdm82S2J0WHF3RmYzeTRRTDV1ekcxc0k3QVh4OTF5eW9Z?oc=5"
+    },
+    {
+      "municipio": "Tekit",
+      "titular": "Caso de feminicidio y linchamiento en Tekit, Yucatán, sigue causando conmoción; condenan violencia en el municipio - El Universal",
+      "medio": "El Universal",
+      "fecha": "Wed, 29 Jan 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNSEJzTW5rTkpKSmQxYXpPb3hILTY0bjQ0Tmhjajg4ZVRtX1ZTWjl0RTM3T1NNVnZkMUN0QjdjaEFmcjJYVWxUa3NNTktQOUowOFhhUldobHEzVUNadDU1X2tFd1VVN2xka0pMZGtiREFtZXI2T3Rqd1lwbHpCWlUtZVB0UHNnaXRyakhqaFljYmdLSF9JNzlneW05d2NDU2xxX05vVDRYdV9xb285Z182RDUycXZ6a2hNa28yVy1YMXBzWTBJczBWcXBXbFQwM01RcGF4UmliVUgybTV1R2VNMnZSN1dHUdIB-gFBVV95cUxQUi1Yc0JMc2tjUE1wTFpsSUUtcXhMLWRuaWZGNWRBY1ZyNl9abnh5WlM2MG9uRjlyNEtIOWE5a3NqeExnYTItc0E0WFVYcVZpVFJ1TFlOejNzX3JsbnNwTl94eFIyQzg1ZHphNHNjVjlKTEZwamg2Wnk5WjBya3l2V1RobFZsSzBVZkJYTTVnOUNKcC12NXpyVGVvVTJEVnZFTDlnTmZUXzF6Q05qLVlTN3c4N3UxLUZTOVlpeG5IUndkak5ndEVaOEp6R3A4R3FROEpqQXdoXzZEbzJ4cnl0TW5XWGZZdHBnQmFBN0lCQmJ0SW5fMkU5N2ZB?oc=5"
     },
     {
       "municipio": "Tekom",
@@ -6521,6 +7606,20 @@
       "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPZkM0VmRSME5reU1rSm1iNU1jb01qRzlUM1NOamdCeE5ESVh6dWtLa21ZVGVqeV93SzZmN0NOMUVIQ0xXZXRWbUhJWk9uNk1rSzRpdS00b0RvckFWV2JIUVNEWkduYUF5VEVXcjczSE1TZzJ0VnNoT2RqOHNmTEw4dEIxdXVwRXBHbGpobGdLUnc1VnpVblZKei1pU3hsMm5mZWV6T1dFVXFFalBQdG1F0gG0AUFVX3lxTE1RcVNHZjV3UW83YkIwUGd4X0FRb2FEUkp2RU9BRm5VVDBGLXJaLVlzQmxBaG1SaXF3Ykg0X25rc1lFaDFtNDlUaGgyQzdTbXBvSHlJcnYtSjBCbEROazdxc2FkNUlBVUUyUGdUMHNZRjFYdjNxVTF0bVhIcUppdE00WlNab3NrR3k0Q0FHOWdESi1WMjh0NjBzVnRNN0xhMHVHdkhMMERxcWpIS2Y1YVJObjR4aQ?oc=5"
     },
     {
+      "municipio": "Telchac Pueblo",
+      "titular": "Exhiben a gasolinera de Telchac Pueblo por vender combustible con agua - Por Esto!",
+      "medio": "Por Esto!",
+      "fecha": "Mon, 24 Jun 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQcFV0Nkg4bFlwMU1kcF9wUFY2VEFDbTN4bzhMZmNxOWNXdXF4V1d2Njh5MFNnMGFwUjk0cFhocHNLYVJ4ZlhsVDVxQlFyXzE0VlZrRTdBbUI3dEZibmRmX1gzNDd4X0Z2c3hXTWpsa1hsblBDemNWc1ptVExaN0lna3kyREl4M3JBOEstN3VBbzZUTW9UTHRvaVFKZGt1TUVrVkd6U19mVE11N1p5bWJZY2k5WFJWak9l0gG-AUFVX3lxTFBhX2xYdWF3N0hocE85QTVLcEM1LUFHY2hUZFRQbVY5ZHZlLTZzTXdLWks1OVNDTnZhX3FwVWlxUWJtTl96YUFTVEx5bl90Vk1CS1BxMml2UkFPZWMycWZXRExDT2RVRlFJUmNJaHUwRFBsYWdvUXlUSGVsYWVWTGZISlJQNGF6UWI2dXJFWEVqakNiZUpJSVZBbnp6UUN4d1h6aEtJWnVLd3FWUi1DVGJRbmJvVTkzcmppWFc1aEE?oc=5"
+    },
+    {
+      "municipio": "Telchac Pueblo",
+      "titular": "Desfibradora de henequén en Telchac Pueblo continúa de pie tras más de 50 años de trabajo - Por Esto!",
+      "medio": "Por Esto!",
+      "fecha": "Mon, 10 Jan 2022 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQb3dwNjZoMGtGMV9jMERIMEpndzgwNk4tNkdMcGpyM1BlX2tsVC1YalVnbnBMMHQ5NE5SbWFiMUd4MkRwYUgwdXQyRkxSU194eXh3QTllYng3YWZLTWppeHFYbG5iZTFBVTV5ekR0czRRUlA1SXRmMXZRclplQnRDUUY0cjZTSzJ0QTFNWjhQV1h1OFVwMzZuNnNKdkFWOUIzcEE0ME1EdVNyWFdLM3lUOHI1VVdxQmJKdWlnTDZSTmNhUURIanRXUUFzVWNGUElKU0HSAdcBQVVfeXFMTUtibUVLcUlXaFdhcHc1dFREemlMME1EbmQyb1RzdG1JU243STk2TUQ1N1ItVDUtS0pELUZxTnJoNVVnUGhfcVdIcncwMTRNLTYtNEZ1eU1ZTlZwb3hmb29oal9VQmQ0b1ctcE9qVk5QZHAxdlVXeXhnNFlFNTBvb2RDUmpyalFEYjRPbWRKci1XYkl0bE94azdraVl6dm5ZRm1HaElDSlhuNTl1T3FlTnhOUEpESklOc2VBU2U0bm1WVzY4VHg2NWNmd1VJZXpWb202Uk1LZTg?oc=5"
+    },
+    {
       "municipio": "Telchac Puerto",
       "titular": "Hombre se ahoga en Telchac Puerto - Diario de Yucatán",
       "medio": "Diario de Yucatán",
@@ -6603,6 +7702,27 @@
       "medio": "El Sol de México",
       "fecha": "Wed, 23 Sep 2026 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPNXZQTUhqNzNHYWl0MWVQdno1OG5IN2lJV1VQejVkdmFaUUZoQ0ltNnBvRGJtQjhjLWMwMFY4bFJOTmp1cHZ6dHlqU0Z4X2VtLWtmYndDMklmVksyWi04UEhpajVEdGVFUnVPQzFBV0ZGQ3N5S2xYdG5RYmktbUtkT05hMkNhWUhCTmtxQ21IYk94bXJXRlp3blRud0JMMXNNS0hGT0dtaEJCVF9RWnlUNEFKeHVvS2sxZllpWnRUNWRvbkJXcnZZ?oc=5"
+    },
+    {
+      "municipio": "Telchac Puerto",
+      "titular": "Bebé nace durante traslado en ambulancia en la carretera Progreso-Telchac Puerto - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Thu, 15 Oct 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQTEdjWkllRVhKY3FSOExIRHc3SHEzTndrUE8wR2dhX0RJd3NOdmFCQm1DOXh4WF9hOEwzU0tVVTJqd1VpYm9WZTdheDBjSDhRN20wVlZaRkhvdFlOMXRoQTJlcmQzbC1vQk9NOUlhZFFxNkVLWTQ1VjNqVm13M2FlZE9feE0yYjdDYkNFV1FCTFJBU0t2ZUpEOWtVNkdsdUtTZ2c3YkdSczZlSkJmVk5XS2lFZWE1YjZzQzVfa002T29aaUJwNktITWRQOA?oc=5"
+    },
+    {
+      "municipio": "Telchac Puerto",
+      "titular": "Lo balean dentro de su vehículo en Telchac Pueblo - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Tue, 25 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBhSVNrVTdQRkxlUjE4WENXaTVpTnY1RlN6N05UeXI2cXQyd25uTkhTWVFCN0czUUVKNXQ5VGluTV9zRXdFUmltVjBEUlF6SWFMYXF3M0xmbFo4VEI4WlpITFJFdC1TeEZfY3Y3ZmhfTnFnaFRJeDRYb3AyVkU?oc=5"
+    },
+    {
+      "municipio": "Telchac Puerto",
+      "titular": "Misterioso naufragio en Telchac Puerto moviliza a las autoridades - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Tue, 07 Apr 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOTWZrcTVGcW80UTVfWWdjNW12cU1wWUFmZ2trZmM0d21sWkNNekNPMjZsaWVNOU9qbnl5LTFjNXAycGRfdU5pbTNCVjhKOV9PTVprWVBtZU5WU2J5cVRwTlNtVlRuVHRyTzJlY0xQRVBJR3Q0MzJYS0tsWm4xMERKdzBtbi1oNnM0S1ZxMmZ6cUJwZw?oc=5"
     },
     {
       "municipio": "Temax",
@@ -6689,6 +7809,27 @@
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE82bE52RUNHODJWQWpocTVNa3UwaFQ3Z210czNxZjdmbUhtWC1KaGRSQlJqczdCMXRXTkxwMjNhX3c5eXFxVlhUUGdocmg4NDZmekJQS3NFMVI?oc=5"
     },
     {
+      "municipio": "Temax",
+      "titular": "Motociclista derrapa en la carretera Temax–Canshacab: dos lesionados - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sun, 15 Mar 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNbTFQLXNmU25vR1JFWnVieGZCLUhiNldIc29ySHZxUzZta0d3a01jUzlXZ29sMkdCWU5Qd25YZnZUYjRSN25Eclg1b2sxMHRiNEJkazFsSFdJT1BnTUZqZ3hiRlNTcTJIZkhDQzlORXdFSjJvWUh0eHA0TnVTMC1yNnN3aHNPT1l6SGVkZkJydS12RXFxTzF3UTNQcDdBUTlITDZ0eXZrRjItVWhOczdBZENB?oc=5"
+    },
+    {
+      "municipio": "Temax",
+      "titular": "Riña en Temax: Tres lesionados en un enfrentamiento con machete y palas - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Mon, 08 Sep 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOWW1hV2kyTVJfeHQ2UjJGWUtjRUwzSy15ekpsdk96SnljTGNnS21pRlpjc1o0Y1NyNGxGaU52RGs3NVRsZ2wyNWZfWG5mVXZTWmM1OFE3Z0p1T1ZQWGt1ckZOYjFZazFtN2xPdndXU0lpcXg0bEFiOGJNRmNZdTlNekRsU0ZZX1B2OGw0RHhLc1M3TFA3VTJEWGx3RXNtX1VUQ29wNEE0YUFLalAzN0ptYWdyVTg3NlZyY3NqTGR3?oc=5"
+    },
+    {
+      "municipio": "Temax",
+      "titular": "Chocan motos en Temax; hay graves lesionados - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sun, 21 Jan 2024 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNVDZWZTZpeG9vR1JSZWR6cGZFcXo0dUgzenZEU1ZPT3h2YVl1Q1M3bzFQem1HQ01fQWVZS2lhVWZndGpzY3pBLTN2Y1NUcGQ0R2dBdm9iZEY3RzFxbzFtdlpXRl8xT1hESUZSN1k5UVpPTE5ReExIUFNXMm9pbVFtRkhJMTlMQjRxamJHSEs2X1NscE0tZU55dHZB?oc=5"
+    },
+    {
       "municipio": "Temozón",
       "titular": "En Yucatán, vecinos de Temozón salen a la \"caza\" de ladrones; amenazan con lincharlos - Diario de Yucatán",
       "medio": "Diario de Yucatán",
@@ -6771,6 +7912,27 @@
       "medio": "Sol Yucatán",
       "fecha": "Wed, 29 Oct 2025 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4ybWM1ajRUME11S3NKdGswVEljU1RLSjVJVDUtUEFqN1pUTXZIWGJLT19yTWFSMGNDd21wd1JhRnJxblNXU1U0QVc2Zk1IclhRUDdIdWpWM25ZelEyMk5OOGdlZ01HcVo0SFNFTFJpZjFyN3BQUEVzR2c4ZTFoUFE?oc=5"
+    },
+    {
+      "municipio": "Temozón",
+      "titular": "Casetas de policía abandonadas en Temozón: entre la maleza y el olvido - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sat, 15 Nov 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOVDQzbllnejN1SElibmdnemN4T1pDZ3ZmbHdraFRPWGJtQXpZdVRySHlQM1NQVndOaHJsZWIyN2pvS19WbDV6RnUxUXNNR0dJMThmNUdfMjF6NHlKLVQyXy1SbTllRGhSRlpyZElRQ1J3ajU2amZGMzljR1VMVWtWVkh6dWdXQ2sxQllsN0V2MGREUGJHOWRV?oc=5"
+    },
+    {
+      "municipio": "Temozón",
+      "titular": "Localizan con vida a niño extraviado en zona de monte de Temozón, Peto - PostaMx",
+      "medio": "PostaMx",
+      "fecha": "Thu, 05 Feb 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOQWpWczRxdndHQ1FtUFI4VG5FZ2hkcnFBNlYtUDE1STEwSWVSUXhSdVd0ZGhZbVpQOHlJSWYyM05qdmhDVnZGUEZLMjBaakFzZllCUnBMUzNCTW0tMUtPUnlwUWt6cEw0VS02UGdUSTl4a1dieUpud1d6MWdpQXAyQnZDUGllN2kwdnRfQkQyQ1pFRGx1cnZ0b2RxTdIBoAFBVV95cUxQcVhldjExN0RHYVRZOFJiTW9jYk9jQ25PLWx5Y0FDWUpvLXlod0xFQmpxTkFacS02OThGUE1jOTctYmU0elk4RktlbGFGU2tRTE9abXNaNktlZVBxZi1ycWs4RFJPQlJmdXBScGJrbFp6ZG9MOFlUVW5FRmVKUnhadDhyWXNTZWtRcEVYc3psZE1TY1dWMmgzSnk4T2k0dE5N?oc=5"
+    },
+    {
+      "municipio": "Temozón",
+      "titular": "Escándalo: captan a policía yucateco presuntamente 'ahogado en alcohol' y tirado en la banqueta - sipse.com",
+      "medio": "sipse.com",
+      "fecha": "Thu, 03 Dec 2020 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQTmZaTmlvOTJvRFMybDdnZU5GRlVEVnRKMzhWZmR4dzZ6T01fcC1TTDJpUWh1dm92QlVTeXkycEQ1M09LZ25uSGpQUXgtTFBOSVpEZktZRGJzUEdQRzBCdFUwNE4yRGtleXM3d3QxaEtqWF9sT3h3LTJ2bHJjT2ZrR0xIcEM4TTdReDVKdmVyN3pGWDRwZEpiWnh2SjJoc3Vy0gGmAUFVX3lxTE1ua2xVbFN4SmJyMjF1V0xQZEFQeE9JVFlJdDdtSVY4UW9nSF9jM3hoeVhpaVJ5dzJ0eFlsWE9HQmEzclVhWm5ZTWlnOTgxejNOajljUWZTb2Q3cndGOTNzMjgzeFVKUWRtM0phUllCWFFUUlRWeDBrRGdoVm9pTWJjTlkyWnR4NlA3XzZzMTZNM3dUamdGSFZDR1ZoeHRzbXp0NE9oWGc?oc=5"
     },
     {
       "municipio": "Tepakán",
@@ -6857,6 +8019,27 @@
       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNaTVCOHVVWGlYSUU2UHJjVUhlQVhTYk93VzJyVWxBcHI4T3hBRkx5eDd0YzN1SWoyRFkzMjNHanh2WkREZUM0SW9EdUJlOGxFV3BUYXJkcHpFWkdRQXM2M2dkYmczZ1dPaldYVFBWMHZ2VU1yRDlJNU1ZT1pEQVhqUUkyaHJvMWFKUFBzc1NVdFV5MjNqcWFPYmxxSFZXUQ?oc=5"
     },
     {
+      "municipio": "Tepakán",
+      "titular": "125 CASOS DE DELITOS SEXUALES EN ESCUELAS PÚBLICAS DE YUCATÁN - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sat, 17 May 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxONGVsdnl4dW1qTmE3ZVZNbXRaTXdFODBNSnlXOV9QdWlLUms5VHI2WWlLaEZHNVdhTWQ0a1ZZWFBsWk93TTRMN192VWExZUptT01HVUZ2c0hnTWcwNmdRSTlLYnA3Mm1vd3pyUk9uaUs2ZVV5RFNtWDc2UktGSm9TTEpQOGdVaFNJNlVBMw?oc=5"
+    },
+    {
+      "municipio": "Tepakán",
+      "titular": "Farsa de la ATY - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Tue, 14 Jul 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1tZ3IwRlZESjlOcVE3OUQyWm84RnJhRjYtZGRDeDZ1YnZqT1BOVnhXbDAwMXFoMFFTU2tsU0FUT2c4a2lnTmU5VFRxSkJDS3M?oc=5"
+    },
+    {
+      "municipio": "Tepakán",
+      "titular": "VIDEO|Alcalde de Tepakán es embestido por una vaquilla durante la charlotada - PostaMx",
+      "medio": "PostaMx",
+      "fecha": "Tue, 28 Jul 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxObHBUTXZKckdITGVwSFFSX2hiMjN2c3djWVBoN3NmZWVJWE1aM0lSTmtqYzdwWnNTZklKZDNVRFZ0Sk4wajF4cFR1a3Y3NHVEQVZzLTl3QnN5YlFxejdiT1FlMnFzVnZTdWZRY3kzTUhBNGtmcTVVMVJWZ1FkY2xUN0tvcnhSZ29NX2xXOE84ZmhCaE5NNndJM2NTOURhTlh4SUdPTTc2Znd1SjRlbldB0gG0AUFVX3lxTE9IMXJwSHdyZVRBSGp5VGJLZThaOGMxdFQxM2wxVnFhMEM2M2M1azNhSUkwcThORmc3YUlYSlYzRXFsR1cyYzJiZm04ek9BNTdQQ2ZGNEhZQmFzV3ljTWtxckVocGJqMmdJYzNqcThNS3JXMDVyVkNrY05XV1cwSk9GN2Jmdk1GZm5ZeEtkUE5DeGR5ckpISmsyTUZqVU5hMWUxb2ZtLTJ0WDlzbmY3UEhnbGdzUA?oc=5"
+    },
+    {
       "municipio": "Tetiz",
       "titular": "Atienden y controlan fuga de gas en la carretera Mérida–Tetiz - Gobierno del Estado de Yucatán",
       "medio": "Gobierno del Estado de Yucatán",
@@ -6939,6 +8122,27 @@
       "medio": "Sol Yucatán",
       "fecha": "Mon, 14 Oct 2024 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1YSjB6Zm5RbFhBWFk2ZHNjUV8wc3lhakw2WWgxdUoxZDBERVFUSEdjanRZVHJvcGczNkRjTlAyUGNHakEzcVZFODVEaVhBZVpSNEZoUmxVSUlKbEw1eDRWMkQxWDZiS08teE1ENHZsa0Y?oc=5"
+    },
+    {
+      "municipio": "Tetiz",
+      "titular": "Seis visitas hará la Virgen de Tetiz - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Tue, 02 Jan 2024 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNSGxjV3BtcUVCaDFnWkZucmV3bDhxNmx2ZUVUQTc0eU1ZV2FfdGtHSGYtWVlSSWFVMGhINHQ4VzhveGUtalRUc3pTZGxXQTRpeFRYOFVveFBPVmlpdDl3UGFHMlpiX1lyamxTY3BxRThLOHFTVTV0V0x4YWxvUjRRWjFjc1lBcVJvMFM4dDk4d0M?oc=5"
+    },
+    {
+      "municipio": "Tetiz",
+      "titular": "TRÁGICO ACCIDENTE EN LA CARRETERA HUNUCMÁ – TETIZ. - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 21 Jul 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1iajNXQ0Q4WnFtNFJxUHpGejRQREd1QWVrM1o3dFE1Y2xpem8yR0pFSXl2akFYbEZLNUZ4V2RRaUw4M0VCaWtFT3FMRk1HekZWRjVxai1WcmFfNk12ME42ZjAzMk8tY1l2X1hQdlJpTTc2YXl4cllkRFhB?oc=5"
+    },
+    {
+      "municipio": "Tetiz",
+      "titular": "Cazador recibe impacto de bala en Tetiz, Yucatán; así ocurrió - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sun, 25 Aug 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxONzdHdUJEY1hVRnJRVkNET3dUTS0yMmxsOW1YQnFHMDc3WjVrUG0yckNRRnAzYlBmbXFFcnp6SGVWM1djTklfelRBMUMzbVdPM2Z4RFVyb2V0X1Q3TkI2VjRDSTNUaThvYlhDWGRNSUVQVVJlMWJBYUNiUWpKd2F4MzNrX1JnNlBKRUVwUWZOeWxlTWM0RHZralRxNDlsZ1pvR1FQa2tsUExKcFZYNFhB?oc=5"
     },
     {
       "municipio": "Teya",
@@ -7025,6 +8229,27 @@
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNVUotOG5ab1ZqRFRvYWJhUThrSENadlBlZ21EUTFNOVd2MnZVNEF3ZlhFb1VvRFZKRXBRSXB0LTRvcU9jdm15SUtoUXpQSVNMd1RfbWdJUTNZZm5UV01jZFdyRGNaZE1fU1JQUExKM3ZGdlFLNEpybGtMSll5T1VuRDFrZmFWZGVfZnF2X09zWFlreEhsUGhiMlJjYkwxa3V2SENB?oc=5"
     },
     {
+      "municipio": "Teya",
+      "titular": "Trasladan a Mérida a dos migrantes asegurados en puesto de inspección de Teya - Por Esto!",
+      "medio": "Por Esto!",
+      "fecha": "Wed, 14 Oct 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOcmdoZ3pMSUFaYVNpSE5mNnpEeFZJQUhFaC1tYXppdV9ubGRiYnVlakltbW4xVE1xdG9ueGlnckFRNjk3LUZiQ2NjV1EtdHhlVTQydGNOekRVU0ViNTJCa1VqU1VnbEJlOXFSX1hMYmRNZnlvLWN3LXdEVVhPZTBSeWFjVlQzdXo1VUY0Ui1wLWF3c214WV9fVjR4VVc2ejAxRV9iMDY5UkZBNlZiNV9DaExQVFNORUnSAbwBQVVfeXFMUHoyMUNvcmdWR2Y0OWFMS1dBQ2dXUVB5X251RVlwQmJLSFc2bzF1Tjc0dWY1UXpodXZtQm45bEp3WEdjdGpMSkNRNHQzQ2pVemVVdUlOcExyQ1ZJMl9McTg5WnhMX1owVllJWGdrVXczNWJZcXYxY3l0SVBhYnR1ZVN4Z0NpMWRNcjFrTGVNODNBOFFGdzBGU2Y3eVY0S1lHaXAtQjd6SEhoMkRvRGtUUG1fRnpNUnNwcXRLSVo?oc=5"
+    },
+    {
+      "municipio": "Teya",
+      "titular": "Aseguran a seis migrantes durante inspecciones a camiones de pasajeros en Teya y Halachó - Por Esto!",
+      "medio": "Por Esto!",
+      "fecha": "Tue, 03 Nov 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQTmhQRmNrLW1ScmpnallscGxIQnlxS0VjVm9qVVhSYzVZeUtfM3dFcXMyUzliRXM1TWZYdGlQc2FQUGNzWExzYmlzLU1vY2pDQ2pCellKVXlzc0xkaXBvaFpnYTh0YWhibTZXbHNOTTNQcno5SkdfQWdNYWZwV1FrUjVQbk5NSGdZUGswMEJSdTExSjloWXBRUmtKLTYxaFNCd1I0ckctNmxFNGFrQWFPZ0pTWURTcUVhMmfSAb8BQVVfeXFMTTBZUjMyeExNc0pKTXcydFlmTEU2d0pYa0syTEwzbkRycEdGU0U5bXljN21jYmFuYzRMQjZ6NWhCMVRLS2FMVWxjNHl3cElrRlRHRklWdndKNHd2M0JuLUJHeUVranJZT3dYOXlWcnA1enNIMDZwaklGYUxTcGEwLUoyR3pjVHVmTy15QVN3SWRianozT01aM2FBR1VKWHh4Q1l5djZ5VVZWS0RUMUZqVUxPeDJxbDVWQldkcFZKem8?oc=5"
+    },
+    {
+      "municipio": "Teya",
+      "titular": "Apoya Marina en rescate humanitario en control de Teya - Quadratín Michoacán",
+      "medio": "Quadratín Michoacán",
+      "fecha": "Wed, 28 Oct 2026 21:45:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQSV96QW1udi1SX2hDdzNZT2RiOEFiT0FRcDFrbXlXVlpnLWx0RG9BQ1VWRWplVVdvMWhITnpZN050cWJLN1dEOC0xX2FyY20tSG9mVld3UDZib3VFM2w0Wm4ySlgxRjUtSHp1cEhWTTR2T3daTUNtdWd6S0Z1eG9sM282cWpTNFJzVVpmR0h1eDRRMFZWUVNKNXoyR2Q?oc=5"
+    },
+    {
       "municipio": "Timucuy",
       "titular": "¿Puede la policía entrar a tu casa sin orden judicial? - Sol Yucatán",
       "medio": "Sol Yucatán",
@@ -7107,6 +8332,27 @@
       "medio": "Sol Yucatán",
       "fecha": "Mon, 17 Nov 2025 08:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5IYW1HbUQ5UGdLVFR2VmxwTnpXOEtXMUxRcWcxa05MTGtESFBxN0p3WWVzVFpPVjdCaGhMaUtla3hjTE9ab21aWS00OEUyeUdTMldvWGY1R2p3MWxkaEF0ci1jbzhnOUE?oc=5"
+    },
+    {
+      "municipio": "Timucuy",
+      "titular": "TIMUCUY: ATRAPADO POR LA INSEGURIDAD - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Tue, 24 Sep 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5NY3h3NnNmOGVDR3k4SE83OU80WnRzYTFRb1RoY0dXdHp0bWFmcUQtWjRoRzZIM0pUVXFsemt0NnZoWEhwOUhGQ3pPSWVDa2NBVHhGNU9hdUNPS2Z5TGhLWWVkX1ZiR1Q4a2c?oc=5"
+    },
+    {
+      "municipio": "Timucuy",
+      "titular": "El “sancho” terminó en el tinaco: presunto amante se escondió al llegar el esposo a la casa en Timucuy y quedó atrapado - Por Esto!",
+      "medio": "Por Esto!",
+      "fecha": "Fri, 07 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOT0puelNRN2RSZzExczN4QzJjMERRNXBPREhzN0kzLUxCT0lEckxRLXJnT1N2T2JFRzdxS2xmclhmMzY2U0pmblNId2dEX3NRRll6amJWd0pLMHNIQV9ld0R4VjhGMjlJdXJVOUxzdlVOS2o0ZVRmWDlMRGhDeEhqT2M4SjdqdXl2Rm5YMDQwV21LWlBQLVR3alFFbU1scDRNQVZqeXdjVnJBWHI5SlhWSmpqUFQzMW9Qcld5V0FMZzhKTEJfWVdDLWozMlR2d3ozaWRoS3hJcVRsVUZaSk5jX0UtRWtURHpXT0YweFk4UVVRY25HQjgtRW85bEZNcU3SAYQCQVVfeXFMTURjWV9PeXZ2blJqMGxveTJlalpsLUdDZlF2QmloNnRlYmZtemdHbW9tZzBsY0ZzMlREWUdXSDlVRWxweGRfUGRkT1RUakRCaHJLVTJMbG8zdkNsRk9kYTVnOFdhMGZjTGVEVnA0SGtTQWZVZjBrWXMxZWJIQXdyUXYxZENyOV9TQzNJS2FzNDdsZjFmZ1F5RncxdVp6WEFkMFNPNFh4bGJicWhiN0VSNlV5M09lOEc4anN4cGZPblkzTlNuQTJXeERoQk4tN3lzRkxyTVdpYlBPMkFoUFhlMzR1eHVNaC1zeUpoZ1ZLT082MURvcDhrQk1IV0NMMW5za2lnb3g?oc=5"
+    },
+    {
+      "municipio": "Timucuy",
+      "titular": "Ocurrió en Timucuy: Le fue a llevar comida a su suegro y lo encuentra SIN VIDA; esto se sabe - TV Azteca Yucatán",
+      "medio": "TV Azteca Yucatán",
+      "fecha": "Sun, 08 Nov 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOSVhwbG1vd1JGQzdrQlpEQmhaOXN0X0tsYlJUVGthVFZfdmNXM3ljemtVNUhGODV4SDNab2w5cnFlcE9OV2ktODVRY0QxRGxuT2dIb2VUeElQTVlGS3lSaWxFX1A2Zlh2d2VjbkhWcVZoa2VWblRkLTlJTm1fZGlXNWlrWE5kT25WcVR2Z2d0WlRSZ21wTTFWLVpFRWIzT1h0TWJXUWdLWkVqTVFHMDI5YXhoQ2dZU0w2UEd2NFAzYVhXQk5tczJ3eEZvWQ?oc=5"
     },
     {
       "municipio": "Tinum",
@@ -7193,6 +8439,27 @@
       "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5xR1AzVTR0SXhXVTBibFZ3Wi1lbWNnRVZsWmZ3Mk5kdzNoc3NUVjVrRUZXWkkyU2FLenZ6M296M1N0TmR2VmN3bDBaRkJ1YmlGdUplNg?oc=5"
     },
     {
+      "municipio": "Tinum",
+      "titular": "Denuncia presunto robo de una edil en Tinum, Yucatán - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sun, 29 Sep 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOcmlZSVFNeHMteFJOc0hDLVRBVEFQdmFDQkRTNkJjYWIwRWRMZjhtZW84VDZXWVU1MGxwQ1lJWXllV2VlbzR2dThHVFQ0d3hyb0N6Tk40ZExmWk5yaWJ0YUNZZnJVRnF3cG1fcHRKUldjbEtVNFZHNGJfbExTLVdKamhWZGU4R0pTaEJpTVMzS2o1WllNZkdXeHNwWUJtemtfWnM3SA?oc=5"
+    },
+    {
+      "municipio": "Tinum",
+      "titular": "Operativos antinarcóticos en Pisté y Progreso - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Thu, 24 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBBTEoyZ1ZUalkzQ1RLWTFrUlY3MERlYTgzazVSMXhHbUR1RjVPRFRUUkJBN0dhME1KVE0xNG1WNGtQY0tVVEt5YVo0TkU2QmRuX2NHWWN0T0Y2QjhlbjJoQ0M5RndlNkp3QlJuWDlBLXJUV1plVUFZ?oc=5"
+    },
+    {
+      "municipio": "Tinum",
+      "titular": "Saqueo de criptas en Tinum - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sat, 24 Oct 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOV3psVEtna2NKZWhlaEdCZ3RBaVl6bGtfZ3kzU0FQY1Q2Zk1taDRxNnR6b0xJaVV5NGd3cWcwSTl1TXF2elh4YVRGc0ZFU3o1ajJIbC1telVhZUR6SExJRDlBUU9qYkFvekhEOGxxSEJrR3A0N1IzRVBhWm55cl9ic3hYUQ?oc=5"
+    },
+    {
       "municipio": "Tixcacalcupul",
       "titular": "Campesino se pierde en Tixcacalcupul y regresa a salvo - Sol Yucatán",
       "medio": "Sol Yucatán",
@@ -7277,6 +8544,27 @@
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPQ08xQTd3aC1GcEJMT21OZy1reUdoWXp1bUgxOHFUZkRyUGRXMFhOZEhvZG5HR3FJbUtMNFUyRm9SRm9wVTk5Sl95bnpheTlqMFplNDExQTVsd2IzeXEzT2MzaG05eHVuZHI4eTNRdDlTV2FqMktxcW5acTJUeUhXUg?oc=5"
     },
     {
+      "municipio": "Tixcacalcupul",
+      "titular": "Tixcacalcupul se hunde en la pobreza extrema - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Thu, 30 Apr 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1LNWdJcFY5WnNuN3BLZmRBZ0RXWFpYM1pkQjRWTUdXX1FPZVV0OEdCSURObllHV0Fya1J3cERPb1ROQ1pQbXlqalM3LVZBUm1LVkxJb0ptQWdYaGtsZTBvWDdKOA?oc=5"
+    },
+    {
+      "municipio": "Tixcacalcupul",
+      "titular": "TIXCACALCUPUL: DENUNCIAN ABANDONO DE PARQUES - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sun, 23 Mar 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5XV21MYnpzdXk4ZXZGTlBOWTVHaUVCbWo5MTZyaFhETTVsc0hoeVloOXJ6UV9RSHF0WG9tc3ZvQklXSHItMWxvV3JjSF95N01ieTdVckYtX1RLa20ybUFwdGJ4TWZRODBKQ0dIN3FkcExMY3Qw?oc=5"
+    },
+    {
+      "municipio": "Tixcacalcupul",
+      "titular": "DIF Yucatán fortalece el bienestar comunitario para familias de Tixcacalcupul - PostaMx",
+      "medio": "PostaMx",
+      "fecha": "Sat, 27 Jun 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNWjVhMlkyZkpPS2l3VktCNmVFaWREUlJ6d1Z5Qmt2T19MQTJIRmp3RVpRSlRQMW91VWNXNXlGbVpQUUpsR1dXQ19SOEhFVnVpc2lzTjFoM0NocWJObE13TXFrbENUYm82WHY1ZFJMbjlyei1ZQkw3Y0ZjM0F5U2prek1LUnJUb2M4QW1IeDBsb3phRm1VTnQ5VHZlYmxiZldQYXpTLUt6Y1LSAa4BQVVfeXFMTWZJYlVQbUN6TjRJUF9JY3hDREpOeXl3ZVNyb0NveW5MOXN1UkRLNFJNY3RfSmVRQTdqRUNyMXkwSlZqemJRemItd3I3YXNydTk1SGtXRXREZGlfUlRPaDR2VEpwMC1zd1M0RzRxcHNSVUVWeFBwdF92OWZDMXV6bnJTNGRzYjRTMWhOTXhSaHhicFlybGFYTlJnRERsX20yNkpDTWFwM2ZQYjZtalNR?oc=5"
+    },
+    {
       "municipio": "Tixkokob",
       "titular": "¡Tráfico lento tras choque por alcance en la carretera a Tixkokob! 🚨🚗⁣ ⁣ Dos autos resultaron dañados y una persona de una familia que iba en el coche rojo tuvo lesi0nes leves sin requerir hospital.⁣ ⁣ #Tixkokob #Yucatan #Vialidad 🗣️ @cruz.comunicacio - Instagram",
       "medio": "Instagram",
@@ -7359,6 +8647,27 @@
       "medio": "Sol Yucatán",
       "fecha": "Wed, 24 Jun 2026 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBlUnZMVDJkSnBKUkswUVU2MGViWDBQNXV4WXdZMzJMcnp1Q1ozaXo1SFlsNkZmUUVFbVFzWXFfSGNIR2d2ZFRWOUVCSnh5dTJZcXBySF9JM01JeW9vZU5YZm1CMzJ4dFdvb0hVTWpqcUwzMzM1YkotMkdGYV8?oc=5"
+    },
+    {
+      "municipio": "Tixkokob",
+      "titular": "Despliegue policial tras reporte de hombre armado - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Tue, 06 Oct 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9neDczNHlrNHlfMnNGUWltQm5hU2M3U2l6MEU0ZHRPT00yZVM4N3ViNEtZS2k4UlhuWjhlVFlHN0ZxTDNGTTJkTGRxZHhBZUxwcm5Tb1dDNzZ1MDFpUDF6UTE3M2hsSFdJY0dxbkE5QVNLeV9Ick85SlRCREg?oc=5"
+    },
+    {
+      "municipio": "Tixkokob",
+      "titular": "Madrugada de accidentes: vuelca un auto en la vía a Tixkokob y un choque en la Col. Alemán de Mérida - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Mon, 25 Aug 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPLUVhcjUyakRTYy1nQ1Nsa2M1RERDSkVHelotWHM1WFlmUWdRNjVIdVcxWTRGRlBFcGdhWDVvMmJYTjFNOHA2cE9WakpEWVFmdFBVbHFmMFJPR0JVeEpxQ2Z4cmVPeFBERWs5Q05DYzFoNVVVRTRyLWMySW9pVjdrak9lYnNDcldsVUY3TWJzMkxYNGpIeTN2R2tIWGNJTTh5OGlJVmMtNXZRdXNhQkF6ZUs1MHozbWhJSDFnVHRTY2Q3MGhaeXBnS01NblZROFh4TXZXN3pHU3oxcmJNSEE3V3VB?oc=5"
+    },
+    {
+      "municipio": "Tixkokob",
+      "titular": "Tixkokob y Celestún entre mentiras y engaños - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 18 Aug 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5QdXQzdjZpSGFIa2pteVBfRkZnWTREVmNiQ01pTW9mSjVQbjVTS2tRdTJHcndJdmprQWtpNXh4S1RtdzBGdDdHaHVLd0wxeEJwT3N0S3Vib1pZek1xTExVVEJ1ZmV3bXF6cmduZFRLR3JFMExJNkE?oc=5"
     },
     {
       "municipio": "Tixmehuac",
@@ -7571,6 +8880,27 @@
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZE4ybUQxMnVLbTRPa19vSjdDM25seWwwS2xpbHRXd0FuSlpfalFwQXEtRlVxRGJ2LTUtSTR4SUxJNTgtRXZBUGMxUzlpakRWTXc1Mko1Z2I2MzYzQ2FGVE82V0JfZ3d2Ny1xcTZTWHhZRjZ0V2V5dkFoTFFyM0MtSUVRUENaZHpaNldWaFlXZTlsU1U1cHZMQ0lrWDJ2OHNrb0RR?oc=5"
     },
     {
+      "municipio": "Tizimín",
+      "titular": "Bomberos rescatan a \"Barril\" perrito que cayó en pozo de Tizimín, Yucatán; está ileso - El Universal",
+      "medio": "El Universal",
+      "fecha": "Sat, 27 Dec 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPRGRvZkYzQmxNYlVRRXBCcHF3Mnk2QzF5LUNCOXh1bmFHemFEUkh6dUNPV01NdkV1WUN3TFJnUExGeThtajgyVFJoY0x3NVZRTnoyTEtnOGNhLU9BYWFaWXlMdHFOLWd4V0dUQy1zYlBxbGpIYkQzdUcwQUVLYUxvQWtfU1QzTnFJTWxWWWVNYUhZT2RUYmZNOTlwOEFJblBvNnVvMnZRd1NyRXlNdTE3MW5CNXVYTEd3RVVMTnlR0gHSAUFVX3lxTE1qSU1xLUJOUDFYajRWS015d3ZaaXRNa2ZRNGFIcDYxbHdBOFUzTWdiQVZER3NwSnRQenpWc0hLTTlWWlhURXlZbkxEcWFESTEycGo0dU9jNUZNR0VQbHRJMHhpUGtQaGRGMzV1S2lGNnlPY1J5bmVpQjNvV1BwUnpJaFhuSU1ERV9tazJCUGRFU0hod1hQQ2dXTVRZbW5VaGdCeUVpa3A2ZlZQWlVScHJVRHJUTnNPaF9oNEd0MWppM2plNmJQb3A1OElzQ3VwM00tUQ?oc=5"
+    },
+    {
+      "municipio": "Tizimín",
+      "titular": "\"Levantón\" en Tizimín, por un supuesto lío de faldas - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Tue, 11 Nov 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQd2wyanFTLXlYU3VCOWhKZXJ3cXEzWmN1RTI0aFdHdHJHQjcyMzdETWdUZTdIOU5weG1fWUJfdnlYY29ISFJDZkVGWDZfcG40QXpTTVlnM1g5bzloNXVkb2wwZ0plWEFHb3pEc1hVOWlsZ3N3UE50SXVfaDhZNENENlBselFERmJkeXhFX3JkbmFzbkZVTlBoaXJ5dHdCeVh6Q0E?oc=5"
+    },
+    {
+      "municipio": "Tizimín",
+      "titular": "Clausuran bar \"La Choza\" en Tizimín, Yucatán, tras violenta pelea; detienen a 5 y decomisan 2 armas - El Universal",
+      "medio": "El Universal",
+      "fecha": "Sun, 04 Aug 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOOEM1ZDNGdFYweDZDX29uMm5ua2RCOUNDSzVyQ25oOVExd09PVHhNazdqdllsYWRBXzBJQzRQeU5PcW96UzFxNVNQX1BlVUJrT0dvTU82OHJObGE1MnIySWw0XzdLZlpFWHUtbW5ETmlmVzVycDd6U1pDZkl5UVB5WHYteFEzMFZaY3hnbEVaOU5KcVR6YmZ1N29KVGlWM3g5alNNWU85MEFGVnNGVDFTWEpBNzZpSjl2VzhIS0hKY1JONWUxTktESkx1YnRjR3fSAeMBQVVfeXFMTXl3M1ctVkpMN2l4ZnU5OEV1b0tHTHlna0M1SVVnSE5mV3VMUS1GV2JkcV9NRGNZaHZjdHl1ZXh3V19mY0xTcGZsWlRBX0FOc0FCZmpLM3diTGltNWdVM19TTEttbmxENGJmUE94UGNqQjM4RjJaa2JZNTByZlBTUEUycERvVGMxd1JqUjF1bVNiRFFRdm9rc05Wak1jazI5LWxqV1pNeHNIZ0k3UEpqZURFcm9wRERFNV8yWi1JZTYtd0FaRWZPdEZ5SDNJVkVIdlFZN3lyenVDLUp4VXNTT0c0VTA?oc=5"
+    },
+    {
       "municipio": "Tunkás",
       "titular": "Denuncian vulnerabilidad en Tunkás por escasa fuerza policiaca - Sol Yucatán",
       "medio": "Sol Yucatán",
@@ -7725,6 +9055,27 @@
       "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOYnBsRTlPcEQxaE5PakV6clRJc2FUNm1hOEtkdFdRQ0o2V2txTnBUNkNTRFF5dm11YW80LThxOUJxckdCQzFwMEFoTGs5blBXQ0hIRk9mX2p2WTgyOFVLOTl4bE9HeXJQQjZ6TkxEYjcwSFNpWWk5ZnV5TVlkemkzUTB0WFB2MDcxTXd4TEp5OEtWUzNWSVN0amtzVHlmN0g4dHVkRmhScmlqd1Nwc3JNSXBBZGdJbzRkRE9YVXFyMEk2TVRHNWdCQWExcUc2dkRCRkE?oc=5"
     },
     {
+      "municipio": "Tzucacab",
+      "titular": "Joven muere dentro de la cárcel de Tzucacab, Yucatán; en protesta, pobladores incendian el Palacio Municipal - El Universal",
+      "medio": "El Universal",
+      "fecha": "Fri, 22 Aug 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQeW5FRjBmY0JKbElFV2NwaHQzbW0zTU5YSGh0ZU9qMkg2OFRHenFVOU45Z2tzRjV0bDREWF9mYnJMZy1YZVhIaXVST2gzb2s1ZGVxMEF3LTRTOW1ic2U0bklQMEMxOTNWaGhaSDdGTXBITXc4TEFFUlpCOWhlS2dxXzd6X3ZDbmNDSzVTWTZDS2tVZ0d2VWJwZ19ta2Y2X2Z3TU1LUnV6ZTNpUlRUczdjbXVCZkZ2ZEVJaGdzdG5zRHFvMm5RTGhPUzV1VEFWNkpsTDV1eWxTcnRMckxtNlHSAfIBQVVfeXFMTWZYTUI1TS1RZW1mWFVOcWRYUVFiVUN5T0QwWnZJX2kxRl9EbTFHRzNIVWRiM3VGOXFuZEpydEtZV2l3SGI3MkdmUE5YdXIxN1JIMEg5UXhYX1VPUE51eGRzU0FGbVFFc1JfY2FvR2hEaUEtZnFqZTFXamlPMFBaVHN1ZGhyV0tXTE9fZktSbzhvSVJKUXR4cURycE9FVHNpQ0kzempxMFFUZkVsWDJPVll1aERRb05DdXZxd0RMcHBTc2g4WTkxVXJHT2p1RXF0end0dy1EYW5qcVFXdEQzUVk1aHV2WXhlZEk2Sk4zZ2FIc0E?oc=5"
+    },
+    {
+      "municipio": "Tzucacab",
+      "titular": "Tzucacab: “Cuidan el palacio, no a la gente” - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sun, 24 Aug 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5wSTZ5UlNRdTZZQnExNGxwYk9ucmVlRDRCNm9FcFNSZ3dIQUdQYWV4S0FDdWFWMVlJOTlESFBMTVI5YUk2NF8wWW1uRG5LT2RVSDNqdVpqNmx0RmdxQU82d2pRdDh6dXdCeXJOWWFJWGM?oc=5"
+    },
+    {
+      "municipio": "Tzucacab",
+      "titular": "Pobladores golpean a policías y vuelcan patrulla en Tzucacab, Yucatán - El Universal",
+      "medio": "El Universal",
+      "fecha": "Mon, 13 Mar 2023 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOYVE5MWJ0NUhfbGcwbE9yN0hRRk8wN2drRmt5R241YVZ0VW9tSFhsR1lUbHUtYzMydUhRMnNOdU1QbFRCZExJakNoVFpORkJTaW5nWWVkMEtrOWVOMzB0bWsxY29KZl83RHY5Y3lpLThaV3kwZXh3SHNqR2F6Wnh5Vk8yd0pEYzVOMGhvdlBLdTJxeVRBM3g1UWZyUGg1R2Mzd0dieWs5WFNRZw?oc=5"
+    },
+    {
       "municipio": "Uayma",
       "titular": "Parque principal de Uayma luce en abandono - Sol Yucatán",
       "medio": "Sol Yucatán",
@@ -7807,6 +9158,27 @@
       "medio": "Diario de Yucatán",
       "fecha": "Fri, 15 Dec 2023 08:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOYVUxc2VsbWxNQ2lGaEpacUNhTE40ZVE3TEw5eXRVVTNQdVFZSUhWSXMtLUJ5THJmems2Q1VvZ2ZUaGRfOTYyQkQ3Q3BDSjVPeFE2WG93Qm1XZWg3Z0VVT1FZSUMxR2tJOGVhWng4VnVZQ0hHODJDZ1JhR1l0eFBhUTRXS0hocUZNa3FCeW12U0pwaTFDR25yMlpQYXRRdXN1Z3FjWlRXNUNseUI0Nm41MkVkTVZ2UQ?oc=5"
+    },
+    {
+      "municipio": "Uayma",
+      "titular": "ALCALDE DE UAYMA, REY DEL CLANDESTINO - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sun, 22 Jun 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1LbWlESTlXRGFJNjZoNk8zVldMeEZGVWNhNWlaTklhNlAyOXpLSEVwOGlVbXEyUzRSSXZwVXZGSnlCbzBDdEVpaFFjbU9TTDJvaTlpNlhzVHdPZi02Qk54QVhLbjRXUG5mVkJF?oc=5"
+    },
+    {
+      "municipio": "Uayma",
+      "titular": "Ex alcaldesa de Uayma dejó daño patrimonial por casi 1.8 millones - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sun, 18 Jan 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNNF9vZVZ1VUItaFlfd0hfd3RhclE4ellSNGQ4N3ZoM29fRk9pNUJ5dEYwM3lTNUR6SzNTNUtDSkhUXy1ib3dOVVNLQjZITGJtS3dkS25fV3A5NGdYOF9iQTlVODlINEFxRnJxU05rU0dXcFY3VXhtdWQxVWJ4RDRXdGRjLXBNQW5CYXBGcVBkUW9hdw?oc=5"
+    },
+    {
+      "municipio": "Uayma",
+      "titular": "Uayma: Abandonan la casa de la cultura - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sat, 30 Aug 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9HWkhVRExQQlFLdmtGeW9LV25SN1lZTUliclloS290U0psT1J1M2lCSXR1TV9MSzF0YmpCdi1wckU3Vm8zVmZrVVFscWcxNlViMmdNbVlWazAxak41LUF1dGhxaHAxdWZoOFY0cg?oc=5"
     },
     {
       "municipio": "Ucú",
@@ -7956,6 +9328,27 @@
       "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBWVHc5b21uSDBuOWxGVmRJYktwWkZIUzFORG9PTUpXaXoxQVpZVjNCMnBUS2FPbXYtdk5BS1RkSkNfeUNaenZDNDZVQktjWFl4dXh5UEFabXNEN0FlUFRKckJnY3lRZlhqc0E?oc=5"
     },
     {
+      "municipio": "Umán",
+      "titular": "Operativo de búsqueda en la aguada de Umán concluye con el hallazgo de un cuerpo - Johnny Oliver Quintal",
+      "medio": "Johnny Oliver Quintal",
+      "fecha": "Wed, 22 Jul 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOMHc0S0ZWYk5kSWZGS2d5Ni0ySkNLU2V1UDVfUWs4dlhTeU8ybHR0Zk9NemxhSTNfVjkzZFIwWDVrSVVHUUk1NnJmWGJGUHlwcmxaZFFYOE1QZkxyWFFhZHFVQ01DNDZZMFU5WGtrVGtIRmhtRkVpYjlGTUkzeHROLWtpNUtvR0c4NFNnRXFVUQ?oc=5"
+    },
+    {
+      "municipio": "Umán",
+      "titular": "Detienen a cuatro hombres tras robo en tienda departamental de Umán; huían hacia Mérida - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Fri, 01 May 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOdEdxYjhETzRaQldxT1hlLVJIMk9iUEUzQ1BwNnF3RHczZmR0dk9yM0pjQl9UUWIzRFF4dWtmQ1JVM2hHZmFwdmZHQWJJajNyWmdhTGVmTGlQYmh0Yk5LbU5yUkx4TUo4ZjNGTlR1ZmVNX3NnbzNRM0dHSzF4bVAwQmdMVVk1YkdTVjVpZmVOSHFocm1HcGZLYlQ2RjByemY5VEVXZQ?oc=5"
+    },
+    {
+      "municipio": "Umán",
+      "titular": "POLICÍA DE UMÁN Y BOMBEROS RESCATAN A PERRITO ATRAPADO EN UN POZO - La Revista Peninsular",
+      "medio": "La Revista Peninsular",
+      "fecha": "Thu, 19 Nov 2026 15:44:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNUW1EeGp5ckJvSDBHYW5Sbi0zdHNJNFJoZngxczBmR3hvYV9UU0ptdWIwdDdWSmh4Q2ZRbjNEREVCS25vWHhSWExtcWhRdUxOTko4TVlnS1daUnBOWmtWdzlGdEpPMmRpU1BPS3h1UENWR1MwNGlhWnVaXzM3UnJvU3hBcFpUNk81WUxlQ3BfUUprWWtsOWRlbEdmbFdEek1uX0JaZFlMUVl1R0tGNVE?oc=5"
+    },
+    {
       "municipio": "Valladolid",
       "titular": "Despliegan fuerte operativo en Cereso de Valladolid, Yucatán - El Universal",
       "medio": "El Universal",
@@ -8038,6 +9431,27 @@
       "medio": "El Universal",
       "fecha": "Fri, 24 Jul 2026 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxPa0JNNGk5NHkzeDNuRndzT3VtOFZ3OTFxemloU0NmRHFVajdHd1ptV1RfVmllVEpXUE9TQ2JCZ2pleVk5VXR3eFRoWWNsbE5aTnFkQXRXN0ZUN01EVGszZWQ2Z2YzaTJ1VW0wSERiYXZqUzl1UUxOWVRYRlhfS2ZtZGc0Y0FIVmt4Rjlza0Zkd1JGeFMzQWRIampxOTBELXR6RVlPVXJrOUVYY09tYzdSOS1ienRLdWJULVZWakhPMThZUjZKZmprNDNMbUpISHp1bU5mX1UzU05qZ0JxS1R5VHlsUVhoZlpxYXVHYjRSWGg2NTFIbHdlTmhHZ1JIbXpia2tZNTd30gGaAkFVX3lxTFB4aWlQVW5EaVpaZF9obUR5Rm1LaWE4TFhoMzB0X2doUk9aRHY5QWt5U2lDa0RpTGdVWndPX0I3OU5VMVFtRHZJcGdZVVdDSmt6UVRILWxaUkxrcFpTYXE3VmtCUWRfOWJwUEx3OVNBQkg2dURqTjFxMllaR1ROZUNVVWlId0ZNbWlxcHRjNk1YS3JFN3F3V202MkhmZHpoYUc2dHVOOWdmcHVQZ3p0eFVzMXpLdDZxU2NRUDNSYW0wWHFKelBnMFBkdTkyWjdZSzhWb1I1amY3UGh6bWIxa3FkeDQ2dnVHRzliUlFFb0RYR2xkdEZON3hNLXNRRTBFMTBwT1dqNzlaUldvblEySXNPRFYwWDk2blduZw?oc=5"
+    },
+    {
+      "municipio": "Valladolid",
+      "titular": "Roban equipo dental de más de $30 mil pesos a una joven dentista - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Wed, 24 Jun 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOQ21JcnBHcjBIVkxRTnNGaXJBWFZmNGZ5S1NtbXN0eFl0NlN4VDdubkhYaGgyNlc0TktIQ01HRW16M3dfc2xMSHJTaFdGalRucFFYdWl5WlNWenNEU3VkbW9oZ1hCV0RVT2RpWmw2dEtpdV9tMFdUTElVR01zZDg3LWdqdzF0bzBJSjlkQkZ2SQ?oc=5"
+    },
+    {
+      "municipio": "Valladolid",
+      "titular": "Incendio de gran magnitud en la carretera Valladolid-Cancún, cerca de una universidad - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sat, 19 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQN1ZrM1ZRTldvdnVnTTlQYWRKTzJiY2V4ZFFmYS02WnVtTmt4WXhWVGkycTdJdXNHeHZJVXpzdlRlWjNHa3VIX2h4bDZHQ1phRXUtbUYwZHN3TU9kQ2VYUl9yY2FJUE9EY3lkQzM5b3NsVGFBdjM1amFiZTV2U3RuRkc2eDRZV0pMQzNJUkxxQThyRVBDVXRDb3VDQVNuU0xDVVFjNUFmdVpla2NkaW5pUWlPVFlBaldnenlrdmpQb3V3U0Q4QWhBalNMQjNuSzRR?oc=5"
+    },
+    {
+      "municipio": "Valladolid",
+      "titular": "Motos robadas en Valladolid aparecen en Tizimín - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sun, 20 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE0wZ1kxZG5FRVBOMkJNbzNDUjNBTkdab1lLS0VvYk9PR2NwZU9FS3RkeUJGTmtmSzN5cHJYSXFCUVZpUF9YNjRaclBvUmp4Zk5kNXRVV1F3Mk1oOXJzY01ubF8wMzFrQnBXNTJSMUdlYjUwTWt6bkx4LVR3?oc=5"
     },
     {
       "municipio": "Xocchel",
@@ -8124,6 +9538,27 @@
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPZXhaWms4TlJrNDRDZnRZWHhIZmpOY0FjR1hLT0VhcXdKcWVzUG1MVzdvcFFackZwZzJYN0Q5WnFwVUFzUjRlMW1KbjZMMmhvMS01eHNIcGFwNS1samJ0RWk4SUNLODE5NVRmX3ZTNTlNTHVTeGVZSlhYTE9lb2gyTg?oc=5"
     },
     {
+      "municipio": "Xocchel",
+      "titular": "Xocchel, con actividades para el bienestar de sus habitantes - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sat, 14 Dec 2019 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPbTh1RElMTEwxTm1kcFVrLUZERHFKZUFHb0c0cTNFRlloN29WSy03bmJNa0Rvem5WQTR5Wkk5RklLNTI0T0JPMG1lR0pHMTZQY2NINzkyS044Z1NTa21GTk92N200R1lEQThCWW9zamJGV2hrQVlyVm1lVGZ3MWlHX0dNUVlPcmFkRlVTRG9TQkduUWwydFM2c3ZXSy1wc0UxWEpQVWQyenhuX1lvT2R3?oc=5"
+    },
+    {
+      "municipio": "Xocchel",
+      "titular": "Vuelca una combi en la Mérida-Valladolid: reportan heridos y un fallecido - PostaMx",
+      "medio": "PostaMx",
+      "fecha": "Sat, 15 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOcE54R1pneVZfUEo1Wlg0NlZzMTRyVGRZeXc4NmMyeHo0aHVkWm5ndTBDdTZpcmhScEllU280aFpvUEpyakN3djdRMmRoNEFGRXM5Q3R3ckl2NXA2cXRwZkQtSndCWEdNdW4xMzAwV3pLNVduSGN4cGxycEZhNF9LajJBaGYxSGRjVEV0Wll3cnJKLVNDWU9QRFhHTzlKSzNJZ19FRDhGUkNVQdIBrwFBVV95cUxPUktXSWh0NTNxbC1QcjVHSWN0Y240ekh5TzIxUDRzbFVkRmlCdm1xc19HdXdvc2Q4ZTN4NnhHSVZvbXJ2S3g4OTlGbjNFazdWNjVMUDlMT2hfbm45UGxvRDctNDRfZGdtVEE3azA1alAwWkVyeFpoWkhncGo3Sk9OdUtCa2I3UGhPN0R1VC1wa2dhS09DSTJWeUE4VE1ScW4xcHFnRkFhcFpkdmh6TEsw?oc=5"
+    },
+    {
+      "municipio": "Xocchel",
+      "titular": "Yahir Pech murió en Xocchel, Yucatán luego de ir a un baile: estas son las claves del caso - El Heraldo de México",
+      "medio": "El Heraldo de México",
+      "fecha": "Mon, 11 May 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPUG9Ja1BzQVZodVZHV25WeTJTRTNOT0xZY3Q4QWthSGhUSE81Zy1vUV9aaG9HUHdyOVZISi1sQ0JuSVZJby1KdktzaG1OQmgzeWFqQXp3OXFUVEpkaUZtTFFDQ3RJX05OcEQ4VjlSdVJIOXFoM2Q4SHRqLXRXMFhHVTU3WXlMRkNEdXBIaUVuMGdfTlVFSEtGVXJ2SVRROUxDZkZoOTFsVTJRSWpHNGNoUFhGSTlCUGFKSERZMWpRblpNT2dWS2lqRGw1MzVNMmF4WWo1amY3a1ZhNVhQaUVJUkI5N2I1WDMxZGZIaQ?oc=5"
+    },
+    {
       "municipio": "Yaxcabá",
       "titular": "DIF Yucatán promueve seguridad alimentaria en comisarías de Yaxcabá - Gobierno del Estado de Yucatán",
       "medio": "Gobierno del Estado de Yucatán",
@@ -8206,6 +9641,27 @@
       "medio": "Sol Yucatán",
       "fecha": "Sat, 03 Jan 2026 08:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1rQ2NMS3A2YWNCYTBvTFR3dkdmQW05SGhQd1k4cTM5TW1tbGhFMDZfWGY2WnVFbWVYTzdCdjBsUXhOYjlCaGtCRmNvaU5PQjBuVHZVdWVvOTJQeFZlNFRMMURBSkI3bW8wVTlV?oc=5"
+    },
+    {
+      "municipio": "Yaxcabá",
+      "titular": "Urgen rescate de templo del siglo XVIII en Yucatán - El Universal",
+      "medio": "El Universal",
+      "fecha": "Tue, 17 Mar 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPOHJlNENBWDFlUnl5cVozTzBnZWh0eGNBM2ltSXVwR3NzdTBvZmgwMnVMd0lWN2hrRWJzM18xeVJ2OU14eDBzWXBTZ1U3b0p1LUtQdXlHSldkNVFyRUtBYkRtVHp2Q0lvckphNWVxQUtaVTFsRVpvdmxuVWs1WmI1Ynh0SU00SDRVNUpzNGcwdW53MXVOdHFBb0Ffd0pZSWVlQTdNWGRXRFU0c0hMV05ORDB2dVFEcHRpTlRVU255WGRHUmVSbVpwUkF3b2Z2VVdURmN0V1NqY0ppaXhSTk9qUzI3YWXSAfgBQVVfeXFMT2k2d042MVpUay1nejU2cTFvRURuOHhmc2hWbHVpMUFaWHpGRlFQT3FVLUZuVENDS203LTlORVJ2UHhldTV3WVhiX2k1VmJyV2tlREM1VldBTkFqQVJtSThvTmdqSTluclFwdzB1dU9fQV9yYWVlblVHdFFLRGMxeXROclBhbWdROTFrd256eEE2a09NRzNUdTl6V2F0eXBoc0dNMWMtM19iVEFZWXgwS0gyVGpIT2p1V2dkNmprQUZQNzk4bnRSNjJXYmVJMks1SzFQeG9zNmsxS2RXWldxakNTbkVjNlN4akFsejd5NjVKQ0N4a3BTWlU?oc=5"
+    },
+    {
+      "municipio": "Yaxcabá",
+      "titular": "Comisario maya hablante gana juicio electoral contra Ayuntamiento de Yaxcabá - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Fri, 02 Oct 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPYXJkbkh5M1dlRWkxT0dXdnJ6WmZIazJCeGRJVDQ5WDdHMXllSnE3V1dvNWc0UmFEcG9ZWTdPdFZUUW1VNmJqSFJ1Ty0zemo4V3BnWGE4Q0ZiOGhFRTJVZHZoNmcwV1FiMUNGcV9sR0hiZDZCMEEtc29ZVjZ4MTVzY1NGcmNUeU1OTTJqdmNRVXNVeGU4dkV5X25tSllBX1A0OXFvQ25ESHhJazFOU2dqcU1SZS00NmxQVFVwUVZFLUhGOHBm?oc=5"
+    },
+    {
+      "municipio": "Yaxcabá",
+      "titular": "Saquean iglesias en Yaxcabá - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 27 Oct 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBTdk41bWZQZF90ejBpd3h5cDRBN0xnM25aQ2JOZHBDQXNSc3dOV3k0UDE3YWtqWlJ1ak8zbTVSMHpTOWcwcEo4cy1udHhYTkdBY2Rubi0ySjVQQzQ4RGw0?oc=5"
     },
     {
       "municipio": "Yaxkukul",
@@ -8292,6 +9748,27 @@
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPNy10TC1XSXRMNURmOVR3WEJlTnozV3cwTDJfS1MtUkg4b3kzNWlFOEttamU0ODFraUlXM3NIb0tJSmk2Z19YdnR3Y1U5RmNiaEU2eHBVNElRS3JBdGJmT1kxNWJ4VTdNbEZqNkVfa2Q1VmZGeE5GLVFZN1FJSDV0c0ZVQlpuVnFIVnF3NXpoZXd1d2Zt?oc=5"
     },
     {
+      "municipio": "Yaxkukul",
+      "titular": "#Yucatán | ¡Precaución! Se registra FUERTE INCENDIO en la carretera Mérida - Progreso ⁣ ⁣ De acuerdo con la información el fuerte incendio incremento rápidamente a causa de los vientos registrados esta tarde.⁣ ⁣ @angelnovelo13 | #AztecaYucatán | # - Instagram",
+      "medio": "Instagram",
+      "fecha": "Mon, 16 Mar 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1uRjlYSkpUcEhHWGxCeTZ1Ry1sWVNBVzVGa3BSSUJoV2Foek1najB2ajN3YnVURmIySGt5SFlFSGFjd21FWWE3N09LSm5WMGVGRElwa2x3?oc=5"
+    },
+    {
+      "municipio": "Yaxkukul",
+      "titular": "Encuentran en Yaxkukul los cuerpos sin vida de una pareja - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Mon, 15 Apr 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOd204N0J6WGo1T3oyOC1Bbk11T2lDdXl5ZE9HMlNBNEdyeGxNMVZrZjRyVkh1dGVHR3dvTXpfRUFrMHFQUk5MNEhDTlFUVlBTaDdhTXpUR0toTWVfWnQtZ0NMdjhrelQ4czhQYWxzTko4dkJZYXJtWHoxQ3d2ZUppSmRUN2RCY2FpZDVvbWxVQnJkaXhfZ19ONlU1a2Q2X2cyNExDNk05NXhPT3NS?oc=5"
+    },
+    {
+      "municipio": "Yaxkukul",
+      "titular": "Secundarias de Yaxkukul y Tixkokob reciben Kits de mejora para sus planteles y comunidades educativas - Gobierno del Estado de Yucatán",
+      "medio": "Gobierno del Estado de Yucatán",
+      "fecha": "Wed, 02 Aug 2023 18:17:09 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBLZWxManVfNDlUb3l2d1R0MDNnQkdYaTNzVGJxTjlISVhVdkpicDhEZXoxLXZIREQyaERtZlg2QXp2R0RKUTRiOE9veDN6TGtZZzNDUllwdFpNV1dyWC04cw?oc=5"
+    },
+    {
       "municipio": "Yobaín",
       "titular": "SSP Yucatán busca a ‘Polxito’, hombre de 60 años extraviado en Yobaín - La Jornada Maya",
       "medio": "La Jornada Maya",
@@ -8360,6 +9837,440 @@
       "medio": "Por Esto!",
       "fecha": "Fri, 04 Sep 2026 07:00:00 GMT",
       "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPdzJFd2VudzAtSF9VdnlzeV85Unk3RFhlS1FrMzBqd0xFUjQxWEZSSDZVbkFnRXJHUFJNamJHWllTQ1RRZDBmajdidV9DU29qQWZiY2xYX2VWY0dIbnRFaU5VOUFaWDhUVnNRLVc0Q2pYTm5iQlNnR1NOSWtPdFhFVG1GZmFuYzF6NnQ4WTdXYVFLWFdjbDl0d0h0UWpkTk9DdFdsM1VPOHBMdnY0WG9ETkREM0FuM0dmaVhfM0RaTzJpYWpiY2lVU0Z3TS1fZDVRelU2eFhORErSAd4BQVVfeXFMUGZoNlVveU9xY1ZwWXJpVzU0dTVnMlNvRkxCZS0xUk5UWEdKbE5HbGlOYjRGNTVMVHktUDBkNHNkUGtjLUFhaTlablRkWVVwYXppZjNscGxxNFlyYmR5NFVzWV9VTURzaWtaMmZGX0RJNFBSS0VNa25wRk1rYVhFbkRob1M5eVh3UkJpSWc2MGJCMmJEOWtKdEtpTm1tSXpoZlNrNmVOdThDSzgtWnFDRGpDZVdmTUl6MFFnYnZEcVlEZ2tKVlNmS3d0Y3dPQ1JOX1l1VjVWenBac25hTjlB?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Detención a dos presuntos ladrones en Kanasín, Yucatán. - La Revista Peninsular",
+      "medio": "La Revista Peninsular",
+      "fecha": "Thu, 26 Nov 2026 20:30:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPSkV1THZJWmdfRGs3VlI5UFlQaGZUazFLSTZla25MMnc1eDBBY1ljNTN2MXlQNTE0dm5VektRRXFveklIVVNfelYzRHBCM2U1emt3dUhpM2d0ZTloakI1ODM4aW45eG5ZSGVpbmRsdF9GTXBSWlh0Mm5iYmhIalJjaUtjTmNBQVRKbk91MkFBVEc3dkZubHNMQmxKazEyZw?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Kanasín refuerza su seguridad con nuevas patrullas - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Fri, 07 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPaXROTVZsRGttMFFBRDlUU092ZkFqdVVRc19vSjFWVVdOSGtDQXpKbHNRaUFhZk9qT2lqSGpua0syaGNIUkIyZnFQU21HT3hhTFh1ckc4QmFYc2dPUU9obThmT1dfazVGR08xVEtiWUZjeF8yaUppSzR0ZUNwMWN1TXZRbU1ibF9FTjZOWUFWVVVZSXpFSS01ZkYyY3N2Q1VCX0Jj?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Robos imparables en Kanasín - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sat, 14 Nov 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFA3Z2JaSGVMdkIxOFE3Wmd3eUhSU0ppSEtwckZoV2VNZXVrYUxIU3VhUmJXMHpHcDlxSGxkQkZHc0R2UThMZUZoeTBSX1ZPLUZXQnQzeGJlVzcxMjlDMUM4?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Elementos federales realizan operativo en Kanasín, Yucatán - El Universal",
+      "medio": "El Universal",
+      "fecha": "Wed, 19 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOZ3ZKM1c4clJkWlQ3VFNGVHNJLVlmdHE1Wkhnaks1bjBNVDJzbXdndTNqWHRUZGt6Z3BDNHZSRjVfS09EYVM0U1Q0bHlEbGVNRUtKY3BwVjVWTmZkY1M1V25fMDlyU3VwRl95Xy0zQUduTkZ0SjNadzJ3dC1jVWZ3WGlmNFRVbmItd2N3UTBUdGt6ZHg0blQ0NnNDeExkUl9jS0haN2IzbUd5VkZYTEc0cmQ1RVZZdXdFeUp3Z1pLcEtfUEpENmtNbUlPamo3d1lpbEHSAeYBQVVfeXFMTTRZVE1fRFNtWHpHTlBpcGZnYUExSzg0QXRTQmlGTkpUc2M5V3VXY1NuZnkzLWpKQlNRYWlpR0dHX2V4b2VqWnZ0T3JnVWlRVUFCWkIxYm5iWTNnZkVyaS1xaDRUaDJLd21MbUFwbGFMY3NUdktWeW9YQWVIUmtNa0FIWVA1Ry1wd0R1aV8zSEZnVFRtWTM4MUpZOUc1YVpRalhUOGwzY3MxMTU1LVJjZmlLbnhscUdJbkpocDhfWnJ3RXZvdU81SHdhdTBURy1DVTNCVFZsdlhWU0FZTnFUNU9nR05xSGc?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "FGE y SSP avanzan con investigaciones de una tentativa de feminicidio en Kanasín - La Jornada Maya",
+      "medio": "La Jornada Maya",
+      "fecha": "Tue, 04 Aug 2026 01:13:12 GMT",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOTEFzTUl2SDJDNE40RDFZZERvWEM5cGxrV1NLVmFweEVvV2JONkN0anNFdWpFSUxJdXR3MWgwSHFPVEdPOGRnNms2YUgzQnJmZS1mT1R5WkFYOV9sWFp2MU9JdnZTa2RaS3MyTklGS2xPNUU3d2hWRVJzRHJhdHVQeUxlR3FNNmdOZmE3Zkc0R0lEVFkySVhNbWthSHFVbnpYaHBWWHhUS2o1aGVtLTE5NEwxYXZUelUwSEgycVJXdXdPbEl5Umx6al9hVXo?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Sujeto Entra por la Ventana y Roba Taquería en Kanasín, Yucatán - N+",
+      "medio": "N+",
+      "fecha": "Wed, 11 Nov 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxObUJpeWVUeEM1a1lCeEYzMEd5TUFIN1pTby0zWFdxMmd0elVhNzlxMU9fcEwyMkVaa2JVbjlNUzBmYmNpc2JNV2xwZG51N2RFM09JYW9YU3E2dFBNeEowbU1DaWk4UlZFbmsxQjVhZnhYN1RTeDZ6cEZ4czkzMFIyNUVjMUFuWXZ0Y0Mwb094YkEtSDdmbzBGMVFNSkcyVkhL?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "🚨 ¡Roban dos veces en menos de 48 horas en escuela de Kanasín!⁣⁣ ⁣ La primaria Emiliano Zapata fue víctima de la delincuencia; sujetos sustrajeron más de 180 metros de cableado eléctrico. Mientras Joaquín Díaz Mena promete seguridad, vecinos den - Instagram",
+      "medio": "Instagram",
+      "fecha": "Wed, 18 Nov 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5rdFVqa2NiWlN5OE1ORkdEalM0S1EwZnBrZHNIWDFvU0xCSHo3dVdOWHNwSEtqa3FWbktqaXRlMXVfdDN1TWZsMnlPRUxIaFBVNWkxT09B?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Continúa la delincuencia en Kanasín, Yucatán - La Revista Peninsular",
+      "medio": "La Revista Peninsular",
+      "fecha": "Wed, 11 Nov 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQanB0RHZ5X3pYTThjbHRZaUViWUdJNVl0TWZoVVZ0ZGZndVdKazNOZmZSVmYwMEFTQ2Z3ZUl2T0lncGNLOWt6emh4Yk5TQ0JPWWRpUE9rWkVXS1ptdGh0SW1LZkhKWGhYbXBlclI0X1BBSG9tblBUNk5vZE9nVFhsLVhKLXdaVGduTTY3ZHBNT3Y?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Riña deja un muerto en Kanasín, Yucatán; seis personas son detenidas - Yahoo",
+      "medio": "Yahoo",
+      "fecha": "Wed, 09 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOaHhOUW0wMjBQYkR4U2tuTFRUNk1qd05LcTZoem5pV1hBRkhseHV0Uk5fR0ZGNTU4TUktdWNBWk9EbFduSjJtdHM3dWZKVDEtTVdxOWhNekR6ZEdhRzgxMmFCdW1heEdiOWVVanJBY2oyMExJV3hSWWF1Y1JSamdqNzFtaEl3WWJ2RFdqUEVvNE1VOTlZSkRnbFF1SQ?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Kanasín inseguroKanasín inseguro - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 16 Nov 2026 04:51:29 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBnTXpNUW1YYUZfbURLLWszQnh1NlkzMFB0eFRON2NZUjhwdTkxLVpOUUNBWTJtWlEtaDdvelMtdWxic25CckNkZG52VXlQMmU2?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Segundo Informe de Edwin Bojórquez: Kanasín presume obras, seguridad y desarrollo económico - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sat, 29 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQZ2FyZnJIOVJ5b3ZVVHdmcE9yUUozaFlJblFLTVlGc3RhcU1SaDdwTmFLNDN6TktkVkVONlBqejJlWFllSkpESGZMTElraWMwRjhCTWVaRWJ5OEhGUFZUVUYwZkVMWDMtYy1FRDl3elp2VFRwM2pPMHRWX3h4WEpkOVp6R0R6S3ItMFFxX3duNG1jTEZpZ0xEdmhaaEZEMmRCUjl3aWdPUHNBazl0UHdjT09LZmNaZjVEeTE1SVdoMUdFUXlSdWdVOUphTGhfX0V3Q1QtbTVvRQ?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Riña entre siete hombres deja un muerto en Kanasín, Yucatán - El Universal",
+      "medio": "El Universal",
+      "fecha": "Wed, 09 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNb2JFWDZtN1BvSktWQThQY2RMVFM1YUpGd19RLVp1WjJEUDRCbEFJQkRQLWlkR1c1VkE3bHNIOE02MkgtN0xESF9ZZnlLUDFrZ21tNjc0S2Mta1lObzJLdlRiX0pFN0VSdG5tenFGSFRVZlRBbXpxN1Vzcll5ZGg1U2V5OTEtR0QxQ241MUNST0RZY3lIYmNLakJVUnAya2VrVXVsS2p5UHlNZ9IBvgFBVV95cUxOem9xUENfY0Y0UmZfb3ZWUnpVRUhqLV8zNDdQZktyamxDWURCVUJUTDBtWko2MVdVd3Y3MWVwOEdaOGRFdW03SDQ5UUJnTTFNZlMyNUZoMXh5aWhPYzdvWkczSnF4T0c1amFoSnBTWk9CVnBFVjQ1WWxqOHMzeTJGQVZwTnVwR3NhSHV1cjNPRkZETFljWUF3VFF5Q0ZSR1VVNWZPQ2FlaFpnQThUUXRSWVc2MzUxUzVlZjIySnR3?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Continúan los robos en escuelas del municipio de Kanasín, Yucatán - La Revista Peninsular",
+      "medio": "La Revista Peninsular",
+      "fecha": "Sun, 15 Nov 2026 06:46:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQaExjaF90c2FlN1loZU5tN0oxVS1XcFNxR2RkRnN5Q3U5MTRhZXRiXzJvRi1qRklnWDFFem90ckh4UEZVUTNzaUJHenJGLU5obUMwMzN6bEIzX1pZU25UcFBiSGM3Q1FOWHNaLS1iY0hBZGJrd29sdXNkTmVKcHk0RG82QUhVMmg0cnVqZUk4RHlzWmtXQ0NkX2xoclpaejNRWG9Jb0JVaVJ3YVI3?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Kanasín: nada nuevo que informar - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Sat, 29 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE43eTV3M1U0b1l1bzlzZzZyanRybElySkVZS3BmMzctQkpzTUgxQlI4dzhEcW4tNDc0aWRYTXRBSUJkeDJVRFdZWEYzaEtOQUtrWm9ORS1sT20zY1lBVHFmTXp1N2s?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Policía Ecológica de Kanasín rescata a perrita atorada en la ventana de un segundo piso en el Fraccionamiento Alameda - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Tue, 15 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPVTBPYTgzU1dDcGJpdTFGOC1BR0s3bFlEdFVHTzBsLTlZdzhUYlAxRno0MklLVEtla05RQVpsd19LZ0VwWmNjMWNEdTJBRG1ndkp2SERKRXNPVWJLZ3pxVlA1YTU5Ri1xSlYzY1RLbFNyNXJkSmRNT3BfbkxxRHpab2R0RC1mUXc1NDRZSF9yZDJna3ltZDlpZWVIUzJUQ0F4eUR1ZmVMaS1aOVNTQ0FseUNZUkwyR1YxYU95MXlUeHBLeWQ0M2RXWG10MFBxZWZIUVFCMDZtaEhHeUh3aHUwTk5URWxKT2t2S1MxWlFLNEFHd1phR3dTQWZGRjc?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Vecinos logran cierre definitivo de empresa de aceites en Kanasín, Yucatán - El Universal",
+      "medio": "El Universal",
+      "fecha": "Mon, 31 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNTHAtMGtCLWxPV2FQcEJBeDd5ekZCcTJ6NGNka1pQMGtVY0ZZb2tsVFZQWm9acDQwb0pmdHlFMVhjaDZyT0FKVEhFb0twZVFZZ1ltZkhtUmxNd3pscjRNYmFmcDN0ZU1KNG5lTnMwc0h6UlR5WWFyQzhiajhoWnc1dnBUS29GLTRsS21EZDBVR0lGdVY1cTdWbFVMVEtXWHItdHltR1lNTWwwN0NPN3hIcGRMV2ZtUXd3dXFxRmxsYlBfRjEwTkZXQjZYcWNITmJ4ZFBhZjNwX1J3ODjSAe8BQVVfeXFMTXpubEU1NmFXaUtJUWUxRHVuZWJaS09BdjZ2c2NuTzBTUk5WSnhiY0pkT1ZYWEhZMDY5eFhKTllxS2EtQ2tIR2YzV3pGYzFzMjkxVEV0bFF1OHhGLW5oRk5UeGsxUUFvbkdWaVg5ZFkwc1d6ZDJqZktfTC1zUTN4Y3MwYmhWNXNoTEtJTV9VeXVJLTlWaXRZQ1I4bEQ5MVNnV29JeVYyMEUwNUEwc28zUVB5aTRJd3h1RlI2eHdYVHVLOGI5clhOMDhZd29iQXlMSWhwOGpwNTV0ZnNqWVljUkNnbmxHNzBKVUdWcnY5NG8?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Presunto ladrón es detenido en Kanasín, Yucatán - La Revista Peninsular",
+      "medio": "La Revista Peninsular",
+      "fecha": "Fri, 13 Nov 2026 03:10:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPM3B6R01KcDNRS3YxQ09kMG9qbk9oY0lFbC1iSGxDN0RhNjRITExhWTIxWWc1NWhmTzhoUkJvU1N1RjhDTXh6SWZXVC1sNHptbWQ4QmIzTnJheUZ3N21zd210bXFfbEZLWEhCX0VOTDU0bVdrdWNKbXpCbjR2cWdkblBVbVB5WW9uTXNNZDBRUHN3aXlr?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Pitbull frustra intento de robo en Yucatán y deja a ladrón lesionado - El Universal",
+      "medio": "El Universal",
+      "fecha": "Sun, 25 Oct 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZlc1VDdoT3dIRmVhMGFxblp5UWJyMG80V2RjVUkyRDhHMFI4RU1aQ0s2NWwxdGFWUldUcE9iaUNOVGFkWjBwUjJaWmhHWE5BaHdWSzhPRzdQUzRpcHMyY0k4SWpNVGVYZ1ZkUVJ3TnhOMzE1cEZFX2I4V1lwYkRlYTNTVEJHajRzVG5xQTRYeFFwenhnTU5Fcl9DMWYxcWZSbXhSVHQzUDZJaThqdDQ3VkFEMGMwMkVzZHF6T2ln0gHSAUFVX3lxTE9KRlNZR0dFSzA3YkxZZzI3dzlOdU42TUV1NzlrZlRfZURNZmpzUkF0dGIwZ2ZFNmtVRjJpbVR6OEY2dktaQlNQN3dnbjFRMzU3TGRySHIyQ3ZxQmxBUmhwRms5NGZUOEpBRlV4WVBoOWt0SHhYM2F0clZVSTh5ZU5teUItaDBrMjk1YkZvcFJVSE5BV0M0YzZqUVVPQktsQXd1LWhyeE5PT0lSR0JKUGhadzVmSTJtLUxpSHBjbnFSa2hLR3NlWk9qLW1oOEhfWmQ3dw?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "Operativo en Kanasín: aseguran 500 kilos de carbón - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Fri, 31 Jul 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQMnFsQ3NSSk9OcXJrenZNUHN1bDdkUG5LUVFrdU9RT3Rrd0dhT3djOVRaZ29Wa2ZqRFZQNk44ODRSYm5ZWE5WdTZPbUVhYmJwMFpsVTQzaEozbjBFTGtsQk9PN004N3p2UVVfZkstOUM1cjNXanpzR3RxMUY4TkRYMm9Ddm9wc3ZpTkR4QU5Xem1IMXl0?oc=5"
+    },
+    {
+      "municipio": "Kanasín",
+      "titular": "LADRÓN CAPTADO POR CÁMARA DE SEGURIDAD EN KANASÍN, YUCATÁN - La Revista Peninsular",
+      "medio": "La Revista Peninsular",
+      "fecha": "Thu, 05 Nov 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOTUFQSWNGNkVsZlVxYXhjRm9BaHJLallaX015d1NYektMVnhHaFNPN0ZiUjJtUGFRZVRpWmptQWh3V0ZMMzZuSVdHZEctMGpCSEhBTE1aRnJnTy1DUC1IbGo4ZXZTT0oxT1RkeTN2bGJzcFZCVHBOa21mbmlVajFlOV9zdmw1d0hwV2dDMlhRRjlCcFk4NWVDSnl3VGhHd2VvY1U4?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Captan a presunto ladrón en Hunucmá, Yucatán. - La Revista Peninsular",
+      "medio": "La Revista Peninsular",
+      "fecha": "Sun, 22 Nov 2026 02:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQSkI3SmxrWVl3N0FtbVhjY0dUNDRHam1jUG9VTHFxTko3RnY0UnlIQjE5M3R1OVRZWkRIUlB5VUI0Q3QtcVJNbTFSNlB1NE54clU3cEExdHlycTIwMHFoTmpaZDBLV1JISWUzS2lnRFV5aXdCODllN09QeDFOaHZsdWZoejNVc1pQbFJGYkZEY2k?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Regidor de Seguridad Pública de Hunucmá deja el cargo, tras denuncia por agresión a mujer - Johnny Oliver Quintal",
+      "medio": "Johnny Oliver Quintal",
+      "fecha": "Thu, 17 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNNlhlM0FseTluTEg1cE5pSWVzelcwTDd3ZjZnaEVmZXFSa3VmbFhjVk43UEotTzdBeU5PUmxTQVJfWS1ia0tuREptYVdRSEdmY3NiQkVNYmRiRjF3S0RlZTNuTk44WE5SU2taODZ6aVMwbURJdEFLaktlQ0xEY3VTQWU0a0JUQzdIaUJNMXNURThPUQ?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Operativo en Hunucmá: habrían detenido a dos personas y asegurado drogas - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Tue, 28 Jul 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQa2w4dmVMa25BZ0NYQlNjQ0VQVkNlWWp2d2Z1bDdvY3RYR0FLSHRoaGdoWW8yTm5aY1RfenlvQVByc0laVmVteTdFWGdZSW1zYnRVX19FdWVhQnMxeXlNQWJjUEZ5c01XeVFFSU1SazNqQzFuamVKcjdPTzRjMzRuVzVVMmE5N1hRWUZRd1JZSkd3a1BsLTVmcDNuQ0xmRC1JVHJVVUVUbmMtNEJIYW45cWw5NVBwQVlOVFVOXzdDMA?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Patrulla de Hunucmá choca carros estacionados - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 09 Nov 2026 16:38:10 GMT",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5GSWVyVHFGcG5ySUVHc0UzRHJhZXdmYzVqUE1vLVlEYk5hWXBuWG5TRktFNFFjVWxJMC02WnFGRW14aWsybklvRldhMkJKNDdqbmdnLVZhc2lqMG5Sc0dRNnhkZWt6VGZjaDZuU0tGUm51VFhDaXVz?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Una patrulla municipal chocó contra cuatro vehículos en el municipio de Hunucmá, Yucatán - La Revista Peninsular",
+      "medio": "La Revista Peninsular",
+      "fecha": "Sun, 08 Nov 2026 09:19:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPZjlNcnpTZm1yTmxXSEZoeXh6UGk0YVhDQzBWN3Z6RkNaWGR2STlIbU84MnJYTU1QQmtyc2JYTWlyNFZrWTUzYkc3a2hNUHJTSF9vQnlzRGhETE9Benk4R2RQcUxzWXJlMmotQUMzSlFNeXFGWGdyb0dNQ0Y4V295U3Zja1FtSjNfRGxsb2FCYlI1Tkg4RVJ5RDhzTllVN0VlWHhQamtZWGUxUEd0RC1yTGE1TXh4ZmRrZ25QY2RGeW1jZw?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "DIF Yucatán entrega aparatos funcionales a 68 personas en Hunucmá para mejorar su movilidad e independencia - Gobierno del Estado de Yucatán",
+      "medio": "Gobierno del Estado de Yucatán",
+      "fecha": "Fri, 13 Nov 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1YNmV3ZFVaRlhsWDgwckk2blJFbTItRm5NRFZYM1dOR2UzQVRjZ1FuNm40QkVPd2ktWTJrNE54eE9veGRNM1Q0MmQxOTVQVTNzZ1hsVTJjNnNBUGtQZi11ZDFMbndBbnFOclVHU0lB?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Hunucmá se queda sin vigilancia - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Fri, 10 Apr 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBSbm5SSWdwY0tfOHotS0tIM3ZmTmx4UEIzbWFJbk5sQ2dhZG5PZTBsTFJNX1ZLdGExT0NodzlKMTZ6SF9jMWZrLUlPaTZwRVExSENkX0wxUUVsNm9CMlQtb19CbHM?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Apedrean oficinas de la CFE en Hunucmá, Yucatán; vecinos se quejan de constantes apagones - El Universal",
+      "medio": "El Universal",
+      "fecha": "Mon, 25 Aug 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQYXNPZ1N0TnJRWHJQN00zZ0pfdXNfUG9PSjlhT01LdVVlQmhFWmt3VDVWQ3ZRc25vYjlWdGxSeWN0Nk92blpMVTc0OWVLNmh0Z0E5YXN2U2tXZGN4WTBvZUlNSEdqZldVNlJrQVI3ZlhWdllodXZmNWwzRHR4MEh1SjV3VTZ4ckt4MldCWDNCb25xUURlNjNNU3dXcl9ZZVZUVnRqWlBYVlJRU2RHMWVqMVJ5M0dMbThpelhWOEhRd3E5Z2xyWXfSAdoBQVVfeXFMTXNGSktNYUNXOXNSX1BqcGRIemNTOGRuWHNzX0tDb2VCTzFNQ3VCS2tCLXAzMmNCblR2Zm43Rk9zMTJvVnQ4OURJNUJUZDQ2ZmtlbUxoWE54NVBkWlpuXzhVcFNJajloZVZ3M2d2bmdiYjh1eElJVzdick10T19RNkZ2QzE5NTRELW9XUjRDN1JUNEhKQTlyTENxQVN3S3dvYkppajR2dmNCZTRlQWN1d2FHLXZVWU9VcXRqV2hpUDVsQWdwaWVsZXhwYXVJWWZPU25KX0t5RkZ3NFE?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Sacuden a la Policía de Hunucmá - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Wed, 12 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5FelFwSEtycFRUQXRkU2tIWmRSNUhuUWh1OHJVMUlYdGRmOHgtRWI5TS1SQk5reURNVmtjWW1yN3lEYUtXbnpXUjMtcUdCOTJGUy1KNEw3QkpWUWh6aUVMT3V5REY?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Continúa operativo de búsqueda por adulto mayor extraviado en Hunucmá - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sat, 13 Dec 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOdG9vVU1oV20yTVFLMWlpYmdhUHFmeHF3M2h3Y2ZaTmhPX0steEhQRUZrOWs4Vm16QndRak5oS3o5alJkR2xMdktDUzRCN3pJX3ZiYjJaM1NFeHE4NWc2SWZTQlFJb0c1Y0c4TEZxYXBHcnpjSHFJUmNfWFZyU1JRVlpWbnBSUm1PWEJSSEVDT1N6a3g0NWtZQmtMMVB5b3pBNXFlU0ROWE5ERjlpamxYVTk4UWdYQkV1dWgtdA?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Cateo en Yucatán deja dos detenidos y el aseguramiento de drogas - El Sol de México",
+      "medio": "El Sol de México",
+      "fecha": "Tue, 28 Jul 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNR29menNJSkxTTTQteHpreEFqNmtTX2g0STl2cFNzWUQ5VldGaU9kY1BSTWE4Z2w4ZmU1ZmtzcjlqTlZHTmVIc05NNWZUbU1vU0RUSFBNT3dqa1BYQTVJa3NQT2ZzMW5aZngxbWxVQktydS1jUWZubE03YlNNR080d2hqRzh4aW5oWW50RmI3NHFzSUIwdkI4ZU1TcDRvZ25GQkFGMlgtSnowdWUyZUNQZjEyTQ?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Libertad bajo sospecha en Hunucmá - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Tue, 29 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9GWnh2eFFqb0xOZDF1NFR5a3VFcmZWQ3RHcFBaUUFxNFo2ZG1hYVg1TEhabkRKMDQxbENmRmtWeG9RdEpOT0FvS183QkRIUnpkRXllUkZETWdqeS1oNlluTUc0emU4dVE?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Sujeto se niega a ser detenido y agrede a agentes en Hunucmá - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sat, 17 May 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNSEk1SmwyRTBNel8yRjV6VFZwUU9ROFc4b3JmUjVvdWdyLVFKT2tDT083bklVd0s2ZjdSTW9ZQzRrVWdOLV9hc3BnWGJPTWNSUDFUcHFBLUFFZzFMeGJZdXdDN0VHZWhwLXNlNlc0ak04Ymk5SHNLVk5kaEl5OVJSbmEtRmFvUEg1Vl9fRElrcklyMnNNSHplWGFvems4bVctYmJNdFc5cE0xM0N4YnNnVA?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Cateo en Hunucmá deja dos detenidos - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Tue, 28 Jul 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBUbHJxX3lRcWxqbDFiVkI1X0dvZWdIR0xNMmZEUzJIWndIT21SSDR5aktjRW9GWXlsei1jTFRTQUhxeUJHdVBESUFVYkJYOFZFX2lXTzRrUGxzWHFYc3RNVC03bzBCeWo4OWc?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Pánico por el uso de una motosierra: Casi lo detienen por su disfraz de Halloween - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sun, 01 Nov 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPQXUwMTkzbjhQWVBJMC0tT1FocGduT1J3cFJRQkJITzlXZ2VTRFBhREViWVpLeDVZNjNFaXRaVEN2aGxxa3A5N0lWYnA0dGY5NlRrTUdlMHZmUXlGZVdQRnNFR0JscllMOUwzQk1NQU5nemNQN0hjZ19Yc0g2LXJUNUM0WVBiS05NTVROMDE1WDZZbEd3dWQ3THI0WXMyQjR3TkFMZmM1NTNPTDI2Z3ZHNHJtRDA5UXJBNkJDWWZsSm1YemktYkVqVm53?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Sospechoso enriquecimiento de funcionarios en Hunucmá - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Tue, 27 Jan 2026 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE45UTBFTFV5ZFhNNDdSdzNRQm9mdjRJYVczQ1dKSkhkVnI3aVNUU0h6bE5xbl8zSUI2ZC0ybWE5dG05WDlnbkVnTDZMWXk0QVVpODY4ZkdROU9kSUFvc0E?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Mototaxi vuelca en carretera Hunucmá-Tetiz con familia a bordo - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Mon, 20 Apr 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPaHI0em9TdTNxRERhejliNGhUNHBqTjNsRS1vZWRBSnVBcXBVck9taTMxZkptSGp3RTBWaDE4VFpiT0ZnRVJCX3kxS3ZGODlaOGpzbTBmMkFQN1VJeXh6SC1DTEZhaEhKazVLZy1LU1hiUktITExwRjNJeTl4U3Q0blgtU0ZIbF9lcXVUSGtXbDhwYnpuRDZ6d01YRDNyR1Jrd3IxcmZCYjNxaUNtU2F4TmRBWQ?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Millonario robo a la nación - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 15 Dec 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1IVDhYa25DN1AtS1V2MXZYSlNMcHhGZWQyYVlUVzZuZGZQUTJwaGYwTnZ2MThNdjhfanRObGpwWi1WRlEtdHczN29QMG9EbmZXX2JldGFWZVdwcHl6a0dfZHVB?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "PRESUNTO ATAQUE CONTRA EL DIRECTOR DE LA POLICÍA DE HUNUCMÁ - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 17 Mar 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNQ1NYcTJ6b3dGYjB4VGJsU1lRZnc1V01TOUNIWFRaeWtKSnBSTy05Yjh2RFhiT2EybmdoN1Q0bmd3aWJoTmZ1WU5oZG82Tmt1MFNDRWVKU3pZZTR2VjB0T3pPdUhJVWsxN0hTYkxEcl9vVTI1Mm55djNZU3hXUTlzMy1MYVNuTlVPQXc?oc=5"
+    },
+    {
+      "municipio": "Hunucmá",
+      "titular": "Conductor de tráiler fallece en Hunucmá - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 31 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1CWG51UnhfT3h5U0tEeXFzdXladEJoMEZZbW5lZ3liMmYybDctQXBtZDBmbm9fNFR3YjZqS2xPU3NOeEd2X1BIelZidGJFN1JQRlFFSjJHUFhsRGJXN1B1T1k3b2FyaW5EWEtTd0diMA?oc=5"
+    },
+    {
+      "municipio": "Dzán",
+      "titular": "AMARRAN A JOVEN A UN POSTE Y LO GOLPEAN POR PRESUNTO ROBO. - La Revista Peninsular",
+      "medio": "La Revista Peninsular",
+      "fecha": "Thu, 26 Nov 2026 19:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPbXd4MzNDdlJwcWtjcllEOE9JNV9lWmo2MEhYRFExcTY3ckJPdHlyc1U1V254OFJGaXh5UUg1cmlONTQ1TkNqa2FaWDlDWU9QeWd2NzBqbUdqWmJPMmc2dTk2TWhWajU1cEF1aEM1VTBMY0tRV1duQVI2QkxmbEs5ci1TbXNmcmxHbDIyOGo0T1gzV2VwcWI4eThsSmsxLUp6eEZJ?oc=5"
+    },
+    {
+      "municipio": "Dzán",
+      "titular": "Accidente entre motocicletas en Dzán deja una mujer muerta y dos lesionados - Por Esto!",
+      "medio": "Por Esto!",
+      "fecha": "Wed, 25 Nov 2026 13:40:04 GMT",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOYk5zeGY0YWFzcE51SmdoU2U1WE5MUEozSldFT3ZTcjFHclpwMGtBWEs2YjhtWjZqQVYyVTlVQ09ESElIckVnUlpBZ3hidDVRaE05Zng1VHFfNFktWGduOG1DLTNMVXVxQy1vcTFUemctSlZMOElKMFNWYi00SkJKMzdHZXE3TWkyQjBNZVZYeHNCZUlUMVJpdDZ5bFdNNzlSODVYWkZoclpnUWlURXp0Y2haOVnSAboBQVVfeXFMT2NrYXEtRVA3dC1VMHJsMXBDdXprN3ExX0lBUnBfRzg3Q3BZS0tQUW55dzlxdzgtVEhCQ18xeTdTM2RraVYwQXhlcmU0Uk53anYyZE9KcElidHYzODZBdW9CdEt0ZHdVbXA0MDY1a0hnZ2NScTN3RGcydTdiT1VrTnlkOVpJQWNSVWY5QUZCbGFDdVJVaFdLcDlmejV1SEpZbzZ6cjE4Y1lxMFljcEtWanVhOHdIX09Nd0N3?oc=5"
+    },
+    {
+      "municipio": "Dzán",
+      "titular": "¡Una entrega terminó en tragedia! Accidente de moto cobra la vida de una mujer en Dzán - La i Noticias",
+      "medio": "La i Noticias",
+      "fecha": "Wed, 25 Nov 2026 20:42:04 GMT",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPVF9YV2VBQUdSU0YtR0VKOXhwMkNkODFKek1tYm5uQXVkLUNFQ1NQV3JyT2NfT3NBU1BqVkc3NUNXdTNsaks2U3RCOUFheE9Hc1BBckVJRTlrc3V5ZGM0VUl3RGpqemJESUdnWUhTa1I3cWtjUHR4VFBWRk9fWkNIN3hoaERqem9FdkJXM2tCQi12UTFPU1loNkNham5CRFMzZC1aWjgtdkZrNkQxem01cUl5akVLYTA?oc=5"
+    },
+    {
+      "municipio": "Dzán",
+      "titular": "Dzán, la tierra del limón: 92 años como municipio libre - La Verdad Noticias",
+      "medio": "La Verdad Noticias",
+      "fecha": "Fri, 07 Mar 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRzI3c05lRldHN1hNVlBQQ3E0YnVJRzJrMDRSQnNVTUJxRFRheElLWllMdEZmVVFpVXhQU3pfNExHUnh1QTZYZXRXNGE2aHZ5YWl1MnJrT0FaM283cGdUczZNNmxxNmNkclpUcHJCeWNHdzM1cHYtTWM0Qkx2QXBDQ2VZOWdkbWZ0UVhuMFBXaTNtNVdkM2FGZ2ViNG1Ba3UteElLd2RNUnRuZ9IBsgFBVV95cUxPcGFTU0ZNamRwR1RqYjFqVUhrVk1KeVlwd2RjYjVEbVcxb3U2aVVwRFVVN1Q4M0F3XzRudy1Kaktqa3hWajEtTXhER2ZobDlsX1dxZnc0ZGpabmNzU1pENEZyblBNQXFQLVcxRlZaWklhNjFBanBNZHZvS3F2a1hadG1ETjJIbmVQNEVyRDNoQUNxXzZNNktQZHllSk1PVjhrSmtZa0F4UDFaYXZiRjhTTHZR?oc=5"
+    },
+    {
+      "municipio": "Dzán",
+      "titular": "Sentencian a 10 años de prisión a hombre por abusar de un menor en Tekax, Yucatán - Por Esto!",
+      "medio": "Por Esto!",
+      "fecha": "Sat, 21 Nov 2026 01:08:51 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNb2ZtOFlWb3RyZVhoZmt1Ni03SG5TUU1iUUJpRHozX29YNFcyLW5UdUtwWXhuMGRJcWlrTEg5SnBHeXEwTFY4a2tlN2FrRXozX1dtXzlUZW1fVnJZR0pGak5MTUpaeXZHUDl4OGRpQW5KdHVPb2J4WXJGY0RCRTczVVBmaUtJdUJsb25mcDduY2FYTlBkakpYOElUVXhTM1pjeVd1eXpmYTBZdnR1T0lob2RzNNIBuAFBVV95cUxNYkxxVnUtTmdrVWFpSDhqVWp5VlpCWG1rb0diYmM4VmpKclAzSnlZRURxTkwyX09uN3d0QlJpeW9QX3N3Y0ZRV3J2M0U4WUJORjdNSDd1YndKYWFjV09FQU5feHl1Qko3Y3NVYnZSczZuRmNodEh5MDNHaFhySzREazRpQkF0anZPRXREUm1QQzBjYWM0ZXJ1Q0h0TFQ1NGlPejk5aWNvU3pnMEIza1Rka1ZmSm85UW5G?oc=5"
+    },
+    {
+      "municipio": "Dzán",
+      "titular": "Tekateros de Dzán se convierten en líderes de la Liga Estatal Yucateca de Béisbol - Por Esto!",
+      "medio": "Por Esto!",
+      "fecha": "Mon, 08 Nov 2021 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOWGZ3RE9oX0RDT2lDQ25DSGJHTXlsMzc1SHYxZVZwcWhCTGtudVJ2UDJMUXhaclNWVWt3VndmRjJPcTZHejlSWFYxUVV0bEw2U185MUR1aTdIWlZPek12ekFsTm02WWRuU1ZlOV9yb1YwaXItT3ExZ2lCQ3NEZTZHWEdnODJFSTZkR0ZXOWRLUnBYbU9YS1k4bGl5M3VETl8wTXhhYlY3QWZySURKYkVRRGNNNGZoNkVMZ0FpdGdGSFc0Njh4dE5aVdIBzgFBVV95cUxPMWNEOENjUnRlbEw4ejlKZnMzQWN0N1U2RkJqTkVRWVhEMkFTNUJGbW1yMW9nQnY5X19uOUkydjhkeVNyaUYyZFdXMFZVUjVueVlOVnJzU1VXclAyLVVMbU4yUHJaVUkzMlpXWWY4UkpaLXlIOGFJYW1sX3dEbmFDWFdEWXJ0ZXoxV1VfcUluQnNJQ0tXNjlmM2pmT3JjamtMbkhqRTRsNjE0M05vQWo2NzU2V3lXYUlBRmVUcXFLOXlyeV9haXV1dmdkU1JlUQ?oc=5"
+    },
+    {
+      "municipio": "Dzán",
+      "titular": "Revelan inconformidad por imposición de alcalde municipal en Chapab, Yucatán - Por Esto!",
+      "medio": "Por Esto!",
+      "fecha": "Thu, 02 Sep 2021 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZjJlLU5vcER2Z3VGM1A1NnlwSUMxUDA3RWYtUjRYVF9zSDNTbUg3LWxlQlM5QVRCb0MyY3l1T29Wc3JEWXFUMUtVTFFpZHp1Z2xYMEJ3QWxibUcwTFl4c2l3dHpKcDloYk9NRjJfZF9RSTRfeWdVbGFKcXFQWWJLdk5TdVd6N2RTSE92ekVjbjdKRnV4c3RTX2p4VGgwTDIwdTU1MkRhMkJxdFRsSzZYUUo4eURqNGxQdnpYVVBR0gHDAUFVX3lxTFBDSTlEcXExSXM0d0VjRTNSbWJBMGc0WHF1VVVQeTM5N0NzNTRGOXlvTVJBak1aRHZEUWpDYkxWeXVoMVpIVmpMb2FpM1FUdzk1b2lod0h0UVZJZkxfUW9QX0l0cFlMTnNFZ0pYbHY5SlhucHpERE52TFdHOXpIb2tuek43blE1U1FRM1hoWW5WRFR5Tm5vdlZVVFVPSEo4b2dVX2JSSjRFZGpyblBYWWN3OU9vOGZJWEl5Zy1Uck5FZHdkSQ?oc=5"
+    },
+    {
+      "municipio": "Ticul",
+      "titular": "Aseguran más de 10 escopetas en Ticul, Yucatán - El Universal",
+      "medio": "El Universal",
+      "fecha": "Thu, 09 Jul 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPNnVBaUg5Z21fMXNpY3gxMmw0cTM4REtSMTF6SlZ3RFJxRUdYWkNjTEtZRXdjV0p1c0JKZVNEVlJmTmhHVnRjbHJOZWJGZWtxUV9OSHRpS1ZFVXJnVVNVNVE5ajBucDBNZk41UGNoQ05QbTZwVVhMOVJONTZhV1RsNUp4d2hwRUNvQ3FEa0d0NDBzaDBLeHVINjBOeV9WRkNCS3BVYnlRaVlQRTYycEllSkMxbGN3bFVvOU0wMmJrcE9MRExtUnl0M2NVbDB6VHJVQTlINXE2VDlQU1lpX0VhaVNhZE5ZRUNiZHfSAf4BQVVfeXFMT0xBcXZUTkI5MHQ4M3N0R1h6el9pS3c0RlNsd2JaZU5OY2lJaENrS090cWlpcVpWcWUzeHB3aFY3bkdfU0FISzlGY3lGUGJEd3ZrNlJuZ0h1V2JQcEY4ZERUeG5iVEx0N2JDMS13S243ZEVycHBqUTl2dnRkdUpOU3RGRzVjRkxUR1NITGotai0yQ1BFZXBYT3RpUDRld1NZRWkwS3BWbG9LWGhlTnBka1hLUEVaZ2NoQnI3WlhWQVJZQ2kxeVlRbEg0WmwzWnVzdkRzc2dnMi1STjhKaVFyYzIyYS1YSXpUMHozZThNRlRKOW41dFVDeEdvQmZ5bkE?oc=5"
+    },
+    {
+      "municipio": "Ticul",
+      "titular": "Amenazan en una manta a “Los Chokis” en Ticul, Yucatán: ¿quiénes son? - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Thu, 17 Sep 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNejNpWkdYR2t0eG9TRTRDaXFlbEF2c1h6N1VRZE05V1BXVDZLQXlxRDMtbTNvbVRScjhpeENjNU5wXzlUQnI2cFh6UWFMZ1FPcS1GeG9SVG8yaG1FQk9HUF9ZREhmMTZ2SXFGNFBEWUdkVkZIaXVQa3VjNWtyRkU4LXRBZFB0SUUyYzZSQ1hucHFLa3RoOHNfVUs3X1lmekVESlg4TW1qenJiWERRajRUa1I0MjM?oc=5"
+    },
+    {
+      "municipio": "Ticul",
+      "titular": "Violento enfrentamiento en Ticul por captura de líder delictivo - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Fri, 15 May 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPSzI3WkFBaUhoTXQwRFI0VVlZSUs0ZjVITVVVZWZYc1F2Vm1SZ0Y0SWpBMkJvWi1qV25rWS13R2dYX2RTWkFobkc4emdPV0g3TjZJaHV3dWkxUmQ0d3YybjA4Z01OeHUxOFF0VWQ3UWxqTmdUcGJjeHFfTHJYMmxTRXhOTnJyM01GejNsNUZabw?oc=5"
+    },
+    {
+      "municipio": "Ticul",
+      "titular": "En Yucatán, policía causa accidente de tránsito en Ticul; esto pasó - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Wed, 19 Aug 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPOVhVb1pGRUtDb2ZuNVZGZTA4c3I3TFJkbFFkVkEzV09tVTBZS2RYbVJfRXR3QnYzYUlXQnBOT0xfLTVkdUZHdmNsX2NwMnAwc2RkcHFiWVMtTXNqNW9RRWRsY1lPbFp6X21wT3FtMkJfOHB5NGU3X2pyaU1VaEdKYUJvNUZBSDI2UnB2ZU9iSG42NGpZakJOX1BNZVRxUQ?oc=5"
+    },
+    {
+      "municipio": "Ticul",
+      "titular": "Impulsa Gobierno de Yucatán progreso de Ticul con obras clave de infraestructura y seguridad - Gobierno del Estado de Yucatán",
+      "medio": "Gobierno del Estado de Yucatán",
+      "fecha": "Mon, 18 Nov 2024 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1JZFpUeG9mTWZYTUxBUDd5em1SME1yVXVLRTU3N1lBUHo5czhjaVhyX2I4MHFtRXRCOTFXSGxJMnNVMDdNbDhlcVVKQU50a2prWUtERWZEQ3NETWVtTFJUa0JycDFUUWlPN0VPTQ?oc=5"
+    },
+    {
+      "municipio": "Ticul",
+      "titular": "Obra en el nuevo hospital en Ticul registra segundo accidente laboral; preocupa falta de seguridad de los trabajadores - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Wed, 21 Oct 2026 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxNbDhlQTVCVWdNb1hmQzQwbWVFOUNEN1p3cHlWQmhHUGdMNmg1STkxX2tWU2NCeFFpSnZwUHlCQmp0YjFBMDdtaE96U0U3dG9qRVZBdHQ4anhsNV9Ddl9oNkF2dlQxeXJ4SWxNR0pmMW0yWFRBOV92bWFlTk9CbTZHamI1Z3d2eHhwZkI1bnU2YmptVXpsSV9Dd3Jpdng0bUN4cnEyRUJvVV91QXAyU1VPZElTYVBIaDFySm9xREhSWUloUzRsVFU0YzRYUllwVGl5WVNWeWxqVWVJcFRlV0ptNVZIcTBaMEdJZy1PNVlGQmhpeXZJZEpOTWU2QTQ?oc=5"
+    },
+    {
+      "municipio": "Ticul",
+      "titular": "TICUL: ENTRE LA INSEGURIDAD Y LA IMPUNIDAD - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Fri, 09 May 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE92TmMtM2E3MHYwVmRKVXVYZzA3eWJYTkxpeUcyRUppOEZBdWpLWlZ4VkhSdFpXUVR5OHhySDMwNi1idTZ1UHlLYmpvaHBVT2JkUXJ3Q2M3RDNwSkpwaktQUllwSUdENzExNXlNb1lBUGJ5dw?oc=5"
+    },
+    {
+      "municipio": "Ticul",
+      "titular": "Ticul: Exigen señalamientos de tránsito y seguridad vial - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Fri, 26 Sep 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQeGlWaUh2blZURzd6dUpGV2pySVFKUkxYS1E0ZXM4elBBbTFYQVFPU3dydGRoOUhLVmtzblo2TnVfVTlVNFdFVXp5ZTZjYk8yMTRjbHdaa2E4aVZMU2l3R21NTU9sU0JHSDY4RmRRSVJBTlR4YkNtcGNxbmZPR0pFWGdUMFA?oc=5"
+    },
+    {
+      "municipio": "Ticul",
+      "titular": "Ticul equipa a su Policía - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Wed, 29 May 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOcDVYS1NjU1BLaVFTRVFINUl2M29NNDZxNzY1Tm82MjVrT0NKeVFheXFlOF9iOWFBSEI5OWJ1bllCcWtKMzJKSU5WWWZmbVctUEs3cGNyTGVUdnZJWUJfeWJRN0YwMWNkSWpuQWFFRTVMcWpFRjc4dGdXV19EU2FOTG5R?oc=5"
+    },
+    {
+      "municipio": "Ticul",
+      "titular": "Ticul: policías, ¿protección o amenaza? - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Mon, 28 Jul 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5oU2VISUhiaXdZX2UxUlR6X2xmeGgyNExRRmNfVElpZDdnZXYzeVVhWjhfTzF5eExsVUhxWC0xYlRDQWxIdDhQSlM0ZlRVNUV4OGRkbGNTaGdMNkVzQzRvVlQwODBCcjlBQUE?oc=5"
+    },
+    {
+      "municipio": "Ticul",
+      "titular": "Exhiben a elementos de la Policía de Ticul por no usar el casco en motocicleta - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Tue, 19 Dec 2023 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPN3U4XzFRUlFUQlRCNXNTU1JhQzBZMzBwRUJwajU4bGFic0N1Vzh1eF9rbndIQ1NaQmRJd2x1ZnViVGZMNjJEbUhWTHRhTzJxeFU4ZzNvTU5zNTFmX1UtTVZLSUp2SmtsZS1uc0VoWW5CbnR0aFNwUV84RG9VeENzUGZiV19wOFVuOGwyV1R5cnhnZHlCOTdZSUdDWDRWaG0yb0huYTBhcmlpMWhzazBmYmJWQ1JDQ2xXc0d6UUJ5SXpfdklWR05PYg?oc=5"
+    },
+    {
+      "municipio": "Ticul",
+      "titular": "TICUL: POLICÍA DEFICIENTE - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Wed, 26 Jun 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5rd2lIcGZsTkZlTmc3Ni1EeHZ3YnVNZDFIdDU3Z3ZwLWhNSmZYUlZ1Z0FfNWhRaExTQVhoR29NTWhDMU4xRzRCcEN2cFpmSmVsQW5uS1BtRWswUms?oc=5"
+    },
+    {
+      "municipio": "Ticul",
+      "titular": "Seguridad y salud, prioridades de Teté Ucán, candidata del PAN a alcaldesa de Ticul - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Wed, 08 May 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPbGdSNlcwSXhDRXZDazVFV2tLbWFPZFA1VmlfeFdMQ0g5ajV0MzFWYmZGQ3Nwc0dPd1NUQXF0b0syLUU3eXlFNnAwTFRRWGNwXzJRUWZsRG9NSjI5d1JXZ0E3Y3E2b1l5OE9Jd0Z1OVlkRmhkbmlXN25Da3AyenR1RlE4d2NoZF92Z1libEJ6ckdocTFpWnRKQmZldDJ6WEFhM0tpeUw3dVJsSV9EZGxiUGhtVmZIMDhleTh0ZUVSMElBYTNpT2dUcXdycXg?oc=5"
+    },
+    {
+      "municipio": "Ticul",
+      "titular": "TICUL: GRAVE AUMENTO GRAVE AUMENTO DELINCUENCIAL - Sol Yucatán",
+      "medio": "Sol Yucatán",
+      "fecha": "Fri, 28 Jun 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE11VEhZWWsxUW8tVjBLYjA2c2lnYWlWTFdNa2ZRQmd2eXlpTi1XMWFUWi1PLUgwMTNCU0k1aUlFQ2k4ekZMREY1NFhRNWVSNU83dGZDX0JqS3BjM0lZQy1hQXhoLXo1V05qZjY0Snk0UFFsTEE4SkUtRGt3?oc=5"
+    },
+    {
+      "municipio": "Ticul",
+      "titular": "Renuncia en Ticul jefe de la Policía - Diario de Yucatán",
+      "medio": "Diario de Yucatán",
+      "fecha": "Sat, 16 Jan 2021 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPRmtqZzJZMEZuSmhoa0k0VkJZS0dPb2V5M184aHlQbm4tU0EtcVM2TnN3am5NNUxtREZaa3kza0hTdWROMUhITUZZdlU5OE54ZHp1MldDbUV6TFhWbEUwb3VHWlJMYlJHQ2twWVpVY0NoeV9BLWthWlZsZlhFaUJlQ1ZTUEtEdUh3VFpMX0NfcXg?oc=5"
     }
   ]
 }

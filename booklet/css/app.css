@@ -53,13 +53,13 @@ h1 { margin: 0 0 14px; font-size: clamp(1.85rem, 3.4vw, 2.75rem); font-weight: 8
 .ten-seconds { border-top: 1px solid var(--border); padding-top: 18px; }
 .ten-label { margin-bottom: 12px; }
 .cifras-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.cifra-card { border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; background: var(--bg); }
-.cifra-card.focus-card   { border-top: 4px solid var(--purple); }
-.cifra-card.compare-card { border-top: 4px solid var(--amber); }
-.cifra-card.context-card { border-top: 4px solid var(--gray); }
+.cifra-card { overflow: hidden; border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; background: var(--bg); }
+.cifra-card.focus-card   { border-top: 4px solid var(--purple);}
+.cifra-card.compare-card { border-top: 4px solid var(--amber);}
+.cifra-card.context-card { border-top: 4px solid var(--gray);}
 .cifra-kicker { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: var(--muted); }
 .cifra-num { display: block; font-size: clamp(2rem, 3vw, 2.6rem); font-weight: 800; line-height: 1.1; margin: 6px 0; color: var(--ink); }
-.focus-card .cifra-num   { color: var(--purple); }
+.focus-card .cifra-num { color: var(--purple); }
 .compare-card .cifra-num { color: var(--amber-dark); }
 .cifra-desc { margin: 0; font-size: 12.5px; color: var(--muted); }
 
@@ -113,3 +113,32 @@ h1 { margin: 0 0 14px; font-size: clamp(1.85rem, 3.4vw, 2.75rem); font-weight: 8
 .book-footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 12px; color: var(--muted); }
 
 @media (max-width: 900px) { .cifras-grid, .escena-split, .closing-grid { grid-template-columns: 1fr; } }
+
+
+.escena-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 20px;
+}
+.escena-tab {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.escena-tab:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+}
+.escena-tab.active {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: #ffffff;
+}

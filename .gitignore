@@ -32,3 +32,4 @@ venv/
 
 !/data/silver/lidar/yucatan_elevacion.tif
 percepcion_inseguridad_yucatan/02_datos_gob_mx/*.csv
+data/raw/
