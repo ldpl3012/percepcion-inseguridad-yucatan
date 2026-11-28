@@ -1042,7 +1042,13 @@ function renderNewsWords() {
       .on("mousemove", function(ev, d) {
         bubbles.style("opacity", 0.42);
         d3.select(this).style("opacity", 1);
-        d3.select(this).select("circle.word-circle").attr("stroke", PAL.ink).attr("stroke-width", 2.2);
+        d3.select(this).select("circle.word-circle")
+          .attr("fill", PAL.amber)
+          .attr("stroke", PAL.ink)
+          .attr("stroke-width", 2);
+        d3.select(this).selectAll("text.word-lbl, text.word-num")
+          .style("fill", PAL.ink)
+          .style("opacity", 1);
         const isFiltered = activeWord === d.data.label;
         showTip(
           ev,
