@@ -758,7 +758,7 @@ function initMap() {
         ["#9333ea", "10–49 notas"],
         ["#600d8b", "75+ notas (tope feed ~100)"],
       ],
-      fmt: v => v >= 98 ? "100+ notas" : `${v} notas`,
+      fmt: v => v >= 100 ? "100+ notas" : `${v} notas`,
     },
     area: {
       key: "AREA_KM2",
