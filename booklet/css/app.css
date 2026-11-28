@@ -35,7 +35,7 @@ body {
 .nav-links a:hover { color: var(--purple); }
 .status-pill { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--muted); }
 .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gray); }
-.status-dot.ready { background: #10b981; }
+.status-dot.ready { background: var(--purple); }
 .status-dot.error { background: var(--amber-dark); }
 
 .book-page { max-width: 1120px; margin: 0 auto; padding: 32px 20px 64px; }
@@ -141,4 +141,43 @@ h1 { margin: 0 0 14px; font-size: clamp(1.85rem, 3.4vw, 2.75rem); font-weight: 8
   background: var(--purple);
   border-color: var(--purple);
   color: #ffffff;
+}
+
+
+
+#escena-1 .titulo-hallazgo {
+  font-size: clamp(1.25rem, 2.25vw, 1.85rem);
+}
+#gap-headline, #oculta-headline, #sesnsp-headline {
+  font-variant-numeric: tabular-nums;
+}
+
+#back-to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 90;
+  padding: 9px 15px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  color: var(--purple, #600d8b);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+#back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+#back-to-top:hover {
+  border-color: var(--purple, #600d8b);
 }

@@ -228,12 +228,32 @@ function renderEscena1() {
 
   const slider = document.getElementById("perc-year-slider");
   const label = document.getElementById("perc-year-label");
+  const playBtn = document.getElementById("perc-play-btn");
   if (slider && !slider.dataset.ready) {
     slider.dataset.ready = "1";
     slider.min = 0;
     slider.max = rows.length - 1;
     slider.value = rows.length - 1;
     slider.addEventListener("input", () => renderEscena1());
+
+    let timer = null;
+    const stopPlay = () => {
+      if (timer) { clearInterval(timer); timer = null; }
+      if (playBtn) { playBtn.textContent = "▶ Reproducir"; playBtn.classList.remove("active"); }
+    };
+    playBtn?.addEventListener("click", () => {
+      if (timer) { stopPlay(); return; }
+      if (Number(slider.value) >= rows.length - 1) slider.value = 0;
+      renderEscena1();
+      playBtn.textContent = "⏸ Pausar";
+      playBtn.classList.add("active");
+      timer = setInterval(() => {
+        const next = Number(slider.value) + 1;
+        if (next >= rows.length) { stopPlay(); return; }
+        slider.value = String(next);
+        renderEscena1();
+      }, 850);
+    });
   }
 
   const idx = slider ? Number(slider.value) : rows.length - 1;
@@ -390,21 +410,80 @@ function renderEscena2() {
       .selectAll("text").style("font-size", "12px").style("font-weight", "600").style("fill", PAL.ink)
       .text(d => d.length > 36 ? d.slice(0, 34) + "…" : d);
 
-    g.selectAll(".bar")
-      .data(items).enter().append("rect")
-      .attr("y", d => y(d.label)).attr("height", y.bandwidth())
-      .attr("x", 0).attr("width", d => x(d.value)).attr("rx", 4)
-      .attr("fill", d => d.value >= 90 ? PAL.purple : PAL.gray)
-      .on("mousemove", (ev, d) => showTip(ev, `<strong>${d.label} (${chosenYear})</strong>${d.value.toFixed(1)} % sin denuncia`))
-      .on("mouseleave", hideTip);
+    const rowsG = g.selectAll(".lollipop-row")
+      .data(items).enter().append("g")
+      .attr("class", "lollipop-row")
+      .style("cursor", "pointer");
 
-    g.selectAll(".lbl")
-      .data(items).enter().append("text")
-      .attr("x", d => x(d.value) + 8)
+    // Riel de fondo 0 - 100%
+    rowsG.append("rect")
+      .attr("x", 0)
+      .attr("y", d => y(d.label) + y.bandwidth() / 2 - 4)
+      .attr("width", w)
+      .attr("height", 8)
+      .attr("rx", 4)
+      .attr("fill", "#f3f4f6");
+
+    // Tallo animado
+    rowsG.append("line")
+      .attr("x1", 0)
+      .attr("x2", 0)
+      .attr("y1", d => y(d.label) + y.bandwidth() / 2)
+      .attr("y2", d => y(d.label) + y.bandwidth() / 2)
+      .attr("stroke", d => d.value >= 90 ? PAL.purple : "#6b7280")
+      .attr("stroke-width", 4)
+      .attr("stroke-linecap", "round")
+      .transition().duration(550).delay((_, i) => i * 45)
+      .attr("x2", d => x(d.value));
+
+    // Halo exterior del nodo
+    rowsG.append("circle")
+      .attr("cx", 0)
+      .attr("cy", d => y(d.label) + y.bandwidth() / 2)
+      .attr("r", 0)
+      .attr("fill", d => d.value >= 90 ? PAL.purple : "#6b7280")
+      .attr("opacity", 0.18)
+      .transition().duration(550).delay((_, i) => i * 45)
+      .attr("cx", d => x(d.value))
+      .attr("r", 12);
+
+    // Nodo principal
+    rowsG.append("circle")
+      .attr("class", "lollipop-dot")
+      .attr("cx", 0)
+      .attr("cy", d => y(d.label) + y.bandwidth() / 2)
+      .attr("r", 0)
+      .attr("fill", d => d.value >= 90 ? PAL.purple : "#4b5563")
+      .attr("stroke", "#ffffff")
+      .attr("stroke-width", 2)
+      .transition().duration(550).delay((_, i) => i * 45)
+      .attr("cx", d => x(d.value))
+      .attr("r", 6.5);
+
+    // Etiqueta de porcentaje
+    rowsG.append("text")
+      .attr("x", 14)
       .attr("y", d => y(d.label) + y.bandwidth() / 2 + 4)
-      .style("font-size", "12px").style("font-weight", "700")
+      .style("font-size", "12px").style("font-weight", "800")
       .style("fill", d => d.value >= 90 ? PAL.purple : PAL.ink)
-      .text(d => `${d.value.toFixed(1)} %`);
+      .text(d => `${d.value.toFixed(1)} %`)
+      .transition().duration(550).delay((_, i) => i * 45)
+      .attr("x", d => x(d.value) + 14);
+
+    // Interacción hover con resalte
+    rowsG
+      .on("mousemove", function(ev, d) {
+        rowsG.style("opacity", 0.38);
+        d3.select(this).style("opacity", 1);
+        d3.select(this).select(".lollipop-dot").attr("r", 8.5);
+        const den = (100 - d.value).toFixed(1);
+        showTip(ev, `<strong>${d.label} (${chosenYear})</strong>${d.value.toFixed(1)} % sin denuncia · Solo ${den} % denunciado`);
+      })
+      .on("mouseleave", function() {
+        rowsG.style("opacity", 1);
+        d3.select(this).select(".lollipop-dot").attr("r", 6.5);
+        hideTip();
+      });
 
     if (avgVal !== null) {
       g.append("line")
@@ -420,6 +499,18 @@ function renderEscena2() {
 }
 
 /* ── Escena 3: Reloj mensual + Delitos SESNSP ───────────────────── */
+function shortDelitoLabel(name) {
+  const s = String(name || "").trim();
+  const low = s.toLowerCase();
+  if (low.includes("libertad y la seguridad sexual") || low.includes("libertad sexual")) return "Otros c/ libertad sexual";
+  if (low.includes("libertad personal")) return "Otros c/ libertad personal";
+  if (low.includes("vida y la integridad")) return "Otros c/ vida e integridad";
+  if (low.includes("contra la familia")) return "Otros c/ la familia";
+  if (low.includes("contra el patrimonio")) return "Otros c/ el patrimonio";
+  if (low.includes("violencia de género")) return "Violencia de género";
+  return s.length > 26 ? s.slice(0, 24) + "…" : s;
+}
+
 function renderEscena3() {
   const rows = state.data.incidence || [];
   if (!rows.length) return;
@@ -433,7 +524,7 @@ function renderEscena3() {
       sel.appendChild(o);
     });
     sel.value = String(years.at(-1));
-    sel.addEventListener("change", () => renderEscena3());
+    sel.addEventListener("change", () => { renderEscena3(); document.dispatchEvent(new CustomEvent("sesnsp-year-change", { detail: Number(sel.value) })); });
   }
 
   const yr = Number(sel.value);
@@ -464,32 +555,86 @@ function renderEscena3() {
     const angle = d3.scaleBand().domain(byMonth.map(d => d.x)).range([0, 2 * Math.PI]).padding(0.14);
     const radius = d3.scaleLinear().domain([0, maxMonthVal || 1]).range([innerR, outerR]);
 
+    // Anillos guía de radar editorial
+    [0.35, 0.68, 1].forEach(t => {
+      g.append("circle")
+        .attr("r", innerR + (outerR - innerR) * t)
+        .attr("fill", "none")
+        .attr("stroke", "#e5e7eb")
+        .attr("stroke-dasharray", t === 1 ? "none" : "3,3")
+        .attr("stroke-width", 1);
+    });
+
     const arc = d3.arc()
       .innerRadius(innerR)
       .outerRadius(d => radius(d.y))
       .startAngle(d => angle(d.x))
       .endAngle(d => angle(d.x) + angle.bandwidth())
-      .cornerRadius(5);
+      .cornerRadius(6);
 
-    g.selectAll(".petal")
+    const centerTop = g.append("text")
+      .attr("y", -3)
+      .attr("text-anchor", "middle")
+      .style("font-size", "17px")
+      .style("font-weight", "800")
+      .style("fill", PAL.ink)
+      .text(yr);
+
+    const centerSub = g.append("text")
+      .attr("y", 14)
+      .attr("text-anchor", "middle")
+      .style("font-size", "10.5px")
+      .style("font-weight", "700")
+      .style("fill", PAL.purple)
+      .text(`${Math.round(totalYr).toLocaleString("es-MX")} total`);
+
+    const petals = g.selectAll(".petal")
       .data(byMonth).enter().append("path")
-      .attr("d", arc)
-      .attr("fill", d => d.y === maxMonthVal ? PAL.purple : PAL.gray)
-      .on("mousemove", (ev, d) => showTip(ev, `<strong>${d.full} ${yr}</strong>${d.y.toLocaleString("es-MX")} víctimas`))
-      .on("mouseleave", hideTip);
+      .attr("class", "petal")
+      .style("cursor", "pointer")
+      .attr("fill", d => d.y === maxMonthVal && maxMonthVal > 0 ? PAL.purple : "#9ca3af")
+      .attr("opacity", d => d.y === maxMonthVal && maxMonthVal > 0 ? 0.95 : 0.78);
+
+    petals.transition()
+      .duration(600)
+      .delay((_, i) => i * 35)
+      .attrTween("d", function(d) {
+        const interp = d3.interpolate(innerR, radius(d.y));
+        return t => d3.arc()
+          .innerRadius(innerR)
+          .outerRadius(interp(t))
+          .startAngle(angle(d.x))
+          .endAngle(angle(d.x) + angle.bandwidth())
+          .cornerRadius(6)();
+      });
+
+    petals
+      .on("mousemove", function(ev, d) {
+        petals.attr("opacity", 0.35);
+        d3.select(this).attr("opacity", 1).attr("fill", PAL.amber);
+        centerTop.text(d.x.toUpperCase());
+        centerSub.text(`${Math.round(d.y).toLocaleString("es-MX")} casos`);
+        const share = totalYr > 0 ? ((d.y / totalYr) * 100).toFixed(1) : "0.0";
+        showTip(ev, `<strong>${d.full} ${yr}</strong>${Math.round(d.y).toLocaleString("es-MX")} víctimas (${share} % del año)`);
+      })
+      .on("mouseleave", function() {
+        petals
+          .attr("fill", d => d.y === maxMonthVal && maxMonthVal > 0 ? PAL.purple : "#9ca3af")
+          .attr("opacity", d => d.y === maxMonthVal && maxMonthVal > 0 ? 0.95 : 0.78);
+        centerTop.text(yr);
+        centerSub.text(`${Math.round(totalYr).toLocaleString("es-MX")} total`);
+        hideTip();
+      });
 
     byMonth.forEach(d => {
       const a = angle(d.x) + angle.bandwidth() / 2 - Math.PI / 2;
       const lx = Math.cos(a) * (outerR + 22);
       const ly = Math.sin(a) * (outerR + 22);
       g.append("text").attr("x", lx).attr("y", ly + 4).attr("text-anchor", "middle")
-        .style("font-size", "10.5px").style("font-weight", d.y === maxMonthVal ? "800" : "600")
-        .style("fill", d.y === maxMonthVal ? PAL.purple : PAL.ink)
-        .text(`${d.x} (${d.y})`);
+        .style("font-size", "10.5px").style("font-weight", d.y === maxMonthVal && maxMonthVal > 0 ? "800" : "600")
+        .style("fill", d.y === maxMonthVal && maxMonthVal > 0 ? PAL.purple : PAL.ink)
+        .text(`${d.x} (${Math.round(d.y)})`);
     });
-
-    g.append("text").attr("y", -2).attr("text-anchor", "middle").style("font-size", "18px").style("font-weight", "800").style("fill", PAL.ink).text(yr);
-    g.append("text").attr("y", 14).attr("text-anchor", "middle").style("font-size", "10.5px").style("font-weight", "700").style("fill", PAL.purple).text("víctimas");
   });
 
   const byType = new Map();
@@ -502,36 +647,84 @@ function renderEscena3() {
     const wrap = document.getElementById("incidencia-type-wrap");
     if (!wrap || !top8.length) return;
     wrap.innerHTML = "";
-    const W = wrap.clientWidth || 460;
-    const H = 310;
-    const m = { top: 10, right: 56, bottom: 14, left: Math.min(185, W * 0.44) };
+    const W = wrap.clientWidth || 470;
+    const H = 385;
+    const m = { top: 8, right: 108, bottom: 10, left: Math.min(182, W * 0.41) };
     const w = W - m.left - m.right;
     const h = H - m.top - m.bottom;
 
-    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${W} ${H}`);
+    const svg = d3.select(wrap).append("svg")
+      .attr("viewBox", `0 0 ${W} ${H}`)
+      .style("width", "100%")
+      .style("display", "block");
     const g = svg.append("g").attr("transform", `translate(${m.left},${m.top})`);
 
-    const y = d3.scaleBand().domain(top8.map(d => d.label)).range([0, h]).padding(0.3);
-    const x = d3.scaleLinear().domain([0, (d3.max(top8, d => d.value) || 1) * 1.12]).range([0, w]);
+    const y = d3.scaleBand().domain(top8.map(d => d.label)).range([0, h]).padding(0.22);
+    const x = d3.scaleLinear().domain([0, (d3.max(top8, d => d.value) || 1) * 1.38]).range([0, w]);
 
     g.append("g").call(d3.axisLeft(y).tickSize(0).tickPadding(8))
       .call(ax => ax.select(".domain").remove())
       .selectAll("text").style("font-size", "11.5px").style("font-weight", "600").style("fill", PAL.ink)
-      .text(d => d.length > 26 ? d.slice(0, 24) + "…" : d);
+      .text(d => shortDelitoLabel(d));
 
-    g.selectAll(".bar")
-      .data(top8).enter().append("rect")
+    const barColor = (i) => (i === 0 ? PAL.purple : i === 1 ? PAL.amber : PAL.gray);
+
+    const rowsG = g.selectAll(".type-row")
+      .data(top8).enter().append("g")
+      .attr("class", "type-row")
+      .style("cursor", "pointer");
+
+    rowsG.append("rect")
+      .attr("x", 0).attr("y", d => y(d.label))
+      .attr("width", w).attr("height", y.bandwidth())
+      .attr("rx", 6).attr("fill", "#f3f4f6");
+
+    rowsG.append("rect")
+      .attr("class", "type-bar")
       .attr("y", d => y(d.label)).attr("height", y.bandwidth())
-      .attr("x", 0).attr("width", d => x(d.value)).attr("rx", 4)
-      .attr("fill", (_, i) => i === 0 ? PAL.purple : PAL.gray);
+      .attr("x", 0).attr("width", 0).attr("rx", 6)
+      .attr("fill", (_, i) => barColor(i))
+      .transition().duration(550).delay((_, i) => i * 45)
+      .attr("width", d => x(d.value));
 
-    g.selectAll(".val")
-      .data(top8).enter().append("text")
-      .attr("x", d => x(d.value) + 6)
+    rowsG.append("text")
+      .attr("x", 8)
       .attr("y", d => y(d.label) + y.bandwidth() / 2 + 4)
-      .style("font-size", "11.5px").style("font-weight", "700")
-      .style("fill", (_, i) => i === 0 ? PAL.purple : PAL.ink)
-      .text(d => Math.round(d.value).toLocaleString("es-MX"));
+      .style("font-family", "'JetBrains Mono', monospace")
+      .style("font-size", "11px").style("font-weight", "700")
+      .style("fill", (_, i) => i === 0 ? PAL.purple : i === 1 ? PAL.amberDark : PAL.ink)
+      .text(d => {
+        const val = Math.round(d.value).toLocaleString("es-MX");
+        const pct = totalYr > 0 ? ((d.value / totalYr) * 100).toFixed(1) : "0.0";
+        return `${val} (${pct}%)`;
+      })
+      .transition().duration(550).delay((_, i) => i * 45)
+      .attr("x", d => x(d.value) + 8);
+
+    rowsG
+      .on("mousemove", function(ev, d) {
+        rowsG.style("opacity", 0.38);
+        d3.select(this).style("opacity", 1);
+        d3.select(this).select(".type-bar").attr("fill", PAL.amberDark);
+        const pct = totalYr > 0 ? ((d.value / totalYr) * 100).toFixed(1) : "0.0";
+        showTip(ev, `<strong>${d.label} (${yr})</strong>${Math.round(d.value).toLocaleString("es-MX")} víctimas (${pct} % del total)`);
+      })
+      .on("mouseleave", function(_, d) {
+        rowsG.style("opacity", 1);
+        const idx = top8.indexOf(d);
+        d3.select(this).select(".type-bar").attr("fill", barColor(idx));
+        hideTip();
+      });
+
+    // Pie editorial al fondo de la tarjeta para aprovechar el espacio y sintetizar la concentración
+    const top2Sum = top8.slice(0, 2).reduce((s, d) => s + d.value, 0);
+    const top2Share = totalYr > 0 ? ((top2Sum / totalYr) * 100).toFixed(1) : "0.0";
+    const foot = document.createElement("p");
+    foot.className = "subtitulo-tecnico";
+    foot.style.margin = "8px 0 0";
+    foot.style.fontSize = "12px";
+    foot.innerHTML = `<strong style="color:${PAL.purple};">${shortDelitoLabel(top8[0].label)}</strong> y <strong style="color:${PAL.amberDark};">${shortDelitoLabel(top8[1]?.label || "")}</strong> concentran <span class="mono-inline">${top2Share} %</span> de las víctimas de ${yr}.`;
+    wrap.appendChild(foot);
   });
 }
 
@@ -623,6 +816,38 @@ function initMap() {
     .on("mouseleave", hideTip)
     .on("click", (_, f) => focusMunicipio(f));
 
+  function syncHemerotecaMun(munName) {
+    const selMun = document.getElementById("titulares-mun-select");
+    const inpSearch = document.getElementById("titulares-search");
+    if (!selMun) return;
+    if (!munName) {
+      selMun.value = "__ALL__";
+      if (inpSearch && inpSearch.dataset.fromMap === "1") {
+        inpSearch.value = "";
+        delete inpSearch.dataset.fromMap;
+        inpSearch.dispatchEvent(new Event("input"));
+      }
+      selMun.dispatchEvent(new Event("change"));
+      return;
+    }
+    const opt = [...selMun.options].find(o => o.value.toLowerCase() === munName.toLowerCase());
+    if (opt) {
+      selMun.value = opt.value;
+      if (inpSearch && inpSearch.dataset.fromMap === "1") {
+        inpSearch.value = "";
+        delete inpSearch.dataset.fromMap;
+        inpSearch.dispatchEvent(new Event("input"));
+      }
+      selMun.dispatchEvent(new Event("change"));
+    } else if (inpSearch) {
+      selMun.value = "__ALL__";
+      selMun.dispatchEvent(new Event("change"));
+      inpSearch.value = munName;
+      inpSearch.dataset.fromMap = "1";
+      inpSearch.dispatchEvent(new Event("input"));
+    }
+  }
+
   function focusMunicipio(f) {
     state.selectedMun = getName(f);
     paths.classed("is-highlighted", d => getName(d) === state.selectedMun);
@@ -632,6 +857,7 @@ function initMap() {
     const ty = H / 2 - (k * (y0 + y1)) / 2;
     svg.transition().duration(550).call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(k));
     updateTop5();
+    syncHemerotecaMun(state.selectedMun);
   }
 
   function updateTop5() {
@@ -691,45 +917,152 @@ function initMap() {
     paths.classed("is-highlighted", false);
     svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity);
     updateTop5();
+    syncHemerotecaMun(null);
   });
 
   applyLayer("prensa");
 }
 
 function renderNewsWords() {
-  const words = (state.data.wordFrequency || []).slice(0, 8).map(r => ({ label: r.palabra, value: num(r.frecuencia) }));
+  const STOPWORDS_CORPUS = new Set([
+    "dos", "uno", "tres", "tras", "por", "con", "del", "las", "los",
+    "una", "para", "sin", "sobre", "que", "sus", "fue", "son", "hay",
+    "entre", "desde", "hasta", "como", "más", "mas", "año", "años", "ya", "al"
+  ]);
+  const words = (state.data.wordFrequency || [])
+    .map(r => ({ label: String(r.palabra || "").trim(), value: num(r.frecuencia) }))
+    .filter(w => w.label && w.value > 0 && !STOPWORDS_CORPUS.has(w.label.toLowerCase()))
+    .slice(0, 40);
+  let activeWord = null;
+
   bindResize("palabras-wrap", () => {
     const wrap = document.getElementById("palabras-wrap");
     if (!wrap || !words.length) return;
     wrap.innerHTML = "";
-    const W = wrap.clientWidth || 460;
-    const H = 290;
-    const m = { top: 8, right: 48, bottom: 10, left: 110 };
-    const w = W - m.left - m.right;
-    const h = H - m.top - m.bottom;
 
-    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${W} ${H}`);
-    const g = svg.append("g").attr("transform", `translate(${m.left},${m.top})`);
+    const W = wrap.clientWidth || 480;
+    const H = 315;
 
-    const y = d3.scaleBand().domain(words.map(d => d.label)).range([0, h]).padding(0.28);
-    const x = d3.scaleLinear().domain([0, (d3.max(words, d => d.value) || 1) * 1.15]).range([0, w]);
+    const svg = d3.select(wrap).append("svg")
+      .attr("viewBox", `0 0 ${W} ${H}`)
+      .style("width", "100%")
+      .style("height", "100%")
+      .style("display", "block");
 
-    g.append("g").call(d3.axisLeft(y).tickSize(0).tickPadding(8))
-      .call(ax => ax.select(".domain").remove())
-      .selectAll("text").style("font-size", "12px").style("font-weight", "600").style("fill", PAL.ink);
+    const root = d3.hierarchy({ children: words }).sum(d => Math.pow(d.value, 0.65));
+    const pack = d3.pack()
+      .size([W - 4, H - 4])
+      .padding(2);
+    const nodes = pack(root).leaves();
 
-    g.selectAll(".bar")
-      .data(words).enter().append("rect")
-      .attr("y", d => y(d.label)).attr("height", y.bandwidth())
-      .attr("x", 0).attr("width", d => x(d.value)).attr("rx", 4)
-      .attr("fill", (_, i) => i < 2 ? PAL.purple : PAL.gray);
+    const g = svg.append("g").attr("transform", "translate(2,2)");
 
-    g.selectAll(".val")
-      .data(words).enter().append("text")
-      .attr("x", d => x(d.value) + 6)
-      .attr("y", d => y(d.label) + y.bandwidth() / 2 + 4)
-      .style("font-size", "11.5px").style("font-weight", "700").style("fill", PAL.ink)
-      .text(d => d.value.toLocaleString("es-MX"));
+    const getFill = (d, i) => {
+      if (d.data.label === activeWord) return PAL.amber;
+      if (i === 0) return PAL.purple;
+      if (i === 1) return "#8b2fc9";
+      if (i < 9) return "#d8b4fe";
+      return "#e5e7eb";
+    };
+
+    const getStroke = (d, i) => {
+      if (d.data.label === activeWord) return PAL.amberDark;
+      if (i < 2) return PAL.purple;
+      if (i < 9) return "#a855f7";
+      return PAL.gray;
+    };
+
+    const getTextColor = (d, i) => {
+      if (d.data.label === activeWord) return PAL.ink;
+      if (i < 2) return "#ffffff";
+      return PAL.ink;
+    };
+
+    const bubbles = g.selectAll("g.word-node")
+      .data(nodes)
+      .join("g")
+      .attr("class", "word-node")
+      .attr("transform", d => `translate(${d.x},${d.y})`)
+      .style("cursor", "pointer");
+
+    bubbles.append("circle")
+      .attr("class", "word-circle")
+      .attr("r", 0)
+      .attr("fill", (d, i) => getFill(d, i))
+      .attr("stroke", (d, i) => getStroke(d, i))
+      .attr("stroke-width", 1.5)
+      .transition().duration(500).delay((_, i) => i * 15)
+      .attr("r", d => d.r);
+
+    bubbles.each(function(d, i) {
+      const el = d3.select(this);
+      if (d.r < 9) return;
+      const showCount = d.r >= 18;
+      const fontSize = Math.max(8, Math.min(15, d.r * 0.33));
+      const color = getTextColor(d, i);
+      const maxChars = Math.max(4, Math.floor((d.r * 1.75) / (fontSize * 0.52)));
+      const shortLbl = d.data.label.length > maxChars
+        ? d.data.label.slice(0, Math.max(3, maxChars - 1)) + "…"
+        : d.data.label;
+
+      el.append("text")
+        .attr("class", "word-lbl")
+        .attr("text-anchor", "middle")
+        .attr("dy", showCount ? "-0.12em" : "0.35em")
+        .style("font-size", `${fontSize}px`)
+        .style("font-weight", "700")
+        .style("fill", color)
+        .style("pointer-events", "none")
+        .text(shortLbl);
+
+      if (showCount) {
+        el.append("text")
+          .attr("class", "word-num")
+          .attr("text-anchor", "middle")
+          .attr("dy", "1.1em")
+          .style("font-family", "'JetBrains Mono', monospace")
+          .style("font-size", `${Math.max(8, fontSize * 0.76)}px`)
+          .style("font-weight", "700")
+          .style("fill", color)
+          .style("opacity", 0.9)
+          .style("pointer-events", "none")
+          .text(d.data.value.toLocaleString("es-MX"));
+      }
+    });
+
+    const refreshBubbles = () => {
+      bubbles.select("circle.word-circle")
+        .attr("fill", (d, i) => getFill(d, i))
+        .attr("stroke", (d, i) => getStroke(d, i));
+      bubbles.selectAll("text.word-lbl, text.word-num")
+        .style("fill", (d, i) => getTextColor(d, i));
+    };
+
+    bubbles
+      .on("mousemove", function(ev, d) {
+        bubbles.style("opacity", 0.42);
+        d3.select(this).style("opacity", 1);
+        d3.select(this).select("circle.word-circle").attr("stroke", PAL.ink).attr("stroke-width", 2.2);
+        const isFiltered = activeWord === d.data.label;
+        showTip(
+          ev,
+          `<strong>"${d.data.label}"</strong>${d.data.value.toLocaleString("es-MX")} menciones · ${isFiltered ? "Clic para quitar filtro" : "Clic para filtrar titulares"}`
+        );
+      })
+      .on("mouseleave", function() {
+        bubbles.style("opacity", 1);
+        refreshBubbles();
+        hideTip();
+      })
+      .on("click", function(_, d) {
+        activeWord = activeWord === d.data.label ? null : d.data.label;
+        const inpSearch = document.getElementById("titulares-search");
+        if (inpSearch) {
+          inpSearch.value = activeWord || "";
+          inpSearch.dispatchEvent(new Event("input"));
+        }
+        refreshBubbles();
+      });
   });
 }
 
@@ -862,6 +1195,160 @@ async function initTerrain() {
   }
 }
 
+
+function renderEscena5() {
+  const incRows = state.data.incidence || [];
+  if (!incRows.length) return;
+
+  const monthMap = new Map();
+  for (const r of incRows) {
+    const anio = num(r.anio);
+    const mes = num(r.mes);
+    if (!anio || !mes) continue;
+    const key = `${anio}-${mes}`;
+    monthMap.set(key, (monthMap.get(key) || 0) + num(r.casos));
+  }
+  const radialData = [...monthMap.entries()].map(([k, delitos]) => {
+    const [anio, mes] = k.split("-").map(Number);
+    return { anio, mes, mesNombre: MONTHS_FULL[mes - 1] || MONTHS[mes - 1], mesCorto: MONTHS[mes - 1], delitos };
+  }).sort((a, b) => (a.anio - b.anio) || (a.mes - b.mes));
+
+  const years = [...new Set(radialData.map(d => d.anio))].sort((a, b) => a - b);
+  const selYearEl = document.getElementById("incidencia-year");
+  let highlightedYear = selYearEl && selYearEl.value ? Number(selYearEl.value) : years.at(-1);
+  let activeEra = "all";
+
+  const getEras = () => ({
+    year:  { label: `${highlightedYear}`, fn: d => d.anio === highlightedYear },
+    all:   { label: "2015–2025", fn: () => true },
+    peak:  { label: "2015–2016", fn: d => d.anio <= 2016 },
+    break: { label: "2018", fn: d => d.anio === 2018 },
+    low:   { label: "2019–2025", fn: d => d.anio >= 2019 }
+  });
+
+  bindResize("pulso-radial-wrap", () => {
+    const wrap = document.getElementById("pulso-radial-wrap");
+    const insp = document.getElementById("pulso-inspector");
+    if (!wrap || !radialData.length) return;
+    wrap.innerHTML = "";
+
+    const size = 370;
+    const cx = size / 2, cy = size / 2;
+    const innerR = 56, outerR = 150;
+
+    const svg = d3.select(wrap).append("svg")
+      .attr("viewBox", `0 0 ${size} ${size}`)
+      .style("width", "100%").style("max-width", "365px")
+      .style("display", "block").style("margin", "0 auto");
+
+    const g = svg.append("g").attr("transform", `translate(${cx},${cy})`);
+    const angle = d3.scaleBand().domain(d3.range(1, 13)).range([0, Math.PI * 2]).padding(0.06);
+    const radius = d3.scaleBand().domain(years).range([innerR, outerR]).padding(0.08);
+
+    const colorScale = d3.scaleThreshold()
+      .domain([60, 150, 320, 450])
+      .range(["#f3e8ff", "#c084fc", "#7e22ce", PAL.purple, PAL.amber]);
+
+    const arc = d3.arc()
+      .innerRadius(d => radius(d.anio))
+      .outerRadius(d => radius(d.anio) + radius.bandwidth())
+      .startAngle(d => angle(d.mes))
+      .endAngle(d => angle(d.mes) + angle.bandwidth())
+      .cornerRadius(2.5);
+
+    const petals = g.selectAll("path.petal")
+      .data(radialData).join("path")
+      .attr("class", "petal")
+      .attr("d", arc)
+      .attr("fill", d => colorScale(d.delitos))
+      .style("cursor", "pointer");
+
+    g.selectAll("text.m-lbl")
+      .data(d3.range(1, 13)).join("text")
+      .attr("x", m => Math.sin(angle(m) + angle.bandwidth() / 2) * (outerR + 18))
+      .attr("y", m => -Math.cos(angle(m) + angle.bandwidth() / 2) * (outerR + 18) + 4)
+      .attr("text-anchor", "middle")
+      .style("font-size", "11px").style("font-weight", "700").style("fill", PAL.ink)
+      .text(m => MONTHS[m - 1]);
+
+    const centerYear = g.append("text").attr("text-anchor", "middle").attr("y", -13)
+      .style("font-family", "'JetBrains Mono', monospace")
+      .style("font-size", "13px").style("font-weight", "800").style("fill", PAL.purple);
+
+    const centerTotal = g.append("text").attr("text-anchor", "middle").attr("y", 3)
+      .style("font-family", "'JetBrains Mono', monospace")
+      .style("font-size", "11px").style("font-weight", "700").style("fill", PAL.ink);
+
+    const centerSub = g.append("text").attr("text-anchor", "middle").attr("y", 18)
+      .style("font-size", "9.5px").style("font-weight", "700").style("fill", PAL.amberDark)
+      .text("centro 2015 → borde 2025");
+
+    const updateInspectorEra = () => {
+      const eras = getEras();
+      const e = eras[activeEra];
+      const subset = radialData.filter(e.fn);
+      const tot = d3.sum(subset, d => d.delitos);
+      const peak = subset.reduce((best, cur) => (!best || cur.delitos > best.delitos ? cur : best), null);
+      const totStr = Math.round(tot).toLocaleString("es-MX");
+
+      centerYear.text(e.label);
+      centerTotal.text(`${totStr} reg.`);
+      centerSub.text(peak ? `Pico: ${peak.mesCorto} (${Math.round(peak.delitos).toLocaleString("es-MX")})` : "centro 2015 → borde 2025");
+      if (insp) {
+        insp.textContent = peak
+          ? `${e.label}: ${totStr} reg. · Pico ${peak.mesCorto} (${Math.round(peak.delitos).toLocaleString("es-MX")})`
+          : `${e.label}: ${totStr} reg.`;
+      }
+    };
+
+    const syncEraUI = () => {
+      const eras = getEras();
+      const yrBtn = document.getElementById("pulso-yr-btn");
+      if (yrBtn) yrBtn.textContent = `Año ${highlightedYear}`;
+      document.querySelectorAll("#pulso-eras-bar button").forEach(b => {
+        b.classList.toggle("active", b.dataset.era === activeEra);
+      });
+
+      petals.transition().duration(250)
+        .attr("fill", d => colorScale(d.delitos))
+        .style("opacity", d => eras[activeEra].fn(d) ? 1 : 0.24);
+
+      updateInspectorEra();
+    };
+
+    petals
+      .on("mousemove", function(ev, d) {
+        d3.select(this).attr("stroke", PAL.ink).attr("stroke-width", 1.8);
+        const valStr = Math.round(d.delitos).toLocaleString("es-MX");
+        centerYear.text(`${d.mesCorto.toUpperCase()} ${d.anio}`);
+        centerTotal.text(`${valStr} reg.`);
+        centerSub.text(d.anio <= 2016 ? "Cima previa a 2018" : "Corte actual SESNSP");
+        if (insp) insp.textContent = `${d.mesNombre} ${d.anio}: ${valStr} registros`;
+        showTip(ev, `<strong>${d.mesNombre} ${d.anio}</strong>${valStr} registros SESNSP`);
+      })
+      .on("mouseleave", function() {
+        d3.select(this).attr("stroke", "none");
+        hideTip();
+        updateInspectorEra();
+      });
+
+    syncEraUI();
+
+    document.querySelectorAll("#pulso-eras-bar button").forEach(btn => {
+      btn.onclick = () => {
+        activeEra = btn.dataset.era;
+        syncEraUI();
+      };
+    });
+
+    document.addEventListener("sesnsp-year-change", (ev) => {
+      highlightedYear = Number(ev.detail);
+      activeEra = "year";
+      syncEraUI();
+    });
+  });
+}
+
 async function fetchJSON(url) {
   const r = await fetch(url);
   if (!r.ok) throw new Error(`No se pudo cargar ${url}`);
@@ -879,6 +1366,7 @@ async function start() {
     renderEscena1();
     renderEscena2();
     renderEscena3();
+    renderEscena5();
     initMap();
     renderNewsWords();
     initTerrain();
@@ -905,3 +1393,29 @@ document.addEventListener("click", (ev) => {
   });
   window.dispatchEvent(new Event("resize"));
 });
+
+
+// Navegación suave desde tarjetas KPI superiores
+if (window.location.hash) {
+  history.replaceState(null, "", window.location.pathname + window.location.search);
+  window.scrollTo(0, 0);
+}
+
+document.addEventListener("click", (ev) => {
+  const card = ev.target.closest("[data-jump]");
+  if (!card) return;
+  ev.preventDefault();
+  const target = document.querySelector(card.dataset.jump);
+  if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+
+// Botón flotante para volver arriba
+(() => {
+  const btn = document.getElementById("back-to-top");
+  if (!btn) return;
+  const toggleBtn = () => btn.classList.toggle("visible", window.scrollY > 420);
+  window.addEventListener("scroll", toggleBtn, { passive: true });
+  toggleBtn();
+  btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+})();

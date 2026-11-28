@@ -23,21 +23,17 @@
 
   <nav class="book-nav" aria-label="Navegación del capítulo">
     <div class="book-nav-inner">
-      <a class="chapter-tag" href="#apertura">
-        <span class="mono-chip">CAPÍTULO 05 · YUCATÁN (31)</span>
-      </a>
-      <div class="nav-links">
-        <a href="#apertura">10 segundos</a>
-        <a href="#escena-1">Escena 1 · Brecha</a>
-        <a href="#escena-2">Escena 2 · Cifra oculta</a>
-        <a href="#escena-3">Escena 3 · Registros</a>
-        <a href="#escena-4">Escena 4 · Territorio</a>
-        <a href="#cierre">Límites y puente</a>
-        <a href="./booklet/index.html" target="_blank" style="color:var(--purple)">Booklet ↗</a>
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+        <a class="chapter-tag" href="#apertura">
+          <span class="mono-chip">CAPÍTULO 05 · YUCATÁN</span>
+        </a>
+        <div class="status-pill">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span id="data-status">Cargando tablas Gold…</span>
+        </div>
       </div>
-      <div class="status-pill">
-        <span class="status-dot" aria-hidden="true"></span>
-        <span id="data-status">Cargando tablas Gold…</span>
+      <div class="nav-links">
+        <a href="#visor-titulares" data-jump="#visor-titulares" style="font-weight:700;">Hemeroteca (3,398) ↓</a>
       </div>
     </div>
   </nav>
@@ -59,19 +55,19 @@
       <section class="ten-seconds" aria-label="La historia en 10 segundos">
         <div class="ten-label"><span class="mono-rotulo">LA HISTORIA EN 10 SEGUNDOS</span></div>
         <div class="cifras-grid">
-          <article class="cifra-card focus-card">
+          <article class="cifra-card focus-card" data-jump="#escena-1" style="cursor:pointer" title="Ir a Escena 1">
             <span class="cifra-kicker">PERCEPCIÓN DE INSEGURIDAD</span>
             <strong class="cifra-num" id="kpi-percepcion">—</strong>
             <p class="cifra-desc" id="kpi-percepcion-label">Población de 18+ años que se siente insegura · INEGI, ENVIPE</p>
           </article>
 
-          <article class="cifra-card compare-card">
+          <article class="cifra-card compare-card" data-jump="#escena-2" style="cursor:pointer" title="Ir a Escena 2">
             <span class="cifra-kicker">CIFRA OCULTA MÁXIMA</span>
             <strong class="cifra-num" id="kpi-oculta">—</strong>
             <p class="cifra-desc" id="kpi-oculta-label">Delitos sin denuncia ni carpeta de investigación · INEGI, ENVIPE</p>
           </article>
 
-          <article class="cifra-card context-card">
+          <article class="cifra-card context-card" data-jump="#visor-titulares" style="cursor:pointer" title="Ir a Hemeroteca">
             <span class="cifra-kicker">REGISTROS OFICIALES</span>
             <strong class="cifra-num" id="kpi-incidencia">—</strong>
             <p class="cifra-desc" id="kpi-incidencia-label">Víctimas registradas en último corte · SESNSP (IDVFC_NM)</p>
@@ -93,16 +89,18 @@
         <div class="escena-controls">
           <label for="perc-year-slider">Año del pictograma: <strong class="mono-inline" id="perc-year-label">—</strong></label>
           <input type="range" id="perc-year-slider" min="0" max="14" value="14" step="1">
+          <button type="button" class="layer-btn" id="perc-play-btn" aria-label="Reproducir evolución anual">▶ Reproducir</button>
         </div>
       </div>
 
-      <h2 class="titulo-hallazgo" id="title-escena-4">El rastreo reúne <span class="hl-purple">3,398</span> titulares de seguridad en <span class="hl-amber">todo Yucatán</span></h2>
+      <h2 class="titulo-hallazgo">Las mujeres perciben <span class="hl-purple" id="gap-headline">+12.1</span> puntos más de inseguridad que los hombres en <span class="hl-amber">Yucatán</span></h2>
       <p class="subtitulo-tecnico">Porcentaje de población adulta que percibe inseguridad por sexo en Yucatán (%), 2011–2026</p>
 
       <div class="escena-split">
         <div class="viz-frame" id="percepcion-pictos-wrap"></div>
         <div class="viz-frame" id="percepcion-linea-wrap"></div>
       </div>
+
 
       <p class="frase-lectura">
         <strong>Lectura:</strong> En toda la serie histórica (morado = mujeres, oro = hombres, gris = total estatal), la percepción de inseguridad femenina se mantiene por encima de la masculina, evidenciando una experiencia diferenciada del espacio público.
@@ -118,7 +116,7 @@
         </div>
       </div>
 
-      <h2 class="titulo-hallazgo" id="title-escena-4">El rastreo reúne <span class="hl-purple">3,398</span> titulares de seguridad en <span class="hl-amber">todo Yucatán</span></h2>
+      <h2 class="titulo-hallazgo">Hasta <span class="hl-purple" id="oculta-headline">97.2 %</span> de los delitos quedan en <span class="hl-amber">cifra oculta</span> sin denuncia</h2>
       <p class="subtitulo-tecnico">Porcentaje de delitos ocurridos que no fueron denunciados o no iniciaron carpeta de investigación en Yucatán (%)</p>
 
       <div class="viz-frame viz-tall" id="cifra-oculta-wrap"></div>
@@ -137,16 +135,36 @@
         </div>
       </div>
 
-      <h2 class="titulo-hallazgo" id="title-escena-4">El rastreo reúne <span class="hl-purple">3,398</span> titulares de seguridad en <span class="hl-amber">todo Yucatán</span></h2>
+      <h2 class="titulo-hallazgo">Las carpetas oficiales registran <span class="hl-purple" id="sesnsp-headline">1,316</span> víctimas anuales en <span class="hl-amber">Yucatán</span></h2>
       <p class="subtitulo-tecnico">Víctimas registradas en carpetas de investigación de delitos contra la persona por mes y tipo de delito en Yucatán (número de víctimas)</p>
 
       <div class="escena-split">
-        <div class="viz-frame" id="incidencia-month-wrap"></div>
-        <div class="viz-frame" id="incidencia-type-wrap"></div>
+        <div class="viz-frame" style="display:flex;flex-direction:column;justify-content:space-between;gap:10px;">
+          <div class="mini-head" style="flex-wrap:wrap;gap:6px;">
+            <strong>Pulso de 132 meses (2015–2025)</strong>
+            <span id="pulso-inspector" class="mono-inline" style="color:var(--purple);">2015–2025 · Pasa el cursor por un mes</span>
+          </div>
+          <div id="pulso-radial-wrap" style="min-height:300px;"></div>
+          <div id="pulso-eras-bar" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;">
+            <button type="button" class="layer-btn active" data-era="year" id="pulso-yr-btn">Año 2025</button>
+            <button type="button" class="layer-btn" data-era="all">Todos</button>
+            <button type="button" class="layer-btn" data-era="peak">Cima (15–16)</button>
+            <button type="button" class="layer-btn" data-era="break">Quiebre (18)</button>
+            <button type="button" class="layer-btn" data-era="low">Meseta (19–25)</button>
+          </div>
+        </div>
+        <div class="viz-frame" style="display:flex;flex-direction:column;justify-content:space-between;gap:10px;">
+          <div class="mini-head" style="flex-wrap:wrap;gap:6px;">
+            <strong>Principales delitos registrados</strong>
+            <span id="type-yr-badge" class="mono-inline" style="color:var(--purple);">2025</span>
+          </div>
+          <div id="incidencia-type-wrap" style="flex:1;min-height:330px;"></div>
+        </div>
       </div>
 
+
       <p class="frase-lectura">
-        <strong>Lectura:</strong> El reloj mensual (izquierda) muestra la estacionalidad del año elegido y el diagrama de barras anotadas (derecha) desglosa los delitos principales; el corte entre 2016 (5,461) y 2018 (752) responde a un cambio metodológico en lesiones, mientras los homicidios pasaron de 110 a 209.
+        <strong>Lectura:</strong> El anillo histórico de 132 meses (izquierda, 2015 al centro hacia 2025 al borde) muestra la caída tras el ajuste metodológico de 2018, mientras el diagrama de barras (derecha) desglosa los delitos principales del año seleccionado; el corte entre 2016 (5,461) y 2018 (752) responde a un cambio metodológico en lesiones, mientras los homicidios pasaron de 110 a 209.
       </p>
       <p class="pie-fuente">Fuente: Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública (SESNSP, IDVFC_NM_dic25.csv, Yucatán clave 31) · Corte: diciembre 2025.</p>
     </section>
@@ -193,7 +211,7 @@
               <button id="terrain-reset" type="button">⟳</button>
             </div>
           </div>
-          <div id="terrain-view" style="height:260px;border-radius:10px;overflow:hidden;background:#0f0620"></div>
+          <div id="terrain-view" style="height:305px;border-radius:10px;overflow:hidden;background:#0f0620"></div>
           <div id="terrain-status" class="terrain-caption">Cargando relieve municipal…</div>
         </div>
       </div>
@@ -202,25 +220,6 @@
         <strong>Lectura:</strong> Al hacer zoom desde todo Yucatán hacia Mérida (884 km²), la capital concentra 185 notas de prensa y 891 menciones en reportes policiales COPLADEM, mientras municipios extensos como Tizimín (3,883 km², 2 notas) o Tekax (2,770 km², 0 menciones) permanecen invisibles en los titulares.
       </p>
       <p class="pie-fuente">Fuente: INEGI Marco Geoestadístico y CEM 4.0 · Corpus de prensa local (3,224 titulares en 83 medios) · Reporte COPLADEM Policía 2025.</p>
-    </section>
-
-    <section class="closing-grid" id="cierre">
-      <article class="limits-box">
-        <span class="mono-rotulo">LO QUE ESTOS DATOS NO DICEN</span>
-        <h3>Límites, huecos y lo que se asumió sin medirlo</h3>
-        <ul>
-          <li><strong>Escala estatal vs. calle:</strong> La ENVIPE tiene representatividad estatal para Yucatán (clave 31) y urbana en Mérida, pero no permite desagregar percepción de inseguridad por colonia o AGEB sin perder validez estadística.</li>
-          <li><strong>Víctimas no son todos los delitos:</strong> La serie SESNSP utilizada contabiliza víctimas de delitos contra la persona (<em>IDVFC_NM_dic25.csv</em>); no equivale al total de carpetas de investigación ni captura los delitos de la cifra oculta.</li>
-          <li><strong>Sesgo de cobertura mediática:</strong> Los 3,224 titulares miden frecuencia de publicación en medios digitales, no incidencia real ni sentimiento; la ausencia de menciones en municipios del sur o oriente refleja centralismo informativo, no ausencia de conflictos.</li>
-        </ul>
-      </article>
-
-      <article class="puente-box">
-        <span class="mono-rotulo">PUENTE AL SIGUIENTE CAPÍTULO</span>
-        <blockquote>
-          «Si más de nueve de cada diez delitos quedan sin denuncia y la atención mediática se concentra en Mérida, ¿cómo cambia la seguridad cotidiana cuando miramos la movilidad urbana, el alumbrado y los puntos críticos calle por calle?»
-        </blockquote>
-      </article>
     </section>
 
     <footer class="book-footer">
@@ -247,9 +246,29 @@
       <div id="titulares-lista" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;"></div>
     </section>
 
+    <section class="closing-grid" id="cierre">
+      <article class="limits-box">
+        <span class="mono-rotulo">LO QUE ESTOS DATOS NO DICEN</span>
+        <h3>Límites, huecos y lo que se asumió sin medirlo</h3>
+        <ul>
+          <li><strong>Escala estatal vs. calle:</strong> La ENVIPE tiene representatividad estatal para Yucatán (clave 31) y urbana en Mérida, pero no permite desagregar percepción de inseguridad por colonia o AGEB sin perder validez estadística.</li>
+          <li><strong>Víctimas no son todos los delitos:</strong> La serie SESNSP utilizada contabiliza víctimas de delitos contra la persona (<em>IDVFC_NM_dic25.csv</em>); no equivale al total de carpetas de investigación ni captura los delitos de la cifra oculta.</li>
+          <li><strong>Sesgo de cobertura mediática:</strong> Los 3,224 titulares miden frecuencia de publicación en medios digitales, no incidencia real ni sentimiento; la ausencia de menciones en municipios del sur o oriente refleja centralismo informativo, no ausencia de conflictos.</li>
+        </ul>
+      </article>
+
+      <article class="puente-box">
+        <span class="mono-rotulo">PUENTE AL SIGUIENTE CAPÍTULO</span>
+        <blockquote>
+          «Si más de nueve de cada diez delitos quedan sin denuncia y la atención mediática se concentra en Mérida, ¿cómo cambia la seguridad cotidiana cuando miramos la movilidad urbana, el alumbrado y los puntos críticos calle por calle?»
+        </blockquote>
+      </article>
+    </section>
+
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
   <script type="module" src="./js/app.js?v=800"></script>
+  <button type="button" id="back-to-top" aria-label="Volver arriba" title="Volver arriba">↑ Subir</button>
 </body>
 </html>
