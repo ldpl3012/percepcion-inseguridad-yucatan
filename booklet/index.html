@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capítulo 04 · Acto 2: Vivir aquí — Percepción de inseguridad en Yucatán</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./graficas/estilo-booklet.css">
+  <style>
+    .portada-cap {
+      max-width: 820px;
+      margin: 0 auto 24px;
+      padding: 28px 32px;
+      border-top: 5px solid var(--morado);
+      border-left: 1px solid var(--borde);
+      border-right: 1px solid var(--borde);
+      border-bottom: 1px solid var(--borde);
+      border-radius: 0 0 14px 14px;
+      background: #ffffff;
+    }
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+    .ilustracion-sello {
+      width: 118px;
+      height: 118px;
+      border-radius: 18px;
+      background: #faf5ff;
+      border: 1px solid #e9d5ff;
+      display: grid;
+      place-items: center;
+      padding: 10px;
+    }
+    .hilo-guia {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      background: #faf5ff;
+      border: 1px solid #e9d5ff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 9.8pt;
+      color: #1f2937;
+    }
+    .kpis-10s {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 20px 0 4px;
+    }
+    .kpi-card {
+      border: 1px solid var(--borde);
+      border-left: 4px solid var(--morado);
+      border-radius: 10px;
+      padding: 14px 16px;
+      background: #ffffff;
+    }
+    .kpi-card:nth-child(2) { border-left-color: var(--oro); }
+    .kpi-card:nth-child(3) { border-left-color: var(--gris); }
+    .kpi-num {
+      font-size: 23pt;
+      font-weight: 800;
+      color: var(--morado);
+      line-height: 1.08;
+      margin-bottom: 5px;
+    }
+    .kpi-card:nth-child(2) .kpi-num { color: var(--oro-oscuro); }
+    .kpi-card:nth-child(3) .kpi-num { color: var(--tinta); }
+    .kpi-desc { font-size: 9.8pt; color: var(--tinta); }
+    .kpi-src {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8pt;
+      color: var(--gris-texto);
+      margin-top: 7px;
+    }
+    .marco-escena {
+      max-width: 820px;
+      margin: 0 auto 22px;
+      background: #ffffff;
+      border: 1px solid var(--borde);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .marco-escena iframe {
+      width: 100%;
+      height: 620px;
+      border: 0;
+      display: block;
+    }
+    .cierre-cap {
+      max-width: 820px;
+      margin: 0 auto 32px;
+      padding: 22px 28px;
+      background: #ffffff;
+      border: 1px solid var(--borde);
+      border-radius: 14px;
+    }
+    .cierre-cap ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+      font-size: 10pt;
+      color: var(--gris-texto);
+    }
+    .cierre-cap li { margin-bottom: 6px; }
+    .puente-box {
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-left: 4px solid var(--oro);
+      background: #fffbeb;
+      border-radius: 0 10px 10px 0;
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: var(--tinta);
+    }
+    @media (max-width: 680px) {
+      .hero-split { grid-template-columns: 1fr; }
+      .ilustracion-sello { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="portada-cap">
+    <div class="hero-split">
+      <div>
+        <div class="rotulo-escena">CAPÍTULO 04 · PERCEPCIÓN DE INSEGURIDAD · ACTO 2: VIVIR AQUÍ</div>
+        <h1 class="titulo-hallazgo" style="font-size: 21pt;">
+          ¿Segura según quién? <span class="hl-morado">35.5 %</span> en Yucatán percibe inseguridad en 2026, mientras <span class="hl-oro">91.0 %</span> de los delitos nunca se denuncia
+        </h1>
+        <p class="subtitulo-grafica" style="margin-top: 8px;">
+          <strong>¿Qué tan segura es la vida cotidiana en Yucatán cuando contrastamos lo que siente la gente con las carpetas oficiales?</strong> Aunque la entidad registra las cifras más bajas del país, la encuesta ENVIPE muestra que más de un tercio de la población adulta se siente insegura —con una brecha de <span class="hl-morado">+15.0 puntos</span> entre mujeres y hombres— y nueve de cada diez delitos quedan fuera de las fiscalías.
+        </p>
+      </div>
+
+      <!-- Ilustración vectorial editorial: Escudo de percepción vs. carpeta oculta -->
+      <div class="ilustracion-sello" aria-hidden="true">
+        <svg width="92" height="92" viewBox="0 0 92 92" fill="none">
+          <circle cx="46" cy="46" r="42" fill="#f3e8ff" stroke="#600d8b" stroke-width="2" stroke-dasharray="4 3"/>
+          <!-- Balanza minimalista -->
+          <line x1="46" y1="20" x2="46" y2="70" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+          <line x1="22" y1="34" x2="70" y2="26" stroke="#600d8b" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="46" cy="30" r="4" fill="#ed9f22"/>
+          <!-- Platillo izquierdo: 35.5% percepción -->
+          <circle cx="22" cy="48" r="11" fill="#600d8b"/>
+          <text x="22" y="51" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="7.5" font-weight="800">35.5%</text>
+          <!-- Platillo derecho: 91.0% cifra oculta -->
+          <circle cx="70" cy="40" r="13" fill="#ed9f22"/>
+          <text x="70" y="43" text-anchor="middle" fill="#0d0d0d" font-family="Outfit, sans-serif" font-size="7.5" font-weight="800">91.0%</text>
+          <rect x="30" y="68" width="32" height="6" rx="3" fill="#0d0d0d"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Hilo conductor del libro: Persona guía + Zoom Yucatán -> Mérida -->
+    <div class="hilo-guia">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" style="flex-shrink:0">
+        <circle cx="17" cy="17" r="17" fill="#600d8b"/>
+        <circle cx="17" cy="12" r="4.5" fill="#fff"/>
+        <path d="M9 27c0-4.5 3.6-7 8-7s8 2.5 8 7" fill="#ed9f22"/>
+      </svg>
+      <div>
+        <strong>De Yucatán a las calles de Mérida:</strong> Para quien vive con el salario mínimo (<span style="font-family:'JetBrains Mono',monospace;font-weight:700">$278.80</span> al día en 2025, CONASAMI), sufrir un robo en la calle o el transporte implica perder días enteros de ingreso y tiempo de traslado que rara vez se traducen en una denuncia formal ante el ministerio público.
+      </div>
+    </div>
+
+    <div class="kpis-10s">
+      <div class="kpi-card">
+        <div class="kpi-num">35.5 %</div>
+        <div class="kpi-desc">Población adulta en Yucatán que percibe inseguridad en 2026 (<strong>42.8 %</strong> mujeres frente a <strong>27.8 %</strong> hombres).</div>
+        <div class="kpi-src">INEGI ENVIPE · escena-1.csv · Corte: 2026</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num">91.0 %</div>
+        <div class="kpi-desc">Porcentaje de delitos ocurridos que no se denuncian ni inician carpeta de investigación en Yucatán.</div>
+        <div class="kpi-src">INEGI ENVIPE · Cifra oculta · Corte: 2025</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num">572</div>
+        <div class="kpi-desc">Carpetas registradas en Yucatán durante 2025 (<strong>18,998</strong> acumuladas entre 2015 y 2025; <strong>627</strong> titulares analizados).</div>
+        <div class="kpi-src">SESNSP · escena-2.csv · Corte: dic 2025</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="marco-escena"><iframe src="./graficas/escena-1.html?v=4" title="Escena 1: Percepción de inseguridad en Yucatán por sexo"></iframe></section>
+  <section class="marco-escena"><iframe src="./graficas/escena-2.html?v=4" title="Escena 2: Reloj mensual de carpetas registradas en Yucatán"></iframe></section>
+  <section class="marco-escena"><iframe src="./graficas/escena-3.html?v=4" title="Escena 3: Contraste entre carpetas registradas y percepción ciudadana"></iframe></section>
+
+  <footer class="cierre-cap">
+    <h2 style="font-size: 13pt; margin: 0 0 8px; color: var(--morado);">Lo que estos datos no dicen</h2>
+    <ul>
+      <li><strong>Lo que queda fuera de carpeta:</strong> Los registros administrativos solo capturan los delitos denunciados ante fiscalías; la ENVIPE estima mediante encuesta en hogares la proporción que nunca se denuncia (cifra oculta).</li>
+      <li><strong>Escala estatal vs. colonia:</strong> Tanto la serie histórica ENVIPE como los registros SESNSP (<code>Clave_Ent=31</code>) tienen representatividad estatal para Yucatán, por lo que no permiten desagregar percepción por AGEB o colonia.</li>
+      <li><strong>Cambio de registro en series históricas:</strong> Entre 2016 (5,461) y 2018 (752) ocurre un ajuste metodológico en la contabilización de lesiones en SESNSP; el modelo de elevación CEM 4.0 contextualiza la geografía física sin medir riesgo delictivo.</li>
+    </ul>
+    <div class="puente-box">
+      Puente al siguiente capítulo: Sentirse seguro en casa o en la colonia es apenas la mitad de la historia: cuando salimos a trabajar o estudiar, ¿qué tan riesgoso resulta cruzar las calles y moverse por Mérida?
+    </div>
+  </footer>
+</body>
+</html>

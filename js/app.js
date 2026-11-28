@@ -1,521 +1,228 @@
 /**
- * app.js — Dashboard D3.js v7
- * Paleta: morado (#4A148C, #6A1B9A, #9C27B0) + oro (#D4AF37, #FFB300, #FFD54F)
- * Rutas relativas para funcionar en subcarpeta o GitHub Pages.
+ * app.js — Capítulo 04: Percepción de inseguridad en Yucatán (D3.js v7)
  */
-
-/* ── Rutas ───────────────────────────────────────────────────────── */
 const BASE = "./data/gold/dashboard";
 const DATASETS = {
   incidence:     `${BASE}/incidencia_yucatan_mensual_v1.json`,
   perception:    `${BASE}/percepcion_envipe_anual_v1.json`,
   cifraOculta:   `${BASE}/cifra_oculta_envipe_v1.json`,
-  newsByMonth:   `${BASE}/noticias_mensuales_v1.json`,
   wordFrequency: `${BASE}/frecuencia_palabras_titulares_v1.json`,
-  bigrams:       `${BASE}/frecuencia_bigramas_titulares_v1.json`,
-  newsByOutlet:  `${BASE}/noticias_por_medio_v1.json`,
   boundary:      `${BASE}/territorio/municipios_yucatan.geojson`,
-  // postalCodes: capa municipal estatal en boundary
 };
 
-/* ── Paleta ──────────────────────────────────────────────────────── */
-const C = {
-  purpleDeep:  "#4A148C",
-  purpleMid:   "#6A1B9A",
-  purpleLight: "#9C27B0",
-  purplePale:  "rgba(156,39,176,.15)",
-  goldDeep:    "#D4AF37",
-  goldMid:     "#FFB300",
-  goldPale:    "#FFD54F",
-  muted:       "#8a7a98",
-  grid:        "rgba(106,27,154,.08)",
+const PAL = {
+  purple:    "#600d8b",
+  amber:     "#ed9f22",
+  amberDark: "#b45309",
+  gray:      "#9ca3af",
+  ink:       "#0d0d0d",
+  border:    "#e5e7eb",
 };
 
-/* ── Meses ───────────────────────────────────────────────────────── */
-const MONTHS = ["Enero","Febrero","Marzo","Abril","Mayo","Junio",
-                "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+const MONTHS = ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
+const MONTHS_FULL = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
 
-/* ── Estado global ───────────────────────────────────────────────── */
 const state = {
   data: null,
-  mapInited: false,
+  layer: "prensa",
+  selectedMun: null,
   terrainStarted: false,
   resizeObservers: new Map(),
 };
 
-/* ── Tooltip singleton ───────────────────────────────────────────── */
 const tooltip = d3.select("#d3-tooltip");
 function showTip(event, html) {
-  tooltip.html(html).classed("visible", true);
-  moveTip(event);
-}
-function moveTip(event) {
-  const pad = 14;
-  tooltip
-    .style("left", (event.clientX + pad) + "px")
-    .style("top",  (event.clientY - 36) + "px");
+  tooltip.html(html).classed("visible", true)
+    .style("left", Math.min(window.innerWidth - 270, event.clientX + 14) + "px")
+    .style("top",  Math.max(12, event.clientY - 36) + "px");
 }
 function hideTip() { tooltip.classed("visible", false); }
 
-/* ── Status bar ──────────────────────────────────────────────────── */
 function setStatus(msg, kind = "ready") {
-  document.querySelector("#data-status").textContent = msg;
+  const el = document.querySelector("#data-status");
+  if (el) el.textContent = msg;
   const dot = document.querySelector(".status-dot");
-  dot.classList.toggle("ready", kind === "ready");
-  dot.classList.toggle("error", kind === "error");
+  if (dot) {
+    dot.classList.toggle("ready", kind === "ready");
+    dot.classList.toggle("error", kind === "error");
+  }
 }
 
-/* ── Helpers ─────────────────────────────────────────────────────── */
 function num(v) {
   const r = Number(v);
-  if (!Number.isFinite(r)) throw new Error(`Valor no numérico: ${v}`);
-  return r;
+  return Number.isFinite(r) ? r : 0;
 }
 
-/** Render placeholder elegante cuando no hay datos */
-function placeholder(containerId, msg = "Datos pendientes de procesamiento.") {
-  const wrap = document.getElementById(containerId);
-  if (!wrap) return;
-  wrap.innerHTML = "";
-  const div = document.createElement("div");
-  div.className = "d3-placeholder";
-  div.innerHTML = `
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-      <rect x="4" y="12" width="40" height="28" rx="4" stroke="${C.purpleLight}" stroke-width="2"/>
-      <path d="M4 20h40" stroke="${C.purpleLight}" stroke-width="2"/>
-      <circle cx="12" cy="16" r="2" fill="${C.purpleLight}"/>
-      <circle cx="20" cy="16" r="2" fill="${C.purpleLight}"/>
-      <path d="M14 30 L20 24 L26 28 L34 20" stroke="${C.goldMid}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <p>${msg}</p>`;
-  wrap.appendChild(div);
-}
-
-/** Elimina resizeObserver de un wrap si ya existe */
-function clearResize(id) {
+function bindResize(id, fn) {
   if (state.resizeObservers.has(id)) {
     state.resizeObservers.get(id).disconnect();
     state.resizeObservers.delete(id);
   }
+  const el = document.getElementById(id);
+  if (!el) return;
+  fn();
+  const ro = new ResizeObserver(fn);
+  ro.observe(el);
+  state.resizeObservers.set(id, ro);
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   GRÁFICA: línea genérica
-══════════════════════════════════════════════════════════════════════ */
-function drawLine(containerId, {
-  data,          // [{x, y}]  x=string etiqueta, y=número
-  color = C.purpleMid,
-  fillColor = C.purplePale,
-  yLabel = "",
-  xTickEvery = 1,
-  yFormat = d3.format(","),
-  tooltipFn = (d) => `<strong>${d.x}</strong>${d.y.toLocaleString("es-MX")}`,
-}) {
-  clearResize(containerId);
-  const wrap = document.getElementById(containerId);
-  if (!wrap || !data || !data.length) { placeholder(containerId); return; }
-  wrap.innerHTML = "";
+/* ── KPIs de apertura ───────────────────────────────────────────── */
+function renderHeroKPIs() {
+  const { incidence, perception, cifraOculta } = state.data;
 
-  function render() {
+  if (perception.length) {
+    const latestPerc = [...perception].sort((a, b) => num(b.anio) - num(a.anio))[0];
+    const pctTotal = num(latestPerc.porcentaje_inseguridad_total);
+    document.querySelector("#hero-pct").textContent = `${pctTotal.toFixed(1)} %`;
+    document.querySelector("#kpi-percepcion").textContent = `${pctTotal.toFixed(1)} %`;
+    document.querySelector("#kpi-percepcion-label").textContent =
+      `Población de 18+ años que se siente insegura · INEGI, ENVIPE ${latestPerc.anio}`;
+  }
+
+  if (cifraOculta.length) {
+    const maxCoYr = Math.max(...cifraOculta.map(r => num(r.anio)));
+    const topDelito = cifraOculta
+      .filter(r => num(r.anio) === maxCoYr && r.delito !== "Total")
+      .sort((a, b) => num(b.porcentaje_cifra_oculta) - num(a.porcentaje_cifra_oculta))[0];
+    if (topDelito) {
+      const val = num(topDelito.porcentaje_cifra_oculta);
+      document.querySelector("#kpi-oculta").textContent = `${val.toFixed(1)} %`;
+      document.querySelector("#kpi-oculta-label").textContent =
+        `Sin denuncia en ${topDelito.delito.toLowerCase()} · INEGI, ENVIPE ${maxCoYr}`;
+      document.querySelector("#oculta-headline").textContent = `${val.toFixed(1)} %`;
+    }
+  }
+
+  if (incidence.length) {
+    const lastIncYr = Math.max(...incidence.map(r => num(r.anio)));
+    const totalVictims = incidence
+      .filter(r => num(r.anio) === lastIncYr)
+      .reduce((s, r) => s + num(r.casos), 0);
+    document.querySelector("#kpi-incidencia").textContent = Math.round(totalVictims).toLocaleString("es-MX");
+    document.querySelector("#kpi-incidencia-label").textContent =
+      `Víctimas registradas en ${lastIncYr} · SESNSP (IDVFC_NM, Yucatán)`;
+  }
+}
+
+/* ── Escena 1: Pictogramas + Serie limpia sin rejillas ──────────── */
+function renderEscena1() {
+  const rows = [...state.data.perception].sort((a, b) => num(a.anio) - num(b.anio));
+  if (!rows.length) return;
+
+  const slider = document.getElementById("perc-year-slider");
+  const label = document.getElementById("perc-year-label");
+  if (slider && !slider.dataset.ready) {
+    slider.dataset.ready = "1";
+    slider.min = 0;
+    slider.max = rows.length - 1;
+    slider.value = rows.length - 1;
+    slider.addEventListener("input", () => renderEscena1());
+  }
+
+  const idx = slider ? Number(slider.value) : rows.length - 1;
+  const cur = rows[idx] || rows.at(-1);
+  if (label) label.textContent = cur.anio;
+
+  const mVal = num(cur.porcentaje_inseguridad_mujeres);
+  const hVal = num(cur.porcentaje_inseguridad_hombres);
+  const tVal = num(cur.porcentaje_inseguridad_total);
+  const gap = Math.abs(mVal - hVal);
+  document.querySelector("#gap-headline").textContent = `+${gap.toFixed(1)}`;
+
+  bindResize("percepcion-pictos-wrap", () => {
+    const wrap = document.getElementById("percepcion-pictos-wrap");
+    if (!wrap) return;
     wrap.innerHTML = "";
-    const W = wrap.clientWidth  || 400;
-    const H = wrap.clientHeight || 300;
-    const mg = { top: 16, right: 20, bottom: 42, left: 48 };
-    const iW = W - mg.left - mg.right;
-    const iH = H - mg.top  - mg.bottom;
+    const W = wrap.clientWidth || 480;
+    const H = 310;
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${W} ${H}`);
 
-    const svg = d3.select(wrap).append("svg")
-      .attr("class", "d3-chart")
-      .attr("viewBox", `0 0 ${W} ${H}`)
-      .attr("aria-label", "Gráfica de línea")
-      .attr("role", "img");
+    svg.append("text").attr("x", W * 0.5).attr("y", 30).attr("text-anchor", "middle")
+      .style("font-size", "12.5px").style("font-weight", "800").style("fill", PAL.amberDark)
+      .text(`Brecha ${cur.anio}: +${gap.toFixed(1)} puntos porcentuales`);
 
-    const g = svg.append("g").attr("transform", `translate(${mg.left},${mg.top})`);
+    const drawGroup = (cx, pct, color, name) => {
+      const g = svg.append("g").attr("transform", `translate(${cx}, 68)`);
+      g.append("text").attr("y", 0).attr("text-anchor", "middle")
+        .style("font-size", "11.5px").style("font-weight", "700").style("fill", PAL.ink).text(name);
+      g.append("text").attr("y", 34).attr("text-anchor", "middle")
+        .style("font-size", "30px").style("font-weight", "800").style("fill", color).text(`${pct.toFixed(1)} %`);
 
-    const x = d3.scalePoint().domain(data.map(d => d.x)).range([0, iW]).padding(.5);
-    const y = d3.scaleLinear().domain([0, d3.max(data, d => d.y) * 1.1]).range([iH, 0]).nice();
+      const filled = Math.round(pct / 10);
+      for (let i = 0; i < 10; i++) {
+        const px = ((i % 5) - 2) * 24;
+        const py = 58 + Math.floor(i / 5) * 44;
+        const on = i < filled;
+        const p = g.append("g").attr("transform", `translate(${px},${py})`);
+        p.append("circle").attr("r", 5).attr("fill", on ? color : PAL.border);
+        p.append("rect").attr("x", -5.5).attr("y", 7).attr("width", 11).attr("height", 17).attr("rx", 5).attr("fill", on ? color : PAL.border);
+      }
+    };
 
-    // Grid
-    g.append("g").selectAll("line")
-      .data(y.ticks(5)).enter().append("line")
-      .attr("class", "d3-gridline")
-      .attr("x1", 0).attr("x2", iW)
-      .attr("y1", d => y(d)).attr("y2", d => y(d));
+    drawGroup(W * 0.27, mVal, PAL.purple, "MUJERES (FOCO)");
+    drawGroup(W * 0.73, hVal, PAL.amber, "HOMBRES (COMPARACIÓN)");
 
-    // Axes
-    const xVals = data.map(d => d.x);
-    const skip  = Math.max(1, Math.round(xVals.length / Math.max(1, Math.floor(iW / 60))));
-    g.append("g").attr("class", "d3-axis").attr("transform", `translate(0,${iH})`)
-      .call(d3.axisBottom(x)
-        .tickValues(xVals.filter((_, i) => i % skip === 0))
-        .tickSize(0).tickPadding(8))
-      .selectAll("text").attr("font-size", 9).attr("fill", C.muted);
-
-    g.append("g").attr("class", "d3-axis d3-axis--y")
-      .call(d3.axisLeft(y).ticks(5).tickFormat(yFormat).tickSize(0).tickPadding(6))
-      .selectAll("text").attr("font-size", 9).attr("fill", C.muted);
-
-    // Area fill
-    const area = d3.area()
-      .x(d => x(d.x)).y0(iH).y1(d => y(d.y))
-      .curve(d3.curveCatmullRom.alpha(.5));
-    g.append("path").datum(data)
-      .attr("fill", fillColor).attr("d", area);
-
-    // Line
-    const line = d3.line()
-      .x(d => x(d.x)).y(d => y(d.y))
-      .curve(d3.curveCatmullRom.alpha(.5));
-    g.append("path").datum(data)
-      .attr("fill", "none").attr("stroke", color)
-      .attr("stroke-width", 2).attr("d", line);
-
-    // Overlay for tooltip
-    const overlay = g.append("g");
-    overlay.selectAll("circle")
-      .data(data).enter().append("circle")
-      .attr("r", 14)
-      .attr("cx", d => x(d.x)).attr("cy", d => y(d.y))
-      .attr("fill", "transparent")
-      .on("mousemove", (event, d) => showTip(event, tooltipFn(d)))
-      .on("mouseleave", hideTip);
-
-    // Visible dots
-    g.selectAll(".dot")
-      .data(data).enter().append("circle")
-      .attr("class", "dot")
-      .attr("r", 2).attr("cx", d => x(d.x)).attr("cy", d => y(d.y))
-      .attr("fill", color).attr("pointer-events", "none");
-  }
-
-  render();
-  const ro = new ResizeObserver(render);
-  ro.observe(wrap);
-  state.resizeObservers.set(containerId, ro);
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   GRÁFICA: barras verticales
-══════════════════════════════════════════════════════════════════════ */
-function drawBars(containerId, {
-  data,          // [{x, y}]
-  color = C.purpleMid,
-  yFormat = d3.format(","),
-  yPercent = false,
-  tooltipFn = (d) => `<strong>${d.x}</strong>${d.y.toLocaleString("es-MX")}`,
-}) {
-  clearResize(containerId);
-  const wrap = document.getElementById(containerId);
-  if (!wrap || !data || !data.length) { placeholder(containerId); return; }
-  wrap.innerHTML = "";
-
-  function render() {
-    wrap.innerHTML = "";
-    const W  = wrap.clientWidth  || 400;
-    const H  = wrap.clientHeight || 300;
-    const mg = { top: 16, right: 20, bottom: 48, left: 48 };
-    const iW = W - mg.left - mg.right;
-    const iH = H - mg.top  - mg.bottom;
-
-    const svg = d3.select(wrap).append("svg")
-      .attr("class", "d3-chart")
-      .attr("viewBox", `0 0 ${W} ${H}`)
-      .attr("aria-label", "Gráfica de barras").attr("role", "img");
-
-    const g = svg.append("g").attr("transform", `translate(${mg.left},${mg.top})`);
-
-    const maxY = yPercent ? 100 : d3.max(data, d => d.y) * 1.12;
-    const x = d3.scaleBand().domain(data.map(d => d.x)).range([0, iW]).padding(.32);
-    const y = d3.scaleLinear().domain([0, maxY]).range([iH, 0]).nice();
-
-    g.append("g").selectAll("line")
-      .data(y.ticks(5)).enter().append("line")
-      .attr("class", "d3-gridline")
-      .attr("x1", 0).attr("x2", iW)
-      .attr("y1", d => y(d)).attr("y2", d => y(d));
-
-    const skip = Math.max(1, Math.round(data.length / Math.max(1, Math.floor(iW / 55))));
-    g.append("g").attr("class", "d3-axis").attr("transform", `translate(0,${iH})`)
-      .call(d3.axisBottom(x)
-        .tickValues(data.map(d => d.x).filter((_, i) => i % skip === 0))
-        .tickSize(0).tickPadding(8))
-      .selectAll("text").attr("font-size", 9).attr("fill", C.muted)
-        .attr("transform", data.length > 10 ? "rotate(-30)" : null)
-        .attr("text-anchor", data.length > 10 ? "end" : "middle");
-
-    g.append("g").attr("class", "d3-axis d3-axis--y")
-      .call(d3.axisLeft(y).ticks(5)
-        .tickFormat(yPercent ? d => `${d}%` : yFormat)
-        .tickSize(0).tickPadding(6))
-      .selectAll("text").attr("font-size", 9).attr("fill", C.muted);
-
-    g.selectAll(".bar")
-      .data(data).enter().append("rect")
-      .attr("class", "bar").attr("fill", color)
-      .attr("rx", 4).attr("ry", 4)
-      .attr("x", d => x(d.x))
-      .attr("width", x.bandwidth())
-      .attr("y", iH).attr("height", 0)
-      .on("mousemove", (event, d) => showTip(event, tooltipFn(d)))
-      .on("mouseleave", hideTip)
-      .transition().duration(500).ease(d3.easeCubicOut)
-      .attr("y", d => y(d.y)).attr("height", d => iH - y(d.y));
-  }
-
-  render();
-  const ro = new ResizeObserver(render);
-  ro.observe(wrap);
-  state.resizeObservers.set(containerId, ro);
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   GRÁFICA: barras horizontales
-══════════════════════════════════════════════════════════════════════ */
-function drawHorizBars(containerId, {
-  data,       // [{label, value}]
-  color = C.purpleMid,
-  tooltipFn = (d) => `<strong>${d.label}</strong>${d.value.toLocaleString("es-MX")}`,
-  formatFn = (v) => v.toLocaleString("es-MX"),
-}) {
-  clearResize(containerId);
-  const wrap = document.getElementById(containerId);
-  if (!wrap || !data || !data.length) { placeholder(containerId); return; }
-  wrap.innerHTML = "";
-
-  function render() {
-    wrap.innerHTML = "";
-    const W  = wrap.clientWidth  || 400;
-    const H  = wrap.clientHeight || 300;
-    const mg = { top: 10, right: 30, bottom: 10, left: Math.min(190, W * .44) };
-    const iW = W - mg.left - mg.right;
-    const iH = H - mg.top  - mg.bottom;
-
-    const svg = d3.select(wrap).append("svg")
-      .attr("class", "d3-chart")
-      .attr("viewBox", `0 0 ${W} ${H}`)
-      .attr("aria-label", "Gráfica de barras horizontales").attr("role", "img");
-
-    const g = svg.append("g").attr("transform", `translate(${mg.left},${mg.top})`);
-
-    const y = d3.scaleBand().domain(data.map(d => d.label)).range([0, iH]).padding(.28);
-    const x = d3.scaleLinear().domain([0, d3.max(data, d => d.value) * 1.08]).range([0, iW]).nice();
-
-    // Y axis (labels)
-    g.append("g").attr("class", "d3-axis d3-axis--y")
-      .call(d3.axisLeft(y).tickSize(0).tickPadding(8))
-      .selectAll("text")
-        .attr("font-size", 9).attr("fill", C.muted)
-        .text(d => d.length > 28 ? d.slice(0, 26) + "…" : d);
-
-    // Bars
-    g.selectAll(".hbar")
-      .data(data).enter().append("rect")
-      .attr("class", "hbar").attr("fill", color)
-      .attr("rx", 3).attr("ry", 3)
-      .attr("y", d => y(d.label)).attr("height", y.bandwidth())
-      .attr("x", 0).attr("width", 0)
-      .on("mousemove", (event, d) => showTip(event, tooltipFn(d)))
-      .on("mouseleave", hideTip)
-      .transition().duration(500).ease(d3.easeCubicOut)
-      .attr("width", d => x(d.value));
-
-    // Value labels
-    g.selectAll(".hval")
-      .data(data).enter().append("text")
-      .attr("class", "hval")
-      .attr("x", d => x(d.value) + 5)
-      .attr("y", d => y(d.label) + y.bandwidth() / 2 + 3)
-      .attr("font-size", 9).attr("fill", C.muted)
-      .text(d => formatFn(d.value));
-  }
-
-  render();
-  const ro = new ResizeObserver(render);
-  ro.observe(wrap);
-  state.resizeObservers.set(containerId, ro);
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   RENDERIZADORES por sección
-══════════════════════════════════════════════════════════════════════ */
-
-/* ── Overview ──────────────────────────────────────────────────────── */
-function renderOverview() {
-  const { incidence, perception, newsByMonth } = state.data;
-
-  // KPIs
-  const years = incidence.map(r => num(r.anio));
-  const latestYear = Math.max(...years);
-  const latestTotal = incidence
-    .filter(r => num(r.anio) === latestYear)
-    .reduce((s, r) => s + num(r.casos), 0);
-  const latestPerc = [...perception].sort((a, b) => num(b.anio) - num(a.anio))[0];
-  const artCount = newsByMonth.reduce((s, r) => s + num(r.noticias), 0);
-
-  document.querySelector("#kpi-incidencia").textContent = Math.round(latestTotal).toLocaleString("es-MX");
-  document.querySelector("#kpi-incidencia-label").textContent = `Yucatán · ${latestYear} · registros`;
-  document.querySelector("#kpi-percepcion").textContent = `${num(latestPerc.porcentaje_inseguridad_total).toFixed(1)}%`;
-  document.querySelector("#kpi-percepcion-label").textContent = `ENVIPE · Yucatán · ${latestPerc.anio}`;
-  document.querySelector("#kpi-noticias").textContent = artCount.toLocaleString("es-MX");
-
-  // Trend line (last 36 months)
-  const totals = new Map();
-  for (const r of incidence) {
-    const key = `${num(r.anio)}-${String(num(r.mes)).padStart(2, "0")}`;
-    totals.set(key, (totals.get(key) || 0) + num(r.casos));
-  }
-  const trend = [...totals.entries()]
-    .sort(([a], [b]) => a.localeCompare(b))
-    .slice(-36)
-    .map(([x, y]) => ({ x, y }));
-
-  drawLine("overview-wrap", {
-    data: trend,
-    color: C.purpleMid,
-    fillColor: C.purplePale,
-    tooltipFn: d => `<strong>${d.x}</strong>${d.y.toLocaleString("es-MX")} casos`,
-  });
-}
-
-/* ── Incidencia ────────────────────────────────────────────────────── */
-function renderIncidence() {
-  const rows  = state.data.incidence;
-  const years = [...new Set(rows.map(r => num(r.anio)))].sort((a, b) => a - b);
-  const sel   = document.querySelector("#incidencia-year");
-
-  if (!sel.options.length) {
-    years.forEach(yr => {
-      const o = document.createElement("option");
-      o.value = String(yr); o.textContent = String(yr);
-      sel.appendChild(o);
-    });
-    sel.value = String(years.at(-1));
-  }
-
-  const yr      = Number(sel.value);
-  const yrRows  = rows.filter(r => num(r.anio) === yr);
-
-  // Mensual (línea)
-  const byMonth = Array.from({ length: 12 }, (_, i) => ({
-    x: MONTHS[i],
-    y: yrRows.filter(r => num(r.mes) === i + 1).reduce((s, r) => s + num(r.casos), 0),
-  }));
-  drawLine("incidencia-month-wrap", {
-    data: byMonth,
-    color: C.purpleMid,
-    fillColor: C.purplePale,
-    tooltipFn: d => `<strong>${d.x}</strong>${d.y.toLocaleString("es-MX")} casos`,
+    svg.append("text").attr("x", W * 0.5).attr("y", H - 14).attr("text-anchor", "middle")
+      .style("font-size", "12px").style("font-weight", "600").style("fill", PAL.gray)
+      .text(`Total estatal ${cur.anio}: ${tVal.toFixed(1)} %`);
   });
 
-  // Por tipo de delito (barras horizontales)
-  const byType = new Map();
-  for (const r of yrRows) byType.set(r.delito, (byType.get(r.delito) || 0) + num(r.casos));
-  const top10 = [...byType.entries()]
-    .sort((a, b) => b[1] - a[1]).slice(0, 10)
-    .map(([label, value]) => ({ label, value }));
+  bindResize("percepcion-linea-wrap", () => {
+    const wrap = document.getElementById("percepcion-linea-wrap");
+    if (!wrap) return;
+    wrap.innerHTML = "";
+    const W = wrap.clientWidth || 480;
+    const H = 310;
+    const m = { top: 22, right: 94, bottom: 30, left: 42 };
+    const w = W - m.left - m.right;
+    const h = H - m.top - m.bottom;
 
-  drawHorizBars("incidencia-type-wrap", {
-    data: top10,
-    color: C.purpleLight,
-    tooltipFn: d => `<strong>${d.label}</strong>${d.value.toLocaleString("es-MX")} casos`,
-  });
-}
-
-/* ── Percepción y Cifra Oculta (ENVIPE) ───────────────────────────── */
-function drawPerceptionMultiLine(containerId, rows) {
-  const el = document.getElementById(containerId);
-  if (!el || !rows.length) return;
-  clearResize(containerId);
-
-  const series = [
-    { key: "m", label: "Mujeres", color: "#9C27B0", width: 2.6, dash: null },
-    { key: "y", label: "Total",   color: "#D4AF37", width: 1.8, dash: "4,3" },
-    { key: "h", label: "Hombres", color: "#5E35B1", width: 2.6, dash: null },
-  ];
-
-  const paint = () => {
-    el.innerHTML = "";
-    const W = el.clientWidth || 520;
-    const H = el.clientHeight || 300;
-    const m = { top: 34, right: 48, bottom: 32, left: 44 };
-    const w = Math.max(180, W - m.left - m.right);
-    const h = Math.max(140, H - m.top - m.bottom);
-
-    const svg = d3.select(el).append("svg").attr("viewBox", `0 0 ${W} ${H}`);
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${W} ${H}`);
     const g = svg.append("g").attr("transform", `translate(${m.left},${m.top})`);
 
-    // Leyenda superior
-    const leg = svg.append("g").attr("transform", `translate(${m.left}, 14)`);
-    series.forEach((s, i) => {
-      const item = leg.append("g").attr("transform", `translate(${i * 96}, 0)`);
-      item.append("line")
-        .attr("x1", 0).attr("x2", 18).attr("y1", 0).attr("y2", 0)
-        .attr("stroke", s.color).attr("stroke-width", s.width)
-        .attr("stroke-dasharray", s.dash || "none");
-      item.append("text")
-        .attr("x", 24).attr("y", 4)
-        .style("font-size", "11px").style("fill", "currentColor")
-        .text(s.label);
-    });
+    const x = d3.scalePoint().domain(rows.map(r => String(r.anio))).range([0, w]);
+    const y = d3.scaleLinear().domain([0, 60]).range([h, 0]);
 
-    const x = d3.scalePoint().domain(rows.map(d => d.x)).range([0, w]).padding(0.15);
-    const maxVal = d3.max(rows, d => Math.max(d.y, d.m, d.h)) || 70;
-    const y = d3.scaleLinear().domain([0, Math.min(100, Math.ceil(maxVal / 10) * 10 + 10)]).range([h, 0]);
-
-    g.append("g").call(d3.axisLeft(y).ticks(5).tickFormat(d => `${d}%`).tickSize(-w))
+    g.append("g").call(d3.axisLeft(y).ticks(4).tickFormat(v => `${v}%`).tickSize(0).tickPadding(8))
       .call(ax => ax.select(".domain").remove())
-      .call(ax => ax.selectAll(".tick line").attr("stroke", "rgba(128,128,128,.15)"))
-      .call(ax => ax.selectAll("text").style("font-size", "11px"));
+      .call(ax => ax.selectAll("text").style("font-size", "11px").style("fill", PAL.gray));
 
     g.append("g").attr("transform", `translate(0,${h})`)
-      .call(d3.axisBottom(x).tickValues(rows.filter(d => Number(d.x) % 2 === 0).map(d => d.x)))
-      .call(ax => ax.select(".domain").attr("stroke", "rgba(128,128,128,.3)"))
-      .call(ax => ax.selectAll("text").style("font-size", "11px"));
+      .call(d3.axisBottom(x).tickValues(rows.filter(r => num(r.anio) % 3 === 0).map(r => String(r.anio))).tickSize(4))
+      .call(ax => ax.select(".domain").attr("stroke", PAL.border))
+      .call(ax => ax.selectAll("line").attr("stroke", PAL.border))
+      .call(ax => ax.selectAll("text").style("font-size", "11px").style("fill", PAL.gray));
 
-    const last = rows[rows.length - 1];
+    const series = [
+      { key: "porcentaje_inseguridad_mujeres", label: "Mujeres", color: PAL.purple, width: 2.8, dash: null },
+      { key: "porcentaje_inseguridad_total",   label: "Total",   color: PAL.gray,   width: 1.8, dash: "4,3" },
+      { key: "porcentaje_inseguridad_hombres", label: "Hombres", color: PAL.amber,  width: 2.6, dash: null },
+    ];
+
+    const last = rows.at(-1);
     series.forEach(s => {
-      const line = d3.line().x(d => x(d.x)).y(d => y(d[s.key])).curve(d3.curveLinear);
+      const line = d3.line().x(r => x(String(r.anio))).y(r => y(num(r[s.key])));
       g.append("path").datum(rows).attr("fill", "none")
         .attr("stroke", s.color).attr("stroke-width", s.width)
-        .attr("stroke-dasharray", s.dash || "none")
-        .attr("d", line);
+        .attr("stroke-dasharray", s.dash || "none").attr("d", line);
 
-      g.selectAll(`.pt-${s.key}`).data(rows).join("circle")
-        .attr("cx", d => x(d.x)).attr("cy", d => y(d[s.key]))
-        .attr("r", s.key === "y" ? 2.5 : 3.2)
-        .attr("fill", s.color)
-        .on("mouseenter", (ev, d) => showTip(ev, `<strong>Yucatán · ${d.x}</strong>Mujeres: ${d.m.toFixed(1)}%<br>Total: ${d.y.toFixed(1)}%<br>Hombres: ${d.h.toFixed(1)}%`))
-        .on("mousemove", moveTip)
+      g.selectAll(null).data(rows).enter().append("circle")
+        .attr("cx", r => x(String(r.anio))).attr("cy", r => y(num(r[s.key])))
+        .attr("r", r => r.anio === cur.anio ? 5 : 3).attr("fill", s.color)
+        .on("mousemove", (ev, r) => showTip(ev, `<strong>${s.label} · ${r.anio}</strong>${num(r[s.key]).toFixed(1)} %`))
         .on("mouseleave", hideTip);
 
-      // Etiqueta directa del último año
-      if (last) {
-        g.append("text")
-          .attr("x", x(last.x) + 6)
-          .attr("y", y(last[s.key]) + 3.5)
-          .style("font-size", "10.5px")
-          .style("font-weight", s.key === "y" ? "500" : "700")
-          .style("fill", s.color)
-          .text(`${last[s.key].toFixed(1)}%`);
-      }
+      g.append("text")
+        .attr("x", x(String(last.anio)) + 8)
+        .attr("y", y(num(last[s.key])) + 4)
+        .style("font-size", "11px").style("font-weight", "700").style("fill", s.color)
+        .text(`${s.label} ${num(last[s.key]).toFixed(1)}%`);
     });
-  };
-
-  paint();
-  const ro = new ResizeObserver(paint);
-  ro.observe(el);
-  state.resizeObservers.set(containerId, ro);
+  });
 }
 
-function renderPerception() {
-  const rows = [...state.data.perception].sort((a, b) => num(a.anio) - num(b.anio));
-  drawPerceptionMultiLine("percepcion-wrap", rows.map(r => ({
-    x: String(r.anio),
-    y: num(r.porcentaje_inseguridad_total),
-    m: num(r.porcentaje_inseguridad_mujeres),
-    h: num(r.porcentaje_inseguridad_hombres),
-  })));
-
+/* ── Escena 2: Cifra oculta ─────────────────────────────────────── */
+function renderEscena2() {
   const co = state.data.cifraOculta || [];
   if (!co.length) return;
 
@@ -524,441 +231,501 @@ function renderPerception() {
   if (sel && !sel.options.length) {
     years.forEach(yr => {
       const opt = document.createElement("option");
-      opt.value = String(yr);
-      opt.textContent = String(yr);
+      opt.value = String(yr); opt.textContent = String(yr);
       sel.appendChild(opt);
     });
-    sel.addEventListener("change", () => renderPerception());
+    sel.addEventListener("change", () => renderEscena2());
   }
 
   const chosenYear = sel ? Number(sel.value) : years[0];
-  const topCo = co
-    .filter(r => num(r.anio) === chosenYear && r.delito !== "Total")
-    .sort((a, b) => num(b.porcentaje_cifra_oculta) - num(a.porcentaje_cifra_oculta));
+  const yrRows = co.filter(r => num(r.anio) === chosenYear);
+  const totalRow = yrRows.find(r => r.delito === "Total");
+  const avgVal = totalRow ? num(totalRow.porcentaje_cifra_oculta) : null;
 
-  drawHorizBars("cifra-oculta-wrap", {
-    data: topCo.map(r => ({ label: r.delito, value: num(r.porcentaje_cifra_oculta) })),
-    color: C.purpleMid,
-    formatFn: v => v.toFixed(1),
-    tooltipFn: d => `<strong>${d.label} (${chosenYear})</strong>${d.value.toFixed(1)}% sin denuncia`,
+  const items = yrRows
+    .filter(r => r.delito !== "Total")
+    .sort((a, b) => num(b.porcentaje_cifra_oculta) - num(a.porcentaje_cifra_oculta))
+    .slice(0, 9)
+    .map(r => ({ label: r.delito, value: num(r.porcentaje_cifra_oculta) }));
+
+  if (items.length) {
+    document.querySelector("#oculta-headline").textContent = `${items[0].value.toFixed(1)} %`;
+  }
+
+  bindResize("cifra-oculta-wrap", () => {
+    const wrap = document.getElementById("cifra-oculta-wrap");
+    if (!wrap || !items.length) return;
+    wrap.innerHTML = "";
+    const W = wrap.clientWidth || 960;
+    const H = 340;
+    const m = { top: 26, right: 68, bottom: 20, left: Math.min(265, W * 0.36) };
+    const w = W - m.left - m.right;
+    const h = H - m.top - m.bottom;
+
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${W} ${H}`);
+    const g = svg.append("g").attr("transform", `translate(${m.left},${m.top})`);
+
+    const y = d3.scaleBand().domain(items.map(d => d.label)).range([0, h]).padding(0.28);
+    const x = d3.scaleLinear().domain([0, 100]).range([0, w]);
+
+    g.append("g").call(d3.axisLeft(y).tickSize(0).tickPadding(10))
+      .call(ax => ax.select(".domain").remove())
+      .selectAll("text").style("font-size", "12px").style("font-weight", "600").style("fill", PAL.ink)
+      .text(d => d.length > 36 ? d.slice(0, 34) + "…" : d);
+
+    g.selectAll(".bar")
+      .data(items).enter().append("rect")
+      .attr("y", d => y(d.label)).attr("height", y.bandwidth())
+      .attr("x", 0).attr("width", d => x(d.value)).attr("rx", 4)
+      .attr("fill", d => d.value >= 90 ? PAL.purple : PAL.gray)
+      .on("mousemove", (ev, d) => showTip(ev, `<strong>${d.label} (${chosenYear})</strong>${d.value.toFixed(1)} % sin denuncia`))
+      .on("mouseleave", hideTip);
+
+    g.selectAll(".lbl")
+      .data(items).enter().append("text")
+      .attr("x", d => x(d.value) + 8)
+      .attr("y", d => y(d.label) + y.bandwidth() / 2 + 4)
+      .style("font-size", "12px").style("font-weight", "700")
+      .style("fill", d => d.value >= 90 ? PAL.purple : PAL.ink)
+      .text(d => `${d.value.toFixed(1)} %`);
+
+    if (avgVal !== null) {
+      g.append("line")
+        .attr("x1", x(avgVal)).attr("x2", x(avgVal))
+        .attr("y1", -4).attr("y2", h)
+        .attr("stroke", PAL.amber).attr("stroke-width", 2.2);
+      g.append("text")
+        .attr("x", x(avgVal)).attr("y", -10).attr("text-anchor", "middle")
+        .style("font-size", "11px").style("font-weight", "800").style("fill", PAL.amberDark)
+        .text(`Total estatal ${chosenYear}: ${avgVal.toFixed(1)} %`);
+    }
   });
 }
 
-/* ── Prensa ────────────────────────────────────────────────────────── */
-function renderNews() {
-  const monthly = [...state.data.newsByMonth].sort((a, b) => a.mes.localeCompare(b.mes));
-  drawBars("noticias-wrap", {
-    data: monthly.map(r => ({ x: r.mes, y: num(r.noticias) })),
-    color: C.purpleLight,
-    tooltipFn: d => `<strong>${d.x}</strong>${d.y.toLocaleString("es-MX")} artículos`,
-  });
+/* ── Escena 3: Reloj mensual + Delitos SESNSP ───────────────────── */
+function renderEscena3() {
+  const rows = state.data.incidence || [];
+  if (!rows.length) return;
 
-  const bigrams = (state.data.bigrams || []).slice(0, 12);
-  if (bigrams.length) {
-    drawHorizBars("bigramas-wrap", {
-      data: bigrams.map(r => ({ label: r.frase, value: num(r.frecuencia) })),
-      color: C.purpleMid,
-      tooltipFn: d => `<strong>${d.label}</strong>${d.value.toLocaleString("es-MX")} menciones`,
+  const years = [...new Set(rows.map(r => num(r.anio)))].sort((a, b) => a - b);
+  const sel = document.querySelector("#incidencia-year");
+  if (sel && !sel.options.length) {
+    years.forEach(yr => {
+      const o = document.createElement("option");
+      o.value = String(yr); o.textContent = String(yr);
+      sel.appendChild(o);
     });
+    sel.value = String(years.at(-1));
+    sel.addEventListener("change", () => renderEscena3());
   }
 
-  const words = (state.data.wordFrequency || []).slice(0, 12);
-  drawHorizBars("palabras-wrap", {
-    data: words.map(r => ({ label: r.palabra, value: num(r.frecuencia) })),
-    color: C.goldDeep,
-    tooltipFn: d => `<strong>${d.label}</strong>${d.value.toLocaleString("es-MX")} menciones`,
+  const yr = Number(sel.value);
+  const yrRows = rows.filter(r => num(r.anio) === yr);
+  const totalYr = yrRows.reduce((s, r) => s + num(r.casos), 0);
+  document.querySelector("#sesnsp-headline").textContent = Math.round(totalYr).toLocaleString("es-MX");
+
+  const byMonth = Array.from({ length: 12 }, (_, i) => ({
+    x: MONTHS[i],
+    full: MONTHS_FULL[i],
+    y: yrRows.filter(r => num(r.mes) === i + 1).reduce((s, r) => s + num(r.casos), 0),
+  }));
+  const maxMonthVal = d3.max(byMonth, d => d.y) || 0;
+
+  bindResize("incidencia-month-wrap", () => {
+    const wrap = document.getElementById("incidencia-month-wrap");
+    if (!wrap) return;
+    wrap.innerHTML = "";
+    const W = wrap.clientWidth || 460;
+    const H = 310;
+    const size = Math.min(W, H);
+    const innerR = size * 0.17;
+    const outerR = size * 0.38;
+
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${W} ${H}`);
+    const g = svg.append("g").attr("transform", `translate(${W / 2},${H / 2})`);
+
+    const angle = d3.scaleBand().domain(byMonth.map(d => d.x)).range([0, 2 * Math.PI]).padding(0.14);
+    const radius = d3.scaleLinear().domain([0, maxMonthVal || 1]).range([innerR, outerR]);
+
+    const arc = d3.arc()
+      .innerRadius(innerR)
+      .outerRadius(d => radius(d.y))
+      .startAngle(d => angle(d.x))
+      .endAngle(d => angle(d.x) + angle.bandwidth())
+      .cornerRadius(5);
+
+    g.selectAll(".petal")
+      .data(byMonth).enter().append("path")
+      .attr("d", arc)
+      .attr("fill", d => d.y === maxMonthVal ? PAL.purple : PAL.gray)
+      .on("mousemove", (ev, d) => showTip(ev, `<strong>${d.full} ${yr}</strong>${d.y.toLocaleString("es-MX")} víctimas`))
+      .on("mouseleave", hideTip);
+
+    byMonth.forEach(d => {
+      const a = angle(d.x) + angle.bandwidth() / 2 - Math.PI / 2;
+      const lx = Math.cos(a) * (outerR + 22);
+      const ly = Math.sin(a) * (outerR + 22);
+      g.append("text").attr("x", lx).attr("y", ly + 4).attr("text-anchor", "middle")
+        .style("font-size", "10.5px").style("font-weight", d.y === maxMonthVal ? "800" : "600")
+        .style("fill", d.y === maxMonthVal ? PAL.purple : PAL.ink)
+        .text(`${d.x} (${d.y})`);
+    });
+
+    g.append("text").attr("y", -2).attr("text-anchor", "middle").style("font-size", "18px").style("font-weight", "800").style("fill", PAL.ink).text(yr);
+    g.append("text").attr("y", 14).attr("text-anchor", "middle").style("font-size", "10.5px").style("font-weight", "700").style("fill", PAL.purple).text("víctimas");
   });
 
-  const outlets = (state.data.newsByOutlet || []).slice(0, 10);
-  if (outlets.length) {
-    drawHorizBars("medios-wrap", {
-      data: outlets.map(r => ({ label: r.medio, value: num(r.noticias) })),
-      color: C.purpleLight,
-      tooltipFn: d => `<strong>${d.label}</strong>${d.value.toLocaleString("es-MX")} artículos`,
-    });
-  }
+  const byType = new Map();
+  for (const r of yrRows) byType.set(r.delito, (byType.get(r.delito) || 0) + num(r.casos));
+  const top8 = [...byType.entries()]
+    .sort((a, b) => b[1] - a[1]).slice(0, 8)
+    .map(([label, value]) => ({ label, value }));
+
+  bindResize("incidencia-type-wrap", () => {
+    const wrap = document.getElementById("incidencia-type-wrap");
+    if (!wrap || !top8.length) return;
+    wrap.innerHTML = "";
+    const W = wrap.clientWidth || 460;
+    const H = 310;
+    const m = { top: 10, right: 56, bottom: 14, left: Math.min(185, W * 0.44) };
+    const w = W - m.left - m.right;
+    const h = H - m.top - m.bottom;
+
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${W} ${H}`);
+    const g = svg.append("g").attr("transform", `translate(${m.left},${m.top})`);
+
+    const y = d3.scaleBand().domain(top8.map(d => d.label)).range([0, h]).padding(0.3);
+    const x = d3.scaleLinear().domain([0, (d3.max(top8, d => d.value) || 1) * 1.12]).range([0, w]);
+
+    g.append("g").call(d3.axisLeft(y).tickSize(0).tickPadding(8))
+      .call(ax => ax.select(".domain").remove())
+      .selectAll("text").style("font-size", "11.5px").style("font-weight", "600").style("fill", PAL.ink)
+      .text(d => d.length > 26 ? d.slice(0, 24) + "…" : d);
+
+    g.selectAll(".bar")
+      .data(top8).enter().append("rect")
+      .attr("y", d => y(d.label)).attr("height", y.bandwidth())
+      .attr("x", 0).attr("width", d => x(d.value)).attr("rx", 4)
+      .attr("fill", (_, i) => i === 0 ? PAL.purple : PAL.gray);
+
+    g.selectAll(".val")
+      .data(top8).enter().append("text")
+      .attr("x", d => x(d.value) + 6)
+      .attr("y", d => y(d.label) + y.bandwidth() / 2 + 4)
+      .style("font-size", "11.5px").style("font-weight", "700")
+      .style("fill", (_, i) => i === 0 ? PAL.purple : PAL.ink)
+      .text(d => Math.round(d.value).toLocaleString("es-MX"));
+  });
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   MAPA D3 con GeoJSON
-══════════════════════════════════════════════════════════════════════ */
+/* ── Escena 4: Mapa de los 106 municipios (conectado a NOM_MUN y NOTICIAS_MENCIONES) ── */
 function initMap() {
-  if (state.mapInited) return;
-  state.mapInited = true;
-
+  const geo = state.data.boundary;
   const container = document.getElementById("map-container");
-  if (!container) return;
+  if (!geo?.features?.length || !container) return;
 
-  const { boundary } = state.data;
-  if (!boundary || !boundary.features?.length) {
-    const msg = document.createElement("div");
-    msg.className = "d3-placeholder";
-    msg.innerHTML = `<p>Datos geográficos pendientes de procesamiento.</p>`;
-    container.appendChild(msg);
-    return;
+  const features = geo.features;
+  const getName = f => f.properties?.NOM_MUN || f.properties?.NOMGEO || "Municipio";
+
+  const dl = document.getElementById("municipios-list");
+  if (dl) {
+    dl.innerHTML = features
+      .map(getName)
+      .filter(Boolean)
+      .sort()
+      .map(n => `<option value="${n}"></option>`)
+      .join("");
   }
 
-  const W = container.clientWidth  || 700;
-  const H = container.clientHeight || 500;
-
-  const svg = d3.select(container).append("svg")
-    .attr("width", W).attr("height", H)
-    .attr("aria-label", "Mapa de los 106 municipios de Yucatán");
-
-  const proj = d3.geoMercator().fitSize([W, H], boundary);
-  const path = d3.geoPath(proj);
-
-  const zoomBehavior = d3.zoom()
-    .scaleExtent([0.5, 20])
-    .on("zoom", ({ transform }) => { gMap.attr("transform", transform); });
-  svg.call(zoomBehavior);
-
-  const gMap = svg.append("g");
-  const layerConfigs = {
+  const layers = {
     prensa: {
-      value: d => Number(d.properties?.NOTICIAS_MENCIONES ?? 0),
-      scale: d3.scaleThreshold()
-        .domain([1, 3, 8, 20])
-        .range([
-          "rgba(156, 39, 176, 0.10)",
-          "rgba(156, 39, 176, 0.42)",
-          "rgba(123, 31, 162, 0.68)",
-          "rgba(74, 20, 140, 0.90)",
-          "rgba(212, 175, 55, 0.62)"
-        ]),
+      key: "NOTICIAS_MENCIONES",
+      scale: d3.scaleThreshold().domain([1, 3, 10, 50]).range(["#ffffff", "#f3e8ff", "#d8b4fe", "#9333ea", "#600d8b"]),
       legend: [
-        ["rgba(156,39,176,.10)", "0 notas en titulares"],
-        ["rgba(156,39,176,.42)", "1–2 notas"],
-        ["rgba(123,31,162,.68)", "3–7 notas"],
-        ["rgba(74,20,140,.90)",  "8–19 notas"],
-        ["rgba(212,175,55,.62)", "Mérida (185 notas)"]
-      ]
+        ["#ffffff", "0 notas en prensa"],
+        ["#f3e8ff", "1–2 notas"],
+        ["#d8b4fe", "3–9 notas"],
+        ["#9333ea", "10–49 notas"],
+        ["#600d8b", "50+ notas (Mérida: 185)"],
+      ],
+      fmt: v => `${v} notas`,
     },
     area: {
-      value: d => Number(d.properties?.AREA_KM2 ?? 0),
-      scale: d3.scaleThreshold()
-        .domain([200, 500, 1000, 2000])
-        .range([
-          "rgba(156, 39, 176, 0.12)",
-          "rgba(156, 39, 176, 0.34)",
-          "rgba(123, 31, 162, 0.56)",
-          "rgba(74, 20, 140, 0.78)",
-          "rgba(212, 175, 55, 0.65)"
-        ]),
+      key: "AREA_KM2",
+      scale: d3.scaleThreshold().domain([150, 350, 700, 1500]).range(["#f3e8ff", "#d8b4fe", "#a855f7", "#7e22ce", "#600d8b"]),
       legend: [
-        ["rgba(156,39,176,.12)", "< 200 km²"],
-        ["rgba(156,39,176,.34)", "200–500 km²"],
-        ["rgba(123,31,162,.56)", "500–1,000 km²"],
-        ["rgba(74,20,140,.78)",  "1,000–2,000 km²"],
-        ["rgba(212,175,55,.65)", "> 2,000 km² (Tizimín, Tekax)"]
-      ]
+        ["#f3e8ff", "< 150 km²"],
+        ["#d8b4fe", "150–350 km²"],
+        ["#a855f7", "350–700 km²"],
+        ["#7e22ce", "700–1,500 km²"],
+        ["#600d8b", "> 1,500 km² (Tizimín: 3,883)"],
+      ],
+      fmt: v => `${num(v).toLocaleString("es-MX", { maximumFractionDigits: 1 })} km²`,
     },
     elevacion: {
-      value: d => Number(d.properties?.ELEV_MEAN_M ?? 0),
-      scale: d3.scaleThreshold()
-        .domain([10, 20, 35, 60])
-        .range([
-          "rgba(59, 18, 97, 0.28)",
-          "rgba(123, 31, 162, 0.44)",
-          "rgba(156, 39, 176, 0.64)",
-          "rgba(184, 134, 11, 0.62)",
-          "rgba(212, 175, 55, 0.85)"
-        ]),
+      key: "ELEV_MEAN_M",
+      scale: d3.scaleThreshold().domain([10, 20, 35, 60]).range(["#f3e8ff", "#d8b4fe", "#fde68a", "#ed9f22", "#b45309"]),
       legend: [
-        ["rgba(59,18,97,.28)",   "< 10 m (costa / norponiente)"],
-        ["rgba(123,31,162,.44)", "10–20 m (planicie baja)"],
-        ["rgba(156,39,176,.64)", "20–35 m (planicie interior)"],
-        ["rgba(184,134,11,.62)", "35–60 m (transición sur)"],
-        ["rgba(212,175,55,.85)", "> 60 m (Sierrita Puuc)"]
-      ]
-    }
+        ["#f3e8ff", "< 10 m (costa / norponiente)"],
+        ["#d8b4fe", "10–20 m (planicie baja)"],
+        ["#fde68a", "20–35 m (planicie interior)"],
+        ["#ed9f22", "35–60 m (transición sur)"],
+        ["#b45309", "> 60 m (Sierrita Puuc)"],
+      ],
+      fmt: v => `${num(v).toFixed(1)} m`,
+    },
   };
 
-  let activeLayer = "prensa";
-  const legendEl = document.getElementById("map-legend");
+  const W = container.clientWidth || 960;
+  const H = container.clientHeight || 410;
+  container.querySelector("svg")?.remove();
 
-  function renderMapLayer(layerKey) {
-    activeLayer = layerKey;
-    const cfg = layerConfigs[layerKey] || layerConfigs.prensa;
-    gMap.selectAll(".map-postal")
-      .transition().duration(220)
-      .style("fill", d => cfg.scale(cfg.value(d)));
+  const svg = d3.select(container).insert("svg", ":first-child")
+    .attr("viewBox", `0 0 ${W} ${H}`)
+    .style("width", "100%").style("height", "100%");
+  const g = svg.append("g");
 
-    if (legendEl) {
-      legendEl.innerHTML = cfg.legend.map(([bg, label]) =>
-        `<div class="map-legend-item"><div class="map-legend-swatch" style="background:${bg};border:1px solid rgba(106,27,154,.55)"></div><span>${label}</span></div>`
-      ).join("");
-    }
-  }
+  const projection = d3.geoMercator().fitExtent([[18, 16], [W - 18, H - 16]], geo);
+  const path = d3.geoPath(projection);
 
-  gMap.selectAll(".map-postal")
-    .data(boundary.features).enter().append("path")
-    .attr("class", d => String(d.properties?.MUN_OFICIA ?? "").padStart(5, "0") === "31050"
-      ? "map-postal map-mun-capital"
-      : "map-postal")
+  const zoom = d3.zoom().scaleExtent([1, 14]).on("zoom", ev => g.attr("transform", ev.transform));
+  svg.call(zoom);
+
+  const paths = g.selectAll("path")
+    .data(features).enter().append("path")
+    .attr("class", "map-postal")
     .attr("d", path)
-    .on("mousemove", (event, d) => {
-      const p = d.properties || {};
-      const mun = p.NOM_MUN ?? "Sin dato";
-      const cve = String(p.MUN_OFICIA ?? "").padStart(5, "0");
-      const zona = p.ZONA_GEO ?? "Yucatán";
-      const area = Number(p.AREA_KM2);
-      const evMean = Number(p.ELEV_MEAN_M);
-      const evMax = Number(p.ELEV_MAX_M);
-      const m = Number(p.NOTICIAS_MENCIONES ?? 0);
-      const cop = Number(p.MENCIONES_COPLADEM ?? 0);
-      const ej = p.TITULAR_EJEMPLO ?? "";
-
-      const areaTxt = Number.isFinite(area) ? `${area.toLocaleString("es-MX")} km²` : "s/d";
-      const elevTxt = Number.isFinite(evMean)
-        ? `${evMean.toFixed(1)} m prom.${Number.isFinite(evMax) ? ` (máx. ${evMax.toFixed(0)} m)` : ""}`
-        : "s/d";
-      const notaTxt = m > 0
-        ? `<strong>${m}</strong> ${m === 1 ? "nota" : "notas"} en prensa`
-        : "0 notas en titulares";
-      const gobTxt = cop > 0 ? ` · COPLADEM Policía: <strong>${cop}</strong>` : "";
-      const ejHtml = ej ? `<br><span style="opacity:.9;font-style:italic">“${ej}”</span>` : "";
-
-      showTip(
-        event,
-        `<strong>${mun}</strong> · Clave ${cve}<br>` +
-        `<span>${zona} · Área: ${areaTxt}</span><br>` +
-        `<span>Elevación: ${elevTxt}</span><br>` +
-        `<span>${notaTxt}${gobTxt}</span>` +
-        ejHtml
+    .on("mousemove", (ev, f) => {
+      const p = f.properties || {};
+      showTip(ev,
+        `<strong>${getName(f)}</strong>` +
+        `Prensa: ${num(p.NOTICIAS_MENCIONES)} notas · COPLADEM: ${num(p.MENCIONES_COPLADEM)}<br>` +
+        `Superficie: ${num(p.AREA_KM2).toFixed(1)} km² · Elevación: ${num(p.ELEV_MEAN_M).toFixed(1)} m`
       );
     })
-    .on("mouseleave", hideTip);
+    .on("mouseleave", hideTip)
+    .on("click", (_, f) => focusMunicipio(f));
 
-  renderMapLayer("prensa");
-
-  const top5El = document.getElementById("top5-strip");
-  const searchEl = document.getElementById("mun-search");
-  let selectedCve = null;
-
-  function applyHighlight() {
-    const q = (searchEl?.value || "").trim().toLowerCase();
-    gMap.selectAll(".map-postal").classed("is-highlighted", d => {
-      const cve = String(d.properties?.MUN_OFICIA ?? "").padStart(5, "0");
-      const nom = String(d.properties?.NOM_MUN ?? "").toLowerCase();
-      if (selectedCve) return cve === selectedCve;
-      return q.length >= 2 && nom.includes(q);
-    });
+  function focusMunicipio(f) {
+    state.selectedMun = getName(f);
+    paths.classed("is-highlighted", d => getName(d) === state.selectedMun);
+    const [[x0, y0], [x1, y1]] = path.bounds(f);
+    const k = Math.min(8, 0.72 / Math.max((x1 - x0) / W, (y1 - y0) / H));
+    const tx = W / 2 - (k * (x0 + x1)) / 2;
+    const ty = H / 2 - (k * (y0 + y1)) / 2;
+    svg.transition().duration(550).call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(k));
+    updateTop5();
   }
 
-  function renderTop5(layerKey) {
-    if (!top5El) return;
-    const cfg = layerConfigs[layerKey] || layerConfigs.prensa;
-    const ranked = [...boundary.features]
-      .map(d => ({
-        cve: String(d.properties?.MUN_OFICIA ?? "").padStart(5, "0"),
-        nom: d.properties?.NOM_MUN ?? "Municipio",
-        val: cfg.value(d)
-      }))
-      .sort((a, b) => b.val - a.val)
+  function updateTop5() {
+    const cfg = layers[state.layer];
+    const top5 = [...features]
+      .sort((a, b) => num(b.properties?.[cfg.key]) - num(a.properties?.[cfg.key]))
       .slice(0, 5);
-
-    const fmt = layerKey === "prensa"
-      ? v => `${v} notas`
-      : layerKey === "area"
-      ? v => `${Number(v).toLocaleString("es-MX")} km²`
-      : v => `${Number(v).toFixed(1)} m`;
-
-    top5El.innerHTML = `<strong>Top 5 (${layerKey === "prensa" ? "prensa" : layerKey === "area" ? "extensión" : "elevación"}):</strong> ` +
-      ranked.map(item =>
-        `<button type="button" class="top5-chip ${selectedCve === item.cve ? "selected" : ""}" data-cve="${item.cve}">${item.nom} (${fmt(item.val)})</button>`
-      ).join("");
-
-    top5El.querySelectorAll(".top5-chip").forEach(chip => {
-      chip.addEventListener("click", () => {
-        const cve = chip.dataset.cve;
-        selectedCve = selectedCve === cve ? null : cve;
-        applyHighlight();
-        renderTop5(activeLayer);
+    const strip = document.getElementById("top5-strip");
+    if (!strip) return;
+    strip.innerHTML = `<span style="font-weight:700;color:var(--muted)">Top 5:</span>` +
+      top5.map(f => {
+        const name = getName(f);
+        const val = cfg.fmt(num(f.properties?.[cfg.key]));
+        const cls = name === state.selectedMun ? "top5-chip selected" : "top5-chip";
+        return `<button class="${cls}" data-mun="${name}">${name} (${val})</button>`;
+      }).join("");
+    strip.querySelectorAll(".top5-chip").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const found = features.find(f => getName(f) === btn.dataset.mun);
+        if (found) focusMunicipio(found);
       });
     });
   }
 
-  const baseRenderMapLayer = renderMapLayer;
-  renderMapLayer = function(layerKey) {
-    baseRenderMapLayer(layerKey);
-    renderTop5(layerKey);
-    applyHighlight();
-  };
-  renderTop5(activeLayer);
-
-  const dataListEl = document.getElementById("municipios-list");
-  if (dataListEl) {
-    const sortedNames = [...boundary.features]
-      .map(d => d.properties?.NOM_MUN)
-      .filter(Boolean)
-      .sort((a, b) => a.localeCompare(b, "es"));
-    dataListEl.innerHTML = sortedNames.map(n => `<option value="${n}"></option>`).join("");
+  function applyLayer(layerName) {
+    state.layer = layerName;
+    const cfg = layers[layerName];
+    paths.attr("fill", f => cfg.scale(num(f.properties?.[cfg.key])));
+    const leg = document.getElementById("map-legend");
+    if (leg) {
+      leg.innerHTML = cfg.legend
+        .map(([c, t]) => `<div class="map-legend-item"><span class="map-legend-swatch" style="background:${c};border:1px solid #d1d5db"></span><span>${t}</span></div>`)
+        .join("");
+    }
+    updateTop5();
   }
-
-  searchEl?.addEventListener("input", () => {
-    const val = searchEl.value.trim().toLowerCase();
-    const exact = boundary.features.find(d => String(d.properties?.NOM_MUN ?? "").toLowerCase() === val);
-    selectedCve = exact ? String(exact.properties?.MUN_OFICIA ?? "").padStart(5, "0") : null;
-    applyHighlight();
-    renderTop5(activeLayer);
-  });
 
   document.querySelectorAll(".layer-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelectorAll(".layer-btn").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
-      renderMapLayer(btn.dataset.layer);
+      applyLayer(btn.dataset.layer);
     });
   });
 
-  document.getElementById("map-zoom-in")?.addEventListener("click", () =>
-    svg.transition().call(zoomBehavior.scaleBy, 1.5));
-  document.getElementById("map-zoom-out")?.addEventListener("click", () =>
-    svg.transition().call(zoomBehavior.scaleBy, 0.67));
-  document.getElementById("map-reset")?.addEventListener("click", () =>
-    svg.transition().call(zoomBehavior.transform, d3.zoomIdentity));
-
-  const ro = new ResizeObserver(() => {
-    const nW = container.clientWidth;
-    const nH = container.clientHeight;
-    svg.attr("width", nW).attr("height", nH);
-    proj.fitSize([nW, nH], boundary);
-    gMap.selectAll("path").attr("d", path);
+  document.getElementById("mun-search")?.addEventListener("change", ev => {
+    const q = ev.target.value.trim().toLowerCase();
+    const found = features.find(f => getName(f).toLowerCase() === q)
+      || features.find(f => getName(f).toLowerCase().includes(q));
+    if (found) focusMunicipio(found);
   });
-  ro.observe(container);
 
-  setStatus("Mapa estatal de Yucatán cargado correctamente.");
+  document.getElementById("map-zoom-in")?.addEventListener("click", () => svg.transition().duration(250).call(zoom.scaleBy, 1.6));
+  document.getElementById("map-zoom-out")?.addEventListener("click", () => svg.transition().duration(250).call(zoom.scaleBy, 0.65));
+  document.getElementById("map-reset")?.addEventListener("click", () => {
+    state.selectedMun = null;
+    paths.classed("is-highlighted", false);
+    svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity);
+    updateTop5();
+  });
+
+  applyLayer("prensa");
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   RELIEVE 3-D (Three.js — sin cambios funcionales)
-══════════════════════════════════════════════════════════════════════ */
+function renderNewsWords() {
+  const words = (state.data.wordFrequency || []).slice(0, 8).map(r => ({ label: r.palabra, value: num(r.frecuencia) }));
+  bindResize("palabras-wrap", () => {
+    const wrap = document.getElementById("palabras-wrap");
+    if (!wrap || !words.length) return;
+    wrap.innerHTML = "";
+    const W = wrap.clientWidth || 460;
+    const H = 290;
+    const m = { top: 8, right: 48, bottom: 10, left: 110 };
+    const w = W - m.left - m.right;
+    const h = H - m.top - m.bottom;
+
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${W} ${H}`);
+    const g = svg.append("g").attr("transform", `translate(${m.left},${m.top})`);
+
+    const y = d3.scaleBand().domain(words.map(d => d.label)).range([0, h]).padding(0.28);
+    const x = d3.scaleLinear().domain([0, (d3.max(words, d => d.value) || 1) * 1.15]).range([0, w]);
+
+    g.append("g").call(d3.axisLeft(y).tickSize(0).tickPadding(8))
+      .call(ax => ax.select(".domain").remove())
+      .selectAll("text").style("font-size", "12px").style("font-weight", "600").style("fill", PAL.ink);
+
+    g.selectAll(".bar")
+      .data(words).enter().append("rect")
+      .attr("y", d => y(d.label)).attr("height", y.bandwidth())
+      .attr("x", 0).attr("width", d => x(d.value)).attr("rx", 4)
+      .attr("fill", (_, i) => i < 2 ? PAL.purple : PAL.gray);
+
+    g.selectAll(".val")
+      .data(words).enter().append("text")
+      .attr("x", d => x(d.value) + 6)
+      .attr("y", d => y(d.label) + y.bandwidth() / 2 + 4)
+      .style("font-size", "11.5px").style("font-weight", "700").style("fill", PAL.ink)
+      .text(d => d.value.toLocaleString("es-MX"));
+  });
+}
+
+/* ── Visor 3D del relieve estatal desde GeoJSON CEM 4.0 ─────────── */
 async function initTerrain() {
   const msg = document.querySelector("#terrain-status");
-  if (state.terrainStarted) return;
+  if (state.terrainStarted || !state.data?.boundary?.features) return;
   state.terrainStarted = true;
-  if (msg) msg.textContent = "Cargando modelo de elevación…";
 
   try {
-    const [THREE, { OrbitControls }, { fromUrl }] = await Promise.all([
+    const [THREE, { OrbitControls }] = await Promise.all([
       import("three"),
       import("three/addons/controls/OrbitControls.js"),
-      import("https://cdn.jsdelivr.net/npm/geotiff@2.1.3/+esm"),
     ]);
-    const tiff  = await fromUrl("./data/silver/lidar/yucatan_elevacion.tif");
-    const image = await tiff.getImage();
-    const cols  = 240;
-    const rows  = Math.max(2, Math.round(cols * image.getHeight() / image.getWidth()));
-    const elevations = await image.readRasters({ width: cols, height: rows, interleave: true });
 
-    const nodataVal = image.getGDALNoData();
-    const nodata = nodataVal == null ? null : Number(nodataVal);
-    const valid  = Array.from(elevations, v => Number.isFinite(v) && (nodata === null || v !== nodata));
-    const samples = Array.from(elevations).filter((_, i) => valid[i]);
-    if (!samples.length) throw new Error("El ráster no contiene elevaciones válidas.");
+    const feats = state.data.boundary.features;
+    const [[minX, minY], [maxX, maxY]] = d3.geoBounds(state.data.boundary);
+    const pts = feats.map(f => {
+      const c = d3.geoCentroid(f);
+      return { x: c[0], y: c[1], z: num(f.properties?.ELEV_MEAN_M ?? 12) };
+    });
 
-    const mn = Math.min(...samples), mx = Math.max(...samples);
-    const positions = new Float32Array(cols * rows * 3);
-    const colors    = new Float32Array(cols * rows * 3);
-    const indices   = [];
+    const cols = 130, rows = 88;
     const W = 150, H = W * rows / cols;
+    const elevations = new Float32Array(cols * rows);
+    const mn = 0, mx = d3.max(pts, p => p.z) || 105;
+
+    for (let r = 0; r < rows; r++) {
+      const lat = maxY - (r / (rows - 1)) * (maxY - minY);
+      for (let c = 0; c < cols; c++) {
+        const lon = minX + (c / (cols - 1)) * (maxX - minX);
+        let numW = 0, denW = 0, minD = 999;
+        for (const p of pts) {
+          const d2 = (lon - p.x) ** 2 + (lat - p.y) ** 2;
+          if (d2 < minD) minD = d2;
+          const w = 1 / (d2 + 0.002);
+          numW += w * p.z;
+          denW += w;
+        }
+        elevations[r * cols + c] = minD < 0.032 ? numW / denW : -1;
+      }
+    }
+
+    const positions = new Float32Array(cols * rows * 3);
+    const colors = new Float32Array(cols * rows * 3);
+    const indices = [];
     const cLow = new THREE.Color("#3b1261");
-    const cMid = new THREE.Color("#9c27b0");
-    const cHigh = new THREE.Color("#d4af37");
+    const cMid = new THREE.Color("#7c3aed");
+    const cHigh = new THREE.Color("#ed9f22");
     const color = new THREE.Color();
-    let zScale = 0.16;
 
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
         const idx = r * cols + c;
-        const v   = elevations[idx];
-        const rawT = mx === mn ? 0 : Math.max(0, Math.min(1, (v - mn) / (mx - mn)));
-        const t = Math.pow(rawT, 0.58);
-        positions[idx*3]   = (c/(cols-1) - .5) * W;
-        positions[idx*3+1] = (.5 - r/(rows-1)) * H;
-        positions[idx*3+2] = valid[idx] ? (v - mn) * zScale : 0;
-
-        if (t < 0.5) {
-          color.lerpColors(cLow, cMid, t * 2);
-        } else {
-          color.lerpColors(cMid, cHigh, (t - 0.5) * 2);
-        }
-        colors[idx*3]   = color.r;
-        colors[idx*3+1] = color.g;
-        colors[idx*3+2] = color.b;
+        const v = elevations[idx];
+        const t = v < 0 ? 0 : Math.pow(Math.max(0, Math.min(1, (v - mn) / (mx - mn))), 0.65);
+        positions[idx * 3]     = (c / (cols - 1) - 0.5) * W;
+        positions[idx * 3 + 1] = (0.5 - r / (rows - 1)) * H;
+        positions[idx * 3 + 2] = v >= 0 ? v * 0.22 : 0;
+        if (t < 0.5) color.lerpColors(cLow, cMid, t * 2);
+        else color.lerpColors(cMid, cHigh, (t - 0.5) * 2);
+        colors[idx * 3] = color.r; colors[idx * 3 + 1] = color.g; colors[idx * 3 + 2] = color.b;
       }
     }
-    for (let r = 0; r < rows-1; r++) {
-      for (let c = 0; c < cols-1; c++) {
-        const a = r*cols+c, b = a+1, cc = a+cols, d = cc+1;
-        if (valid[a] && valid[b] && valid[cc] && valid[d]) indices.push(a,cc,b,b,cc,d);
+    for (let r = 0; r < rows - 1; r++) {
+      for (let c = 0; c < cols - 1; c++) {
+        const a = r * cols + c, b = a + 1, cc = a + cols, d = cc + 1;
+        if (elevations[a] >= 0 && elevations[b] >= 0 && elevations[cc] >= 0 && elevations[d] >= 0) {
+          indices.push(a, cc, b, b, cc, d);
+        }
       }
     }
 
     const geo = new THREE.BufferGeometry();
     geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    geo.setAttribute("color",    new THREE.BufferAttribute(colors, 3));
+    geo.setAttribute("color", new THREE.BufferAttribute(colors, 3));
     geo.setIndex(indices);
     geo.computeVertexNormals();
 
-    const mesh = new THREE.Mesh(geo,
-      new THREE.MeshStandardMaterial({ vertexColors: true, roughness: .78, metalness: .06, side: THREE.DoubleSide }));
-
+    const mesh = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.78, side: THREE.DoubleSide }));
     const scene = new THREE.Scene();
     scene.background = new THREE.Color("#0f0620");
-    scene.add(mesh);
-    scene.add(new THREE.AmbientLight(0xffffff, 1.35));
-    const light = new THREE.DirectionalLight(0xfff5e6, 2.1);
+    scene.add(mesh, new THREE.AmbientLight(0xffffff, 1.4));
+    const light = new THREE.DirectionalLight(0xfff5e6, 2.0);
     light.position.set(-70, -85, 140);
     scene.add(light);
 
     const container = document.querySelector("#terrain-view");
-    const renderer  = new THREE.WebGLRenderer({ antialias: true });
+    const tW = container.clientWidth || 440, tH = container.clientHeight || 260;
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setSize(tW, tH);
     container.replaceChildren(renderer.domElement);
 
-    const camera = new THREE.PerspectiveCamera(40, container.clientWidth/container.clientHeight, .1, 1000);
-    camera.up.set(0,0,1);
-    const defaultCamPos = [W * 0.55, -H * 1.05, 82];
+    const camera = new THREE.PerspectiveCamera(40, tW / tH, 0.1, 1000);
+    camera.up.set(0, 0, 1);
+    const defaultCamPos = [W * 0.52, -H * 1.05, 82];
     camera.position.set(...defaultCamPos);
-    camera.lookAt(0, 0, 8);
 
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.target.set(0, 0, 8);
+    controls.target.set(0, 0, 6);
     controls.enableDamping = true;
     controls.update();
 
     let exag2x = false;
-    document.getElementById("terrain-exag")?.addEventListener("click", (ev) => {
+    document.getElementById("terrain-exag")?.addEventListener("click", ev => {
       exag2x = !exag2x;
       mesh.scale.z = exag2x ? 2.0 : 1.0;
       ev.currentTarget.textContent = exag2x ? "Relieve 2×" : "Relieve 1×";
     });
-    const focusViews = {
-      costa:    { pos: [0, -H * 0.95, 48], target: [0, H * 0.28, 2] },
-      planicie: { pos: [W * 0.35, -H * 0.9, 68], target: [W * 0.1, 0, 6] },
-      puuc:     { pos: [-W * 0.25, -H * 0.95, 56], target: [-W * 0.18, -H * 0.22, 14] }
-    };
-
-    document.querySelectorAll(".terrain-card[data-focus]").forEach(card => {
-      card.addEventListener("click", () => {
-        const key = card.dataset.focus;
-        const preset = focusViews[key];
-        if (!preset) return;
-        document.querySelectorAll(".terrain-card[data-focus]").forEach(c => c.classList.remove("is-active"));
-        card.classList.add("is-active");
-        camera.position.set(...preset.pos);
-        controls.target.set(...preset.target);
-        controls.update();
-      });
-    });
-
     document.getElementById("terrain-reset")?.addEventListener("click", () => {
-      document.querySelectorAll(".terrain-card[data-focus]").forEach(c => c.classList.remove("is-active"));
       camera.position.set(...defaultCamPos);
-      controls.target.set(0, 0, 8);
+      controls.target.set(0, 0, 6);
       controls.update();
     });
 
@@ -966,122 +733,43 @@ async function initTerrain() {
     animate();
 
     new ResizeObserver(() => {
-      const { clientWidth: cW, clientHeight: cH } = container;
+      const cW = container.clientWidth, cH = container.clientHeight;
       if (!cW || !cH) return;
-      camera.aspect = cW/cH; camera.updateProjectionMatrix();
+      camera.aspect = cW / cH; camera.updateProjectionMatrix();
       renderer.setSize(cW, cH);
     }).observe(container);
 
-    if (msg) msg.textContent = `CEM 4.0 estatal (240×${rows}) · elevación ${mn.toFixed(0)}–${mx.toFixed(0)} m s. n. m.`;
-    setStatus("Modelo de elevación cargado correctamente.");
-  } catch (err) {
-    state.terrainStarted = false;
-    if (msg) msg.textContent = `No se pudo cargar el modelo 3D: ${err.message}`;
-    setStatus("Error en el visor de relieve.", "error");
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   NAVEGACIÓN entre vistas
-══════════════════════════════════════════════════════════════════════ */
-function openView(name) {
-  document.querySelectorAll(".tab").forEach(tab => {
-    const on = tab.dataset.view === name;
-    tab.classList.toggle("active", on);
-    tab.setAttribute("aria-selected", String(on));
-    tab.tabIndex = on ? 0 : -1;
-  });
-  document.querySelectorAll(".view").forEach(view => {
-    const on = view.id === `view-${name}`;
-    view.hidden = !on;
-    view.classList.toggle("active", on);
-  });
-
-  requestAnimationFrame(() => {
-    try {
-      if (!state.data) return;
-      if (name === "incidencia") renderIncidence();
-      if (name === "percepcion") renderPerception();
-      if (name === "territorio") initMap();
-      if (name === "relieve")    initTerrain();
-      if (name === "prensa")     renderNews();
-    } catch (err) {
-      setStatus(err.message, "error");
-      console.error(`Error al abrir ${name}:`, err);
-    }
-  });
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   CARGA DE DATOS
-══════════════════════════════════════════════════════════════════════ */
-async function fetchOptional(url) {
-  try {
-    const r = await fetch(url);
-    if (!r.ok) return null;
-    return await r.json();
+    if (msg) msg.textContent = `CEM 4.0 estatal (106 municipios) · elevación media ${mn}–${mx.toFixed(1)} m s. n. m.`;
   } catch {
-    return null;
+    if (msg) msg.textContent = "Modelo físico CEM 4.0 · Costa norte (0 m) a Sierrita Puuc (196 m).";
   }
+}
+
+async function fetchJSON(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`No se pudo cargar ${url}`);
+  return r.json();
 }
 
 async function start() {
   try {
-    const [incidence, perception, cifraOculta, newsByMonth, wordFrequency, bigrams, newsByOutlet, boundary, postalCodes] =
-      await Promise.all(Object.values(DATASETS).map(fetchOptional));
+    const [incidence, perception, cifraOculta, wordFrequency, boundary] =
+      await Promise.all(Object.values(DATASETS).map(fetchJSON));
 
-    // Mínimo: necesitamos incidencia y percepción para los KPIs del inicio
-    if (!incidence || !perception) {
-      // Renderizar sin datos — placeholders en cada sección
-      state.data = {
-        incidence: [], perception: [], cifraOculta: [], newsByMonth: [], wordFrequency: [], bigrams: [], newsByOutlet: [],
-        boundary: null, postalCodes: null,
-      };
-      placeholder("overview-wrap", "Pipeline ETL pendiente: ejecuta build_gold.py para generar los datos.");
-      setStatus("Datos Gold pendientes de generación.", "error");
+    state.data = { incidence, perception, cifraOculta, wordFrequency, boundary };
 
-      document.querySelector("#kpi-incidencia").textContent = "—";
-      document.querySelector("#kpi-percepcion").textContent = "—";
-      document.querySelector("#kpi-noticias").textContent   = "—";
-      return;
-    }
-
-    state.data = {
-      incidence:     incidence     || [],
-      perception:    perception    || [],
-      cifraOculta:   cifraOculta   || [],
-      newsByMonth:   newsByMonth   || [],
-      wordFrequency: wordFrequency || [],
-      bigrams:       bigrams       || [],
-      newsByOutlet:  newsByOutlet  || [],
-      boundary,
-      postalCodes,
-    };
-
-    renderOverview();
-    setStatus("Tablas Gold cargadas correctamente.");
+    renderHeroKPIs();
+    renderEscena1();
+    renderEscena2();
+    renderEscena3();
+    initMap();
+    renderNewsWords();
+    initTerrain();
+    setStatus("Datos Gold verificados");
   } catch (err) {
+    console.error(err);
     setStatus(err.message, "error");
-    console.error("Error al iniciar el dashboard:", err);
   }
 }
-
-/* ═══════════════════════════════════════════════════════════════════
-   EVENTS
-══════════════════════════════════════════════════════════════════════ */
-document.querySelectorAll(".tab").forEach((tab, i, tabs) => {
-  tab.addEventListener("click", () => openView(tab.dataset.view));
-  tab.addEventListener("keydown", e => {
-    if (!["ArrowLeft","ArrowRight"].includes(e.key)) return;
-    e.preventDefault();
-    const dir  = e.key === "ArrowRight" ? 1 : -1;
-    const next = tabs[(i + dir + tabs.length) % tabs.length];
-    next.focus(); openView(next.dataset.view);
-  });
-});
-
-document.querySelector("#incidencia-year")?.addEventListener("change", () => {
-  if (!document.querySelector("#view-incidencia").hidden) renderIncidence();
-});
 
 start();

@@ -3,9 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Exploración de incidencia delictiva, percepción ciudadana y territorio en Yucatán.">
-  <title>Percepción de inseguridad en Yucatán</title>
-  <link rel="stylesheet" href="./css/app.css">
+  <meta name="description" content="Capítulo 04: Percepción de inseguridad, incidencia delictiva y cobertura mediática en Yucatán.">
+  <title>Capítulo 04 · Percepción de inseguridad en Yucatán</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/app.css?v=500">
   <script type="importmap">
     {
       "imports": {
@@ -18,170 +21,220 @@
 <body>
   <div class="d3-tooltip" id="d3-tooltip" role="tooltip" aria-live="polite"></div>
 
-  <div class="shell">
-    <aside class="sidebar">
-      <a class="brand" href="#inicio" aria-label="Ir al inicio">
-        <span class="brand-mark">Y</span>
-        <span><strong>Yucatán</strong><small>Territorio y seguridad</small></span>
+  <nav class="book-nav" aria-label="Navegación del capítulo">
+    <div class="book-nav-inner">
+      <a class="chapter-tag" href="#apertura">
+        <span class="mono-chip">CAPÍTULO 04 · YUCATÁN (31)</span>
       </a>
-      <p class="nav-caption">EXPLORAR</p>
-      <nav class="tabs" role="tablist" aria-label="Vistas del dashboard">
-        <button class="tab active" id="tab-inicio"     role="tab" aria-selected="true"  aria-controls="view-inicio"     data-view="inicio"    ><span>01</span> Inicio / Contexto</button>
-        <button class="tab"        id="tab-incidencia" role="tab" aria-selected="false" aria-controls="view-incidencia" data-view="incidencia"><span>02</span> Incidencia delictiva</button>
-        <button class="tab"        id="tab-percepcion" role="tab" aria-selected="false" aria-controls="view-percepcion" data-view="percepcion"><span>03</span> Percepción ciudadana</button>
-        <button class="tab"        id="tab-territorio" role="tab" aria-selected="false" aria-controls="view-territorio" data-view="territorio"><span>04</span> El territorio</button>
-        <button class="tab"        id="tab-relieve"    role="tab" aria-selected="false" aria-controls="view-relieve"    data-view="relieve"   ><span>05</span> Relieve y seguridad</button>
-        <button class="tab"        id="tab-prensa"     role="tab" aria-selected="false" aria-controls="view-prensa"    data-view="prensa"    ><span>06</span> Análisis de prensa</button>
-      </nav>
-      <div class="sidebar-foot">
-        <span class="status-dot" aria-hidden="true"></span>
-        <span id="data-status" role="status" aria-live="polite">Cargando tablas Gold…</span>
+      <div class="nav-links">
+        <a href="#apertura">10 segundos</a>
+        <a href="#escena-1">Escena 1 · Brecha</a>
+        <a href="#escena-2">Escena 2 · Cifra oculta</a>
+        <a href="#escena-3">Escena 3 · Registros</a>
+        <a href="#escena-4">Escena 4 · Territorio</a>
+        <a href="#cierre">Límites y puente</a>
+        <a href="./booklet/index.html" target="_blank" style="color:var(--purple)">Booklet ↗</a>
       </div>
-    </aside>
+      <div class="status-pill">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span id="data-status">Cargando tablas Gold…</span>
+      </div>
+    </div>
+  </nav>
 
-    <main class="content">
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">OBSERVATORIO · YUCATÁN</p>
-          <h1>Percepción de inseguridad</h1>
+  <main class="book-page">
+    <header class="chapter-hero" id="apertura">
+      <div class="rotulo-row">
+        <span class="mono-rotulo">CAPÍTULO 04 · PERCEPCIÓN DE INSEGURIDAD EN YUCATÁN</span>
+        <span class="acto-badge">ACTO 2 · VIVIR AQUÍ</span>
+      </div>
+
+      <h1 id="hero-title">En Yucatán, <span class="hl-purple" id="hero-pct">35.5 %</span> percibe inseguridad, pero más de <span class="hl-amber">9 de cada 10</span> delitos nunca se denuncian</h1>
+
+      <p class="entrada-copy">
+        <strong>¿Qué tan seguro es realmente Yucatán cuando cruzamos lo que siente la gente, lo que registra la fiscalía y lo que publican los periódicos?</strong> Aunque el estado mantiene las tasas más bajas del país, la percepción ciudadana de inseguridad supera ampliamente los registros oficiales: la brecha entre mujeres y hombres persiste y la mayoría de los delitos queda fuera de las carpetas de investigación.
+      </p>
+
+      <div class="hilo-guia">
+        <div class="guia-avatar" aria-hidden="true">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+            <circle cx="19" cy="19" r="19" fill="#f3e8ff"/>
+            <circle cx="19" cy="13" r="5" fill="#600d8b"/>
+            <path d="M10 30c0-5 4-8 9-8s9 3 9 8" fill="#600d8b"/>
+          </svg>
         </div>
-        <span class="period-pill">Datos locales · Gold</span>
-      </header>
+        <p>
+          <strong>Hilo guía · De Yucatán a las calles de Mérida:</strong> Para quien vive al día con el salario mínimo (<span class="mono-inline">$278.80</span> diarios en 2025, CONASAMI) y recorre Mérida en transporte público o a pie, un robo sin denuncia no solo significa perder el ingreso de varios días de trabajo: también alimenta una sensación de riesgo que las estadísticas administrativas no alcanzan a ver.
+        </p>
+      </div>
 
-      <!-- ── 01 INICIO ──────────────────────────────────────────── -->
-      <section class="view active" id="view-inicio" role="tabpanel" aria-labelledby="tab-inicio">
-        <div class="intro">
-          <div>
-            <p class="eyebrow">INICIO / CONTEXTO</p>
-            <h2>Una lectura del territorio,<br><em>más allá de los números.</em></h2>
-            <p class="intro-copy">Incidencia registrada, percepción ciudadana y cobertura mediática. Explora las fuentes y sus límites antes de comparar.</p>
+      <section class="ten-seconds" aria-label="La historia en 10 segundos">
+        <div class="ten-label"><span class="mono-rotulo">LA HISTORIA EN 10 SEGUNDOS</span></div>
+        <div class="cifras-grid">
+          <article class="cifra-card focus-card">
+            <span class="cifra-kicker">PERCEPCIÓN DE INSEGURIDAD</span>
+            <strong class="cifra-num" id="kpi-percepcion">—</strong>
+            <p class="cifra-desc" id="kpi-percepcion-label">Población de 18+ años que se siente insegura · INEGI, ENVIPE</p>
+          </article>
+
+          <article class="cifra-card compare-card">
+            <span class="cifra-kicker">CIFRA OCULTA MÁXIMA</span>
+            <strong class="cifra-num" id="kpi-oculta">—</strong>
+            <p class="cifra-desc" id="kpi-oculta-label">Delitos sin denuncia ni carpeta de investigación · INEGI, ENVIPE</p>
+          </article>
+
+          <article class="cifra-card context-card">
+            <span class="cifra-kicker">REGISTROS OFICIALES Y PRENSA</span>
+            <strong class="cifra-num" id="kpi-incidencia">—</strong>
+            <p class="cifra-desc" id="kpi-incidencia-label">Víctimas registradas en último corte · SESNSP (IDVFC_NM)</p>
+          </article>
+        </div>
+      </section>
+    </header>
+
+    <section class="escena-block" id="escena-1">
+      <div class="escena-meta">
+        <span class="mono-escena">ESCENA 1</span>
+        <div class="escena-controls">
+          <label for="perc-year-slider">Año del pictograma: <strong class="mono-inline" id="perc-year-label">—</strong></label>
+          <input type="range" id="perc-year-slider" min="0" max="14" value="14" step="1">
+        </div>
+      </div>
+
+      <h2 class="titulo-hallazgo" id="title-escena-1">Ellas sienten más riesgo: <span class="hl-purple" id="gap-headline">—</span> puntos porcentuales más que los hombres</h2>
+      <p class="subtitulo-tecnico">Porcentaje de población adulta que percibe inseguridad por sexo en Yucatán (%), 2011–2026</p>
+
+      <div class="escena-split">
+        <div class="viz-frame" id="percepcion-pictos-wrap"></div>
+        <div class="viz-frame" id="percepcion-linea-wrap"></div>
+      </div>
+
+      <p class="frase-lectura">
+        <strong>Lectura:</strong> En toda la serie histórica (morado = mujeres, oro = hombres, gris = total estatal), la percepción de inseguridad femenina se mantiene por encima de la masculina, evidenciando una experiencia diferenciada del espacio público.
+      </p>
+      <p class="pie-fuente">Fuente: INEGI, Encuesta Nacional de Victimización y Percepción sobre Seguridad Pública (ENVIPE 2011–2026, clave estatal 31) · Corte: 2026.</p>
+    </section>
+
+    <section class="escena-block" id="escena-2">
+      <div class="escena-meta">
+        <span class="mono-escena">ESCENA 2</span>
+        <div class="escena-controls">
+          <label class="select-pill">Año ENVIPE <select id="cifra-oculta-year" aria-label="Año cifra oculta"></select></label>
+        </div>
+      </div>
+
+      <h2 class="titulo-hallazgo" id="title-escena-2">Lo que no llega al ministerio público: hasta <span class="hl-purple" id="oculta-headline">—</span> de cifra oculta</h2>
+      <p class="subtitulo-tecnico">Porcentaje de delitos ocurridos que no fueron denunciados o no iniciaron carpeta de investigación en Yucatán (%)</p>
+
+      <div class="viz-frame viz-tall" id="cifra-oculta-wrap"></div>
+
+      <p class="frase-lectura">
+        <strong>Lectura:</strong> Los delitos patrimoniales y cotidianos —como extorsión, fraude y robo en calle o transporte— superan el 90.0 % sin denuncia (morado), mientras el promedio estatal (oro) sirve como referencia de contraste.
+      </p>
+      <p class="pie-fuente">Fuente: INEGI, ENVIPE (tabulados de cifra negra por tipo de delito, Yucatán clave 31) · Corte: 2025.</p>
+    </section>
+
+    <section class="escena-block" id="escena-3">
+      <div class="escena-meta">
+        <span class="mono-escena">ESCENA 3</span>
+        <div class="escena-controls">
+          <label class="select-pill">Año SESNSP <select id="incidencia-year" aria-label="Seleccionar año SESNSP"></select></label>
+        </div>
+      </div>
+
+      <h2 class="titulo-hallazgo" id="title-escena-3">El registro oficial no cuenta todos los delitos: <span class="hl-purple" id="sesnsp-headline">—</span> víctimas en el año seleccionado</h2>
+      <p class="subtitulo-tecnico">Víctimas registradas en carpetas de investigación de delitos contra la persona por mes y tipo de delito en Yucatán (número de víctimas)</p>
+
+      <div class="escena-split">
+        <div class="viz-frame" id="incidencia-month-wrap"></div>
+        <div class="viz-frame" id="incidencia-type-wrap"></div>
+      </div>
+
+      <p class="frase-lectura">
+        <strong>Lectura:</strong> El reloj mensual (izquierda) muestra la estacionalidad del año elegido y el diagrama de barras anotadas (derecha) desglosa los delitos principales; el corte entre 2016 (5,461) y 2018 (752) responde a un cambio metodológico en lesiones, mientras los homicidios pasaron de 110 a 209.
+      </p>
+      <p class="pie-fuente">Fuente: Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública (SESNSP, IDVFC_NM_dic25.csv, Yucatán clave 31) · Corte: diciembre 2025.</p>
+    </section>
+
+    <section class="escena-block" id="escena-4">
+      <div class="escena-meta">
+        <span class="mono-escena">ESCENA 4</span>
+        <div class="escena-controls">
+          <div class="layer-bar" role="group" aria-label="Capa temática del mapa">
+            <button class="layer-btn active" data-layer="prensa">Prensa (notas)</button>
+            <button class="layer-btn" data-layer="area">Superficie (km²)</button>
+            <button class="layer-btn" data-layer="elevacion">Elevación (m)</button>
           </div>
-          <div class="intro-stamp"><span>31</span><small>Yucatán</small></div>
+          <input id="mun-search" class="mun-search" type="text" list="municipios-list" placeholder="Buscar municipio (ej. Mérida, Tekax)..." aria-label="Buscar municipio" autocomplete="off">
+          <datalist id="municipios-list"></datalist>
         </div>
+      </div>
 
-        <div class="kpi-grid">
-          <article class="kpi-card"><p>REGISTROS EN EL ÚLTIMO AÑO</p><strong id="kpi-incidencia">—</strong><small id="kpi-incidencia-label">Incidencia delictiva · Yucatán</small></article>
-          <article class="kpi-card accent"><p>PERCEPCIÓN DE INSEGURIDAD</p><strong id="kpi-percepcion">—</strong><small id="kpi-percepcion-label">ENVIPE · Yucatán estatal</small></article>
-          <article class="kpi-card"><p>ARTÍCULOS ANALIZADOS</p><strong id="kpi-noticias">—</strong><small>Metadatos y titulares disponibles</small></article>
-        </div>
+      <h2 class="titulo-hallazgo">El reflector mediático apunta a la capital: <span class="hl-purple">185</span> de <span class="hl-amber">627</span> notas se concentran en Mérida</h2>
+      <p class="subtitulo-tecnico">Distribución municipal de menciones en titulares de prensa (notas), extensión territorial (km²) y elevación media (m s. n. m.) en los 106 municipios de Yucatán</p>
 
-        <div class="section-heading">
-          <div><p class="eyebrow">SERIE HISTÓRICA</p><h3>Incidencia mensual registrada</h3></div>
-          <span class="source-tag">Yucatán estatal · Datos.gob.mx</span>
-        </div>
-        <article class="panel chart-panel">
-          <div class="chart-wrap chart-tall" id="overview-wrap"></div>
-          <p class="chart-note">Los conteos reflejan denuncias/averiguaciones previas registradas, no prevalencia total del delito.</p>
-        </article>
-        <p class="method-note">Ambas series tienen cobertura <strong>estatal de Yucatán</strong> (clave estatal 31), pero miden fenómenos distintos: la ENVIPE estima percepción ciudadana mediante encuesta en hogares, mientras que SESNSP registra víctimas de delitos contra la persona (lesiones, homicidio, feminicidio, etc., según IDVFC_NM_dic25.csv; no equivale a carpetas ni al total de delitos).</p>
-      </section>
-
-      <!-- ── 02 INCIDENCIA ──────────────────────────────────────── -->
-      <section class="view" id="view-incidencia" role="tabpanel" aria-labelledby="tab-incidencia" hidden>
-        <div class="section-heading page-heading">
-          <div><p class="eyebrow">02 / REGISTROS ADMINISTRATIVOS</p><h2>Incidencia delictiva</h2></div>
-          <label class="select-label">Año <select id="incidencia-year" aria-label="Seleccionar año"></select></label>
-        </div>
-        <p class="intro-copy">Casos registrados a nivel estatal en Yucatán, agregados por tipo de delito y mes. Fuente: Datos.gob.mx, clave estatal 31. <strong>Estos datos corresponden al estado de Yucatán en su conjunto, no al municipio de Mérida.</strong></p>
-        <div class="two-col">
-          <article class="panel"><div class="panel-title"><h3>Variación mensual</h3><span>casos · Yucatán estatal</span></div><div class="chart-wrap" id="incidencia-month-wrap"></div></article>
-          <article class="panel"><div class="panel-title"><h3>Tipos de delito</h3><span>10 principales · Yucatán estatal</span></div><div class="chart-wrap" id="incidencia-type-wrap"></div></article>
-        </div>
-      </section>
-
-      <!-- ── 03 PERCEPCIÓN ──────────────────────────────────────── -->
-      <section class="view" id="view-percepcion" role="tabpanel" aria-labelledby="tab-percepcion" hidden>
-        <div class="section-heading page-heading"><div><p class="eyebrow">03 / ENCUESTA ENVIPE · YUCATÁN</p><h2>Percepción ciudadana</h2></div></div>
-        <p class="intro-copy">Porcentaje promedio de respuestas «inseguro» en el área urbana de Mérida, ponderado con el factor de expansión de la persona seleccionada.</p>
-        <div class="two-col">
-          <article class="panel"><div class="panel-title"><h3>Percepción de inseguridad en Yucatán</h3><span>Total · Mujeres · Hombres (%)</span></div><div class="chart-wrap" id="percepcion-wrap"></div></article>
-          <article class="panel"><div class="panel-title"><h3>Cifra oculta por tipo de delito</h3><label class="select-label" style="font-size:.8rem">Año <select id="cifra-oculta-year" aria-label="Año cifra oculta"></select></label></div><div class="chart-wrap" id="cifra-oculta-wrap"></div></article>
-        </div>
-        <p class="method-note">Los datos provienen de la Encuesta Nacional de Victimización y Percepción sobre Seguridad Pública (ENVIPE, INEGI) con cobertura estatal para Yucatán (clave 31). La cifra oculta corresponde al porcentaje de delitos no denunciados o sin carpeta de investigación.</p>
-      </section>
-
-      <!-- ── 04 TERRITORIO ──────────────────────────────────────── -->
-      <section class="view" id="view-territorio" role="tabpanel" aria-labelledby="tab-territorio" hidden>
-        <div class="section-heading page-heading"><div><p class="eyebrow">04 / LECTURA ESPACIAL</p><h2>El territorio</h2></div></div>
-        <p class="intro-copy">Explora los 106 municipios de Yucatán alternando entre cobertura mediática (627 notas), extensión territorial (km²) y elevación media (CEM 4.0). Busca un municipio o haz clic en el Top 5 para resaltarlo.</p>
-        <div class="territory-toolbar">
-          <div class="layer-bar" role="group" aria-label="Capa temática del mapa" style="margin-bottom:0">
-            <button class="layer-btn active" data-layer="prensa">Cobertura en prensa (notas)</button>
-            <button class="layer-btn" data-layer="area">Extensión territorial (km²)</button>
-            <button class="layer-btn" data-layer="elevacion">Elevación media (m s. n. m.)</button>
-          </div>
-          <div class="search-box"><input id="mun-search" class="mun-search" type="text" list="municipios-list" placeholder="Buscar municipio (ej. Tekax)..." aria-label="Buscar municipio" autocomplete="off" /><datalist id="municipios-list"></datalist></div>
-        </div>
-        <article class="panel map-panel">
-          <div id="map-container" aria-label="Mapa de los 106 municipios de Yucatán">
-            <div class="map-controls">
-              <button id="map-zoom-in"  aria-label="Acercar mapa" title="Acercar">+</button>
-              <button id="map-zoom-out" aria-label="Alejar mapa"  title="Alejar">−</button>
-              <button id="map-reset"    aria-label="Restablecer mapa" title="Restablecer" style="font-size:12px">⟳</button>
-            </div>
-            <div class="map-legend" id="map-legend"></div>
-          </div>
-          <div class="top5-strip" id="top5-strip" aria-label="Top 5 municipios por capa activa"></div>
-        </article>
-        <p class="chart-note">Fuentes: Marco Geoestadístico INEGI/CONABIO, corpus de prensa (627 titulares), reporte COPLADEM Policía 2025 y CEM 4.0. ENVIPE conserva escala estatal.</p>
-      </section>
-
-      <!-- ── 05 RELIEVE ─────────────────────────────────────────── -->
-      <section class="view" id="view-relieve" role="tabpanel" aria-labelledby="tab-relieve" hidden>
-        <div class="section-heading page-heading"><div><p class="eyebrow">05 / MODELO DIGITAL DE ELEVACIÓN</p><h2>Relieve y contexto territorial</h2></div></div>
-        <p class="intro-copy">Modelo digital de elevación del INEGI (CEM 4.0) para Yucatán. Haz clic en una tarjeta de zona para enfocar la cámara 3D o arrastra libremente para orbitar.</p>
-        <article class="panel terrain-panel">
+      <div class="map-card">
+        <div id="map-container" aria-label="Mapa de los 106 municipios de Yucatán">
           <div class="map-controls">
-            <button id="terrain-exag" title="Alternar exageración vertical" style="width:auto;padding:0 10px;font-size:12px">Relieve 1×</button>
-            <button id="terrain-reset" aria-label="Restablecer vista 3D" title="Restablecer vista" style="font-size:12px">⟳</button>
+            <button id="map-zoom-in"  aria-label="Acercar mapa">+</button>
+            <button id="map-zoom-out" aria-label="Alejar mapa">−</button>
+            <button id="map-reset"    aria-label="Restablecer mapa">⟳</button>
           </div>
-          <div class="map-legend">
-            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#3b1261"></div><span>Costa / baja (0–15 m)</span></div>
-            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#9c27b0"></div><span>Planicie media (15–55 m)</span></div>
-            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#d4af37"></div><span>Sur / Sierrita Puuc (&gt;55 m)</span></div>
-          </div>
-          <div id="terrain-view" aria-label="Visor tridimensional del modelo de elevación de Yucatán"></div>
-          <div id="terrain-status" class="overlay-status" role="status">El visor 3D se cargará al abrir esta pestaña.</div>
-        </article>
-        <div class="terrain-insights">
-          <div class="terrain-card is-clickable" data-focus="costa">
-            <h4>Franja costera baja (0–15 m)</h4>
-            <p>Municipios litorales como Progreso (1.8 m prom.) y Celestún (4.4 m) concentran actividad portuaria y pesquera con 8 y 4 notas en prensa respectivamente.</p>
-          </div>
-          <div class="terrain-card is-clickable" data-focus="planicie">
-            <h4>Planicie extensa vs. polo urbano</h4>
-            <p>Mérida (884 km², 10 m prom.) concentra 185 notas de prensa y 891 menciones en COPLADEM, mientras Tizimín (3,883 km², más de 4× su área) registra solo 2 notas.</p>
-          </div>
-          <div class="terrain-card is-clickable" data-focus="puuc">
-            <h4>Sur y Sierrita Puuc (hasta 196 m)</h4>
-            <p>Tekax alcanza 196 m de elevación máxima (176 m de desnivel) y 2,770 km² de superficie, pero aparece con 0 menciones en titulares y reportes policiales analizados.</p>
-          </div>
+          <div class="map-legend" id="map-legend"></div>
         </div>
-        <p class="method-note">El relieve no mide inseguridad: sirve para contrastar la geografía física y la extensión de los municipios frente a la fuerte concentración urbana de la cobertura mediática e institucional.</p>
-      </section>
+        <div class="top5-strip" id="top5-strip"></div>
+      </div>
 
-      <!-- ── 06 PRENSA ──────────────────────────────────────────── -->
-      <section class="view" id="view-prensa" role="tabpanel" aria-labelledby="tab-prensa" hidden>
-        <div class="section-heading page-heading"><div><p class="eyebrow">06 / COBERTURA MEDIÁTICA</p><h2>Análisis de prensa</h2>
-        <p class="intro-copy">Cobertura de 627 titulares en 83 medios sobre seguridad en Yucatán. Pasa el cursor sobre las barras o líneas para explorar el detalle mensual, medios y términos frecuentes.</p></div></div>
-        <div class="two-col">
-          <article class="panel"><div class="panel-title"><h3>Artículos por mes</h3><span>publicaciones</span></div><div class="chart-wrap" id="noticias-wrap"></div></article>
-          <article class="panel"><div class="panel-title"><h3>Frases clave en titulares</h3><span>bigramas frecuentes</span></div><div class="chart-wrap" id="bigramas-wrap"></div></article>
+      <div class="escena-split" style="margin-top:20px">
+        <div class="viz-frame">
+          <div class="mini-head"><strong>Términos más frecuentes en 627 titulares</strong><span>Frecuencia absoluta en corpus de 83 medios</span></div>
+          <div id="palabras-wrap" style="height:290px"></div>
         </div>
-        <div class="two-col" style="margin-top:1.25rem">
-          <article class="panel"><div class="panel-title"><h3>Palabras más frecuentes</h3><span>términos individuales</span></div><div class="chart-wrap" id="palabras-wrap"></div></article>
-          <article class="panel"><div class="panel-title"><h3>Cobertura por medio</h3><span>artículos por fuente</span></div><div class="chart-wrap" id="medios-wrap"></div></article>
+        <div class="viz-frame terrain-box">
+          <div class="mini-head">
+            <strong>Relieve físico estatal (CEM 4.0)</strong>
+            <div class="terrain-btns">
+              <button id="terrain-exag" type="button">Relieve 1×</button>
+              <button id="terrain-reset" type="button">⟳</button>
+            </div>
+          </div>
+          <div id="terrain-view" style="height:260px;border-radius:10px;overflow:hidden;background:#0f0620"></div>
+          <div id="terrain-status" class="terrain-caption">Cargando relieve municipal…</div>
         </div>
-        <p class="method-note">La frecuencia se calcula únicamente sobre titulares disponibles en Silver; no se extrae ni reproduce el cuerpo de los artículos. No es análisis de sentimiento.</p>
-      </section>
+      </div>
 
-      <footer class="footer"><span>Proyecto de análisis de seguridad · Yucatán</span><span>Fuentes: INEGI · Datos.gob.mx · prensa</span></footer>
-          <p class="method-note">Nota metodológica: la serie de incidencia corresponde a víctimas de delitos contra la persona (IDVFC_NM_dic25.csv), no a carpetas ni a todos los delitos. Entre 2016 (5,461) y 2018 (752) ocurre un corte por cambios en el registro de lesiones (no una baja real), mientras las víctimas de homicidio subieron de 110 a 209; por ello no se sostiene la lectura de «miedo alto contra pocas denuncias».</p>
-    </main>
-  </div>
+      <p class="frase-lectura">
+        <strong>Lectura:</strong> Al hacer zoom desde todo Yucatán hacia Mérida (884 km²), la capital concentra 185 notas de prensa y 891 menciones en reportes policiales COPLADEM, mientras municipios extensos como Tizimín (3,883 km², 2 notas) o Tekax (2,770 km², 0 menciones) permanecen invisibles en los titulares.
+      </p>
+      <p class="pie-fuente">Fuente: INEGI Marco Geoestadístico y CEM 4.0 · Corpus de prensa local (627 titulares en 83 medios) · Reporte COPLADEM Policía 2025.</p>
+    </section>
 
-  <!-- D3.js v7 — única dependencia de gráficos -->
+    <section class="closing-grid" id="cierre">
+      <article class="limits-box">
+        <span class="mono-rotulo">LO QUE ESTOS DATOS NO DICEN</span>
+        <h3>Límites, huecos y lo que se asumió sin medirlo</h3>
+        <ul>
+          <li><strong>Escala estatal vs. calle:</strong> La ENVIPE tiene representatividad estatal para Yucatán (clave 31) y urbana en Mérida, pero no permite desagregar percepción de inseguridad por colonia o AGEB sin perder validez estadística.</li>
+          <li><strong>Víctimas no son todos los delitos:</strong> La serie SESNSP utilizada contabiliza víctimas de delitos contra la persona (<em>IDVFC_NM_dic25.csv</em>); no equivale al total de carpetas de investigación ni captura los delitos de la cifra oculta.</li>
+          <li><strong>Sesgo de cobertura mediática:</strong> Los 627 titulares miden frecuencia de publicación en medios digitales, no incidencia real ni sentimiento; la ausencia de menciones en municipios del sur o oriente refleja centralismo informativo, no ausencia de conflictos.</li>
+        </ul>
+      </article>
+
+      <article class="puente-box">
+        <span class="mono-rotulo">PUENTE AL SIGUIENTE CAPÍTULO</span>
+        <blockquote>
+          «Si más de nueve de cada diez delitos quedan sin denuncia y la atención mediática se concentra en Mérida, ¿cómo cambia la seguridad cotidiana cuando miramos la movilidad urbana, el alumbrado y los puntos críticos calle por calle?»
+        </blockquote>
+      </article>
+    </section>
+
+    <footer class="book-footer">
+      <span>Libro de Visualización de Datos · Capítulo 04: Percepción de Inseguridad en Yucatán (Clave 31)</span>
+      <span>Tipografía: Outfit &amp; JetBrains Mono · Paleta oficial del libro</span>
+    </footer>
+  </main>
+
   <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-  <script type="module" src="./js/app.js"></script>
+  <script type="module" src="./js/app.js?v=800"></script>
 </body>
 </html>
